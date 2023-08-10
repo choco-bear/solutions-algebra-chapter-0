@@ -28,7 +28,7 @@
 }
 
 \problem{
-    $\vartriangleright$ Given a partition $\mathscr{P}$ on a set $S$, show how to define a relation $\sim$ on $S$ such that $\mathscr{P}$ is the corresponding partition. $\left[ \text{\S1.5} \right]$
+    $\vartriangleright$ Given a partition $\mathscr{P}$ on a set $S$, show how to define an equivalence relation $\sim$ on $S$ such that $\mathscr{P}$ is the corresponding partition. $\left[ \text{\S1.5} \right]$
 }{
     Let $S$ be a set with a partition $\mathscr{P}$. Consider a relation $\sim$ on $S$ as:
     $$a \sim b \iff \exists P \in \mathscr{P} \st a,b \in P.$$
@@ -59,7 +59,123 @@
 \section{Functions between Sets}
 
 \problem{
-    $\vartriangleright$
+    $\vartriangleright$ How many different bijections are there between a set $S$ with $n$ elements and itself?
 }{
+    The answer is $n!$, obviously.
+}
 
+\problem{
+    $\vartriangleright$ Prove statement (2) in Proposition 2.1. You may assume that given a family of disjoint nonempty subsets of a set, there is a way to choose one element in each member of the family. $\left[ \text{\S2.5, V.3.3} \right]$
+}{
+    \begin{itemize}[leftmargin=12mm]
+        \item[]
+        \item[($\implies$)] Let's say that $f : A \to B$ has a right-inverse $g : B \to A$. Then since $f \circ g = \id_B$, $(f \circ g)(B) = B$, clearly.
+        
+        By the fact that $(f \circ g)(B) = f(g(B)) \subseteq f(A) \subseteq B$, it is immediately shown that $f(A) = B$, i.e., $f$ is surjective.
+        
+        \item[($\impliedby$)] Let's say that $f : A \to B$ is surjective. Then $f^{-1}(b) = \{ a \in A \mid f(a) = b \}$ is nonempty for any $b$ and also $\{ f^{-1}(b) \mid b \in B \}$ is a partition of $A$, clearly.
+
+        Thus, by the axiom of choice---the given statement is the stronger version of the axiom of choice, we can take a function $g : B \to A$ such that $g(b) \in f^{-1}(b)$ for any $b \in B$.
+
+        Then $(f \circ g)(b) = b$ for any $b \in B$ and $f$ therefore has a right-inverse $g : B \to A$.
+    \end{itemize}
+}
+
+\problem{
+    Prove that the inverse of a bijection is a bijection and that the composition of two bijection is a bijection.
+}{
+    By Proposition 2.1, it is clear that the inverse of a bijection is also a bijection and that the composition of two bijections is also a bijection.
+}
+
+\problem{
+    $\vartriangleright$ Prove that `isomorphism' is an equivalence relation (on any set of sets). \(\left[ \text{\S4.1} \right]\)
+}{
+    Let $U$ be a set of sets and define a relation $\sim$ on $U$ by setting $S \sim T \iff S$ is isomorphic to $T$.
+    
+    Then it is clear that $S \sim S$ for any $S \in U$ since $\id_S$ is a bijection.
+
+    Moreover, by the result of the Exercise 2.3, the relation $\sim$ on $U$ is symmetric and transitive.
+    
+    Therefore, the relation $\sim$ on $U$ is an equivalence relation.
+}
+
+\problem{
+    $\vartriangleright$ Formulate a notion of \emph{epimorphism}, in the style of the notion of \emph{monomorphism} seen in \S2.6, and prove a result analogous to Proposition 2.3, for epimorphism and surjections. \(\left[ \S2.6, \S4.2 \right]\)
+}{
+    A function $f : A \to B$ is an epimorphism if the following holds:
+    \begin{center}
+        for all sets $Z$ and all functions $\alpha', \alpha'' : B \to Z$, $\alpha' \circ f = \alpha'' \circ f \implies \alpha' = \alpha''$.
+    \end{center}
+
+    Now claim that a function $f : A \to B$ is an epimorphism if and only if it is a surjection. The below is the proof of that:
+
+    \begin{itemize}[leftmargin=12mm]
+        \item[($\implies$)] Let's say that $f : A \to B$ is an epimorphism and suppose that $f$ is not surjective. Then $B \setminus f(A)$ is nonempty and so there exists $b \in B \setminus f(A)$. Now say that $\alpha' = \id_B$ and $\alpha'' : B \to B$ is defined by $x \mapsto \begin{cases}x & \mbox{if } x \neq b \\ b' & \mbox{if } x=b\end{cases}$ where $b'$ is an element of $f(A)$.
+
+        Then it is obvious that $\alpha' \circ f = \alpha'' \circ f$ and this contradicts the fact that $f$ is an epimorphism.
+
+        Therefore, $f$ has to be surjective.
+        
+        \item[($\impliedby$)] Let's say that $f : A \to B$ is a surjection and $\alpha' \circ f = \alpha'' \circ f$ for some $\alpha', \alpha'' : B \to Z$ for a fixed set $Z$.
+        
+        Then since $f(A) = B$, $\alpha' \circ f = \alpha'' \circ f$ implies that $\alpha'(b) = \alpha''(b)$ for any $b \in B$, and this clearly implies that $\alpha' = \alpha''$.
+
+        Therefore, $f$ is an epimorphism.
+    \end{itemize}
+}
+
+\problem{
+    With notation as in Example 2.4, explain how any function $f : A \to B$ determines a section of $\pi_A$.
+}{
+    Define $\gamma_f : A \to A \times B$ as $a \mapsto \left( a,f(a) \right)$. Then $\left( \pi_A \circ \gamma_f \right)(a) = \pi_A \left( a,f(a) \right) = a$ and thus makes $\gamma_f$ be a right-inverse of $\pi_A$, i.e., $\gamma_f$ is a section of $\pi_A$.
+}
+
+\problem{
+    Let $f : A \to B$ be any function. Prove that the graph $\Gamma_f$ of $f$ is isomorphic to $A$.
+}{
+    Let $\varphi : A \to \Gamma_f$ be a function defined as $\varphi : a \mapsto \left( a,f(a) \right)$.
+
+    Then it is obvious that $\varphi$ is a bijection by the definition of a graph of a function. Therefore, $A$ and $\Gamma_f$ are isomorphic to each other.
+}
+
+\problem{
+    Describe as explicitly as you can all terms in the canonical decomposition (cf. \S2.8) of the function $\RR \to \CC$ defined by $r \mapsto e^{2\pi ir}$. (This exercise matches one assigned previously. Which one?)
+}{
+    Let $f : \RR \to \CC$ be defined by $r \mapsto e^{2\pi ir}$.
+
+    Now let's say that $\pi : \RR \twoheadrightarrow \lcint{0}{1}$, $\tilde{f} : \lcint{0}{1} \twoheadhookrightarrow \{ z \in \CC \mid \abs{z} = 1 \}$, and $\iota : \{ z \in \CC \mid \abs{z} = 1 \} \to \CC$ are defined as:
+    $$\begin{array}{l}
+        \pi : r \mapsto r \bmod 1 \\
+        \tilde{f} : r \mapsto e^{2\pi ir} \\
+        \iota : z \mapsto z.
+    \end{array}$$
+
+    Then, $f = \iota \circ \tilde{f} \circ \pi$ is the canonical decomposition of $f$. Also, this exercise matches Exercise 1.6.
+}
+
+\problem{
+    $\vartriangleright$ Show that if $A' \cong A''$ and $B' \cong B''$, and further $A' \cap B' = \emptyset$ and $A'' \cap B'' = \emptyset$, then $A' \cup B' \cong A'' \cup B''$. Conclude that the operation $A \sqcup B$ (as described in \S1.4) is well-defined \empth{up to isomorphism} (cf. \S2.9). $\left[ \text{\S2.9, 5.7} \right]$
+}{
+    Since $A' \cap B' = \emptyset$, if $x \in A' \cup B'$, only one of the following holds:
+    \begin{enumerate}[label=\alph*)]
+        \item $x \in A'$
+        \item $x \in B'$
+    \end{enumerate}
+    Furthermore, $A''$ and $B''$ also satisfy the same property.
+
+    Now let $\alpha : A' \to A''$ and $\beta : B' \to B''$ be bijections. Then we can define a function $\varphi : A' \cup B' \to A'' \cup B''$ as $x \mapsto \begin{cases} \alpha(x) & \mbox{if } x \in A' \\ \beta(x) & \mbox{if } x \in B'. \end{cases}$
+
+    By the facts proved above, $\varphi$ is obviously a bijection. Therefore, $A' \cong A''$, $B' \cong B''$, $A' \cap B' = \emptyset$, and $A'' \cap B'' = \emptyset$ imply that $A' \cup B' \cong A'' \cup B''$ and, hence, the operation $A \sqcup B$ is well-defined up to isomorphism.
+}
+
+\problem{
+    $\vartriangleright$ Show that if $A$ and $B$ are finite sets, $\abs{B^A} = \abs{B}^{\abs{A}}$. \(\left[ \text{\S2.1, 2.11, \S II.4.1}\right]\)
+}{
+    Since $A^B$ is the set of the functions to $A$ from $B$, $\abs{B^A}$ is the number of functions from $A$ to $B$. For each element of $A$, there exist $\abs{B}$ possible function values and thus $\abs{B^A} = \abs{B}^{\abs{A}}$.
+}
+
+\problem{
+    $\vartriangleright$ In view of Exercise 2.10, it is not unreasonable to use $2^A$ to denote the set of functions from an arbitrary set $A$ to set with 2 elements (say $\{ 1,2 \}$). Prove that there is a bijection between $2^A$ and the \emph{power set} of $A$ (cf. \S1.2). \(\left[ \S1.2, III.2.3 \right]\)
+}{
+    Define $f : 2^A \to \mathscr{P}(A)$ as $\varphi \mapsto \{ a \in A \mid \varphi(a) = 1 \}$. Then it is quite obvious that $f$ is a bijection. Therefore, $2^A \cong \mathscr{P}(A)$.
 }
