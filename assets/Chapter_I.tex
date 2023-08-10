@@ -191,13 +191,17 @@
     \end{itemize}
     Show how to make this into a category (that is, define composition of morphisms in $\op{\cat{C}}$ and verify the properties listed in \S3.1).
 }{
+    For any objects $A,B,C$ of the category $\op{\cat{C}}$, let $gf \in \Hom{\op{\cat{C}}}{A}{C}$ be $fg \in \Hom{\cat{C}}{C}{A}$ where $f \in \Hom{\op{\cat{C}}}{A}{B}$ and $g \in \Hom{\op{\cat{C}}}{B}{C}$, and also $fg \in \Hom{\cat{C}}{C}{A}$ are already defined.
 
+    Then by the associativity of the composition in the category $\cat{C}$, the composition in the category $\op{\cat{C}}$ is also associative. Moreover, the identity $\one_A$ on an object $A$ in the category $\cat{C}$ is also identity on an object $A$ in the category $\op{\cat{C}}$.
+
+    Therefore, $\op{\cat{C}}$ is also a category if $\cat{C}$ is a category.
 }
 
 \problem{
     If $A$ is a finite set, how large is $\End{\Set}{A}$?
 }{
-
+    Since $\End{\Set}{A} = A^A$ and $A$ is finite, $\abs{\End{\Set}{A}} = \abs{A}^{\abs{A}}$ by the result of \ref{prob:2.10}.
 }
 
 \problem{
