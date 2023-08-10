@@ -79,9 +79,9 @@
 \def\coker{\operatorname{coker}}
 \def\Set{\mathsf{Set}}
 \def\Grp{\mathsf{Grp}}
-\def\Obj{\mathrm{Obj}}
-\def\Hom{\mathrm{Hom}}
-\def\End{\mathrm{End}}
+\newcommand{\Obj}[1]{\mathrm{Obj} \left( #1 \right)}
+\newcommand{\Hom}[3]{\mathrm{Hom}_{#1} \left( #2, #3 \right)}
+\newcommand{\End}[2]{\mathrm{End}_{#1} \left( #2 \right)}
 \def\id{\mathrm{id}}
 \newcommand{\cat}[1]{\mathrm{#1}}
 \newcommand{\op}[1]{{#1}^{op}}
