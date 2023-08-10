@@ -207,25 +207,33 @@
 \problem{
     $\vartriangleright$ Formulate precisely what it means to say that $\one_a$ is an identity with respect to composition in Example 3.3, and prove this assertion. \(\left[ \text{\S3.2} \right]\)
 }{
+    For any objects $b$ of the category in Example 3.3, and for any morphisms $f \in \Hom{}{a}{b}$ and $g \in \Hom{}{b}{a}$, $f\one_a = f$ and $\one_a g = g$.
 
+    To prove this statement, let's think about the definition of $\Hom{}{a}{b}$ in Example 3.3, and the definition of the composition in Example 3.3. By the definition, $f \in \Hom{}{a}{b}$ means that $a \sim b$ and $f = (a,b)$. Also, $f\one_a = (a,b)(a,a) = (a,b) = f$ by the definition.
+
+    Similarly, we can show that $\one_a g = g$ for any $g \in \Hom{}{b}{a}$.
+
+    Therefore, $\one_a$ is an identity with respect to composition in Example 3.3.
 }
 
 \problem{
     Can we define a category in the style of Example 3.3 using the relation $<$ on the set $\ZZ$?
 }{
-
+    Since the relation $<$ is not reflexive, if we define a category-like structure in the style of Example 3.3, there is no identity. Hence, we cannot define a category in the style of Example 3.3 using the relation $<$ on the set $\ZZ$.
 }
 
 \problem{
     $\vartriangleright$ Explain in what sense Example 3.4 is an instance of the categories considered in Example 3.3. \(\left[ \text{\S3.2} \right]\)
 }{
+    Since $\subseteq$ is reflexive and transitive, $\subseteq$ on $\mathscr{P}(S)$ makes a category in the style of Example 3.3.
 
+    We can observe that the category in Example 3.4 and the category we just made in the style of Example 3.3 are actually the same.
 }
 
 \problem{
     $\vartriangleright$ (Assuming some familiarity with linear algebra.) Define a category $\cat{V}$ by taking $\Obj{\cat{V}} = \NN$ and letting $\Hom{\cat{V}}{n}{m} = \text{the set of } m \times n$ matrices with real entries, for all $n,m \in \NN$. (We will leave the reader the task of making sense of a matrix with 0 rows or columns.) Use product of matrices to define composition. Does this category `feel' familiar? \(\left[ \text{\S VI.2.1, \S VIII.1.3} \right]\)
 }{
-
+    
 }
 
 \problem{
