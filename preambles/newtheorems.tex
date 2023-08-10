@@ -68,11 +68,12 @@
 
 \newcounter{problem}[section] \setcounter{problem}{0}
 \newenvironment{_exercise}{
-    \refstepcounter{problem} \label{prob:\arabic{section}.\arabic{problem}} \begin{exercise} 
+    \refstepcounter{problem} \label{prob:\arabic{section}.\arabic{problem}} \begin{exercise}
 }{
     \end{exercise}
 }
 \newcommand{\problem}[2]{\noindent\begin{minipage}{\textwidth}\begin{_exercise}\label{exer:\Roman{chapter}.\arabic{section}.\arabic{exercise}}#1\end{_exercise}\begin{solution}#2\end{solution}\end{minipage}}
+\newcommand{\problembr}[2]{\begin{samepage}\begin{_exercise}\label{exer:\Roman{chapter}.\arabic{section}.\arabic{exercise}}#1\end{_exercise}\begin{solution}#2\end{solution}\end{samepage}}
 
 \labelformat{exercise}{Exercise \Roman{chapter}.\arabic{section}.\arabic{exercise}}
 \labelformat{problem}{Exercise \arabic{section}.\arabic{problem}}
