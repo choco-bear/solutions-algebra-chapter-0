@@ -1,0 +1,10 @@
+\documentclass[tikz,convert={outfile=3.11.svg}]{standalone}
+\usetikzlibrary{cd}
+%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\begin{document}
+\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+    \&\& A \ar[dll, swap, "f"] \\
+    Z \\
+    \&\& B \ar[ull, "g"]
+\end{tikzcd}
+\end{document}
