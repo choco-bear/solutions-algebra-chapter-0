@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                preamble                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[Conny]{fncychap}
+\usepackage{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usetikzlibrary{cd}
+\usepackage{fancyhdr}
+\usepackage{titling}
+\usepackage{verbatim}
+\usepackage{bigints}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{fmtcount}
+\usepackage{datetime}
+\usepackage[super]{nth}
+\usepackage{ifthen}
+\usepackage{xparse}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+
+\geometry{
+    a4paper,
+    left=20mm,
+    right=20mm
+}
+
+
+\tikzcdset{
+  shorten >= 2pt,
+  shorten <= 2pt,
+  row sep/normal=2.4em
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  title                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\internalclassname{}
+\def\internaltypeofarticle{}
+\newcommand{\classname}[1]{\renewcommand{\internalclassname}{#1}}
+\newcommand{\typeofarticle}[1]{\renewcommand{\internaltypeofarticle}{#1}}
+\author{Kim Doyoung, \\ Department of Computer Science \& Engineering, \\ Seoul National University}
+\title{\internalclassname \\ \internaltypeofarticle}
+\newdateformat{specialdate}{\monthname, \nth{\THEDAY}, \THEYEAR}
+\date{Last updated at \specialdate\today. (UTC+9)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%             chapter labeling              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{section}}

@@ -1,0 +1,71 @@
+%%             theoremstyle                %%
+\newtheoremstyle{break}% name
+  {}%           Space above, empty = `usual value'
+  {2em}%        Space below
+  {\itshape}%   Body font
+  {}%           Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}%  Thm head font
+  {.}%          Punctuation after thm head
+  {\newline}%   Space after thm head: \newline = linebreak
+  {}%           Thm head spec
+
+\theoremstyle{break}
+
+%%                theorems                 %%
+\newtheorem{theorem}{Theorem}[subsection]
+\renewcommand*{\thetheorem}{
+\ifnum0=\value{chapter}\relax
+    \ifnum0=\value{section}\relax
+        % If chapter == 0 and section == 0, then 1. 2. 3. ...
+    \else
+        \thesection.
+        % If chapter == 0 and section != 0, then section.1. section.2. section.3. ...
+    \fi
+\else\ifnum0=\value{section}\relax
+    \thechapter.
+    % If section == 0, then chapter.1. chapter.2. chapter.3. ...
+\else\ifnum0=\value{subsection}\relax
+    \thesection.
+    % If section != 0 and subsection == 0, then chapter.section.1. chapter.section.2. chapter.section3. ...
+\else
+    \thesubsection.
+    % If subsection != 0, then chapter.section.subsection.1. chapter.section.subsection.2. chapter.section.subsection.3. ...
+\fi\fi\fi\arabic{theorem}\!\!
+}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+
+%%                exercises                %%
+\newtheorem{exercise}{Exercise}[subsection]
+\renewcommand*{\theexercise}{
+\ifnum0=\value{chapter}\relax
+    \ifnum0=\value{section}\relax
+        % If chapter == 0 and section == 0, then 1. 2. 3. ...
+    \else
+        \thesection
+        % If chapter == 0 and section != 0, then section.1. section.2. section.3. ...
+    \fi
+\else\ifnum0=\value{section}\relax
+    \thechapter
+    % If section == 0, then chapter.1. chapter.2. chapter.3. ...
+\else\ifnum0=\value{subsection}\relax
+    \thesection.\hspace{-0.4em}
+    % If section != 0 and subsection == 0, then chapter.section.1. chapter.section.2. chapter.section3. ...
+\else
+    \thesubsection.\hspace{-0.4em}
+    % If subsection != 0, then chapter.section.subsection.1. chapter.section.subsection.2. chapter.section.subsection.3. ...
+\fi\fi\fi\arabic{exercise}\!\!
+}
+\newenvironment{solution}{
+    \begin{proof}[Solution]
+}{
+    \end{proof}\vspace{5mm}
+}
+\newcommand{\problem}[2]{\noindent\begin{minipage}{\textwidth}\begin{exercise}#1\end{exercise}\begin{solution}#2\end{solution}\end{minipage}}
+
+%%                qed symbol               %%
+\renewcommand\qedsymbol{$\blacksquare$}

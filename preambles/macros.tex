@@ -1,0 +1,97 @@
+%%                  fonts                  %%
+\def\dis{\displaystyle}
+\def\tex{\textstyle}
+\newcommand{\ttd}[1]{\dis #1 \tex}
+\newcommand{\dtt}[1]{\tex #1 \dis}
+\newcommand{\ts}{\textsuperscript}
+
+%%                usual sets               %%
+\def\NN{\mathbb{N}}
+\def\ZZ{\mathbb{Z}}
+\def\QQ{\mathbb{Q}}
+\def\RR{\mathbb{R}}
+\def\CC{\mathbb{C}}
+\def\HH{\mathbb{H}}
+\newcommand{\clint}[2]{\left[ #1 , #2 \right]}
+\newcommand{\opint}[2]{\left( #1 , #2 \right)}
+\newcommand{\rcint}[2]{\left( #1 , #2 \right]}
+\newcommand{\lcint}[2]{\left[ #1 , #2 \right)}
+\NewDocumentCommand{\setof}{mo}{
+    \IfNoValueTF{#2}{
+        \ensuremath{\left\{ #1 \right\}}
+    }{
+        \ensuremath{\left\{ #1 \mid #2 \right\}}
+    }
+}
+\def\comp{^\textsc{c}}
+
+%%                 calculus                %%
+\def\Rint{\mathscr{R} \int}
+\def\del{\nabla}
+\def\rd{\partial}
+
+%%                 analysis                %%
+\def\osc{\operatornamewithlimits{osc}}
+\newcommand{\Lp}[1]{\mathcal{L}^{#1}}
+
+%%                 topology                %%
+\NewDocumentCommand{\cl}{mo}{
+    \IfNoValueTF{#2}{
+        \ensuremath{\overline{#1}}
+    }{
+        \ensuremath{\operatorname{cl}_{#1} \! #2}
+    }
+}
+\NewDocumentCommand{\tint}{mo}{
+    \IfNoValueTF{#2}{
+        \ensuremath{{#1}^\circ}
+    }{
+        \ensuremath{\operatorname{int}_{#1} \! #2}
+    }
+}
+
+%%              linear algebra             %%
+\def\span{\operatorname{span}}
+\def\rank{\operatorname{rank}}
+\def\row{\operatorname{row}}
+\def\col{\operatorname{col}}
+\def\tr{\operatorname{tr}}
+\def\nullity{\operatorname{nullity}}
+\newcommand{\transpose}[1]{{#1}^\textsc{T}}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\NewDocumentCommand{\proj}{mo}{
+    \IfNoValueTF{#2}{
+        \ensuremath{\operatorname{proj}_{#1}}
+    }{
+        \ensuremath{\operatorname{proj}_{#1}\!\!\left(#2\right)}
+    }
+}
+\NewDocumentCommand{\per}{mo}{
+    \IfNoValueTF{#2}{
+        \ensuremath{\operatorname{perp}_{#1}}
+    }{
+        \ensuremath{\operatorname{perp}_{#1}\!\!\left(#2\right)}
+    }
+}
+\newcommand{\oc}[1]{{#1}^\perp}
+
+%%                 algebra                 %%
+\def\coker{\operatorname{coker}}
+\def\Set{\mathsf{Set}}
+\def\Grp{\mathsf{Grp}}
+\def\Obj{\mathrm{Obj}}
+\def\Hom{\mathrm{Hom}}
+\def\End{\mathrm{End}}
+\def\id{\mathrm{id}}
+
+%%           commutative diagram           %%
+\def\surjection{two heads}
+\def\injection{hook}
+
+%%                   etc                   %%
+\def\st{\text{ s.t. }}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\notimplies}{\mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+\newcommand{\notiff}{\mathrel{{\ooalign{\hidewidth$\not\phantom{/}$\hidewidth\cr$\iff$}}}}
+\newcommand{\notimpliedby}{\mathrel{{\ooalign{\hidewidth$\not\phantom{;}$\hidewidth\cr$\impliedby$}}}}
+\newcommand{\twoheadhookrightarrow}{\hookrightarrow\mathrel{\mspace{-15mu}}\rightarrow}
