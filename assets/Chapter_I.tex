@@ -181,3 +181,75 @@
     Define $f : 2^A \to \mathscr{P}(A)$ as $\varphi \mapsto \{ a \in A \mid \varphi(a) = 1 \}$. Then it is quite obvious that $f$ is a bijection. Therefore, $2^A \cong \mathscr{P}(A)$.
 }
 
+\newpage
+\section{Categories}
+\problem{
+    $\vartriangleright$ Let $\cat{C}$ be a category. Consider a structure $\op{\cat{C}}$ with
+    \begin{itemize}[label=\bullet]
+        \item $\Obj{\op{\cat{C}}} := \Obj{\cat{C}}$
+        \item for $A$, $B$ objects of $\op{\cat{C}}$ (hence objects of $\cat{C}$), $\Hom{\op{\cat{C}}}{A}{B} := \Hom{\cat{C}}{B}{A}$.
+    \end{itemize}
+    Show how to make this into a category (that is, define composition of morphisms in $\op{\cat{C}}$ and verify the properties listed in \S3.1).
+}{
+
+}
+
+\problem{
+    If $A$ is a finite set, how large is $\End{\Set}{A}$?
+}{
+
+}
+
+\problem{
+    $\vartriangleright$ Formulate precisely what it means to say that $\one_a$ is an identity with respect to composition in Example 3.3, and prove this assertion. \(\left[ \text{\S3.2} \right]\)
+}{
+
+}
+
+\problem{
+    Can we define a category in the style of Example 3.3 using the relation $<$ on the set $\ZZ$?
+}{
+
+}
+
+\problem{
+    $\vartriangleright$ Explain in what sense Example 3.4 is an instance of the categories considered in Example 3.3. \(\left[ \text{\S3.2} \right]\)
+}{
+
+}
+
+\problem{
+    $\vartriangleright$ (Assuming some familiarity with linear algebra.) Define a category $\cat{V}$ by taking $\Obj{\cat{V}} = \NN$ and letting $\Hom{\cat{V}}{n}{m} = \text{the set of } m \times n$ matrices with real entries, for all $n,m \in \NN$. (We will leave the reader the task of making sense of a matrix with 0 rows or columns.) Use product of matrices to define composition. Does this category `feel' familiar? \(\left[ \text{\S VI.2.1, \S VIII.1.3} \right]\)
+}{
+
+}
+
+\problem{
+    $\vartriangleright$ Define carefully objects and morphisms in Example 3.7, and draw the diagram corresponding to composition. \(\left[ \text{\S3.2} \right]\)
+}{
+
+}
+
+\problem{
+    $\vartriangleright$ A \emph{subcategory} $\cat{C'}$ of a category $\cat{C}$ consists of a collection of objects of $\cat{C}$, with morphisms $\Hom{\cat{C'}}{A}{B} \subseteq \Hom{\cat{C}}{A}{B}$ for all objects $A$, $B$ in $\Obj{\cat{C'}}$, such that identities and compositions in $\cat{C}$ make $\cat{C'}$ into a category. A subcategory $\cat{C'}$ is \emph{full} if $\Hom{\cat{C'}}{A}{B} = \Hom{\cat{C}}{A}{B}$ for all $A,B$ in $\Obj{\cat{C'}}$. Construct a category of \emph{infinite sets} and explain how it may be viewed as a full subcategory of $\Set$. \(\left[ \text{4.4, \S VI.1.1, \S VIII.1.3 }\right]\)
+}{
+
+}
+
+\problem{
+    $\vartriangleright$ An alternative to the notion of \emph{multiset} introduced in \S2.2 is obtained by considering sets endowed with equivalence relatoins; equivalent elements are taken to be multiple instances of elements `of the same kind'. Define a notion of morphism between such enhanced sets, obtaining a category $\MSet$ containing (a `copy' of) $\Set$ as a full subcategory. (There may be more than one reasonable way to do this! This is intentionally an open-ended exercise.) Which objects in $\MSet$ determine ordinary multisets as defined in \S2.2 and how? Spell out what a morphism of multisets would be from this point of view. (There are several natural notions of morphisms of multisets. Try to define morphisms in $\MSet$ so that the notion you obtain for ordinary multisets captures your intuitive understanding of these objects.) \(\left[ \text{\S2.2, \S3.2, 4.5} \right]\)
+}{
+
+}
+
+\problem{
+    Since the objects of a category $\cat{C}$ are not (necessarily) sets, it is not clear how to make sense of notion of `subobject' in general. In some situations it \emph{does} make sense to talk about subobjects, and the subobjects of any given object $A$ in $\cat{C}$ are in one-to-one correspondence with the morphisms $A \to \Omega$ for a fixed, special object $\Omega$ of $\cat{C}$, called a \emph{subobject classifier}. Show that $\Set$ has a subobject classifier.
+}{
+
+}
+
+\problem{
+    $\vartriangleright$ Draw the relevant diagrams and define composition and identities for the category $\cat{C}^{A,B}$ mentioned in Example 3.9. Do the same for the category $\cat{C}^{\alpha, \beta}$ mentioned in Example 3.10. \(\left[ \text{\S5.5, 5.12} \right]\)
+}{
+    
+}
