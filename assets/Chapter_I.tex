@@ -1,0 +1,65 @@
+\chapter{Preliminaries: Set theory and categories}
+\section{Naive set theory}
+\problem{
+    Locate a discussion of Russell's paradox, and understand it.
+}{
+    Recall that, in naive set theory, any collection of objects satisfying some properties can be called a set. Russel's paradox can be illustrated as follows:
+
+    Let $R$ be the set of all sets that do not contain themselves. Then, if $R \notin R$, then by definition it must be the case that $R \in R$. Similarly, if $R \in R$ then it must be the case that $R \notin R$.
+
+    This is the reason why we need the axiomatic set theory instead of the naive set theory.
+}
+
+\problem{
+    $\vartriangleright$ Prove that if $\sim$ is an equivalence relation on a set $S$, then the corresponding family $\mathscr{P}_\sim$ defined in \S 1.5 is indeed a partition of $S$; that is, its elements are nonempty, disjoint, and their union is $S$. $\left[ \text{\S1.5} \right]$
+}{
+    Let $S$ be a set with an equivalence relation $\sim$. Consider the family of equivalence classes with respect to $\sim$ over $S$:
+    $$\mathscr{P}_\sim = \{ \left[ a \right]_\sim \mid a \in S \}$$
+
+    Let $\left[ a \right]_\sim \in \mathscr{P}_\sim$. Then by reflexivity of $\sim$, we have $a \sim a$ and thus $\left[ a \right]_\sim$ is nonempty. 
+
+    Now, take any two elements $\left[ a \right]_\sim$ and $\left[ b \right]_\sim$ of $\mathscr{P}_\sim$. If $\left[ a \right]_\sim \cap \left[ b \right]_\sim$ is nonempty, then we can take an element $c \in \left[ a \right]_\sim \cap \left[ b \right]_\sim$. By definition, we get $c \sim a$ and $c \sim b$. By symmetricity of $\sim$, we get $a \sim c$ and so $a \sim b$ by transitivity of $\sim$. This means that $a \in \left[ b \right]_\sim$, and by transitivity of $\sim$, we can conclude that $\left[ a \right]_\sim \subseteq \left[ b \right]_\sim$.
+
+    In the same way, we also can conclude that $\left[ b \right]_\sim \subseteq \left[ a \right]_\sim$ when $\left[ a \right]_\sim \cap \left[ b \right]_\sim$ is nonempty, and hence $\left[ a \right]_\sim = \left[ b \right]_\sim$ if $\left[ a \right]_\sim \cap \left[ b \right]_\sim$ is nonempty. In the other words, the elements of $\mathscr{P}_\sim$ are disjoint.
+    
+    Finally, for any $a \in S$, $a \in \left[ a \right]_\sim$, and thus $S \subseteq \bigcup \mathscr{P}_\sim$, obviously. Also, since $\sim$ is a relation on the set $S$, $\bigcup \mathscr{P}_\sim \subseteq S$, indeed.
+
+    Therefore, $\mathscr{P}_\sim$ is a partition of $S$.
+}
+
+\problem{
+    $\vartriangleright$ Given a partition $\mathscr{P}$ on a set $S$, show how to define a relation $\sim$ on $S$ such that $\mathscr{P}$ is the corresponding partition. $\left[ \text{\S1.5} \right]$
+}{
+    Let $S$ be a set with a partition $\mathscr{P}$. Consider a relation $\sim$ on $S$ as:
+    $$a \sim b \iff \exists P \in \mathscr{P} \st a,b \in P.$$
+
+    Then, it is quite obvious that $\sim$ is an equivalence relation.
+}
+
+\problem{
+    How many different equivalence relations may be defined on the set $\{ 1,2,3 \}$?
+}{
+    Since there is a correspondence between equivalence relations and partitions, the number of equivalence relations is the same with the number of partitions. Since there are 5 different partitions of the set $\{ 1,2,3 \}$, there are 5 different equivalence relations can be defined on the set $\{ 1,2,3 \}$.
+}
+
+\problem{
+    Give an example of a relation that is reflexive and symmetric but not transitive. What happens if you attempt to use this relation to define a partition on the set?
+}{
+    For $a,b \in \RR$, define $a \mathrel{\mathcal{R}} b$ to be true if and only if $\abs{a-b} \leq 1$. Then, it is obvious that $\mathrel{\mathcal{R}}$ is reflexive and symmetric. However, since $0 \not\mathrel{\mathcal{R}} 2$ even though $0 \mathrel{\mathcal{R}} 1$ and $1 \mathrel{\mathcal{R}} 2$, $\mathrel{\mathcal{R}}$ is not transitive. The corresponding family $\mathscr{P}_{\mathrel{\mathcal{R}}}$, defined as in \S 1.5, is not a partition of $\RR$, indeed  because the elements of $\mathscr{P}_{\mathrel{\mathcal{R}}}$ are not disjoint.
+}
+
+\problem{
+    $\vartriangleright$ Define a relation $\sim$ on the set $\RR$ of real numbers by setting $a \sim b \iff b-a \in \ZZ$.  Prove that this is an equivalence relation, and find a `compelling' description for $\RR / \sim$. Do the same for the relation $\approx$ on the plane $\RR \times \RR$ defined by declaring  $\left( a_1,a_2 \right) \approx \left( b_1,b_2 \right) \iff b_1 - a_1 \in \ZZ$ and $b_2 - a_2 \in \ZZ$.  $\left[ \text{\S{}II.8.1, II.8.10} \right]$
+}{
+    Since $0 \in \ZZ$, $-n \in \ZZ$ for any $n \in \ZZ$, and $n+m \in \ZZ$ for any $n,m \in \ZZ$, the given relation $\sim$ on $\RR$ is an equivalence relation. Moreover, $\RR / \sim$ can be considered as $\lcint{0}{1}$ with operation on modulo 1. (It can be considered as $S^1$.)
+
+    Now define a relation $\approx$ on $\RR^2$ by setting $\left( a_1,a_2 \right) \approx \left( b_1,b_2 \right) \iff a_1 - a_2 \in \ZZ$ and $b_1 - b_2 \in \ZZ$. Then by the similar way with the above, the relation $\approx$ on $\RR^2$ is an equivalence relation. Additionally, $\RR^2 / \approx$ is isomorphic to $\lcint{0}{1} \times \lcint{0}{1}$ with operation on modulo 1. (It can be considered as $T^2$.)
+}
+
+\section{Functions between Sets}
+
+\problem{
+    $\vartriangleright$
+}{
+
+}
