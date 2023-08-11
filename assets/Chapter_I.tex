@@ -424,3 +424,19 @@
     \end{itemize}
     Then it can be quite easily shown that $\cat{C}^{\alpha,\beta}$ is a category.
 }
+
+\newpage
+\section{Morphisms}
+\problem{
+    $\vartriangleright$ composition is defined for \emph{two} morphisms. If more than two morphisms are given, e.g.,
+    \begin{cd}
+        A \ar[r, "f"] \& B \ar[r, "g"] \& C \ar[r, "h"] \& D \ar[r, "i"] \& E,
+    \end{cd}
+    then one may compose them in several ways, for example:
+    \[\begin{array}{llll}(ih)(gf), & (i(hg))f, & i((hg)f), & \text{etc.} \end{array}\]
+    so that at every step one is only composing two morphisms. Prove that the result of any such nested composition is independent of the placement of the parantheses. (Hint: Use induction on $n$ to show that any such choice for $f_n f_{n-1} \cdots f_1$ equals
+    \[((\cdots((f_n f_{n-1})f_{n-2})\cdots)f_1).\]
+    Carefully working out the case $n=5$ is helpful.) \(\left[\text{\S4.1, \S II.1.3}\right]\)
+}{
+    
+}
