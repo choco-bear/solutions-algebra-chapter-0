@@ -359,12 +359,68 @@
         \end{tikzcd}\]
         in $\cat{C}$; and
         
-        \item an identity morphism $\one_{\includegraphics[height=2mm]{assets/images/Chapter_I/3.11.pdf}}$ is a commutative diagram
+        \item an identity morphism $\one_{\includegraphics[height=2mm]{assets/images/Chapter_I/3.11a.pdf}}$ is a commutative diagram
         \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
             \&\&\& A \ar[dll, "f"] \ar[dlll, swap, bend right, "f"] \\
             Z \& Z \ar[l, swap, "\one_Z"] \\
             \&\&\& B \ar[ull, swap, "g"] \ar[ulll, bend left, "g"]
         \end{tikzcd}\]
+        in $\cat{C}$. 
+    \end{itemize}
+    Then it can be immediately shown that $\cat{C}^{A,B}$ is a category.
+
+    Secondly, we will fix two morphisms $\alpha : C \to A$, $\beta : C \to B$ where $A,B,C$ are fixed objects of $\cat{C}$. We can define a new category $\cat{C}^{\alpha,\beta}$ by essentially the same procedure that we used in order to define $\cat{C}^\alpha$:
+    \begin{itemize}[label=$\bullet$]
+        \item $\Obj{\cat{C}^{\alpha,\beta}}$ is the collection of all commutative diagrams
+        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+            \&\& A \ar[dll, swap, "f"] \\
+            Z \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+            \&\& B \ar[ull, "g"]
+        \end{tikzcd}\]
+        in $\cat{C}$;
+
+        \item morphisms
+        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+            \&\& A \ar[dll, swap, "f_1"] \&\& \&\& \&\& A \ar[dll, swap, "f_2"]\\
+            Z_1 \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"] \ar[rr] \&\& Z_2 \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"] \\
+            \&\& B \ar[ull, "g_1"] \&\& \&\& \&\& B \ar[ull, "g_2"]
+        \end{tikzcd}\]
+        are commutative diagrams:
+        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+            \& \&\& A \ar[dll, swap, "f_2"] \ar[dlll, swap, bend right, "f_1"] \\
+            Z_1 \& Z_2 \ar[l, "\sigma"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+            \& \&\& B \ar[ull, "g_2"] \ar[ulll, bend left, "g_1"]
+        \end{tikzcd}\]
+        in $\cat{C}$;
+
+        \item composition of two morphisms
+        $$\begin{array}{ll}
+            \begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+                \& \&\& A \ar[dll, swap, "f_2"] \ar[dlll, swap, bend right, "f_1"] \\
+                Z_1 \& Z_2 \ar[l, "\sigma"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+                \& \&\& B \ar[ull, "g_2"] \ar[ulll, bend left, "g_1"]
+            \end{tikzcd}, &
+            \begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+                \& \&\& A \ar[dll, swap, "f_3"] \ar[dlll, swap, bend right, "f_2"] \\
+                Z_2 \& Z_3 \ar[l, "\tau"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+                \& \&\& B \ar[ull, "g_3"] \ar[ulll, bend left, "g_2"]
+            \end{tikzcd}
+        \end{array}$$
+        is a commutative diagram
+        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+            \& \&\& A \ar[dll, swap, "f_3"] \ar[dlll, swap, bend right, "f_1"] \\
+            Z_1 \& Z_3 \ar[l, "\tau\sigma"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+            \& \&\& B \ar[ull, "g_3"] \ar[ulll, bend left, "g_1"]
+        \end{tikzcd}\]
+        in $\cat{C}$; and
+
+        \item an identity morphism $\one_{\includegraphics[height=2mm]{assets/images/Chapter_I/3.11b.pdf}}$ is a commutative diagram
+        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+            \& \&\& A \ar[dll, swap, "f"] \ar[dlll, swap, bend right, "f"] \\
+            Z \& Z \ar[l, "\one_Z"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+            \& \&\& B \ar[ull, "g"] \ar[ulll, bend left, "g"]
+        \end{tikzcd}\]
         in $\cat{C}$.
     \end{itemize}
+    Then it can be quite easily shown that $\cat{C}^{\alpha,\beta}$ is a category.
 }
