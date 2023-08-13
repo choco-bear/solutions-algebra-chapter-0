@@ -446,3 +446,13 @@
 
     Thus, any such choices for $f_{k+1}f_k \cdots f_1$ are equal to $((\cdots ((f_{k+1}f_k)f_{k-1})\cdots f_2)f_1)$. Therefore, by the induction, the statement is proved.
 }
+
+\problem{
+    $\vartriangleright$ In Example 3.3 we have seen how to construct a category from a set endowed with a relation, provided this latter is reflexive and transitive. For what types of relations is the corresponding category a groupoid (cf. Example 4.6)? \(\left[ \text{\S4.1} \right]\)
+}{
+    Let $S$ be a set endowed a relation $\mathrel{\mathcal{R}}$, and $\mathrel{\mathcal{R}}$ be reflexive and transitive. Now let $\hat{S}$ be a category corresponding to $(S,\mathrel{\mathcal{R}})$ and consider a morphism $f : A \to B$ in $\hat{S}$.
+    
+    If $f$ is an isomorphism, then there exists an inverse $f^{-1} : B \to A$ and this means that $B \mathrel{\mathcal{R}} A$. Hence, if $\hat{S}$ is a groupoid, then every morphism in $\hat{S}$ is an isomorphism, and thus the relation $\mathrel{\mathcal{R}}$ on the set $S$ is symmetric.
+
+    Furthermore, if the relation $\mathrel{\mathcal{R}}$ is symmetric, then it is immediately verified that $\hat{S}$ is a groupoid. Therefore, every category, which is a groupoid, is corresponding to an equivalence relation.
+}
