@@ -456,3 +456,20 @@
 
     Furthermore, if the relation $\mathrel{\mathcal{R}}$ is symmetric, then it is immediately verified that $\hat{S}$ is a groupoid. Therefore, every category, which is a groupoid, is corresponding to an equivalence relation.
 }
+
+\problem{
+    Let $A$, $B$ be objects of a category $\cat{C}$, and let $f \in \Hom{\cat{C}}{A}{B}$ be a morphism.
+    \begin{itemize}[label=$\bullet$]{
+        \item Prove that if $f$ has a right-inverse, then $f$ is an epimorphism.
+
+        \item Show that the converse does not hold, by giving an explicit exmple of a category and an epimorphism without a right-inverse.
+    }
+}{
+    Let $f$ have a right-inverse $g$ and $\beta'f = \beta''f$ for some $\beta',\beta'' \in \Hom{\cat{C}}{B}{C}$. Then it is clear that $\beta' = \beta'fg = \beta''fg = \beta''$. Hence, $f$ is an epimorphism.
+
+    Now consider a category $\cat{D}$ obtained by $\ZZ$ and $\leq$ to construct a counterexample of the converse.
+
+    Every morphism in the category $\cat{D}$ is an epimorphism, indeed.
+
+    Take an $f \in \Hom{\cat{D}}{0}{1}$. Then $f$ has no right-inverse, clearly, because $\Hom{\cat{D}}{1}{0} = \emptyset$.
+}
