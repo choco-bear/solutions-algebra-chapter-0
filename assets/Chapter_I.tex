@@ -70,7 +70,7 @@
 }{
     \begin{itemize}[leftmargin=12mm]
         \item[]
-        \item[($\implies$)] Let's say that $f : A \to B$ has a right-inverse $g : B \to A$. Then since $f \circ g = \id_B$, $(f \circ g)(B) = B$, clearly.
+        \item[($\implies$)] Let's say that $f : A \to B$ has a right-inverse $g : B \to A$. Then since $f \circ g = \id{B}$, $(f \circ g)(B) = B$, clearly.
         
         By the fact that $(f \circ g)(B) = f(g(B)) \subseteq f(A) \subseteq B$, it is immediately shown that $f(A) = B$, i.e., $f$ is surjective.
         
@@ -93,7 +93,7 @@
 }{
     Let $U$ be a set of sets and define a relation $\sim$ on $U$ by setting $S \sim T \iff S$ is isomorphic to $T$.
     
-    Then it is clear that $S \sim S$ for any $S \in U$ since $\id_S$ is a bijection.
+    Then it is clear that $S \sim S$ for any $S \in U$ since $\id{S}$ is a bijection.
 
     Moreover, by the result of the Exercise 2.3, the relation $\sim$ on $U$ is symmetric and transitive.
     
@@ -111,7 +111,7 @@
     Now claim that a function $f : A \to B$ is an epimorphism if and only if it is a surjection. The below is the proof of that:
 
     \begin{itemize}[leftmargin=12mm]
-        \item[($\implies$)] Let's say that $f : A \to B$ is an epimorphism and suppose that $f$ is not surjective. Then $B \setminus f(A)$ is nonempty and so there exists $b \in B \setminus f(A)$. Now say that $\alpha' = \id_B$ and $\alpha'' : B \to B$ is defined by $x \mapsto \begin{cases}x & \mbox{if } x \neq b \\ b' & \mbox{if } x=b\end{cases}$ where $b'$ is an element of $f(A)$.
+        \item[($\implies$)] Let's say that $f : A \to B$ is an epimorphism and suppose that $f$ is not surjective. Then $B \setminus f(A)$ is nonempty and so there exists $b \in B \setminus f(A)$. Now say that $\alpha' = \id{B}$ and $\alpha'' : B \to B$ is defined by $x \mapsto \begin{cases}x & \mbox{if } x \neq b \\ b' & \mbox{if } x=b\end{cases}$ where $b'$ is an element of $f(A)$.
 
         Then it is obvious that $\alpha' \circ f = \alpha'' \circ f$ and this contradicts the fact that $f$ is an epimorphism.
 
@@ -296,7 +296,7 @@
 
     Let $A$ be a set and $m : A \to \ZZ^+$ be a function where $\ZZ^+$ denotes the set of the positive integers. Then a 2-tuple $(A,m)$ is a multiset. From this point of view, $(A, x \mapsto 1 )$ is a `copy' of a set $A$.
 
-    Now consider about morphisms between two multisets. The morphisms $(A,m_A) \to (B,m_B)$ are defined to be functions $A \to B$. Then an identity morphism $\one_{(A,m)}$ is the identity function $\id_A : A \to A : a \mapsto a$.
+    Now consider about morphisms between two multisets. The morphisms $(A,m_A) \to (B,m_B)$ are defined to be functions $A \to B$. Then an identity morphism $\one_{(A,m)}$ is the identity function $\id{A} : A \to A : a \mapsto a$.
 
     The composition is defined as the composition of two functions, indeed.
 
@@ -485,5 +485,11 @@
 
     In the similar way, we can make the same result for epimorphisms.
 
-    Additionally, since the identity morphisms are monomorphisms, there is no identity morhpism in $\cat{C_{nonmono}}$. Therefore, $\cat{C_{nonmono}}$ cannot be a subcategory of $\cat{C}$.
+    Additionally, since the identity morphisms are monomorphisms, there is no identity morphism in $\cat{C_{nonmono}}$. Therefore, $\cat{C_{nonmono}}$ cannot be a subcategory of $\cat{C}$.
+}
+
+\problem{
+    Give a concrete description of monomorphisms and epimorphisms in the category $\MSet$ you constructed in \ref{prob:I.3.9}. (Your answer will depend on the notion of morphism you defined in that exercise!)
+}{
+    A morphism in $\MSet$ is a monomorphism if and only if the morphism is an injection when it is viewed as a set-function, and a morphism in $\MSet$ is an epimorphism if and only if the morphism is a surjection when it is viewed as a set-function.
 }
