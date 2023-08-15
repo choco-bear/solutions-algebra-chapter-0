@@ -70,7 +70,7 @@
 }{
     \begin{itemize}[leftmargin=12mm]
         \item[]
-        \item[($\implies$)] Let's say that $f : A \to B$ has a right-inverse $g : B \to A$. Then since $f \circ g = \id_B$, $(f \circ g)(B) = B$, clearly.
+        \item[($\implies$)] Let's say that $f : A \to B$ has a right-inverse $g : B \to A$. Then since $f \circ g = \id{B}$, $(f \circ g)(B) = B$, clearly.
         
         By the fact that $(f \circ g)(B) = f(g(B)) \subseteq f(A) \subseteq B$, it is immediately shown that $f(A) = B$, i.e., $f$ is surjective.
         
@@ -93,7 +93,7 @@
 }{
     Let $U$ be a set of sets and define a relation $\sim$ on $U$ by setting $S \sim T \iff S$ is isomorphic to $T$.
     
-    Then it is clear that $S \sim S$ for any $S \in U$ since $\id_S$ is a bijection.
+    Then it is clear that $S \sim S$ for any $S \in U$ since $\id{S}$ is a bijection.
 
     Moreover, by the result of the Exercise 2.3, the relation $\sim$ on $U$ is symmetric and transitive.
     
@@ -111,7 +111,7 @@
     Now claim that a function $f : A \to B$ is an epimorphism if and only if it is a surjection. The below is the proof of that:
 
     \begin{itemize}[leftmargin=12mm]
-        \item[($\implies$)] Let's say that $f : A \to B$ is an epimorphism and suppose that $f$ is not surjective. Then $B \setminus f(A)$ is nonempty and so there exists $b \in B \setminus f(A)$. Now say that $\alpha' = \id_B$ and $\alpha'' : B \to B$ is defined by $x \mapsto \begin{cases}x & \mbox{if } x \neq b \\ b' & \mbox{if } x=b\end{cases}$ where $b'$ is an element of $f(A)$.
+        \item[($\implies$)] Let's say that $f : A \to B$ is an epimorphism and suppose that $f$ is not surjective. Then $B \setminus f(A)$ is nonempty and so there exists $b \in B \setminus f(A)$. Now say that $\alpha' = \id{B}$ and $\alpha'' : B \to B$ is defined by $x \mapsto \begin{cases}x & \mbox{if } x \neq b \\ b' & \mbox{if } x=b\end{cases}$ where $b'$ is an element of $f(A)$.
 
         Then it is obvious that $\alpha' \circ f = \alpha'' \circ f$ and this contradicts the fact that $f$ is an epimorphism.
 
@@ -201,7 +201,7 @@
 \problem{
     If $A$ is a finite set, how large is $\End{\Set}{A}$?
 }{
-    Since $\End{\Set}{A} = A^A$ and $A$ is finite, $\abs{\End{\Set}{A}} = \abs{A}^{\abs{A}}$ by the result of \ref{prob:2.10}.
+    Since $\End{\Set}{A} = A^A$ and $A$ is finite, $\abs{\End{\Set}{A}} = \abs{A}^{\abs{A}}$ by the result of \ref{prob:I.2.10}.
 }
 
 \problem{
@@ -292,11 +292,11 @@
 }{
     Before formalizing the concept of multisets, let's think about the concept of multisets in an informal way.
 
-    The multisets are collections of elements may occur more than once; the occurences of a particular element in a multiset are indistinguishable. Moreover, the number of the occurences of a particular element in a multiset is a positive integer. To formalize this, we will use a concept of functions.
+    The multisets are collections of elements may occur more than once; the occurrences of a particular element in a multiset are indistinguishable. Moreover, the number of the occurrences of a particular element in a multiset is a positive integer. To formalize this, we will use a concept of functions.
 
     Let $A$ be a set and $m : A \to \ZZ^+$ be a function where $\ZZ^+$ denotes the set of the positive integers. Then a 2-tuple $(A,m)$ is a multiset. From this point of view, $(A, x \mapsto 1 )$ is a `copy' of a set $A$.
 
-    Now consider about morphisms between two multisets. The morphisms $(A,m_A) \to (B,m_B)$ are defined to be functions $A \to B$. Then an identity morphism $\one_{(A,m)}$ is the identity function $\id_A : A \to A : a \mapsto a$.
+    Now consider about morphisms between two multisets. The morphisms $(A,m_A) \to (B,m_B)$ are defined to be functions $A \to B$. Then an identity morphism $\one_{(A,m)}$ is the identity function $\id{A} : A \to A : a \mapsto a$.
 
     The composition is defined as the composition of two functions, indeed.
 
@@ -423,4 +423,73 @@
         in $\cat{C}$.
     \end{itemize}
     Then it can be quite easily shown that $\cat{C}^{\alpha,\beta}$ is a category.
+}
+
+\newpage
+\section{Morphisms}
+\problem{
+    $\vartriangleright$ composition is defined for \emph{two} morphisms. If more than two morphisms are given, e.g.,
+    \begin{cd}
+        A \ar[r, "f"] \& B \ar[r, "g"] \& C \ar[r, "h"] \& D \ar[r, "i"] \& E,
+    \end{cd}
+    then one may compose them in several ways, for example:
+    \[\begin{array}{llll}(ih)(gf), & (i(hg))f, & i((hg)f), & \text{etc.} \end{array}\]
+    so that at every step one is only composing two morphisms. Prove that the result of any such nested composition is independent of the placement of the parentheses. (Hint: Use induction on $n$ to show that any such choice for $f_n f_{n-1} \cdots f_1$ equals
+    \[((\cdots((f_n f_{n-1})f_{n-2})\cdots)f_1).\]
+    Carefully working out the case $n=5$ is helpful.) \(\left[\text{\S4.1, \S II.1.3}\right]\)
+}{
+    If $n \leq 4$, then it is obvious that any such choices for $f_n f_{n_1} \cdots f_1$ are equal to $((\cdots((f_n f_{n-1})f_{n-2})\cdots f_2)f_1)$.
+    
+    Now assume that any such choices for $f_n f_{n-1} \cdots f_1$ are equal to $((\cdots((f_n f_{n-1})f_{n-2})\cdots f_2)f_1)$ for $n \leq k$. Then it is obvious that $((f_{k+1}f_k \cdots f_2)f_1) = ((\cdots((f_{k+1} f_k)f_{k-1})\cdots f_2)f_1)$.
+
+    Now consider the case that $((f_{k+1} f_k \cdots f_{m+1})(f_m f_{m-1} \cdots f_1))$. By the associativity of composition, $((f_{k+1} f_k \cdots f_{m+1})(f_m f_{m-1} \cdots f_1)) = ((f_{k+1} f_k \cdots f_{m+1})((f_m f_{m-1} \cdots f_2)f_1)) = (((f_{k+1}f_k \cdots f_{m+1})(f_m f_{m-1} \cdots f_2))f_1) = ((f_{k+1} f_k \cdots f_2)f_1) = ((\cdots((f_{k+1}f_k)f_{k-1})\cdots f_2)f_1)$.
+
+    Thus, any such choices for $f_{k+1}f_k \cdots f_1$ are equal to $((\cdots ((f_{k+1}f_k)f_{k-1})\cdots f_2)f_1)$. Therefore, by the induction, the statement is proved.
+}
+
+\problem{
+    $\vartriangleright$ In Example 3.3 we have seen how to construct a category from a set endowed with a relation, provided this latter is reflexive and transitive. For what types of relations is the corresponding category a groupoid (cf. Example 4.6)? \(\left[ \text{\S4.1} \right]\)
+}{
+    Let $S$ be a set endowed a relation $\mathrel{\mathcal{R}}$, and $\mathrel{\mathcal{R}}$ be reflexive and transitive. Now let $\hat{S}$ be a category corresponding to $(S,\mathrel{\mathcal{R}})$ and consider a morphism $f : A \to B$ in $\hat{S}$.
+    
+    If $f$ is an isomorphism, then there exists an inverse $f^{-1} : B \to A$ and this means that $B \mathrel{\mathcal{R}} A$. Hence, if $\hat{S}$ is a groupoid, then every morphism in $\hat{S}$ is an isomorphism, and thus the relation $\mathrel{\mathcal{R}}$ on the set $S$ is symmetric.
+
+    Furthermore, if the relation $\mathrel{\mathcal{R}}$ is symmetric, then it is immediately verified that $\hat{S}$ is a groupoid. Therefore, every category, which is a groupoid, is corresponding to an equivalence relation.
+}
+
+\problem{
+    Let $A$, $B$ be objects of a category $\cat{C}$, and let $f \in \Hom{\cat{C}}{A}{B}$ be a morphism.
+    \begin{itemize}[label=$\bullet$]
+        \item Prove that if $f$ has a right-inverse, then $f$ is an epimorphism.
+
+        \item Show that the converse does not hold, by giving an explicit example of a category and an epimorphism without a right-inverse.
+    \end{itemize}
+}{
+    Let $f$ have a right-inverse $g$ and $\beta'f = \beta''f$ for some $\beta',\beta'' \in \Hom{\cat{C}}{B}{C}$. Then it is clear that $\beta' = \beta'fg = \beta''fg = \beta''$. Hence, $f$ is an epimorphism.
+
+    Now consider a category $\cat{D}$ obtained by $\ZZ$ and $\leq$ to construct a counterexample of the converse.
+
+    Every morphism in the category $\cat{D}$ is an epimorphism, indeed.
+
+    Take an $f \in \Hom{\cat{D}}{0}{1}$. Then $f$ has no right-inverse, clearly, because $\Hom{\cat{D}}{1}{0} = \emptyset$.
+}
+
+\problem{
+    Prove that the composition of two monomorphisms is a monomorphism. Deduce that one can define a subcategory $\cat{C_{mono}}$ of a category $\cat{C}$ by taking the same objects as in $\cat{C}$ and defining $\Hom{\cat{C_{mono}}}{A}{B}$ to be the subset of $\Hom{\cat{C}}{A}{B}$ consisting of monomorphisms, for all objects $A$, $B$. (Cf. \ref{prob:I.3.8}; of course, in general $\cat{C_{mono}}$ is not full in $\cat{C}$.) Do the same for epimorphisms. Can you define a subcategory $\cat{C_{nonmono}}$ of $\cat{C}$ by restricting to morphisms that are \emph{not} monomorphisms?
+}{
+    Let $f \in \Hom{\cat{C}}{A}{B}$ and $g \in \Hom{\cat{C}}{B}{C}$ be two monomorphisms. Now consider a situation that $gf\alpha' = gf\alpha''$ for some $\alpha',\alpha'' \in \Hom{\cat{C}}{D}{A}$.
+
+    Then since $g$ is a monomorphism, $f\alpha' = f\alpha''$, and since $f$ is a monomorphism, $\alpha' = \alpha''$. Hence, $gf$ is a monomorphism.
+
+    Moreover, since the identity morphisms are monomorphisms, $\cat{C_{mono}}$ is a category, indeed.
+
+    In the similar way, we can make the same result for epimorphisms.
+
+    Additionally, since the identity morphisms are monomorphisms, there is no identity morphism in $\cat{C_{nonmono}}$. Therefore, $\cat{C_{nonmono}}$ cannot be a subcategory of $\cat{C}$.
+}
+
+\problem{
+    Give a concrete description of monomorphisms and epimorphisms in the category $\MSet$ you constructed in \ref{prob:I.3.9}. (Your answer will depend on the notion of morphism you defined in that exercise!)
+}{
+    A morphism in $\MSet$ is a monomorphism if and only if the morphism is an injection when it is viewed as a set-function, and a morphism in $\MSet$ is an epimorphism if and only if the morphism is a surjection when it is viewed as a set-function.
 }
