@@ -201,7 +201,7 @@
 \problem{
     If $A$ is a finite set, how large is $\End{\Set}{A}$?
 }{
-    Since $\End{\Set}{A} = A^A$ and $A$ is finite, $\abs{\End{\Set}{A}} = \abs{A}^{\abs{A}}$ by the result of \ref{prob:2.10}.
+    Since $\End{\Set}{A} = A^A$ and $A$ is finite, $\abs{\End{\Set}{A}} = \abs{A}^{\abs{A}}$ by the result of \ref{prob:I.2.10}.
 }
 
 \problem{
@@ -292,7 +292,7 @@
 }{
     Before formalizing the concept of multisets, let's think about the concept of multisets in an informal way.
 
-    The multisets are collections of elements may occur more than once; the occurences of a particular element in a multiset are indistinguishable. Moreover, the number of the occurences of a particular element in a multiset is a positive integer. To formalize this, we will use a concept of functions.
+    The multisets are collections of elements may occur more than once; the occurrences of a particular element in a multiset are indistinguishable. Moreover, the number of the occurrences of a particular element in a multiset is a positive integer. To formalize this, we will use a concept of functions.
 
     Let $A$ be a set and $m : A \to \ZZ^+$ be a function where $\ZZ^+$ denotes the set of the positive integers. Then a 2-tuple $(A,m)$ is a multiset. From this point of view, $(A, x \mapsto 1 )$ is a `copy' of a set $A$.
 
@@ -434,7 +434,7 @@
     \end{cd}
     then one may compose them in several ways, for example:
     \[\begin{array}{llll}(ih)(gf), & (i(hg))f, & i((hg)f), & \text{etc.} \end{array}\]
-    so that at every step one is only composing two morphisms. Prove that the result of any such nested composition is independent of the placement of the parantheses. (Hint: Use induction on $n$ to show that any such choice for $f_n f_{n-1} \cdots f_1$ equals
+    so that at every step one is only composing two morphisms. Prove that the result of any such nested composition is independent of the placement of the parentheses. (Hint: Use induction on $n$ to show that any such choice for $f_n f_{n-1} \cdots f_1$ equals
     \[((\cdots((f_n f_{n-1})f_{n-2})\cdots)f_1).\]
     Carefully working out the case $n=5$ is helpful.) \(\left[\text{\S4.1, \S II.1.3}\right]\)
 }{
@@ -442,7 +442,7 @@
     
     Now assume that any such choices for $f_n f_{n-1} \cdots f_1$ are equal to $((\cdots((f_n f_{n-1})f_{n-2})\cdots f_2)f_1)$ for $n \leq k$. Then it is obvious that $((f_{k+1}f_k \cdots f_2)f_1) = ((\cdots((f_{k+1} f_k)f_{k-1})\cdots f_2)f_1)$.
 
-    Now consider the case that $((f_{k+1} f_k \cdots f_{m+1})(f_m f_{m-1} \cdots f_1))$. By the associativity of composition, $((f_{k+1} f_k \cdots f_{m+1})(f_m f_{m-1} \cdots f_1)) = ((f_{k+1} f_k \cdtos f_{m+1})((f_m f_{m-1} \cdots f_2)f_1)) = (((f_{k+1}f_k \cdots f_{m+1})(f_m f_{m-1} \cdots f_2))f_1) = ((f_{k+1} f_k \cdots f_2)f_1) = ((\cdots((f_{k+1}f_k)f_{k-1})\cdots f_2)f_1)$.
+    Now consider the case that $((f_{k+1} f_k \cdots f_{m+1})(f_m f_{m-1} \cdots f_1))$. By the associativity of composition, $((f_{k+1} f_k \cdots f_{m+1})(f_m f_{m-1} \cdots f_1)) = ((f_{k+1} f_k \cdots f_{m+1})((f_m f_{m-1} \cdots f_2)f_1)) = (((f_{k+1}f_k \cdots f_{m+1})(f_m f_{m-1} \cdots f_2))f_1) = ((f_{k+1} f_k \cdots f_2)f_1) = ((\cdots((f_{k+1}f_k)f_{k-1})\cdots f_2)f_1)$.
 
     Thus, any such choices for $f_{k+1}f_k \cdots f_1$ are equal to $((\cdots ((f_{k+1}f_k)f_{k-1})\cdots f_2)f_1)$. Therefore, by the induction, the statement is proved.
 }
@@ -459,11 +459,11 @@
 
 \problem{
     Let $A$, $B$ be objects of a category $\cat{C}$, and let $f \in \Hom{\cat{C}}{A}{B}$ be a morphism.
-    \begin{itemize}[label=$\bullet$]{
+    \begin{itemize}[label=$\bullet$]
         \item Prove that if $f$ has a right-inverse, then $f$ is an epimorphism.
 
-        \item Show that the converse does not hold, by giving an explicit exmple of a category and an epimorphism without a right-inverse.
-    }
+        \item Show that the converse does not hold, by giving an explicit example of a category and an epimorphism without a right-inverse.
+    \end{itemize}
 }{
     Let $f$ have a right-inverse $g$ and $\beta'f = \beta''f$ for some $\beta',\beta'' \in \Hom{\cat{C}}{B}{C}$. Then it is clear that $\beta' = \beta'fg = \beta''fg = \beta''$. Hence, $f$ is an epimorphism.
 
@@ -472,4 +472,18 @@
     Every morphism in the category $\cat{D}$ is an epimorphism, indeed.
 
     Take an $f \in \Hom{\cat{D}}{0}{1}$. Then $f$ has no right-inverse, clearly, because $\Hom{\cat{D}}{1}{0} = \emptyset$.
+}
+
+\problem{
+    Prove that the composition of two monomorphisms is a monomorphism. Deduce that one can define a subcategory $\cat{C_{mono}}$ of a category $\cat{C}$ by taking the same objects as in $\cat{C}$ and defining $\Hom{\cat{C_{mono}}}{A}{B}$ to be the subset of $\Hom{\cat{C}}{A}{B}$ consisting of monomorphisms, for all objects $A$, $B$. (Cf. \ref{prob:I.3.8}; of course, in general $\cat{C_{mono}}$ is not full in $\cat{C}$.) Do the same for epimorphisms. Can you define a subcategory $\cat{C_{nonmono}}$ of $\cat{C}$ by restricting to morphisms that are \emph{not} monomorphisms?
+}{
+    Let $f \in \Hom{\cat{C}}{A}{B}$ and $g \in \Hom{\cat{C}}{B}{C}$ be two monomorphisms. Now consider a situation that $gf\alpha' = gf\alpha''$ for some $\alpha',\alpha'' \in \Hom{\cat{C}}{D}{A}$.
+
+    Then since $g$ is a monomorphism, $f\alpha' = f\alpha''$, and since $f$ is a monomorphism, $\alpha' = \alpha''$. Hence, $gf$ is a monomorphism.
+
+    Moreover, since the identity morphisms are monomorphisms, $\cat{C_{mono}}$ is a category, indeed.
+
+    In the similar way, we can make the same result for epimorphisms.
+
+    Additionally, since the identity morphisms are monomorphisms, there is no identity morhpism in $\cat{C_{nonmono}}$. Therefore, $\cat{C_{nonmono}}$ cannot be a subcategory of $\cat{C}$.
 }
