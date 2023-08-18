@@ -676,7 +676,7 @@
     By the universal property of $A \times (B \times C)$, $\sigma \tau = \one_{A \times (B \times C)}$. In the same way, $\tau \sigma = \one_{(A \times B) \times C}$. Therefore, $A \times (B \times C) \cong (A \times B) \times C$.
 }
 
-\problem{ %5.10
+\problembr{ %5.10
     Push the envelope a little further still, and define products and coproducts for \emph{families} (i.e., indexed sets) of objects of a category.
 
     \begin{itemize}[label=]
@@ -685,6 +685,15 @@
         \item It is common to denote the product $\underbrace{A \times \cdots \times A}_{n \text{ times}}$ by $A^n$.
     \end{itemize}
 }{
+    Let the category $\cat{C}$ is given and let $A_i \in \Obj{\cat{C}}$ for any $i \in I$ where $I$ is an index set.
+    
+    Now consider an object $B$ and morphisms $\pi_i : B \to A_i$. If there is a unique morphism $\sigma : C \to B$ such that $\pi_i \sigma = f_i$ for any $i \in I$ where an arbitrary object $C$ and arbitrary morphisms $f_i : C \to A_i$ are given, then we can say that $C = \prod_{i \in I} A_i$.
+
+    Moreover, then we can say that $C = \coprod_{i \in I} A_i$.
+
+    Furthermore, these exist in $\Set$, obviously.
+
+    The set of the functions $f : I \to \bigcup_{i \in I}$ such that $f(i) \in A_i, \forall i \in I$ is $\prod_{i \in I} A_i$, clearly, and the set $\{ (i,a) \mid i \in I \land a \in A_i \}$ is $\coprod_{i \in I} A_i$, obviously.
 }
 
 \problem{ %5.11
@@ -699,10 +708,29 @@
 
         \item Conclude (without further work) that $(A \times B) / \sim \cong (A / \sim_A) \times (B / \sim_B)$.
     \end{itemize}
-}{}
+}{
+    \begin{cd}[sep=huge]
+        \& C \ar[dl,"f_{B / \sim_B}",swap] \ar[d,"\sigma",dotted] \ar[dr,"f_{A / \sim_A}"] \\
+        B / \sim_B \& (A \times B) / \sim \ar[l,"\overline{\pi_{\sim_B} \pi_B}"{pos=0.3},dotted,swap] \ar[r,"\overline{\pi_{\sim_A} \pi_A}"{pos=0.3},dotted] \& A / \sim_A \\
+        B \ar[u,"\pi_{\sim_B}"] \& A \times B \ar[l,"\pi_B"] \ar[u,"\pi_\sim"] \ar[r,"\pi_A",swap] \& A \ar[u,"\pi_{\sim_A}",swap]
+    \end{cd}
+}
 
-\problem{ %5.12
+\problembr{ %5.12
     $\neg$ Define the notions of \emph{fibered products} and \emph{fibered coproducts}, as terminal objects of the categories $\cat{C}_{\alpha,\beta}$, $\cat{C}^{\alpha,\beta}$ considered in Example 3.10 (cf. also Exercise 3.11), by stating carefully the corresponding universal properties.
 
     As it happens, $\Set$ has both fibered products and coproducts. Define these objects `concretely', in terms of naive set theory. \sqref{II.3.9, III.6.10, III.6.11}
-}{}
+}{
+    \begin{itemize}
+        \item[]
+        \item fibered product : final object of $\cat{C}_{\alpha,\beta}$.
+
+        \item fibered coproduct : initial object of $\cat{C}^{\alpha,\beta}$.
+    \end{itemize}
+    
+    $\Set$ has both fibered products and fibered coproducts, obviously.
+
+    Let $A, B, C, \alpha : A \to C, \beta : B \to C$ are given. Then the set $\{ (a,b) \mid \alpha(a) = \beta(b) \}$ is the fibered product of $\alpha$ and $\beta$.
+
+    Now let $A, B, C, \alpha : C \to A, \beta : C \to B$ are given. Then the set $\{ ([c]_{\sim_\alpha},\alpha) \mid c \in C \} \cup \{ ([c]_{\sim_B},\beta) \mid c \in C \}$ is the fibered coproduct of $\alpha$ and $\beta$.
+}
