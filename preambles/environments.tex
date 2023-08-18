@@ -1,6 +1,11 @@
 %%                 diagram                 %%
-\newenvironment{cd}{
-    \[\begin{tikzcd}[ampersand replacement=\&]
+\newenvironment{cd}[1][ampersand replacement=\&]{
+    \[\begin{tikzcd}[#1,ampersand replacement=\&]
 }{
     \end{tikzcd}\]
+}
+\newenvironment{inlinecd}[1][ampersand replacement=\&]{
+    \(\begin{tikzcd}[#1,ampersand replacement=\&]
+}{
+    \end{tikzcd}\)
 }
