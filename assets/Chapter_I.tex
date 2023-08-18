@@ -509,7 +509,7 @@
 \problem{
     $\vartriangleright$ Prove that $\emptyset$ is the \emph{unique} initial object in $\Set$. \sqref{\S5.1}
 }{
-    First, let's check if $\emptyset$ is actually an initial object of the category $\Set$. For any sets $S$, there exists a unique function $\emptyset to S$ since the empty relation is always a function. Hence, $\emptyset$ is an initial object of the category $\Set$.
+    First, let's check if $\emptyset$ is actually an initial object of the category $\Set$. For any sets $S$, there exists a unique function $\emptyset$ to $S$ since the empty relation is always a function. Hence, $\emptyset$ is an initial object of the category $\Set$.
 
     Now, to show the uniqueness, take any nonempty sets $S$. Then there is no function $S \to \emptyset$, obviously. Thus, $S$ cannot be an initial object of $\Set$.
 
@@ -555,12 +555,17 @@
 \problem{
     $\vartriangleright$ Consider the category corresponding to endowing (as in Example 3.3) the set $\ZZ^+$ of positive integers with the \emph{divisibility} relation. Thus there is exactly one morphism $d \to m$ in this category if and only if $d$ divides $m$ without remainder; there is no morphism between $d$ and $m$ otherwise. Show that this category has products and coproducts. What are their `conventional' names? \sqref{\S VII.5.1}
 }{
-    
+    Let's say that the given category is called $\cat{C}$. Now let $n,m$ be objects of $\cat{C}$.
+
+    Then the category $\cat{C}_{n,m}$ will be a category of common divisors of $n,m$. So, it is quite obvious that $\gcd (n,m)$ is a final object of $\cat{C}_{n,m}$ and this means that $\gcd (n,m)$ is the product of $n$ and $m$.
+
+    Similarly, $\lcm (n,m)$ is the coproduct of $n$ and $m$.
 }
 
 \problem{
     Redo \ref{prob:I.2.9}, this time using Proposition 5.4.
-}{}
+}{
+}
 
 \problem{
     Show that in every category $\cat{C}$ the products $A \times B$ and $B \times A$ are isomorphic, if they exist. (Hint: Observe that they both satisfy the universal property for the product of $A$ and $B$; then use Proposition 5.4.)
