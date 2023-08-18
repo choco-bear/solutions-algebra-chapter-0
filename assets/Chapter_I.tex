@@ -247,29 +247,29 @@
         Z_1 \& Z_2
     \end{cd}
     in $\cat{C}$. Morphisms $f_1 \to f_2$ are defined to be commutative diagrams
-    \[\begin{tikzcd}[column sep=1.5em,ampersand replacement=\&]
+    \begin{cd}[column sep=1.5em]
         \& A \ar[dl, swap, "f_1"] \ar[dr, "f_2"] \\
         Z_1 \ar[rr, "\sigma"] \&\& Z_2
-    \end{tikzcd}\]
+    \end{cd}
     in the category $\cat{C}$.
 
     Now let's define the composition in $\cat{C}^A$. Let two morphisms $f_1 \to f_2$ and $f_2 \to f_3$ be given:
-    \[\begin{tikzcd}[column sep=1.5em,ampersand replacement=\&]
+    \begin{cd}[column sep=1.5em]
         \& A \ar[dl, swap, "f_1"] \ar[dr, "f_2"] \&\&\& A \ar[dl, swap, "f_2"] \ar[dr, "f_3"] \\
         Z_1 \ar[rr, "\sigma"] \&\& Z_2 \& Z_2 \ar[rr, "\tau"] \&\& Z_3
-    \end{tikzcd}\]
+    \end{cd}
     Then the following diagram is also commutative so it is a morphism in $\cat{C}^A$:
-    \[\begin{tikzcd}[column sep=1.5em,ampersand replacement=\&]
+    \begin{cd}[column sep=1.5em]
         \& A \ar[dl, swap, "f_1"] \ar[dr, "f_3"] \\
         Z_1 \ar[rr, "\tau\sigma"] \&\& Z_3
-    \end{tikzcd}\]
+    \end{cd}
     If we define the composition in the way mentioned above, the composition is associative, indeed.
     
     Moreover, there is an identity $\one_f : f \to f$. Look at the diagram below:
-    \[\begin{tikzcd}[column sep=1.5em,ampersand replacement=\&]
+    \begin{cd}[column sep=1.5em]
         \& A \ar[dl, swap, "f"] \ar[dr, "f"] \\
         Z \ar[rr, "\one_Z"] \&\& Z
-    \end{tikzcd}\]
+    \end{cd}
     The diagram above is obviously commutative, so it is a morphism $f \to f$. Also, it is quite clear that the above diagram is an identity.
 
     Therefore, $\cat{C}^A$ is a category.
@@ -317,25 +317,25 @@
     At this time, we start from a given category $\cat{C}$ and two objects $A,B$ of $\cat{C}$. We can define a new category $\cat{C}^{A,B}$ by essentially the same procedure that we used in order to define $\cat{C}^A$:
     \begin{itemize}[label=$\bullet$]
         \item $\Obj{\cat{C}^{A,B}}$ is the collection of the diagrams
-        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+        \begin{cd}[row sep=0.8em,column sep=2em]
             \&\& A \ar[dll, swap, "f"] \\
             Z \\
             \&\& B \ar[ull, "g"]
-        \end{tikzcd}\]
+        \end{cd}
         in $\cat{C}$;
 
         \item morphisms
-        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+        \begin{cd}[row sep=0.8em,column sep=2em]
             \&\& A \ar[dll, swap, "f_1"] \&\& \&\& A \ar[dll, swap, "f_2"] \\
             Z_1 \&\& \ar[rr] \&\& Z_2\\
             \&\& B \ar[ull, "g_1"] \&\& \&\& B \ar[ull, "g_2"]
-        \end{tikzcd}\]
+        \end{cd}
         are commutative diagrams:
-        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+        \begin{cd}[row sep=0.8em,column sep=2em]
             \&\&\& A \ar[dll, "f_2"] \ar[dlll, swap, bend right, "f_1"] \\
             Z_1 \& Z_2 \ar[l, swap, "\sigma"] \\
             \&\&\& B \ar[ull, swap, "g_2"] \ar[ulll, bend left, "g_1"]
-        \end{tikzcd}\]
+        \end{cd}
         in $\cat{C}$;
 
         \item composition of two morphisms
@@ -352,19 +352,19 @@
             \end{tikzcd}
         \end{array}\]
         is a commutative diagram
-        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+        \begin{cd}[row sep=0.8em,column sep=2em]
             \&\&\& A \ar[dll, "f_3"] \ar[dlll, swap, bend right, "f_1"] \\
             Z_1 \& Z_3 \ar[l, swap, "\tau\sigma"] \\
             \&\&\& B \ar[ull, swap, "g_3"] \ar[ulll, bend left, "g_1"]
-        \end{tikzcd}\]
+        \end{cd}
         in $\cat{C}$; and
         
         \item an identity morphism $\one_{\includegraphics[height=2mm]{assets/images/Chapter_I/3.11a.pdf}}$ is a commutative diagram
-        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+        \begin{cd}[row sep=0.8em,column sep=2em]
             \&\&\& A \ar[dll, "f"] \ar[dlll, swap, bend right, "f"] \\
             Z \& Z \ar[l, swap, "\one_Z"] \\
             \&\&\& B \ar[ull, swap, "g"] \ar[ulll, bend left, "g"]
-        \end{tikzcd}\]
+        \end{cd}
         in $\cat{C}$. 
     \end{itemize}
     Then it can be immediately shown that $\cat{C}^{A,B}$ is a category.
@@ -372,25 +372,25 @@
     Secondly, we will fix two morphisms $\alpha : C \to A$, $\beta : C \to B$ where $A,B,C$ are fixed objects of $\cat{C}$. We can define a new category $\cat{C}^{\alpha,\beta}$ by essentially the same procedure that we used in order to define $\cat{C}^\alpha$:
     \begin{itemize}[label=$\bullet$]
         \item $\Obj{\cat{C}^{\alpha,\beta}}$ is the collection of all commutative diagrams
-        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+        \begin{cd}[row sep=0.8em,column sep=2em]
             \&\& A \ar[dll, swap, "f"] \\
             Z \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
             \&\& B \ar[ull, "g"]
-        \end{tikzcd}\]
+        \end{cd}
         in $\cat{C}$;
 
         \item morphisms
-        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+        \begin{cd}[row sep=0.8em,column sep=2em]
             \&\& A \ar[dll, swap, "f_1"] \&\& \&\& \&\& A \ar[dll, swap, "f_2"]\\
             Z_1 \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"] \ar[rr] \&\& Z_2 \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"] \\
             \&\& B \ar[ull, "g_1"] \&\& \&\& \&\& B \ar[ull, "g_2"]
-        \end{tikzcd}\]
+        \end{cd}
         are commutative diagrams:
-        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+        \begin{cd}[row sep=0.8em,column sep=2em]
             \& \&\& A \ar[dll, swap, "f_2"] \ar[dlll, swap, bend right, "f_1"] \\
             Z_1 \& Z_2 \ar[l, "\sigma"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
             \& \&\& B \ar[ull, "g_2"] \ar[ulll, bend left, "g_1"]
-        \end{tikzcd}\]
+        \end{cd}
         in $\cat{C}$;
 
         \item composition of two morphisms
@@ -407,19 +407,19 @@
             \end{tikzcd}
         \end{array}$$
         is a commutative diagram
-        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+        \begin{cd}[row sep=0.8em,column sep=2em]
             \& \&\& A \ar[dll, swap, "f_3"] \ar[dlll, swap, bend right, "f_1"] \\
             Z_1 \& Z_3 \ar[l, "\tau\sigma"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
             \& \&\& B \ar[ull, "g_3"] \ar[ulll, bend left, "g_1"]
-        \end{tikzcd}\]
+        \end{cd}
         in $\cat{C}$; and
 
         \item an identity morphism $\one_{\includegraphics[height=2mm]{assets/images/Chapter_I/3.11b.pdf}}$ is a commutative diagram
-        \[\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+        \begin{cd}[row sep=0.8em,column sep=2em]
             \& \&\& A \ar[dll, swap, "f"] \ar[dlll, swap, bend right, "f"] \\
             Z \& Z \ar[l, "\one_Z"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
             \& \&\& B \ar[ull, "g"] \ar[ulll, bend left, "g"]
-        \end{tikzcd}\]
+        \end{cd}
         in $\cat{C}$.
     \end{itemize}
     Then it can be quite easily shown that $\cat{C}^{\alpha,\beta}$ is a category.
