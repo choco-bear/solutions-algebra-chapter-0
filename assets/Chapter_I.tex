@@ -359,7 +359,11 @@
         \end{cd}
         in $\cat{C}$; and
         
-        \item an identity morphism $\one_{\includegraphics[height=2mm]{assets/images/Chapter_I/3.11a.pdf}}$ is a commutative diagram
+        \item an identity morphism $\one_{\adjustbox{scale=0.1}{\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+            \&\& A \ar[dll, swap, "f"] \\
+            Z \\
+            \&\& B \ar[ull, "g"]
+        \end{tikzcd}}}$ is a commutative diagram
         \begin{cd}[row sep=0.8em,column sep=2em]
             \&\&\& A \ar[dll, "f"] \ar[dlll, swap, bend right, "f"] \\
             Z \& Z \ar[l, swap, "\one_Z"] \\
@@ -414,7 +418,11 @@
         \end{cd}
         in $\cat{C}$; and
 
-        \item an identity morphism $\one_{\includegraphics[height=2mm]{assets/images/Chapter_I/3.11b.pdf}}$ is a commutative diagram
+        \item an identity morphism $\one_{\adjustbox{scale=0.1}{\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+            \&\& A \ar[dll, swap, "f"] \\
+            Z \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+            \&\& B \ar[ull, "g"]
+        \end{tikzcd}}}$ is a commutative diagram
         \begin{cd}[row sep=0.8em,column sep=2em]
             \& \&\& A \ar[dll, swap, "f"] \ar[dlll, swap, bend right, "f"] \\
             Z \& Z \ar[l, "\one_Z"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
@@ -583,18 +591,90 @@
     \begin{cd}[row sep=0.8em,column sep=0.5em]
         \&\&\&\&\&\&\&\& A \ar[dllllllll] \&\& \&\&\&\&\&\&\&\& A \ar[dllllllll] \\
         A' \cup B' \&\&\&\&\&\&\&\& \& \cong \& A'' \cup B'' \\
-        \&\&\&\&\&\&\&\& B \ar[ullllllll] \&\& \&\&\&\&\&\&\&\& B \ar[ullllllll]
+        \&\&\&\&\&\&\&\& B \ar[ullllllll] \&\& \&\&\&\&\&\&\&\& B \ar[ullllllll, shorten >=3pt, shift right]
     \end{cd}
     and this means that there exist bijections between $A' \cup B'$ and $A'' \cup B''$. Therefore, $A' \cup B' \cong A'' \cup B''$.
 }
 
 \problem{
     Show that in every category $\cat{C}$ the products $A \times B$ and $B \times A$ are isomorphic, if they exist. (Hint: Observe that they both satisfy the universal property for the product of $A$ and $B$; then use Proposition 5.4.)
-}{}
+}{
+    By definition of product $A \times B$ in $\cat{C}$, the diagrams \begin{inlinecd}[row sep=0.8em,column sep=4em]
+        \& A \\
+        A \times B \ar[ur, "\pi_A"{pos=0.6}] \ar[dr, "\pi_B"{pos=0.3}] \\
+        \& B
+    \end{inlinecd} and \begin{inlinecd}[row sep=0.8em,column sep=4em]
+        \& B \\
+        B \times A \ar[dr, "\pi'_A"{pos=0.3}] \ar[ur, "\pi'_B"{pos=0.6}] \\
+        \& A
+    \end{inlinecd} are final object of $\cat{C}_{A,B}$ and $\cat{C}_{B,A}$, respectively.
 
-\problem{
+    Since $\cat{C}_{A,B} = \cat{C}_{B,A}$, the both objects are final objects in the same category, and this means that they are isomorphic.
+
+    Therefore, there exists an isomorphism between $A \times B$ and $B \times A$ and, hence, $A \times B \cong B \times A$.
+}
+
+\problembr{
     Let $\cat{C}$ be a category with products. Find a reasonable candidate for the universal property that the product $A \times B \times C$ of \emph{three} objects of $\cat{C}$ ought to satisfy, and prove that both $(A \times B) \times C$ and $A \times (B \times C)$ satisfy this universal property. Deduce that $(A \times B) \times C$ and $A \times (B \times C)$ are necessarily isomorphic.
-}{}
+}{
+    Let $D$ be an object of $\cat{C}$. If there exists morphisms $\pi_A : D \to A$, $\pi_B : D \to B$, and $\pi_C : D \to C$ such that, for every $E \in \Obj{\cat{C}}$ and for all morphisms $f_A : E \to A$, $f_B : E \to B$, and $f_C : E \to C$, there exists a unique morphism $\sigma : E \to D$ such that the diagram below is commutative:
+
+    \begin{cd}[row sep=0.5em,column sep=3em]
+        E \ar[rr,bend left] \ar[rr,phantom,"\sigma",bend left,swap,shift right=2] \ar[dr,"f_A"{pos=0.6},swap,bend left] \ar[ddr,"f_B",swap] \ar[dddr,"f_C"{pos=0.6},swap,bend right] \&\& D \ar[dl,"\pi_A"{pos=0.6},bend right] \ar[ddl,"\pi_B"] \ar[dddl,"\pi_C"{pos=0.6},bend left]\\
+        \& A \\
+        \& B \\
+        \& C
+    \end{cd}
+
+    Then we can denote $D$ by $A \times B \times C$.
+
+    Now let's show that $(A \times B) \times C$ satisfies the universal property mentioned above.
+    
+    By definition of product of two objects, there exist two unique morphisms $\sigma : D \to A \times B$ and $\tau : E \to (A \times B) \times C$ such that the diagram below is commutative
+    \begin{cd}
+        \& (A \times B) \times C \ar[dl,"\pi_C",swap] \ar[dr,"\pi_{A \times B}"] \&\& A \\
+        C \&\& A \times B \ar[ur,"\pi_A"] \ar[dr,"\pi_B",swap] \&\& D \ar[ll,"\sigma",dotted,swap] \ar[ul,"f_A",swap] \ar[dl,"f_B"] \\
+        \& E \ar[uu,"\tau",dotted,swap] \ar[ul,"f_C"] \ar[ur,"f_{A \times B}",swap] \&\& B
+    \end{cd}
+    for any objects $D,E$ of $\cat{C}$, and for all morphisms $f_A : D \to A$, $f_B : D \to B$, $f_{A \times B} : E \to A \times B$, $f_C : E \to C$.
+
+    If we take $E = D$, then the diagram above can be redrawn as below:
+
+    \begin{cd}[sep=large]
+        (A \times B) \times C \ar[r,"\pi_{A \times B}"] \ar[d,"\pi_C"] \& A \times B \ar[r,"\pi_A"] \ar[dr,"\pi_B"{pos=0.8}] \& A \\
+        C \& E \ar[l,"f_C"] \ar[ul,"\tau",dotted,swap] \ar[u,"\sigma",shift left] \ar[u,"f_{A \times B}",shift right,swap] \ar[ur,"f_A"{pos=0.8},swap] \ar[r,"f_B"] \& B
+    \end{cd}
+
+    If we get rid of $A \times B$ from the diagram, then the above one can be redrawn as:
+
+    \begin{cd}
+        \&\& (A \times B) \times C \ar[lld,"\pi_A \pi_{A \times B}",swap,bend right=20pt] \ar[ld,"\pi_B \pi_{A \times B}"] \ar[rd,"\pi_C"] \\
+        A \& B \&\& C \\
+        \&\& E \ar[llu,"f_A",bend left=20pt] \ar[lu,"f_B",swap] \ar[uu,"\tau",dotted] \ar[ur,"f_C"]
+    \end{cd}
+
+    Therefore, $(A \times B) \times C$ satisfies the universal property. Similarly, we can show that $A \times (B \times C)$ satisfies that property.
+
+    All that is left now is to show that $(A \times B) \times C$ and $A \times (B \times C)$ are isomorphic.
+
+    Since $(A \times B) \times C$ and $A \times (B \times C)$ satisfy the universal property, there exist two unique morphisms $\sigma : (A \times B) \times C \to A \times (B \times C)$ and $\tau : A \times (B \times C) \to (A \times B) \times C$ which make the diagram below be commutative:
+
+    \begin{cd}
+        \&\& (A \times B) \times C \ar[lld,"\pi_A",swap,bend right=20pt] \ar[ld,"\pi_B"] \ar[dd,"\sigma",dotted,shift right,swap] \ar[rd,"\pi_C"] \\
+        A \& B \&\& C \\
+        \&\& A \times (B \times C) \ar[llu,"\pi'_A",bend left=20pt] \ar[lu,"\pi'_B",swap] \ar[uu,"\tau",dotted,shift right,swap] \ar[ur,"\pi'_C"]
+    \end{cd}
+
+    Then it is obvious that $\pi'_A \sigma \tau = \pi_A \tau = \pi'_A$, $\pi'_B \sigma \tau = \pi'_B$, $\pi'_C \sigma \tau = \pi'_C$. Hence, we can get a commutative diagram:
+
+    \begin{cd}
+        \&\& A \times (B \times C) \ar[lld,"\pi'_A",swap,bend right=20pt] \ar[ld,"\pi'_B"] \ar[dd,"\sigma\tau",dotted] \ar[rd,"\pi'_C"] \\
+        A \& B \&\& C \\
+        \&\& A \times (B \times C) \ar[llu,"\pi'_A",bend left=20pt] \ar[lu,"\pi'_B",swap] \ar[ur,"\pi'_C"]
+    \end{cd}
+
+    By the universal property of $A \times (B \times C)$, $\sigma \tau = \one_{A \times (B \times C)}$. In the same way, $\tau \sigma = \one_{(A \times B) \times C}$. Therefore, $A \times (B \times C) \cong (A \times B) \times C$.
+}
 
 \problem{
     Push the envelope a little further still, and define products and coproducts for \emph{families} (i.e., indexed sets) of objects of a category.
