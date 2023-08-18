@@ -92,11 +92,17 @@
 \def\surjection{two heads}
 \def\injection{hook}
 
-%%                   etc                   %%
-\def\st{\text{ s.t. }}
-\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+%%              number theory              %%
+\renewcommand{\gcd}{\operatorname{gcd}}
+\newcommand{\lcm}{\operatorname{lcm}}
+
+%%                  logic                  %%
 \newcommand{\notimplies}{\mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
 \newcommand{\notiff}{\mathrel{{\ooalign{\hidewidth$\not\phantom{/}$\hidewidth\cr$\iff$}}}}
 \newcommand{\notimpliedby}{\mathrel{{\ooalign{\hidewidth$\not\phantom{;}$\hidewidth\cr$\impliedby$}}}}
 \newcommand{\twoheadhookrightarrow}{\hookrightarrow\mathrel{\mspace{-15mu}}\rightarrow}
 \newcommand{\sqref}[1]{\(\left[\text{#1}\right]\)}
+
+%%                   etc                   %%
+\def\st{\text{ s.t. }}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
