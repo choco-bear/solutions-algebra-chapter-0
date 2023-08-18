@@ -565,6 +565,27 @@
 \problem{
     Redo \ref{prob:I.2.9}, this time using Proposition 5.4.
 }{
+    Let $A$, $B$ be two sets and consider the category $\Set^{A,B}$. Now let $A \cong A'$, $B \cong B'$, and $A' \cap B' = \emptyset$. Then $A' \cup B'$ is an initial object of $\Set^{A,B}$.
+
+    To prove this, consider a set $C$, bijections $\alpha : A \to A'$ and $\beta : B \to B'$, and inclusions $i_{A'} : A' \to A' \cup B'$ and $i_{B'} : B' \to A' \cup B'$. Then the commutative diagram below exists uniquely when $f_A : A \to C$ and $f_B : B \to C$ are fixed:
+
+    \begin{cd}[row sep=0.8em,column sep=4em]
+        \&\& A \ar[dll, "f_A", swap, bend right] \ar[dl, "i_{A'}\alpha"] \\
+        C \& A' \cup B' \ar[l, "\sigma", swap] \\
+        \&\& B \ar[ull, "f_B", bend left] \ar[ul, "i_{B'}\beta", swap]
+    \end{cd}
+
+    Hence, the diagram \begin{inlinecd}[row sep=0.8em,column sep=4em]
+        \& A \ar[dl, "i_{A'}\alpha"{pos=0.3}, swap] \\
+        A' \cup B' \\
+        \& B \ar[ul, "i_{B'}\beta"{pos=0.3}]
+    \end{inlinecd} is an initial object of $\Set^{A,B}$. This means that the diagram which contains $A'' \cup B''$ is also an initial object of $\Set^{A,B}$, where $A \cong A''$, $B \cong B''$, and $A'' \cap B'' = \emptyset$. Thus,
+    \begin{cd}[row sep=0.8em,column sep=0.5em]
+        \&\&\&\&\&\&\&\& A \ar[dllllllll] \&\& \&\&\&\&\&\&\&\& A \ar[dllllllll] \\
+        A' \cup B' \&\&\&\&\&\&\&\& \& \cong \& A'' \cup B'' \\
+        \&\&\&\&\&\&\&\& B \ar[ullllllll] \&\& \&\&\&\&\&\&\&\& B \ar[ullllllll]
+    \end{cd}
+    and this means that there exist bijections between $A' \cup B'$ and $A'' \cup B''$. Therefore, $A' \cup B' \cong A'' \cup B''$.
 }
 
 \problem{
