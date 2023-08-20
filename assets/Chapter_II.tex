@@ -1,0 +1,34 @@
+\chapter{Groups, first encounter}
+\section{Definition of group}
+\problem{ %1.1
+    $\vartriangleright$ Write a careful proof that every group is the group of isomorphisms of a groupoid. In particular, every group is the group of automorphisms of some object in some category. \sqref{\S2.1}
+}{
+    Let a group $(G,\cdot)$ be given.
+
+    Now consider a single object category $\cat{C}$ which satisfies that $\Obj{\cat{C}} = \{ \cdot \}$, $\End{\cat{C}}{\cdot} = G$, and the composition of morphisms defined as $gf := g \cdot f$ in.
+    
+    Then it is obvious that $\cat{C}$ is a groupoid because every morphism has inverse since $gg^{-1} = g^{-1}g = \one$.
+
+    Therefore, every group is the group os isomorphism of a groupoid and the rest of the exercise is completed.
+}
+
+\problem{ %1.2
+    $\vartriangleright$ Consider the `sets of numbers' listed in \S1.1, and decide which are made into groups by conventional operations such as $+$ and $\cdot$. Even if the answer is negative (for esample, $(\RR,\cdot)$ is not a group), see if variations on the definition of these sets lead to groups (for example, $(\RR^*,\cdot)$ \emph{is} a group; cf. \S1.4). \sqref{\S1.2}
+}{
+    \paragraph{Groups}
+    $(\ZZ,+)$, $(\QQ,+)$, $(\RR,+)$, $(\CC,+)$
+
+    \paragraph{Non-groups}
+    $(\NN,+)$, $(\NN,\cdot)$, $(\ZZ,\cdot)$, $(\QQ,\cdot)$, $(\RR,\cdot)$, $(\CC,\cdot)$
+
+    \paragraph{Variations which are groups}
+    $(\QQ^*,\cdot)$, $(\QQ^+,\cdot)$, $(\RR^*,\cdot)$, $(\RR^+,\cdot)$, $(\CC^*,\cdot)$
+}
+
+\problem{ % 1.3
+    Prove that $(gh)^{-1} = h^{-1}g^{-1}$ for all elements $g$, $h$ of a group $G$.
+}{
+    $(h^{-1}g^{-1})(gh) = \left( h^{-1} (g^{-1}g) \right) h = (h^{-1}e)h = h^{-1}h = e$.
+    $(gh)(h^{-1}g^{-1}) = \left( g (hh^{-1}) \right) g^{-1} = (ge)g^{-1} = gg^{-1} = e$.
+    Since the inverse of $gh$ is unique, $h^{-1}g^{-1}$ is the inverese of $gh$.
+}
