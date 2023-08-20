@@ -35,7 +35,13 @@
 
 \problem{ %1.4
     Suppose that $g^2 = e$ for all elements $g$ of a group $G$; prove that $G$ is commutative.
-}{}
+}{
+    Let $g$ be an element of $G$. Then $g = g^{-1}$ since $gg = e$.
+
+    Now let $h$ also be an element of $G$. Then $gh = (gh)^{-1} = h^{-1}g^{-1} = hg$ since $G$ is a group.
+
+    Therefore, $G$ is commutative.
+}
 
 \problem{ %1.5
     The `multiplication table' of a group is an array compiling the results of all multiplications $g \bullet h$:
@@ -49,48 +55,187 @@
         \end{tabular}
     \end{center}
     (Here $e$ is the identity element. Of course the table depends on the order in which the elements are listed in the top row and leftmost column.) Prove that every row and every column of the multiplication table of a group contains all elements of the group exactly once (like Sudoku diagrams!).
-}{}
+}{
+    Let $l_g : G \to G$ be a function defined as $l_g : x \mapsto gx$ for each $g \in G$.
+    
+    Then it is clear that $l_g$ is surjective since $l_g(g^{-1}x) = x$ for any $x \in G$, and it is obvious that $l_g$ is injective since $l_g(x) = l_g(y)$ implies that $x = g^{-1}l_g(x) = g^{-1}l_g(y) = y$ for any $x,y \in G$.
 
-\problem{ %1.6
-    $\neg$ Prove that there is only \emph{one} possible multiplication table for $G$ if $G$ has exactly 1, 2, or 3 elements. Analyze the possible multiplication tables for groups with exactly 4 elements, and show that there are \emph{two} distinct tables, up to reordering the elements of $G$. Use these tables to prove that all groups with $\leq$ 4 elements are commutative.
+    Hence, $l_g$ is a bijection and this means that each row of the multiplication table of a group contains every element of the group exactly once.
 
-    \indent (You are welcome to analyze groups with 5 elements using the same technique, but you will soon know enough about groups to be able to avoid such brute-force approaches.) \sqref{2.19}
-}{}
+    Similarly, it is readily shown that each column of the multiplication table of a group contains every element of the group exactly once.
+}
+
+\problembr{ %1.6
+    $\neg$ Prove that there is only \emph{one} possible multiplication table for $G$ if $G$ has exactly 1, 2, or 3 elements. Analyze the possible multiplication tables for groups with exactly 4 elements, and show that there are \emph{two} distinct tables, up to reordering the elements of $G$. Use these tables to prove that all groups with $\leq$ 4 elements are commutative.\\ \indent (You are welcome to analyze groups with 5 elements using the same technique, but you will soon know enough about groups to be able to avoid such brute-force approaches.) \sqref{2.19}
+}{
+    If $G$ has only one element, then the binary operation $\cdot : G \times G \to G$ is unique and the multiplication table has to be the below one:
+    \begin{center}
+        \begin{tabular}{c||c}
+            $\cdot$ & $e$ \\ \hline\hline
+            $e$ & $e$
+        \end{tabular}
+    \end{center}
+
+    If $G$ has only two element $e$,$a$, then it has to be $ee = e$ and $ae = ea = a$. In the case that $aa = a$, then $a$ has no inverse so it has to be $aa = e$. Thus, the multiplication table of $G$ has to be the below one:
+    \begin{center}
+        \begin{tabular}{c||c|c}
+            $\cdot$ & $e$ & $a$ \\ \hline\hline
+            $e$ & $e$ & $a$ \\ \hline
+            $a$ & $a$ & $e$
+        \end{tabular}
+    \end{center}
+
+    Now consider the case that $G$ has exactly 3 elements, $e$, $a$, $b$. Then it is obvious that $ee = e$, $ea = ae = a$, $eb = be = b$. Since every element of a group has an inverse, it has to be either $a^2 = b^2 = e$ or $ab = ba = e$.
+    
+    In the case of $a^2 = b^2 = e$, $ab = b$ since the function $G \to G : x \mapsto ax$ is bijective. But by cancellation, $ab = b$ induces the fact that $a = e$, and this contradicts the fact that $e$, $a$, $b$ are distinct. 
+    
+    Hence, we can obtain $ab = ba = e$ and this means that $a^2 = b$ and $b^2 = a$ since each row of the multiplication table contains $e$, $a$, $b$ exactly once. To sum up, the multiplication table has to be the below one:
+    \begin{center}
+        \begin{tabular}{c||c|c|c}
+            $\cdot$ & $e$ & $a$ & $b$ \\ \hline\hline
+            $e$ & $e$ & $a$ & $b$ \\ \hline
+            $a$ & $a$ & $b$ & $e$ \\ \hline
+            $b$ & $b$ & $e$ & $a$
+        \end{tabular}
+    \end{center}
+
+    Finally, now consider the situation that $G$ has only 4 elements, $e$, $a$, $b$, $c$. Then it is obvious that $ee = e$, $ea = ae = a$, $eb = be = b$, and $ec = ce = c$.
+
+    Since $a$ has an inverse, it has to be either $a^2 = e$ or $ab = ba = e$. The case of $ac = ca = e$ is the same situation with the case of $ab = ba = e$ up to reordering the elements.
+
+    If $a^2 = e$, then it is clear that $ab = ba = c$ and $ac = ca = b$ since each row and column of the multiplication table contains $e$, $a$, $b$, $c$ exactly once.
+
+    Thus, in the case of $a^2 = e$, the multiplication table of $G$ has to be one of the below:
+    \begin{center}
+        \begin{tabular}{c||c|c|c|c}
+            $\cdot$ & $e$ & $a$ & $b$ & $c$ \\ \hline\hline
+            $e$ & $e$ & $a$ & $b$ & $c$ \\ \hline
+            $a$ & $a$ & $e$ & $c$ & $b$ \\ \hline
+            $b$ & $b$ & $c$ & $e$ & $a$ \\ \hline
+            $c$ & $c$ & $b$ & $a$ & $e$
+        \end{tabular}, \quad \begin{tabular}{c||c|c|c|c}
+            $\cdot$ & $e$ & $a$ & $b$ & $c$ \\ \hline\hline
+            $e$ & $e$ & $a$ & $b$ & $c$ \\ \hline
+            $a$ & $a$ & $e$ & $c$ & $b$ \\ \hline
+            $b$ & $b$ & $c$ & $a$ & $e$ \\ \hline
+            $c$ & $c$ & $b$ & $e$ & $a$
+        \end{tabular}
+    \end{center}
+
+    In the case of $ab = ba = e$ is the same case with the second table up to reordering the elements.
+
+    Therefore, the desired results follow.
+
+    Analyzing groups with 5 elements using the same technique requires a lot of effort, and the result is just a fact that there is only one group of order 5, whose multiplication table is just below:
+    \begin{center}
+        \begin{tabular}{c||c|c|c|c|c}
+            $\cdot$ & $e$ & $a$ & $b$ & $c$ & $d$ \\ \hline\hline
+            $e$ & $e$ & $a$ & $b$ & $c$ & $d$ \\ \hline
+            $a$ & $a$ & $b$ & $c$ & $d$ & $e$ \\ \hline
+            $b$ & $b$ & $c$ & $d$ & $e$ & $a$ \\ \hline
+            $c$ & $c$ & $d$ & $e$ & $a$ & $b$ \\ \hline
+            $d$ & $d$ & $e$ & $a$ & $b$ & $c$
+        \end{tabular}
+    \end{center}
+}
 
 \problem{ %1.7
     Prove Corollary 1.11.
-}{}
+}{
+    \begin{itemize}[leftmargin=12mm]
+        \item[]
+        \item[($\implies$)] This is just the result of Lemma 1.10.
+
+        \item[($\impliedby$)] If $N$ is a multiple of $\abs{g}$, then $N = m\abs{g}$ for some integer $m$. Hence, $g^N = g^{m\abs{g}} = \left( g^\abs{g} \right)^m = e^m = e$.
+    \end{itemize}
+}
 
 \problem{ %1.8
     $\neg$ Let $G$ be a finite abelian group, with exactly one element $f$ of order 2. Prove that $\prod_{g \in G} g = f$. \sqref{4.16}
-}{}
+}{
+    Let $H = \{ g \in G \mid \abs{g} > 2 \}$. Then $\prod_{g \in G} g = f \prod_{g \in H} g$, obviously, since $G$ is commutative.
+    
+    Since $g^{\abs{g}-1} = g^{-1}$ for any $g \in G$, $\prod_{g \in H} g = e$, clearly.
+
+    Therefore, $\prod_{g \in G} g = f$ since $f^{-1} = f$.
+}
 
 \problem{ %1.9
     Let $G$ be a finite group, of order $n$, and let $m$ be the number of elements $g \in G$ of order exactly 2. Prove that $n-m$ is odd. Deduce that if $n$ is even, then $G$ necessarily contains elements of order 2.
-}{}
+}{
+    If $\abs{g} > 2$, then $g^{-1} \neq g$ since $g^{-1} = g^{\abs{g}-1}$.
+
+    Hence, the subset of $G$ whose elements have order greater than 2 has even elements.
+
+    Therefore, $n-m = 1 + \{ g \in G \mid \abs{g} > 2 \}$ is an odd number.
+}
 
 \problem{ %1.10
     Suppose the order of $g$ is odd. What can you say about the order of $g^2$?
-}{}
+}{
+    Since $(g^2)^\abs{g} = (g^\abs{g})^2 = e^2 = e$, $\abs{g^2}$ divides $\abs{g}$.
+
+    Since $g^{2\abs{g^2}} = (g^2)^\abs{g^2} = e$, $\abs{g}$ divides $2\abs{g^2}$, and thus $\abs{g}$ divides $\abs{g^2}$ since $\abs{g}$ is odd and by the Euclid's lemma.
+
+    Therefore, $\abs{g} = \abs{g^2}$ since $\abs{g}$ and $\abs{g^2}$ are greater than 0.
+}
 
 \problem{ %1.11
     Prove that for all $g$, $h$ in a group $G$, $\abs{gh} = \abs{hg}$. (Hint: Prove that $\abs{aga^{-1}} = \abs{g}$ for all $a,$ $g$ in $G$.)
-}{}
+}{
+    $\begin{array}{lcr}
+        (aga^{-1})^n = e & \iff & ag^na^{-1} = e \\
+        & \iff & ag^n = a \\
+        & \iff & g^n = e \text{ for any } a,g \in G.
+    \end{array}$
+
+    Thus, it is clear that $\abs{g} = \abs{aga^{-1}}$ and this implies that $\abs{gh} = \abs{h(gh)h^{-1}} = \abs{hg}$.
+}
 
 \problem{ %1.12
     $\vartriangleright$ In the group of invertible $2 \times 2$ matrices, consider
     $$g = \mat{0 & -1 \\ 1 & 0}, h = \mat{0 & 1 \\ -1 & -1}.$$
     Verify that $\abs{g} = 4$, $\abs{h} = 3$, and $\abs{gh} = \infty$. \sqref{\S1.6}
-}{}
+}{
+    Since $g^4 = I$ and $g^2 = -I$, $\abs{g} = 4$.
+
+    Since $h^3 = I$ and 3 is a prime, $\abs{h} = 3$.
+
+    Now consider the $gh = \mat{1 & 1 \\ 0 & 1}$.
+
+    Since $\mat{1 & 1 \\ 0 & 1}^n = \mat{1 & n \\ 0 & 1}$, $\abs{gh} = \infty$.
+}
 
 \problem{ %1.13
     $\vartriangleright$ Give an example showing that $\abs{gh}$ is not necessarily equal to $\lcm (\abs{g},\abs{h})$, even if $g$ and $h$ commute. \sqref{\S1.6, 1.14}
-}{}
+}{
+    Let $h = g^{-1}$. Then $\abs{gh} = 1$ and $gh = hg$.
+}
 
 \problem{ %1.14
     $\vartriangleright$ As a counterpoint to \ref{prob:II.1.13}, prove that if $g$ and $h$ commute \emph{and} $\gcd(\abs{g},\abs{h}) = 1$, then $\abs{gh} = \abs{g}\abs{h}$. (Hint: Let $N = \abs{gh}$; then $g^N = (h^{-1})^N$. What can you say about this element?) \sqref{\S1.6, 1.15, \S IV.2.5}
-}{}
+}{
+    Since $gh = hg$, $(gh)^\abs{gh} = g^\abs{gh}h^\abs{gh}$.
+
+    Thus, $g^\abs{gh} = (h^{-1})^\abs{gh}$ and this implies that $(h^{-1})^{\abs{g}\abs{gh}} = e$. Hence, $\abs{h}$ divides $\abs{g}\abs{gh}$.
+
+    Since $\gcd (\abs{g},\abs{h}) = 1$, by Euclid's lemma, $\abs{h}$ divides $\abs{gh}$.
+
+    In the same way, we can get the fact that $\abs{g}$ divides $\abs{gh}$ and so we get $\abs{g}\abs{h}$ divides $\abs{gh}$ since $\lcm (\abs{g},\abs{h}) = \abs{g}\abs{h}$.
+
+    Moreover, $(gh)^{\abs{g}\abs{h}} =g^{\abs{g}\abs{h}}h^{\abs{g}\abs{h}} = e^\abs{h}e^\abs{g} = e$ and this means that $\abs{gh}$ divides $\abs{g}\abs{h}$.
+
+    Therefore, $\abs{gh} = \abs{g}\abs{h}$.
+}
 
 \problem{ %1.15
     $\neg$ Let $G$ be a commutative group, and let $g \in G$ be an element of maximal \emph{finite} order, that is, such that if $h \in G$ has finite order, then $\abs{h} \leq \abs{g}$. Prove that in fact if $h$ has finite order in $G$, then $\abs{h}$ \emph{divides} $\abs{g}$. (Hint: Argue by contradiction. If $\abs{h}$ is finite but does not divide $\abs{g}$, then there is a prime integer $p$ such that $\abs{g} = p^mr$, $\abs{h} = p^ns$, with $r$ and $s$ relatively prime to $p$ and $m < n$. Use \ref{prob:II.1.14} to compute the order of $g^{p^m}h^s$.) \sqref{\S2.1, 4.11, IV.6.15}
-}{}
+}{
+    Suppose not, i.e., $\abs{h}$ is finite but $\abs{h}$ does not divide $\abs{g}$.
+
+    Then there is a prime number $p$ such that $\abs{g} = p^mr$, $\abs{h} = p^ns$, $p \nmid r$, $p \nmid s$, and $m < n$.
+
+    Then by the result of \ref{prob:II.1.14}, $\abs{g^{p^m}h^s} = p^nr > p^mr = \abs{g}$ and this contradicts the maximality of $g$.
+
+    Therefore, the resired result is shown.
+}
