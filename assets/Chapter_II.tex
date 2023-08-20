@@ -25,10 +25,72 @@
     \end{itemize}
 }
 
-\problem{ % 1.3
+\problem{ %1.3
     Prove that $(gh)^{-1} = h^{-1}g^{-1}$ for all elements $g$, $h$ of a group $G$.
 }{
     $(h^{-1}g^{-1})(gh) = \left( h^{-1} (g^{-1}g) \right) h = (h^{-1}e)h = h^{-1}h = e$.
     $(gh)(h^{-1}g^{-1}) = \left( g (hh^{-1}) \right) g^{-1} = (ge)g^{-1} = gg^{-1} = e$.
     Since the inverse of $gh$ is unique, $h^{-1}g^{-1}$ is the inverse of $gh$.
 }
+
+\problem{ %1.4
+    Suppose that $g^2 = e$ for all elements $g$ of a group $G$; prove that $G$ is commutative.
+}{}
+
+\problem{ %1.5
+    The `multiplication table' of a group is an array compiling the results of all multiplications $g \bullet h$:
+    \begin{center}
+        \begin{tabular}{c||c|c|c|c}
+            $\bullet$ & $e$ & $\cdots$ & $h$ & $\cdots$ \\ \hline\hline
+            $e$ & $e$ & $\cdots$ & $h$ & $\cdots$ \\ \hline
+            $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ \\ \hline
+            $g$ & $g$ & $\cdots$ & $g \bullet h$ & $\cdots$ \\ \hline
+            $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$
+        \end{tabular}
+    \end{center}
+    (Here $e$ is the identity element. Of course the table depends on the order in which the elements are listed in the top row and leftmost column.) Prove that every row and every column of the multiplication table of a group contains all elements of the group exactly once (like Sudoku diagrams!).
+}{}
+
+\problem{ %1.6
+    $\neg$ Prove that there is only \emph{one} possible multiplication table for $G$ if $G$ has exactly 1, 2, or 3 elements. Analyze the possible multiplication tables for groups with exactly 4 elements, and show that there are \emph{two} distinct tables, up to reordering the elements of $G$. Use these tables to prove that all groups with $\leq$ 4 elements are commutative.
+
+    \indent (You are welcome to analyze groups with 5 elements using the same technique, but you will soon know enough about groups to be able to avoid such brute-force approaches.) \sqref{2.19}
+}{}
+
+\problem{ %1.7
+    Prove Corollary 1.11.
+}{}
+
+\problem{ %1.8
+    $\neg$ Let $G$ be a finite abelian group, with exactly one element $f$ of order 2. Prove that $\prod_{g \in G} g = f$. \sqref{4.16}
+}{}
+
+\problem{ %1.9
+    Let $G$ be a finite group, of order $n$, and let $m$ be the number of elements $g \in G$ of order exactly 2. Prove that $n-m$ is odd. Deduce that if $n$ is even, then $G$ necessarily contains elements of order 2.
+}{}
+
+\problem{ %1.10
+    Suppose the order of $g$ is odd. What can you say about the order of $g^2$?
+}{}
+
+\problem{ %1.11
+    Prove that for all $g$, $h$ in a group $G$, $\abs{gh} = \abs{hg}$. (Hint: Prove that $\abs{aga^{-1}} = \abs{g}$ for all $a,$ $g$ in $G$.)
+}{}
+
+\problem{ %1.12
+    $\vartriangleright$ In the group of invertible $2 \times 2$ matrices, consider
+    $$g = \mat{0 & -1 \\ 1 & 0}, h = \mat{0 & 1 \\ -1 & -1}.$$
+    Verify that $\abs{g} = 4$, $\abs{h} = 3$, and $\abs{gh} = \infty$. \sqref{\S1.6}
+}{}
+
+\problem{ %1.13
+    $\vartriangleright$ Give an example showing that $\abs{gh}$ is not necessarily equal to $\lcm (\abs{g},\abs{h})$, even if $g$ and $h$ commute. \sqref{\S1.6, 1.14}
+}{}
+
+\problem{ %1.14
+    $\vartriangleright$ As a counterpoint to \ref{prob:II.1.13}, prove that if $g$ and $h$ commute \emph{and} $\gcd(\abs{g},\abs{h}) = 1$, then $\abs{gh} = \abs{g}\abs{h}$. (Hint: Let $N = \abs{gh}$; then $g^N = (h^{-1})^N$. What can you say about this element?) \sqref{\S1.6, 1.15, \S IV.2.5}
+}{}
+
+\problem{ %1.15
+    $\neg$ Let $G$ be a commutative group, and let $g \in G$ be an element of maximal \emph{finite} order, that is, such that if $h \in G$ has finite order, then $\abs{h} \leq \abs{g}$. Prove that in fact if $h$ has finite order in $G$, then $\abs{h}$ \emph{divides} $\abs{g}$. (Hint: Argue by contradiction. If $\abs{h}$ is finite but does not divide $\abs{g}$, then there is a prime integer $p$ such that $\abs{g} = p^mr$, $\abs{h} = p^ns$, with $r$ and $s$ relatively prime to $p$ and $m < n$. Use \ref{prob:II.1.14} to compute the order of $g^{p^m}h^s$.) \sqref{\S2.1, 4.11, IV.6.15}
+}{}
