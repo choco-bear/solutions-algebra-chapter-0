@@ -25,10 +25,436 @@
     \end{itemize}
 }
 
-\problem{ % 1.3
+\problem{ %1.3
     Prove that $(gh)^{-1} = h^{-1}g^{-1}$ for all elements $g$, $h$ of a group $G$.
 }{
     $(h^{-1}g^{-1})(gh) = \left( h^{-1} (g^{-1}g) \right) h = (h^{-1}e)h = h^{-1}h = e$.
     $(gh)(h^{-1}g^{-1}) = \left( g (hh^{-1}) \right) g^{-1} = (ge)g^{-1} = gg^{-1} = e$.
     Since the inverse of $gh$ is unique, $h^{-1}g^{-1}$ is the inverse of $gh$.
+}
+
+\problem{ %1.4
+    Suppose that $g^2 = e$ for all elements $g$ of a group $G$; prove that $G$ is commutative.
+}{
+    Let $g$ be an element of $G$. Then $g = g^{-1}$ since $gg = e$.
+
+    Now let $h$ also be an element of $G$. Then $gh = (gh)^{-1} = h^{-1}g^{-1} = hg$ since $G$ is a group.
+
+    Therefore, $G$ is commutative.
+}
+
+\problem{ %1.5
+    The `multiplication table' of a group is an array compiling the results of all multiplications $g \bullet h$:
+    \begin{center}
+        \begin{tabular}{c||c|c|c|c}
+            $\bullet$ & $e$ & $\cdots$ & $h$ & $\cdots$ \\ \hline\hline
+            $e$ & $e$ & $\cdots$ & $h$ & $\cdots$ \\ \hline
+            $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ \\ \hline
+            $g$ & $g$ & $\cdots$ & $g \bullet h$ & $\cdots$ \\ \hline
+            $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$ & $\cdots$
+        \end{tabular}
+    \end{center}
+    (Here $e$ is the identity element. Of course the table depends on the order in which the elements are listed in the top row and leftmost column.) Prove that every row and every column of the multiplication table of a group contains all elements of the group exactly once (like Sudoku diagrams!).
+}{
+    Let $l_g : G \to G$ be a function defined as $l_g : x \mapsto gx$ for each $g \in G$.
+    
+    Then it is clear that $l_g$ is surjective since $l_g(g^{-1}x) = x$ for any $x \in G$, and it is obvious that $l_g$ is injective since $l_g(x) = l_g(y)$ implies that $x = g^{-1}l_g(x) = g^{-1}l_g(y) = y$ for any $x,y \in G$.
+
+    Hence, $l_g$ is a bijection and this means that each row of the multiplication table of a group contains every element of the group exactly once.
+
+    Similarly, it is readily shown that each column of the multiplication table of a group contains every element of the group exactly once.
+}
+
+\problembr{ %1.6
+    $\neg$ Prove that there is only \emph{one} possible multiplication table for $G$ if $G$ has exactly 1, 2, or 3 elements. Analyze the possible multiplication tables for groups with exactly 4 elements, and show that there are \emph{two} distinct tables, up to reordering the elements of $G$. Use these tables to prove that all groups with $\leq$ 4 elements are commutative.\\ \indent (You are welcome to analyze groups with 5 elements using the same technique, but you will soon know enough about groups to be able to avoid such brute-force approaches.) \sqref{2.19}
+}{
+    If $G$ has only one element, then the binary operation $\cdot : G \times G \to G$ is unique and the multiplication table has to be the below one:
+    \begin{center}
+        \begin{tabular}{c||c}
+            $\cdot$ & $e$ \\ \hline\hline
+            $e$ & $e$
+        \end{tabular}
+    \end{center}
+
+    If $G$ has only two element $e$,$a$, then it has to be $ee = e$ and $ae = ea = a$. In the case that $aa = a$, then $a$ has no inverse so it has to be $aa = e$. Thus, the multiplication table of $G$ has to be the below one:
+    \begin{center}
+        \begin{tabular}{c||c|c}
+            $\cdot$ & $e$ & $a$ \\ \hline\hline
+            $e$ & $e$ & $a$ \\ \hline
+            $a$ & $a$ & $e$
+        \end{tabular}
+    \end{center}
+
+    Now consider the case that $G$ has exactly 3 elements, $e$, $a$, $b$. Then it is obvious that $ee = e$, $ea = ae = a$, $eb = be = b$. Since every element of a group has an inverse, it has to be either $a^2 = b^2 = e$ or $ab = ba = e$.
+    
+    In the case of $a^2 = b^2 = e$, $ab = b$ since the function $G \to G : x \mapsto ax$ is bijective. But by cancellation, $ab = b$ induces the fact that $a = e$, and this contradicts the fact that $e$, $a$, $b$ are distinct. 
+    
+    Hence, we can obtain $ab = ba = e$ and this means that $a^2 = b$ and $b^2 = a$ since each row of the multiplication table contains $e$, $a$, $b$ exactly once. To sum up, the multiplication table has to be the below one:
+    \begin{center}
+        \begin{tabular}{c||c|c|c}
+            $\cdot$ & $e$ & $a$ & $b$ \\ \hline\hline
+            $e$ & $e$ & $a$ & $b$ \\ \hline
+            $a$ & $a$ & $b$ & $e$ \\ \hline
+            $b$ & $b$ & $e$ & $a$
+        \end{tabular}
+    \end{center}
+
+    Finally, now consider the situation that $G$ has only 4 elements, $e$, $a$, $b$, $c$. Then it is obvious that $ee = e$, $ea = ae = a$, $eb = be = b$, and $ec = ce = c$.
+
+    Since $a$ has an inverse, it has to be either $a^2 = e$ or $ab = ba = e$. The case of $ac = ca = e$ is the same situation with the case of $ab = ba = e$ up to reordering the elements.
+
+    If $a^2 = e$, then it is clear that $ab = ba = c$ and $ac = ca = b$ since each row and column of the multiplication table contains $e$, $a$, $b$, $c$ exactly once.
+
+    Thus, in the case of $a^2 = e$, the multiplication table of $G$ has to be one of the below:
+    \begin{center}
+        \begin{tabular}{c||c|c|c|c}
+            $\cdot$ & $e$ & $a$ & $b$ & $c$ \\ \hline\hline
+            $e$ & $e$ & $a$ & $b$ & $c$ \\ \hline
+            $a$ & $a$ & $e$ & $c$ & $b$ \\ \hline
+            $b$ & $b$ & $c$ & $e$ & $a$ \\ \hline
+            $c$ & $c$ & $b$ & $a$ & $e$
+        \end{tabular}, \quad \begin{tabular}{c||c|c|c|c}
+            $\cdot$ & $e$ & $a$ & $b$ & $c$ \\ \hline\hline
+            $e$ & $e$ & $a$ & $b$ & $c$ \\ \hline
+            $a$ & $a$ & $e$ & $c$ & $b$ \\ \hline
+            $b$ & $b$ & $c$ & $a$ & $e$ \\ \hline
+            $c$ & $c$ & $b$ & $e$ & $a$
+        \end{tabular}
+    \end{center}
+
+    In the case of $ab = ba = e$ is the same case with the second table up to reordering the elements.
+
+    Therefore, the desired results follow.
+
+    Analyzing groups with 5 elements using the same technique requires a lot of effort, and the result is just a fact that there is only one group of order 5, whose multiplication table is just below:
+    \begin{center}
+        \begin{tabular}{c||c|c|c|c|c}
+            $\cdot$ & $e$ & $a$ & $b$ & $c$ & $d$ \\ \hline\hline
+            $e$ & $e$ & $a$ & $b$ & $c$ & $d$ \\ \hline
+            $a$ & $a$ & $b$ & $c$ & $d$ & $e$ \\ \hline
+            $b$ & $b$ & $c$ & $d$ & $e$ & $a$ \\ \hline
+            $c$ & $c$ & $d$ & $e$ & $a$ & $b$ \\ \hline
+            $d$ & $d$ & $e$ & $a$ & $b$ & $c$
+        \end{tabular}
+    \end{center}
+}
+
+\problem{ %1.7
+    Prove Corollary 1.11.
+}{
+    \begin{itemize}[leftmargin=12mm]
+        \item[]
+        \item[($\implies$)] This is just the result of Lemma 1.10.
+
+        \item[($\impliedby$)] If $N$ is a multiple of $\abs{g}$, then $N = m\abs{g}$ for some integer $m$. Hence, $g^N = g^{m\abs{g}} = \left( g^{\abs{g}} \right)^m = e^m = e$.
+    \end{itemize}
+}
+
+\problem{ %1.8
+    $\neg$ Let $G$ be a finite abelian group, with exactly one element $f$ of order 2. Prove that $\prod_{g \in G} g = f$. \sqref{4.16}
+}{
+    Let $H = \{ g \in G \mid \abs{g} > 2 \}$. Then $\prod_{g \in G} g = f \prod_{g \in H} g$, obviously, since $G$ is commutative.
+    
+    Since $g^{\abs{g}-1} = g^{-1}$ for any $g \in G$, $\prod_{g \in H} g = e$, clearly.
+
+    Therefore, $\prod_{g \in G} g = f$ since $f^{-1} = f$.
+}
+
+\problem{ %1.9
+    Let $G$ be a finite group, of order $n$, and let $m$ be the number of elements $g \in G$ of order exactly 2. Prove that $n-m$ is odd. Deduce that if $n$ is even, then $G$ necessarily contains elements of order 2.
+}{
+    If $\abs{g} > 2$, then $g^{-1} \neq g$ since $g^{-1} = g^{\abs{g}-1}$.
+
+    Hence, the subset of $G$ whose elements have order greater than 2 has even elements.
+
+    Therefore, $n-m = 1 + \{ g \in G \mid \abs{g} > 2 \}$ is an odd number.
+}
+
+\problem{ %1.10
+    Suppose the order of $g$ is odd. What can you say about the order of $g^2$?
+}{
+    Since $(g^2)^{\abs{g}} = (g^{\abs{g}})^2 = e^2 = e$, $\abs{g^2}$ divides $\abs{g}$.
+
+    Since $g^{2\abs{g^2}} = (g^2)^{\abs{g^2}} = e$, $\abs{g}$ divides $2\abs{g^2}$, and thus $\abs{g}$ divides $\abs{g^2}$ since $\abs{g}$ is odd and by the Euclid's lemma.
+
+    Therefore, $\abs{g} = \abs{g^2}$ since $\abs{g}$ and $\abs{g^2}$ are greater than 0.
+}
+
+\problem{ %1.11
+    Prove that for all $g$, $h$ in a group $G$, $\abs{gh} = \abs{hg}$. (Hint: Prove that $\abs{aga^{-1}} = \abs{g}$ for all $a,$ $g$ in $G$.)
+}{
+    $$\begin{array}{rcl}
+        (aga^{-1})^n = e & \iff & ag^na^{-1} = e \\
+        & \iff & ag^n = a \\
+        & \iff & g^n = e \text{ for any } a,g \in G.
+    \end{array}$$
+
+    Thus, it is clear that $\abs{g} = \abs{aga^{-1}}$ and this implies that $\abs{gh} = \abs{h(gh)h^{-1}} = \abs{hg}$.
+}
+
+\problem{ %1.12
+    $\vartriangleright$ In the group of invertible $2 \times 2$ matrices, consider
+    $$g = \mat{0 & -1 \\ 1 & 0}, h = \mat{0 & 1 \\ -1 & -1}.$$
+    Verify that $\abs{g} = 4$, $\abs{h} = 3$, and $\abs{gh} = \infty$. \sqref{\S1.6}
+}{
+    Since $g^4 = I$ and $g^2 = -I$, $\abs{g} = 4$.
+
+    Since $h^3 = I$ and 3 is a prime, $\abs{h} = 3$.
+
+    Now consider the $gh = \mat{1 & 1 \\ 0 & 1}$.
+
+    Since $\mat{1 & 1 \\ 0 & 1}^n = \mat{1 & n \\ 0 & 1}$, $\abs{gh} = \infty$.
+}
+
+\problem{ %1.13
+    $\vartriangleright$ Give an example showing that $\abs{gh}$ is not necessarily equal to $\lcm (\abs{g},\abs{h})$, even if $g$ and $h$ commute. \sqref{\S1.6, 1.14}
+}{
+    Let $h = g^{-1}$. Then $\abs{gh} = 1$ and $gh = hg$.
+}
+
+\problem{ %1.14
+    $\vartriangleright$ As a counterpoint to \ref{prob:II.1.13}, prove that if $g$ and $h$ commute \emph{and} $\gcd(\abs{g},\abs{h}) = 1$, then $\abs{gh} = \abs{g}\abs{h}$. (Hint: Let $N = \abs{gh}$; then $g^N = (h^{-1})^N$. What can you say about this element?) \sqref{\S1.6, 1.15, \S IV.2.5}
+}{
+    Since $gh = hg$, $(gh)^{\abs{gh}} = g^{\abs{gh}}h^{\abs{gh}}$.
+
+    Thus, $g^{\abs{gh}} = (h^{-1})^{\abs{gh}}$ and this implies that $(h^{-1})^{\abs{g}\abs{gh}} = e$. Hence, $\abs{h}$ divides $\abs{g}\abs{gh}$.
+
+    Since $\gcd (\abs{g},\abs{h}) = 1$, by Euclid's lemma, $\abs{h}$ divides $\abs{gh}$.
+
+    In the same way, we can get the fact that $\abs{g}$ divides $\abs{gh}$ and so we get $\abs{g}\abs{h}$ divides $\abs{gh}$ since $\lcm (\abs{g},\abs{h}) = \abs{g}\abs{h}$.
+
+    Moreover, $(gh)^{\abs{g}\abs{h}} =g^{\abs{g}\abs{h}}h^{\abs{g}\abs{h}} = e^{\abs{h}}e^{\abs{g}} = e$ and this means that $\abs{gh}$ divides $\abs{g}\abs{h}$.
+
+    Therefore, $\abs{gh} = \abs{g}\abs{h}$.
+}
+
+\problem{ %1.15
+    $\neg$ Let $G$ be a commutative group, and let $g \in G$ be an element of maximal \emph{finite} order, that is, such that if $h \in G$ has finite order, then $\abs{h} \leq \abs{g}$. Prove that in fact if $h$ has finite order in $G$, then $\abs{h}$ \emph{divides} $\abs{g}$. (Hint: Argue by contradiction. If $\abs{h}$ is finite but does not divide $\abs{g}$, then there is a prime integer $p$ such that $\abs{g} = p^mr$, $\abs{h} = p^ns$, with $r$ and $s$ relatively prime to $p$ and $m < n$. Use \ref{prob:II.1.14} to compute the order of $g^{p^m}h^s$.) \sqref{\S2.1, 4.11, IV.6.15}
+}{
+    Suppose not, i.e., $\abs{h}$ is finite but $\abs{h}$ does not divide $\abs{g}$.
+
+    Then there is a prime number $p$ such that $\abs{g} = p^mr$, $\abs{h} = p^ns$, $p \nmid r$, $p \nmid s$, and $m < n$.
+
+    Then by the result of \ref{prob:II.1.14}, $\abs{g^{p^m}h^s} = p^nr > p^mr = \abs{g}$ and this contradicts the maximality of $g$.
+
+    Therefore, the desired result is shown.
+}
+
+\newpage
+\section{Examples of groups}
+\problem{ %2.1
+    $\neg$ One can associate an $n \times n$ matrix $M_\sigma$ with a permutation $\sigma \in S_n$ by letting the entry at $(i,(i)\sigma)$ be 1 and letting all other entries be 0. For example, the matrix corresponding to the permutation
+    $$ \sigma = \mat{1 & 2 & 3 \\ 3 & 1 & 2} \in S_3 $$
+    would be
+    $$ M_\sigma = \mat{0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0}. $$
+    Prove that, with this notation,
+    $$ M_{\sigma\tau} = M_\sigma M_\tau $$
+    for all $\sigma,\tau \in S_n$, where the product on the right is the ordinary product of matrices. \sqref{IV.4.13}
+}{
+    Since $M_\sigma = \bmat{ \delta_{(i)\sigma,j} }_{n \times n}$,
+    $\begin{array}{rl}
+        M_\sigma M_\tau & = \bmat{ \delta_{(i)\sigma,j} }_{n \times n} \bmat{ \delta_{(i)\tau,j} }_{n \times n} \\
+        & = \bmat{ \sum_{k=1}^n \delta_{(i)\delta,k} \delta_{(k)\tau,j} }_{n \times n} \\
+        & = \bmat{ \delta_{((i)\sigma)\tau,j} }_{n \times n} \\
+        & = \bmat{ \delta_{(i)(\sigma\tau),j} }_{n \times n} \\
+        & = M_{\sigma\tau}
+    \end{array}$.
+}
+
+\problem{ %2.2
+    $\vartriangleright$ Prove that if $d \leq n$, then $S_n$ contains elements of order $d$. \sqref{\S2.1}
+}{
+    $\mat{1 & 2 & \cdots & d-1 & d & d+1 & d+2 & \cdots & n \\ 2 & 3 & \cdots & d & 1 & d+1 & d+2 & \cdots & n} \in S_n$ has the order $d$.
+}
+
+\problem{ %2.3
+    For every positive integer $n$ find an element of order $n$ in $S_\NN$.
+}{
+    The order of the cycle $\mat{1 & 2 & 3 & \cdots & n} \in S_{\NN}$ is $n$.
+}
+
+\problem{ %2.4
+    Define a homomorphism $D_8 \to S_4$ by labeling vertices of a square, as we did for a triangle in \S2.2. List the 8 permutations in the image of this homomorphism.
+}{
+    Label the vertices of a square like below:\\
+    \adjustbox{scale=0.5,center}{
+        \begin{tikzcd}[ampersand replacement=\&]
+            \scalebox{2}{1} \ar[rrr,no head,shift right=4,shorten >= 0pt,shorten <= 0pt] \&\&\& \scalebox{2}{2} \ar[ddd,no head,shift right=4,shorten >= 3pt,shorten <= 3pt] \\ \\ \\
+            \scalebox{2}{4} \ar[uuu,no head,shift right=4,shorten >= 3pt,shorten <= 3pt] \&\&\& \scalebox{2}{3} \ar[lll,no head,shift right=7,shorten >= 0pt,shorten <= 0pt]
+        \end{tikzcd}
+    }
+    
+    Then, the image of the homomorphism consists of
+    $$\mat{1 & 2 & 3 & 4 \\ 1 & 2 & 3 & 4}, \mat{1 & 2 & 3 & 4 \\ 2 & 3 & 4 & 1}, \mat{1 & 2 & 3 & 4 \\ 3 & 4 & 1 & 2}, \mat{1 & 2 & 3 & 4 \\ 4 & 1 & 2 & 3},$$
+    $$\mat{1 & 2 & 3 & 4 \\ 4 & 3 & 2 & 1}, \mat{1 & 2 & 3 & 4 \\ 2 & 1 & 4 & 3}, \mat{1 & 2 & 3 & 4 \\ 3 & 2 & 1 & 4}, \mat{1 & 2 & 3 & 4 \\ 1 & 4 & 3 & 2}.$$
+}
+
+\problem{ %2.5
+    $\vartriangleright$ Describe generators and relations for all dihedral groups $D_{2n}$. (Hint: Let $x$ be the reflection about a line through the center of a regular $n$-gon and a vertex, and let $y$ be the counterclockwise rotation by $2\pi/n$. The group $D_{2n}$ will be generated by $x$ and $y$, subject to three relations. To see that these relations really determine $D_{2n}$, use them to show that any product $x^{i_1}y^{i_2}x^{i_3}y^{i_4}\cdots$ equals $x^iy^j$ for some $i$, $j$ with $0 \leq i \leq 1$, $0 \leq j < n$.) \sqref{8.4, \S IV.2.5}
+}{
+    Let $x$ be the reflection about a line through the center of a regular $n$-gon and a vertex, and let $y$ be the counterclockwise rotation by $2\pi/n$. Then we can find relations $x^2 = e$, $y^n = e$, $yx = xy^{n-1}$. These relations hold indeed and we have to show that the other relations are not needed to determine $D_{2n}$.
+
+    We can easily observe that any product $x^{i_1}y^{i_2}x^{i_3}y^{i_4}\cdots$ can be reduced as $x^iy^j$ for some $i,j$ with $0 \leq i \leq 1$ and $0 \leq j < n$ since $yxy = xy^{n-1}y = x$, and $xyx = xxy^{n-1} = y^{n-1}$.
+
+    Therefore, $D_{2n} = \left< x,y \mid x^2 = y^n = e, yx = xy^{n-1} \right>$.
+}
+
+\problem{ %2.6
+    $\vartriangleright$ For every positive integer $n$ construct a group containing elements $g$, $h$ such that $\abs{g} = 2$, $\abs{h} = 2$, and $\abs{gh} = n$. (Hint: For $n > 1$, $D_{2n}$ will do.) \sqref{\S1.6}
+}{
+    For $n = 1$, we can take $\ZZ_2$. If we take $g = h = 1$, then $\abs{g} = \abs{h} = 2$ and $\abs{gh} = 1$.
+
+    For $n > 1$, we can take $D_{2n}$. Let $x$ be the reflection about a line through the center of a regular $n$-gon and a vertex, and let $y$ be the counterclockwise rotation by $2\pi/n$. Then, $\abs{x} = \abs{xy} = 2$ and $\abs{y} = n$. Hence, we can take $g = x$ and $h = xy$.
+}
+
+\problem{ %2.7
+    Find all elements of $D_{2n}$ that commute with every other element. (The parity of $n$ plays a role.)
+}{
+    Let $x$ be the reflection about a line through the center of a regular $n$-gon and a vertex, and let $y$ be the counterclockwise rotation by $2\pi/n$.
+    
+    Then by the result of \ref{prob:II.2.5}, every element of $D_{2n}$ can be written as $x^i y^j$ with $0 \leq i \leq 1$ and $0 \leq j < n$, and distinct representations represent distinct elements.
+    
+    Now consider two elements $x^{i_1} y^{j_1}$ and $x^{i_2} y^{j_2}$. Then $x^{i_1}y^{j_1}x^{i_2}y^{j_2} = x^{i_1+i_2} y^{(-1)^{i_2}j_1+j_2}$. So if these commute with each other, then $(-1)^{i_2} j_1 + j_2 \equiv (-1)^{i_1} j_2 + j_1 \pmod{n}$.
+
+    Hence, if $n$ is odd, $e$ is the only element that commutes with every other element, and otherwise, $e$ and $y^{n/2}$ are the only elements that commute with every other element.
+}
+
+\problem{ %2.8
+    Find the orders of the groups of symmetries of the five `platonic solids'.
+}{
+    Let $T$, $C$, $O$, $D$, $I$ be the respective groups of symmetries of the regular tetrahedron, cube, regular octahedron, regular dodecahedron, and regular icosahedron.
+
+    Then $\abs{T} = 4 \times \abs{D_6} = 24$, $\abs{O} = 6 \times \abs{D_8} = 48$, and $\abs{I} = 12 \times \abs{D_{10}} = 120$, obviously.
+
+    Furthermore, since the cube is a dual polyhedron of the regular octahedron, and since the regular dodecahedron is a dual polyhedron of the regular icosahedron, $O$ is isomorphic to $C$ and $I$ is isomorphic to $D$. Thus, $\abs{C} = \abs{O} = 48$ and $\abs{D} = \abs{I} = 120$.
+}
+
+\problem{ %2.9
+    Verify carefully that `congruence mod $n$' is an equivalence relation.
+}{
+    Note that $a \equiv b \pmod{n}$ if and only if $n \mid a-b$.
+
+    Since $n \mid 0$, $a \equiv a \pmod{n}$ for any $a \in \ZZ$ and thus the relation `congruence mod $n$' is reflexive.
+
+    Since $n \mid x$ implies that $n \mid -x$, $a \equiv b \pmod{n}$ implies $b \equiv a \pmod{n}$ for any $a,b \in \ZZ$ and thus the relation `congruence mod $n$' is symmetric.
+
+    Since $n \mid x$ and $n \mid y$ imply that $n \mid x+y$, $a \equiv b \pmod{n}$ and $b \equiv c \pmod{n}$ imply $a \equiv c \pmod{n}$ for any $a,b,c \in \ZZ$ and thus the relation `congruence mod $n$' is transitive.
+
+    Therefore, the relation `congruence mod $n$' is an equivalence relation.
+}
+
+\problem{ %2.10
+    Prove that if $n > 0$, then $\ZZ / n\ZZ$ consists of precisely $n$ elements.
+}{
+    Let $0 \leq i < j < n$ and $i \equiv j \pmod{n}$. Then $n \mid j-i$ and since $0 < j-i < n$, it immediately makes a contradiction. Hence, for any $0 \leq i < j < n$, $[i] \neq [j]$. This means that $\abs{\ZZ/n\ZZ} \geq n$.
+
+    Now, for any integer $m$, by the division theorem, there are integers $q,r$ such that $m = qn+r$ and $0 \leq r < n$. Hence, $[m] = [r]$ for some $0 \leq r < n$, and this means that $\abs{\ZZ/n\ZZ} \leq n$.
+
+    Therefore, $\ZZ / n\ZZ$ consists of precisely $n$ elements.
+}
+
+\problem{ %2.11
+    $\vartriangleright$ Prove that the square of every odd integer is congruent to 1 modulo 8. \sqref{\S VII.5.1}
+}{
+    Since $(4k \pm 1)^2 = 16k^2 \pm 8k + 1 = 8(2k^2 \pm k) + 1$, the square of every odd integer is congruent to 1 modulo 8.
+}
+
+\problem{ %2.12
+    Prove that there are no nonzero integers $a$, $b$, $c$ such that $a^2 + b^2 = 3c^2$. (Hint: By studying the equation $[a]_4^{\phantom{4}2} + [b]_4^{\phantom{4}2} = 3[c]_4^{\phantom{4}2}$ in $\ZZ/4\ZZ$, show that $a,b,c$ would all have to be even. Letting $a = 2k$, $b = 2l$, $c = 2m$, you would have $k^2 + l^2 = 3m^2$. What's wrong with that?)
+}{
+    Let $a^2 + b^2 = 3c^2$ for some integers $a$, $b$, $c$. Then $a^2 + b^2 \equiv 3c^2 \pmod{4}$, clearly.
+
+    If $c$ is odd, then $3c^2 \equiv 3 \pmod{4}$ and this makes a contradiction since the square of every integer is congruent to 0 or 1 modulo 4.
+
+    Thus, $c$ is even, and this implies that $a$ and $b$ are also even by the same reason above.
+
+    Hence, $a = b = c = 0$, obviously since $a^2 + b^2 = 3c^2 \implies (\tfrac{a}{2})^2 + (\tfrac{b}{2})^2 = 3(\tfrac{c}{2})^2$.
+}
+
+\problem{ %2.13
+    $\vartriangleright$ Prove that if $\gcd (m,n) = 1$, then there exist integers $a$ and $b$ such that
+    $$ am + bn = 1. $$
+    (Use Corollary 2.5.) Conversely, prove that if $am + bn = 1$ for some integers $a$ and $b$, then $\gcd (m,n) = 1$. \sqref{2.15, \S V.2.1, V.2.4}
+}{
+    If $\gcd (m,n) = 1$, by Corollary 2.5, $[m]_n$ generates $\ZZ / n\ZZ$, and this means that $km \equiv 1 \pmod{n}$ for some integer $k$, so there exist integers $a,b$ such that $am + bn = 1$.
+
+    If $am + bn = 1$ for some integers $a,b$, then $\gcd (m,n) \mid 1$, obviously, and this means that $\gcd (m,n) = 1$.
+}
+
+\problem{ %2.14
+    $\vartriangleright$ State and prove an analog of Lemma 2.2, showing that the multiplication on $\ZZ / n\ZZ$ is a well-defined operation. \sqref{\S2.3, \S III.1.2}
+}{
+    ``$a_1 \equiv a_2 \pmod{n}$ and $b_1 \equiv b_2 \pmod{n}$ implies that $a_1b_1 \equiv a_2b_2 \pmod{n}$.''
+
+    Since $a_1 \equiv a_2 \pmod{n} \iff \exists k \in \ZZ \st a_1 - a_2 = kn$ and $b_1 \equiv b_2 \pmod{n} \iff \exists l \in \ZZ \st b_1 - b_2 = ln$, $a_1 \equiv a_2 \pmod{n}$ and $b_1 \equiv b_2 \pmod{n}$ implies that $a_1b_1 - a_2b_2 = a_1(b_1-b_2) + b_2(a_1-a_2) = a_1ln + b_2kn = (a_1l+b_2k)n$ and this immediately gives us $a_1b_1 \equiv a_2b_2 \pmod{n}$.
+}
+
+\problem{ %2.15
+    $\neg$ Let $n > 0$ be an odd integer.
+    \begin{itemize}[label=$\bullet$]
+        \item Prove that if $\gcd (m,n) = 1$, then $\gcd (2m+n,2n) = 1$. (Use \ref{prob:II.2.13}.)
+
+        \item Prove that if $\gcd (r,2n) = 1$, then $\gcd (\tfrac{r-n}{2},n) = 1$. (Ditto.)
+
+        \item Conclude that the function $[m]_n \to [2m+n]_{2n}$ is a bijection between $(\ZZ/n\ZZ)^*$ and $(\ZZ/2n\ZZ)^*$.
+    \end{itemize}
+    The number $\phi(n)$ of elements of $(\ZZ/n\ZZ)^*$ is \emph{Euler's $\phi$-function}. The reader has just proved that if $n$ is odd, then $\phi(2n) = \phi(n)$. Much more general formulas will be given later on (cf. \ref{exer:V.6.8}). \sqref{VII.5.11}
+}{
+    Since $2 \nmid 2m+n$, $\gcd (2m+n,2n) = \gcd (2m+n,n) = \gcd (2m,n)$.
+
+    Since $2 \nmid n$, $\gcd (2m,n) = \gcd(m,n)$.
+
+    Since $2 \nmid n$, $\gcd (\tfrac{r-n}{2},n) = \gcd (r-n,n) = \gcd (r,n)$.
+
+    By the above, $[m]_n \mapsto [2m+n]_{2n}$ is bijection between $(\ZZ / n\ZZ)^*$ and $(\ZZ / 2n\ZZ)^*$, obviously.
+}
+
+\problem{ %2.16
+    Find the last digit of $1238237^{18238456}$. (Work in $\ZZ/10\ZZ$.)
+}{
+    Since $\phi(10) = 4$, $a^5 = a \pmod{10}$ for any integers $a$.
+
+    Hence, $1238237^{18238456} \equiv 7^4 \equiv 1 \pmod{10}$.
+
+    Therefore, the desired answer is 1.
+}
+
+\problem{ %2.17
+    $\vartriangleright$ Show that if $m \equiv m' \bmod{n}$, then $\gcd (m,n) = 1$ if and only if $\gcd (m',n) = 1$. \sqref{\S2.3}
+}{
+    By Euclidean algorithm, it is quite obvious.
+}
+
+\problem{ %2.18
+    For $d \leq n$, define an injective function $\ZZ / d\ZZ \to S_n$ preserving the operation, that is, such that the sum of equivalence classes in $\ZZ / d\ZZ$ corresponds to the product of the corresponding permutations.
+}{
+    $[m]_d \mapsto \mat{1 & 2 & \cdots & d}^m$ is an injective function $\ZZ / d\ZZ \to S_n$ preserving the operation.
+}
+
+\problem{ %2.19
+    $\vartriangleright$ Both $(\ZZ/5\ZZ)^*$ and $(\ZZ/12\ZZ)^*$ consist of 4 elements. Write their multiplication tables, and prove that no re-ordering of the elements will make them match. (Cf. \ref{prob:II.1.6}.) \sqref{\S4.3}
+}{
+    The below one is the multiplication table of $(\ZZ / 5\ZZ)^*$.
+    \begin{center}
+        \begin{tabular}{c||c|c|c|c}
+            $\cdot$ & 1 & 2 & 3 & 4 \\ \hline\hline
+            1 & 1 & 2 & 3 & 4 \\ \hline
+            2 & 2 & 4 & 1 & 3 \\ \hline
+            3 & 3 & 1 & 4 & 2 \\ \hline
+            4 & 4 & 3 & 2 & 1
+        \end{tabular}
+    \end{center}
+
+    The below one is the multiplication table of $(\ZZ / 12\ZZ)^*$.
+    \begin{center}
+        \begin{tabular}{c||c|c|c|c}
+            $\cdot$ & 1 & 5 & 7 & 11 \\ \hline\hline
+            1 & 1 & 5 & 7 & 11 \\ \hline
+            5 & 5 & 1 & 11 & 7 \\ \hline
+            7 & 7 & 11 & 1 & 5 \\ \hline
+            11 & 11 & 7 & 5 & 1
+        \end{tabular}
+    \end{center}
+
+    In $(\ZZ / 5\ZZ)^*$, $\abs{2} = 4$. However, there is no element in $(\ZZ / 12\ZZ)^*$, whose order is 4. Therefore, there is no re-ordering of the elements making them match.
 }
