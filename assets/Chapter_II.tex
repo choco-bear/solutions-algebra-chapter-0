@@ -460,30 +460,68 @@
 }
 
 \newpage
-\section{The category $\Grp$}
+\section{The category \textsf{Grp}}
 \problem{ %3.1
     $\vartriangleright$ Let $\varphi : G \to H$ be a morphism in category $\cat{C}$ with products. Explain why there is unique morphism $(\varphi \times \varphi) : G \times G \to H \times H$ compatible in the evident way with the natural projections.
     
     (This morphism is defined explicitly for $\cat{C} = \Set$ in \S3.1.) \sqref{\S3.1, 3.2}
-}{}
+}{
+    \begin{cd}[row sep=0.8em,column sep=4em]
+        \&\& H \ar[dll, "\varphi \pi_{G_1}", swap, bend right, <-] \ar[dl, "\pi_{H_1}", swap, <-] \\
+        G \times G \& H \times H \ar[l, "\varphi \times \varphi", swap, <-, dashed] \\
+        \&\& H \ar[ull, "\varphi \pi_{G_2}", bend left, <-] \ar[ul, "\pi_{H_2}", <-]
+    \end{cd}
+    
+    By the definition of the product $H \times H$, there is a unique morphism $\varphi \times \varphi : G \times G \to H \times H$, which makes the diagram above commute.
+
+    Further, this $\varphi \times \varphi$ is compatible with the natural projections, indeed.
+}
 
 \problem{ %3.2
     Let $\varphi : G \to H$, $\psi : H \to K$ be morphisms in a category with products, and consider morphisms between the products $G \times G$, $H \times H$, $K \times K$ as in \ref{prob:II.3.1}. Prove that
     $$ (\psi\varphi) \times (\psi\varphi) = (\psi \times \psi)(\varphi \times \varphi). $$
     (This is part of the commutativity of the diagram displayed in \S3.2.)
-}{}
+}{
+    \[\scaledcd{scale=0.7}{
+        G \ar[d, "\pi_{G_1}", swap, <-] \ar[r, "\varphi", swap] \ar[rr, "\psi\varphi", bend left, swap] \& H \ar[d, "\pi_{H_1}"{pos=0.4}, <-] \ar[r, "\psi", swap] \& K \ar[d, "\pi_{K_1}", swap, <-] \\
+        G \times G \ar[r, "\varphi \times \varphi", swap] \ar[rr, "(\psi\varphi) \times (\psi\varphi)"{pos=0.32}, bend left=20pt] \& H \times H \ar[r, "\psi \times \psi", swap] \& K \times K \\
+        G \ar[u, "\pi_{G_2}", <-] \ar[r, "\varphi"] \ar[rr, "\psi\varphi", bend right] \& H \ar[u, "\pi_{H_2}", <-] \ar[r, "\psi"] \& K \ar[u, "\pi_{K_2}", <-]
+    }[row sep=4em,column sep=4em]\]
+    By the commutativity of the diagram above, $(\psi \times \psi)(\varphi \times \varphi) = (\psi\varphi) \times (\psi\varphi)$.
+}
 
 \problem{ %3.3
     $\vartriangleright$ Show that if $G$, $H$ are \emph{abelian} groups, then $G \times H$ satisfies the universal property for coproducts in $\Ab$ (cf. \S I.5.5). \sqref{\S3.5, 3.6, \S III.6.1}
-}{}
+}{
+    Let $\iota_G : G \to G \times H$ and $\iota_H : H \to G \times H$ be defined as $\iota_G : g \mapsto (g,e_H)$ and $\iota_H : h \mapsto (e_G,h)$, respectively. Now consider an abelian group $K$ and two homomorphisms $\varphi : G \to K$ and $\psi : H \to K$.
+
+    \begin{cd}[row sep=0.8em,column sep=4em]
+        \&\& G \ar[dll, "\varphi", bend right, swap] \ar[dl, "\iota_G", swap] \\
+        K \& G \times H \ar[l, "\varphi * \psi"{pos=0.33}, swap, dashed] \\
+        \&\& H \ar[ull, "\psi", bend left] \ar[ul, "\iota_H"]
+    \end{cd}
+
+    To make the diagram above commute, it must be as follows:
+    \[\begin{array}{rcl}
+        (\varphi * \psi)(g,h) & = & (\varphi * \psi)((g,e_H)(e_G,h)) \\
+        & = & (\varphi * \psi)(g,e_H) (\varphi * \psi)(e_G,h) \\
+        & = & \varphi(g) \psi(h).
+    \end{array}\]
+
+    Therefore, there uniquely exist a homomorphism $\varphi * \psi$ making the diagram above commute and, hence, $G \times H$ satisfies the universal property for coproducts of $G$ and $H$ in $\Ab$.
+}
 
 \problem{ %3.4
     Let $G$, $H$ be groups, and assume that $G \cong H \times G$. Can you conclude that $H$ is trivial? (Hint: No. Can you construct a counterexample?)
-}{}
+}{
+    Since $\RR$ and $\RR \times \RR$ are vector spaces over the field $\QQ$ with the same dimension, $\RR \cong \RR \times \RR$ as groups.
+}
 
 \problem{ %3.5
     Prove that $\QQ$ is not the direct product of two nontrivial groups.
-}{}
+}{
+    Suppose not, i.e., $\QQ = G \times H$ for some nontrivial groups $G$ and $H$. Then $G \times \{ e_H \}$ and $\{ e_G \} \times H$ are nontrivial subgroups of $\QQ$ and they have a trivial intersection. But since there exist two integers $n$ and $m$ such that $np = mq$ for any rational numbers $p$ and $q$, two nontrivial subgroups of $\QQ$ do not have the trivial intersection. Therefore, $\QQ$ is not the direct product of two nontrivial groups. 
+}
 
 \problem{ %3.6
     $\vartriangleright$ Consider the product of the cyclic groups $C_2$, $C_3$ (cf. \S2.3): $C_2 \times C_3$. By \ref{prob:II.3.3}, this group is a coproduct of $C_2$ and $C_3$ in $\Ab$. Show that it is \emph{not} a coproduct of $C_2$ and $C_3$ in $\Grp$, as follows:
@@ -493,18 +531,118 @@
         \item show that there is no such homomorphism.
     \end{itemize}
     \sqref{\S3.5}
-}{}
+}{
+    Let $\varphi : C_2 \to S_3$ be a homomorphism such that $\varphi(1) = \mat{1 & 2}$ and let $\psi : C_3 \to S_3$ be a homomorphism such that $\psi(1) = \mat{1 & 2 & 3}$.
+    
+    Now suppose that $C_2 \times C_3$ is a coproduct of $C_2$ and $C_3$ in $\Grp$. Then there exists a unique homomorphism $\varphi * \psi : C_2 \times C_3 \to S_3$ making the following diagram be commutative:
+
+    \begin{cd}[row sep=0.8em,column sep=4em]
+        \&\& C_2 \ar[dll, "\varphi", bend right, swap] \ar[dl, "\iota_{C_2}", swap] \\
+        S_3 \& C_2 \times C_3 \ar[l, "\varphi * \psi"{pos=0.4}, swap, dashed] \\
+        \&\& C_3 \ar[ull, "\psi", bend left] \ar[ul, "\iota_{C_3}"]
+    \end{cd}
+
+    But,
+    \[\begin{array}{rcl}
+        (\varphi * \psi) ((1,1)) & = & (\varphi * \psi) ((1,0)) (\varphi * \psi) ((0,1)) \\
+        & = & \varphi(1) \psi(1) \\
+        & = & \mat{1 & 2} \mat{1 & 2 & 3} \\
+        & = & \mat{2 & 3}, \\
+        (\varphi * \psi) ((1,1)) & = & (\varphi * \psi) ((0,1)) (\varphi * \psi) ((1,0)) \\
+        & = & \psi(1) \varphi(1) \\
+        & = & \mat{1 & 2 & 3} \mat{1 & 2} \\
+        & = & \mat{1 & 3},
+    \end{array}\]
+    and this makes a contradiction, clearly.
+
+    Therefore, $C_2 \times C_3$ is not a coproduct of $C_2$ and $C_3$.
+}
 
 \problem{ %3.7
     Show that there is a \emph{surjective} homomorphism $\ZZ * \ZZ \to C_2 * C_3$. ($*$ denotes coproduct in $\Grp$; cf. \S3.4.)
 
     One can think of $\ZZ * \ZZ$ as a group with two generators $x$, $y$, subject to no relations whatsoever. (We will study a general version of such groups in \S5; see \ref{prob:II.5.6}.)
-}{}
+}{
+    \begin{cd}[column sep=6em]
+        \& C_2 \ar[ld, bend right=15pt, shift right=0.7] \ar[d, "\iota_{C_2}"] \& \ZZ \ar[l, "\pi_2", swap] \ar[d, "\iota_1"] \\
+        A \& C_2 * C_3 \ar[l, "f", swap, shift right=1.5] \ar[l, "g", shift left=1.5] \& \ZZ * \ZZ \ar[l, "\pi_2 * \pi_3", swap] \\
+        \& C_3 \ar[lu, bend left=15pt, shift left=0.7] \ar[u, "\iota_{C_3}", swap] \& \ZZ \ar[u, "\iota_2", swap] \ar[l, "\pi_3", swap]
+    \end{cd}
+
+    Let $f \circ \left( \pi_2 * \pi_3 \right) = g \circ \left( \pi_2 * \pi_3 \right)$.
+    If we show that $f = g$, then $\pi_2 * \pi_3$ is an epimorphism, which is a surjection.
+    
+    Since $f \circ \left( \pi_2 * \pi_3 \right) = g \circ \left( \pi_2 * \pi_3 \right), \; f \circ \left( \pi_2 * \pi_3 \right) \circ \iota_1 = g \circ \left( \pi_2 * \pi_3 \right) \circ \iota_1$.
+    By the commutativity of the diagram, $f \circ \iota_{C_2} \circ \pi_2 = g \circ \iota_{C_2} \circ \pi_2$.
+    Since $\pi_2$ is an epimorphism, we get $f \circ \iota_{C_2} = g \circ \iota_{C_2}$.
+    
+    Similarly, $f \circ \iota_{C_3} = g \circ \iota_{C_3}$.
+    
+    By the definition of coproduct, $f$ and $g$ are the universal morphism of the coproduct diagram of $C_2$ and $C_3$, and thus $f = g$.
+    
+    Therefore, $\pi_2 * \pi_3$ is an epimorphism and, hence, there is a surjective homomorphism $\ZZ * \ZZ \to C_2 * C_3$.
+}
 
 \problem{ %3.8
     $\vartriangleright$ Define a group $G$ with two generators $x$, $y$, subject (only) to the relations $x^2 = e_G$, $y^3 = e_G$. Prove that $G$ is a coproduct of $C_2$ and $C_3$ in $\Grp$. (The reader will obtain an even more concrete description for $C_2 * C_3$ in \ref{prob:II.9.14}; it is called the \emph{modular group}.) \sqref{\S3.4, 9.14}
-}{}
+}{
+    Let $\iota_2 : C_2 \to G$ and $\iota_3 : C_3 \to G$ be homomorphisms such that $\iota_2(1) = x$ and $\iota_3(1) = y$.
+    Now consider any groups $H$ and any homomorphisms $\varphi : C_2 \to H$ and $\psi : C_3 \to H$.
+    
+    Then to make the following diagram commute:
+    \[\begin{newcd}[row sep=0.8em, column sep=4em]
+        \& \& C_2 \ar[lld, "\varphi", swap, bend right] \ar[ld, "\iota_2"] \\
+        H \& G \ar[l, "\sigma", swap, dashed] \\
+        \& \& C_3 \ar[llu, "\psi", bend left] \ar[lu, "\iota_3", swap]
+    \end{newcd},\]
+    it must be $\sigma(x) = \varphi(1)$ and $\sigma(y) = \psi(1)$.
+    
+    And since a such homomorphism exists uniquely, $G$ is a coproduct of $C_2$ and $C_3$.
+}
 
 \problem{ %3.9
     Show that \emph{fiber} products and coproducts exist in $\Ab$. (Cf. \ref{exer:I.5.12}. For coproducts, you may have to wait until you know about \emph{quotients}.)
-}{}
+}{
+    Let $\varphi : G \to K$ and $\psi : H \to K$ be the given group-homomorphisms, and $G$, $H$, $K$ be abelian groups.
+    
+    Now let $G \times_K H = \{ (g,h) \in G \times H \mid \varphi(g) = \psi(h) \}$ be equipped with component-wise operation.
+    Then it is obvious that $G \times_K H$ itself becomes an abelian group. 
+    
+    Now take two homomorphisms $\pi_G : G \times_K H \to G : (g,h) \mapsto g$ and $\pi_H : G \times_K H \to H : (g,h) \mapsto h$.
+    Then for any abelian groups $L$, and for any two homomorphisms $f: L \to G$ and $g : L \to H$ such that $\varphi f = \psi g$, to make the following diagram be commutative, $\sigma$ has to be $x \mapsto (f(x),g(x))$.
+
+    \begin{cd}[column sep=4em, row sep=1.2em]
+        \&\& G \ar[rd, "\varphi"] \\
+        L \ar[r, "\sigma", dashed] \ar[rru, "f", bend left] \ar[rrd, "g", bend right, swap] \& G \times_K H \ar[ru, "\pi_G"] \ar[rd, "\pi_H", swap] \& \& K \\
+        \&\& H \ar[ru, "\psi", swap]
+    \end{cd}
+
+    Now only to show $\sigma$ is well-defined is left.
+    Since $\varphi f = \psi g$, $(f(x),g(x)) \in G \times_K H$ for any $x \in L$.
+    Thus, $\sigma$ is well-defined and also obviously unique and, hence, $G \times_K H$ is a fibered product of $\varphi$ and $\psi$.
+
+    \vspace{2em}
+
+    Now let $\varphi : K \to G$ and $\psi : K \to H$ be the given group-homomorphisms, and $G$, $H$, $K$ be abelian groups.
+
+    Consider the direct product of $G$ and $H$ and an equivalent relation $\sim$ defined as follows:
+
+    \[(g_1,h_1) \sim (g_2,h_2) \iff \exists k \in K \st \left( \varphi(k) = g_1 - g_2 \land \psi(k) = h_2 - h_1 \right).\]
+
+    Now let's say that $G *_K H = (G \times H) / \sim$ and it is equipped with canonical operation.
+    Then it is obvious that $G *_K H$ itself is an abelian group.
+
+    Now take two homomorphisms $\iota_G : G \to G *_K H : g \mapsto \eqcl{(g,e_H)}_\sim$ and $\iota_H : H \to G *_K H : h \mapsto \eqcl{(e_G,h)}_\sim$.
+    Then for any abelian groups $L$ and for any two homomorphism $i : G \to L$ and $j : H \to L$ such that $i \varphi = j \psi$, to make the following diagram commute, $\sigma$ has to be $\eqcl{(g,h)}_\sim \mapsto i(g) j(h)$.
+
+    \begin{cd}[row sep=1.2em, column sep=4em]
+        \&\& G \ar[lld, "f", swap, bend right] \ar[ld, "\iota_G", swap] \\
+        L \& G *_K H \ar[l, "\sigma", swap, dashed] \&\& K \ar[lu, "\varphi", swap] \ar[ld, "\psi"] \\
+        \&\& H \ar[llu, "g", bend left] \ar[lu, "\iota_H"]
+    \end{cd}
+
+    Since $i \varphi = j \psi$, $i(g)j(h) = i(g') j(h')$ for any $(g,h), (g',h') \in G \times H$ with $(g,h) \sim (g',h')$, obviously.
+    Thus, $\sigma$ is well-defined and a homomorphism, and it is unique.
+
+    Therefore, $G *_K H$ is a fibered coproduct of $\varphi$ and $\psi$.
+}
