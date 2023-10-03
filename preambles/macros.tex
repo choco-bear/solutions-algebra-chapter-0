@@ -91,7 +91,13 @@
 \newcommand{\cat}[1]{\mathsf{#1}}
 \newcommand{\op}[1]{{#1}^{op}}
 \def\one{\mathrm{1}}
-\newcommand{\Aut}[1]{\mathrm{Aut} \left( #1 \right)}
+\NewDocumentCommand{\Aut}{mo}{
+    \IfNoValueTF{#2}{
+        \ensuremath{\mathrm{Aut} \left( #1 \right)}
+    }{
+        \ensuremath{\mathrm{Aut}_{#1} \left( #2 \right)}
+    }
+}
 
 %%           commutative diagram           %%
 \def\surjection{two heads}
