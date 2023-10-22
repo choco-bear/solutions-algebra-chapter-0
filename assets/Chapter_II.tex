@@ -646,3 +646,93 @@
 
     Therefore, $G *_K H$ is a fibered coproduct of $\varphi$ and $\psi$.
 }
+
+\newpage
+\section{Group homomorphisms}
+\problem{ %4.1
+    $\vartriangleright$ Check that the function $\pi_m^n$ defined in \S4.1 is well-defined and makes the diagram commute.
+    Verify that is a group homomorphism.
+    Why is the hypothesis $m \mid n$ necessary? \sqref{\S4.1}
+}{}
+
+\problem{ %4.2
+    Show that the homomorphism $\pi_2^4 \times \pi_2^4 : C_4 \to C_2 \times C_2$ is \emph{not} an isomorphism.
+    In fact, is there \emph{any} isomorphism $C_4 \to C_2 \times C_2$?
+}{}
+
+\problem{ %4.3
+    $\vartriangleright$ Prove that a group of order $n$ is isomorphic to $\ZZ / n\ZZ$ if and only if it contains an element of order $n$. \sqref{\S4.3}
+}{}
+
+\problem{ %4.4
+    Prove that no two of the groups $(\ZZ,+)$, $(\QQ,+)$, $(\RR,+)$ are isomorphic to one another. 
+    Can you decide whether $(\RR,+)$, $(\CC,+)$ \emph{are} isomorphic to one another? (Cf. \ref{exer:VI.1.1}.)
+}{}
+
+\problem{ %4.5
+    Prove that the groups $(\RR \setminus \{ 0 \}, \cdot)$ and $(\CC \setminus \{0\}, \cdot)$ are not isomorphic.
+}{}
+
+\problem{ %4.6
+    We have seen that $(\RR,+)$ and $(\RR^{>0},\cdot)$ are isomorphic (Example 4.4).
+    Are the groups $(\QQ,+)$ and $(\QQ^{>0},\cdot)$ isomorphic?
+}{}
+
+\problem{ %4.7
+    Let $G$ be a group.
+    Prove that the function $G \to G$ defined by $g \mapsto g^{-1}$ is a homomorphism if and only if $G$ is abelian.
+    Prove that $g \mapsto g^2$ is a homomorphism if and only if $G$ is abelian.
+}{}
+
+\problem{ %4.8
+    $\neg$ Let $G$ be a group, and let $g \in G$.
+    Prove that the function $\gamma_g : G \to G$ defined by $(\forall a \in G) : \gamma_g(a) = gag^{-1}$ is an automorphism of $G$.
+    (The automorphisms $\gamma_g$ are called `inner' automorphisms of $G$.)
+    Prove that the function $G \to \Aut{G}$ defined by $g \mapsto \gamma_g$ is a homomorphism.
+    Prove that this homomorphism is trivial if and only if $G$ is abelian. \sqref{6.7, 7.11, IV.1.5}
+}{}
+
+\problem{ %4.9
+    $\vartriangleright$ Prove that if $m$, $n$ are positive integers such that $\gcd (m,n) = 1$, then $C_{mn} \cong C_m \times C_n$. \sqref{\S4.3, 4.10, \S IV.6.1, V.6.8}
+}{}
+
+\problem{ %4.10
+    $\vartriangleright$ Let $p \neq q$ be odd prime integers; show that $(\ZZ/pq\ZZ)^*$ is not cyclic.
+    (Hint: Use \ref{prob:II.4.9} to compute the order $N$ of $(\ZZ/pq\ZZ)^*$, and show that no element can have order $N$.) \sqref{\S4.3}
+}{}
+
+\problem{ %4.11
+    $\vartriangleright$ In due time we will prove the easy fact that if $p$ is a prime integer, then the equation $x^d = 1$ can have at most $d$ solutions in $\ZZ / p\ZZ$.
+    Assume this fact, and prove that the multiplicative group $G = (\ZZ/p\ZZ)^*$ is cyclic.
+    (Hint: Let $g \in G$ be an element of maximal order; use \ref{prob:II.1.15} to show that $h^{\abs{g}} = 1$ for all $h \in G$. Therefore....) \sqref{\S4.3, 4.15, 4.16, \S IV.6.3}
+}{}
+
+\problem{ %4.12
+    $\neg$ \begin{itemize}
+        \item Compute the order of $\eqcl{9}_{31}$ in the group $(\ZZ/31\ZZ)^*$.
+        \item Does the equation $x^3 - 9 = 0$ have solutions in $\ZZ/31\ZZ$?
+        (Hint: Plugging in all 31 elements of $\ZZ/31\ZZ$ is too laborious and will not teach you much. 
+        Instead, use the result of the first part: if $c$ is a solution of the equation, what can you say about $\abs{c}$?) \sqref{VII.5.15}
+    \end{itemize}
+}{}
+
+\problem{ %4.13
+    $\neg$ Prove that $\Aut{\Grp}[\ZZ/2\ZZ \times \ZZ/2\ZZ] \cong S_3$. \sqref{IV.5.14}
+}{}
+
+\problem{ %4.14
+    $\vartriangleright$ Prove that the order of the group of automorphisms of a cyclic group $C_n$ is the number of positive integer $r \leq n$ that are \emph{relatively prime} to $n$.
+    (This is called \emph{Euler's \phi-function;} cf. \ref{prob:II.6.14}.) \sqref{\S IV.1.4, IV.1.22, \S IV.2.5}
+}{}
+
+\problem{ %4.15
+    $\neg$ Compute the group of automorphisms of $(\ZZ,+)$.
+    Prove that if $p$ is prime, then $\Aut{\Grp}[C_p] \cong C_{p-1}$.
+    (Use \ref{prob:II.4.11}.) \sqref{IV.5.12}
+}{}
+
+\problem{ %4.16
+    $\neg$ Prove \emph{Wilson's theorem: a positive integer $p$ is prime if and only if}
+    \[(p-1)! \equiv -1 \bmod{p}.\]
+    (For one direction, use \ref{prob:II.1.8} and \labelformat{problem}{\arabic{section}.\arabic{problem}}\ref{prob:II.4.11}\labelformat{problem}{Exercise \arabic{section}.\arabic{problem}}. For the other, assume $d$ is a proper divisor of $p$, and note that $d$ divides $(p-1)!$; therefore....) \sqref{IV.4.11}
+}{}
