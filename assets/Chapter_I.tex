@@ -287,7 +287,7 @@
     Then it is obvious that $\cat{S}$ is a full subcategory of $\Set$.
 }
 
-\problembr{ %3.9
+\problem{ %3.9
     $\vartriangleright$ An alternative to the notion of \emph{multiset} introduced in \S2.2 is obtained by considering sets endowed with equivalence relations; equivalent elements are taken to be multiple instances of elements `of the same kind'. Define a notion of morphism between such enhanced sets, obtaining a category $\MSet$ containing (a `copy' of) $\Set$ as a full subcategory. (There may be more than one reasonable way to do this! This is intentionally an open-ended exercise.) Which objects in $\MSet$ determine ordinary multisets as defined in \S2.2 and how? Spell out what a morphism of multisets would be from this point of view. (There are several natural notions of morphisms of multisets. Try to define morphisms in $\MSet$ so that the notion you obtain for ordinary multisets captures your intuitive understanding of these objects.) \sqref{\S2.2, \S3.2, 4.5}
 }{
     Before formalizing the concept of multisets, let's think about the concept of multisets in an informal way.
@@ -315,121 +315,121 @@
     $\vartriangleright$ Draw the relevant diagrams and define composition and identities for the category $\cat{C}^{A,B}$ mentioned in Example 3.9. Do the same for the category $\cat{C}^{\alpha, \beta}$ mentioned in Example 3.10. \sqref{\S5.5, 5.12}
 }{
     At this time, we start from a given category $\cat{C}$ and two objects $A,B$ of $\cat{C}$. We can define a new category $\cat{C}^{A,B}$ by essentially the same procedure that we used in order to define $\cat{C}^A$:
-    \begin{itemize}[label=$\bullet$]
-        \item $\Obj{\cat{C}^{A,B}}$ is the collection of the diagrams
-        \begin{cd}[row sep=0.8em,column sep=2em]
-            \&\& A \ar[dll, swap, "f"] \\
-            Z \\
-            \&\& B \ar[ull, "g"]
-        \end{cd}
-        in $\cat{C}$;
+    
+    $\Obj{\cat{C}^{A,B}}$ is the collection of the diagrams
+    \begin{cd}[row sep=0.8em,column sep=2em]
+        \&\& A \ar[dll, swap, "f"] \\
+        Z \\
+        \&\& B \ar[ull, "g"]
+    \end{cd}
+    in $\cat{C}$;
 
-        \item morphisms
-        \begin{cd}[row sep=0.8em,column sep=2em]
-            \&\& A \ar[dll, swap, "f_1"] \&\& \&\& A \ar[dll, swap, "f_2"] \\
-            Z_1 \&\& \ar[rr] \&\& Z_2\\
-            \&\& B \ar[ull, "g_1"] \&\& \&\& B \ar[ull, "g_2"]
-        \end{cd}
-        are commutative diagrams:
-        \begin{cd}[row sep=0.8em,column sep=2em]
+    \emph{Morphisms}
+    \begin{cd}[row sep=0.8em,column sep=2em]
+        \&\& A \ar[dll, swap, "f_1"] \&\& \&\& A \ar[dll, swap, "f_2"] \\
+        Z_1 \&\& \ar[rr] \&\& Z_2\\
+        \&\& B \ar[ull, "g_1"] \&\& \&\& B \ar[ull, "g_2"]
+    \end{cd}
+    are commutative diagrams:
+    \begin{cd}[row sep=0.8em,column sep=2em]
+        \&\&\& A \ar[dll, "f_2"] \ar[dlll, swap, bend right, "f_1"] \\
+        Z_1 \& Z_2 \ar[l, swap, "\sigma"] \\
+        \&\&\& B \ar[ull, swap, "g_2"] \ar[ulll, bend left, "g_1"]
+    \end{cd}
+    in $\cat{C}$;
+
+    \emph{Composition} of two morphisms
+    \[\begin{array}{ll}
+        \begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
             \&\&\& A \ar[dll, "f_2"] \ar[dlll, swap, bend right, "f_1"] \\
             Z_1 \& Z_2 \ar[l, swap, "\sigma"] \\
             \&\&\& B \ar[ull, swap, "g_2"] \ar[ulll, bend left, "g_1"]
-        \end{cd}
-        in $\cat{C}$;
-
-        \item composition of two morphisms
-        \[\begin{array}{ll}
-            \begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
-                \&\&\& A \ar[dll, "f_2"] \ar[dlll, swap, bend right, "f_1"] \\
-                Z_1 \& Z_2 \ar[l, swap, "\sigma"] \\
-                \&\&\& B \ar[ull, swap, "g_2"] \ar[ulll, bend left, "g_1"]
-            \end{tikzcd}, &
-            \begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
-                \&\&\& A \ar[dll, "f_3"] \ar[dlll, swap, bend right, "f_2"] \\
-                Z_2 \& Z_3 \ar[l, swap, "\tau"] \\
-                \&\&\& B \ar[ull, swap, "g_3"] \ar[ulll, bend left, "g_2"]
-            \end{tikzcd}
-        \end{array}\]
-        is a commutative diagram
-        \begin{cd}[row sep=0.8em,column sep=2em]
-            \&\&\& A \ar[dll, "f_3"] \ar[dlll, swap, bend right, "f_1"] \\
-            Z_1 \& Z_3 \ar[l, swap, "\tau\sigma"] \\
-            \&\&\& B \ar[ull, swap, "g_3"] \ar[ulll, bend left, "g_1"]
-        \end{cd}
-        in $\cat{C}$; and
-        
-        \item an identity morphism $\one_{\adjustbox{scale=0.1}{\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
-            \&\& A \ar[dll, swap, "f"] \\
-            Z \\
-            \&\& B \ar[ull, "g"]
-        \end{tikzcd}}}$ is a commutative diagram
-        \begin{cd}[row sep=0.8em,column sep=2em]
-            \&\&\& A \ar[dll, "f"] \ar[dlll, swap, bend right, "f"] \\
-            Z \& Z \ar[l, swap, "\one_Z"] \\
-            \&\&\& B \ar[ull, swap, "g"] \ar[ulll, bend left, "g"]
-        \end{cd}
-        in $\cat{C}$. 
-    \end{itemize}
+        \end{tikzcd}, &
+        \begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+            \&\&\& A \ar[dll, "f_3"] \ar[dlll, swap, bend right, "f_2"] \\
+            Z_2 \& Z_3 \ar[l, swap, "\tau"] \\
+            \&\&\& B \ar[ull, swap, "g_3"] \ar[ulll, bend left, "g_2"]
+        \end{tikzcd}
+    \end{array}\]
+    is a commutative diagram
+    \begin{cd}[row sep=0.8em,column sep=2em]
+        \&\&\& A \ar[dll, "f_3"] \ar[dlll, swap, bend right, "f_1"] \\
+        Z_1 \& Z_3 \ar[l, swap, "\tau\sigma"] \\
+        \&\&\& B \ar[ull, swap, "g_3"] \ar[ulll, bend left, "g_1"]
+    \end{cd}
+    in $\cat{C}$; and
+    
+    An \emph{identity morphism} $\one_{\adjustbox{scale=0.1}{\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+        \&\& A \ar[dll, swap, "f"] \\
+        Z \\
+        \&\& B \ar[ull, "g"]
+    \end{tikzcd}}}$ is a commutative diagram
+    \begin{cd}[row sep=0.8em,column sep=2em]
+        \&\&\& A \ar[dll, "f"] \ar[dlll, swap, bend right, "f"] \\
+        Z \& Z \ar[l, swap, "\one_Z"] \\
+        \&\&\& B \ar[ull, swap, "g"] \ar[ulll, bend left, "g"]
+    \end{cd}
+    in $\cat{C}$. 
+    
     Then it can be immediately shown that $\cat{C}^{A,B}$ is a category.
 
     Secondly, we will fix two morphisms $\alpha : C \to A$, $\beta : C \to B$ where $A,B,C$ are fixed objects of $\cat{C}$. We can define a new category $\cat{C}^{\alpha,\beta}$ by essentially the same procedure that we used in order to define $\cat{C}^\alpha$:
-    \begin{itemize}[label=$\bullet$]
-        \item $\Obj{\cat{C}^{\alpha,\beta}}$ is the collection of all commutative diagrams
-        \begin{cd}[row sep=0.8em,column sep=2em]
-            \&\& A \ar[dll, swap, "f"] \\
-            Z \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
-            \&\& B \ar[ull, "g"]
-        \end{cd}
-        in $\cat{C}$;
+    
+    $\Obj{\cat{C}^{\alpha,\beta}}$ is the collection of all commutative diagrams
+    \begin{cd}[row sep=0.8em,column sep=2em]
+        \&\& A \ar[dll, swap, "f"] \\
+        Z \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+        \&\& B \ar[ull, "g"]
+    \end{cd}
+    in $\cat{C}$;
 
-        \item morphisms
-        \begin{cd}[row sep=0.8em,column sep=2em]
-            \&\& A \ar[dll, swap, "f_1"] \&\& \&\& \&\& A \ar[dll, swap, "f_2"]\\
-            Z_1 \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"] \ar[rr] \&\& Z_2 \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"] \\
-            \&\& B \ar[ull, "g_1"] \&\& \&\& \&\& B \ar[ull, "g_2"]
-        \end{cd}
-        are commutative diagrams:
-        \begin{cd}[row sep=0.8em,column sep=2em]
+    \emph{Morphisms}
+    \begin{cd}[row sep=0.8em,column sep=2em]
+        \&\& A \ar[dll, swap, "f_1"] \&\& \&\& \&\& A \ar[dll, swap, "f_2"]\\
+        Z_1 \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"] \ar[rr] \&\& Z_2 \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"] \\
+        \&\& B \ar[ull, "g_1"] \&\& \&\& \&\& B \ar[ull, "g_2"]
+    \end{cd}
+    are commutative diagrams:
+    \begin{cd}[row sep=0.8em,column sep=2em]
+        \& \&\& A \ar[dll, swap, "f_2"] \ar[dlll, swap, bend right, "f_1"] \\
+        Z_1 \& Z_2 \ar[l, "\sigma"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+        \& \&\& B \ar[ull, "g_2"] \ar[ulll, bend left, "g_1"]
+    \end{cd}
+    in $\cat{C}$;
+
+    \emph{Composition} of two morphisms
+    $$\begin{array}{ll}
+        \begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
             \& \&\& A \ar[dll, swap, "f_2"] \ar[dlll, swap, bend right, "f_1"] \\
             Z_1 \& Z_2 \ar[l, "\sigma"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
             \& \&\& B \ar[ull, "g_2"] \ar[ulll, bend left, "g_1"]
-        \end{cd}
-        in $\cat{C}$;
+        \end{tikzcd}, &
+        \begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+            \& \&\& A \ar[dll, swap, "f_3"] \ar[dlll, swap, bend right, "f_2"] \\
+            Z_2 \& Z_3 \ar[l, "\tau"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+            \& \&\& B \ar[ull, "g_3"] \ar[ulll, bend left, "g_2"]
+        \end{tikzcd}
+    \end{array}$$
+    is a commutative diagram
+    \begin{cd}[row sep=0.8em,column sep=2em]
+        \& \&\& A \ar[dll, swap, "f_3"] \ar[dlll, swap, bend right, "f_1"] \\
+        Z_1 \& Z_3 \ar[l, "\tau\sigma"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+        \& \&\& B \ar[ull, "g_3"] \ar[ulll, bend left, "g_1"]
+    \end{cd}
+    in $\cat{C}$; and
 
-        \item composition of two morphisms
-        $$\begin{array}{ll}
-            \begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
-                \& \&\& A \ar[dll, swap, "f_2"] \ar[dlll, swap, bend right, "f_1"] \\
-                Z_1 \& Z_2 \ar[l, "\sigma"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
-                \& \&\& B \ar[ull, "g_2"] \ar[ulll, bend left, "g_1"]
-            \end{tikzcd}, &
-            \begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
-                \& \&\& A \ar[dll, swap, "f_3"] \ar[dlll, swap, bend right, "f_2"] \\
-                Z_2 \& Z_3 \ar[l, "\tau"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
-                \& \&\& B \ar[ull, "g_3"] \ar[ulll, bend left, "g_2"]
-            \end{tikzcd}
-        \end{array}$$
-        is a commutative diagram
-        \begin{cd}[row sep=0.8em,column sep=2em]
-            \& \&\& A \ar[dll, swap, "f_3"] \ar[dlll, swap, bend right, "f_1"] \\
-            Z_1 \& Z_3 \ar[l, "\tau\sigma"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
-            \& \&\& B \ar[ull, "g_3"] \ar[ulll, bend left, "g_1"]
-        \end{cd}
-        in $\cat{C}$; and
-
-        \item an identity morphism $\one_{\adjustbox{scale=0.1}{\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
-            \&\& A \ar[dll, swap, "f"] \\
-            Z \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
-            \&\& B \ar[ull, "g"]
-        \end{tikzcd}}}$ is a commutative diagram
-        \begin{cd}[row sep=0.8em,column sep=2em]
-            \& \&\& A \ar[dll, swap, "f"] \ar[dlll, swap, bend right, "f"] \\
-            Z \& Z \ar[l, "\one_Z"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
-            \& \&\& B \ar[ull, "g"] \ar[ulll, bend left, "g"]
-        \end{cd}
-        in $\cat{C}$.
-    \end{itemize}
+    An \emph{identity morphism} $\one_{\adjustbox{scale=0.1}{\begin{tikzcd}[row sep=0.8em,column sep=2em,ampersand replacement=\&]
+        \&\& A \ar[dll, swap, "f"] \\
+        Z \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+        \&\& B \ar[ull, "g"]
+    \end{tikzcd}}}$ is a commutative diagram
+    \begin{cd}[row sep=0.8em,column sep=2em]
+        \& \&\& A \ar[dll, swap, "f"] \ar[dlll, swap, bend right, "f"] \\
+        Z \& Z \ar[l, "\one_Z"] \&\&\&\& C \ar[dll, "\beta"] \ar[ull, swap, "\alpha"]\\
+        \& \&\& B \ar[ull, "g"] \ar[ulll, bend left, "g"]
+    \end{cd}
+    in $\cat{C}$.
+    
     Then it can be quite easily shown that $\cat{C}^{\alpha,\beta}$ is a category.
 }
 
@@ -676,7 +676,7 @@
     By the universal property of $A \times (B \times C)$, $\sigma \tau = \one_{A \times (B \times C)}$. In the same way, $\tau \sigma = \one_{(A \times B) \times C}$. Therefore, $A \times (B \times C) \cong (A \times B) \times C$.
 }
 
-\problembr{ %5.10
+\problem{ %5.10
     Push the envelope a little further still, and define products and coproducts for \emph{families} (i.e., indexed sets) of objects of a category.
 
     \begin{itemize}[label=]
