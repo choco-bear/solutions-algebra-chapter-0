@@ -80,6 +80,7 @@
 
 %%                 algebra                 %%
 \def\coker{\operatorname{coker}}
+\def\im{\operatorname{im}}
 \def\Set{\mathsf{Set}}
 \def\Grp{\mathsf{Grp}}
 \def\Ab{\mathsf{Ab}}
@@ -91,6 +92,14 @@
 \newcommand{\cat}[1]{\mathsf{#1}}
 \newcommand{\op}[1]{{#1}^{op}}
 \def\one{\mathrm{1}}
+\NewDocumentCommand{\Aut}{mo}{
+    \IfNoValueTF{#2}{
+        \ensuremath{\mathrm{Aut} \left( #1 \right)}
+    }{
+        \ensuremath{\mathrm{Aut}_{#1} \left( #2 \right)}
+    }
+}
+\newcommand{\cyclic}[1]{\ensuremath{\ZZ/#1\ZZ}}
 
 %%           commutative diagram           %%
 \def\surjection{two heads}
