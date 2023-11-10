@@ -809,22 +809,38 @@
     In $\cyclic{2} \times \cyclic{2}$, adding any two of three elements except the identity gives the other one.
     Also, $2x$ is the identity for any elements $x \in \cyclic{2} \times \cyclic{2}$.
     Thus, an automorphism on $\cyclic{2} \times \cyclic{2}$ can be considered as a permutation among the three elements except the identity.
-    Therefore, $\Aut{\Grp}\left(\cyclic{2} \times \cyclic{2}\right) \cong S_3$.
+    Therefore, $\Aut{\Grp}[\cyclic{2} \times \cyclic{2}] \cong S_3$.
 }
 
 \problem{ %4.14
     $\vartriangleright$ Prove that the order of the group of automorphisms of a cyclic group $C_n$ is the number of positive integer $r \leq n$ that are \emph{relatively prime} to $n$.
     (This is called \emph{Euler's $\phi$-function;} cf. \ref{prob:II.6.14}.) \sqref{\S IV.1.4, IV.1.22, \S IV.2.5}
-}{}
+}{
+    Let $\varphi : C_n \to C_n$ be an automorphism.
+    Then $\varphi(\eqcl{1}_n)$ has to have order $n$ and, hence, $\varphi(\eqcl{1}_n) = \eqcl{r}_n$ for some positive integer $r < n$ which is relatively prime to $n$.
+    Therefore, the desired result is quite obvious.
+}
 
 \problem{ %4.15
     $\neg$ Compute the group of automorphisms of $(\ZZ,+)$.
     Prove that if $p$ is prime, then $\Aut{\Grp}[C_p] \cong C_{p-1}$.
     (Use \ref{prob:II.4.11}.) \sqref{IV.5.12}
-}{}
+}{
+    Let $\varphi : \ZZ \to \ZZ$ be an automorphism.
+    Then $\varphi(1)$ must be a generator of $\ZZ$, and thus makes $\varphi(1) = \pm 1$.
+    Hence, $\Aut{\ZZ} \cong \cyclic{2}$.
+
+    It is obvious that $\Aut{\Grp}[\cyclic{n}] \cong (\cyclic{n})^*$ and so $\Aut{\Grp}[C_p] \cong C_{p-1}$ if $p$ is prime.
+}
 
 \problem{ %4.16
     $\neg$ Prove \emph{Wilson's theorem: a positive integer $p$ is prime if and only if}
     \[(p-1)! \equiv -1 \bmod{p}.\]
     (For one direction, use \ref{prob:II.1.8} and \labelformat{problem}{\arabic{section}.\arabic{problem}}\ref{prob:II.4.11}\labelformat{problem}{Exercise \arabic{section}.\arabic{problem}}. For the other, assume $d$ is a proper divisor of $p$, and note that $d$ divides $(p-1)!$; therefore....) \sqref{IV.4.11}
-}{}
+}{
+    If $p$ is prime, then the equation $x^2 = 1$ has at most two solutions in $\ZZ_p$.
+    And since $1$ and $p-1$ are the solutions for the equation $x^2 = 1$ in $\ZZ_p$, $n^2 \neq 1$ for any $2 \leq n \leq p-2$ in $\ZZ_p$, and this means that $2 \cdot 3 \cdot 4 \cdot \cdots \cdot (p-3) \cdot (p-2) = 1$ in $\ZZ_p$.
+    Therefore, $(p-1)! \equiv -1 \pmod{p}$.
+
+    Furthermore, if $(p-1)! \equiv -1 \pmod{p}$, then $\gcd (p,(p-1)!) = 1$, and this immediately delivers the fact that $p$ is a prime number.
+}
