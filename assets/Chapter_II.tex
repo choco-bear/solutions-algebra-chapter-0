@@ -653,36 +653,85 @@
     $\vartriangleright$ Check that the function $\pi_m^n$ defined in \S4.1 is well-defined and makes the diagram commute.
     Verify that is a group homomorphism.
     Why is the hypothesis $m \mid n$ necessary? \sqref{\S4.1}
-}{}
+}{
+    Since $m \mid n$, for any $a,b \in \ZZ$ such that $\eqcl{a}_n = \eqcl{b}_n$, $\eqcl{a}_m = \eqcl{b}_m$ and so $\pi_m^n$ is well-defined.
+    Furthermore, since $\pi_m(a) = \eqcl{a}_m = \pi_m^n(\eqcl{a}_n) = (\pi_m^n \circ \pi_n)(a)$, the diagram
+    \begin{cd}
+        \ZZ \ar[d, "\pi_n"] \ar[dr, "\pi_m"] \\
+        \ZZ/n\ZZ \ar[r, "\pi_m^n"] \& \ZZ/m\ZZ
+    \end{cd}
+    commute.
+
+    The hypothesis $m \mid n$ is necessary because the map $\pi_m^n$ is not well-defined for otherwise.
+}
 
 \problem{ %4.2
     Show that the homomorphism $\pi_2^4 \times \pi_2^4 : C_4 \to C_2 \times C_2$ is \emph{not} an isomorphism.
     In fact, is there \emph{any} isomorphism $C_4 \to C_2 \times C_2$?
-}{}
+}{
+    Since the image of $\pi_2^4 \times \pi_2^4$ is $\{\left(\eqcl{0}_2,\eqcl{0}_2\right), \left(\eqcl{1}_2,\eqcl{1}_2\right)\}$, $\pi_2^4 \times \pi_2^4$ is not bijective, and thus makes it not be an isomorphism.
+
+    Furthermore, since there is no element of order $4$ in $C_2 \times C_2$, there is no ismorphism $C_4 \times C_2 \times C_2$.
+}
 
 \problem{ %4.3
     $\vartriangleright$ Prove that a group of order $n$ is isomorphic to $\ZZ / n\ZZ$ if and only if it contains an element of order $n$. \sqref{\S4.3}
-}{}
+}{
+    It is obvious that the `only if' part holds since $\eqcl{1}_n$ is an element of $\ZZ/n\ZZ$ whose order $n$.
+    So we only need to show the `if' part.
+
+    Let $G$ be a group of order $n$ and have an element $x$ of order $n$.
+    Then $G = \left< x \right>$ obviously, since $\abs{G} = n$.
+    Therefore, $G \cong \ZZ/n\ZZ$.
+}
 
 \problem{ %4.4
     Prove that no two of the groups $(\ZZ,+)$, $(\QQ,+)$, $(\RR,+)$ are isomorphic to one another. 
     Can you decide whether $(\RR,+)$, $(\CC,+)$ \emph{are} isomorphic to one another? (Cf. \ref{exer:VI.1.1}.)
-}{}
+}{
+    Since $\left( \QQ, + \right)$ and $\left( \RR, + \right)$ are not cyclic, $\left( \ZZ, + \right)$ is not isomorphic to any of them.
+    Furthermore, since $\QQ$ is countable and $\RR$ is uncountable, they are not isomorphic to each other, clearly.
+
+    Now consider two groups $\left( \RR, + \right)$ and $\left( \CC, + \right)$.
+    They are actually $\QQ$-vector space with the same dimension, which means that they are isomorphic to each other assuming axiom of choice.
+}
 
 \problem{ %4.5
     Prove that the groups $(\RR \setminus \{ 0 \}, \cdot)$ and $(\CC \setminus \{0\}, \cdot)$ are not isomorphic.
-}{}
+}{
+    There is no element of order $4$ in $\left( \RR, \cdot \right)$ but there is in $\left( \CC, \cdot \right)$.
+    Therefore, they are not isomorphic to each other.
+}
 
 \problem{ %4.6
     We have seen that $(\RR,+)$ and $(\RR^{>0},\cdot)$ are isomorphic (Example 4.4).
     Are the groups $(\QQ,+)$ and $(\QQ^{>0},\cdot)$ isomorphic?
-}{}
+}{
+    Let $\varphi : \QQ \to \QQ^{>0}$ be an isomorphism.
+    Then there is a rational number $r$ such that $\varphi(r) = 2$.
+    Since $\frac{1}{2}r + \frac{1}{2}r = r$, $\varphi(\frac{1}{2}r)$ has to have a property that $\varphi(\frac{1}{2}r)\varphi(\frac{1}{2}r) = 2$., and this obviously makes a contradiction.
+    Therefore, two groups $\left( \QQ, + \right)$ and $\left( \QQ^{>0}, \cdot \right)$ are not isomorphic to each other.
+}
 
 \problem{ %4.7
     Let $G$ be a group.
     Prove that the function $G \to G$ defined by $g \mapsto g^{-1}$ is a homomorphism if and only if $G$ is abelian.
     Prove that $g \mapsto g^2$ is a homomorphism if and only if $G$ is abelian.
-}{}
+}{
+    Let $\varphi : G \to G$ be defined as $g \mapsto g^{-1}$.
+    Then, for any $g,h \in G$, $hg = \varphi(g^{-1}h^{-1})$ and $gh = \varphi(g^{-1})\varphi(h^{-1})$.
+    Hence, $\varphi$ is a homomorphism if and only if $G$ is abelian.
+
+    \vspace{2em}
+
+    Now consider the case of $g \mapsto g^2$.
+
+    The `if' part is quite obvious. So we only need to show the `only if' part.
+
+    Let $G$ be a group and $\psi : g \mapsto g^2$ be a homomorphism.
+    Then, $(gh)^2 = \psi(gh) = \psi(g)\psi(h) = g^2h^2$.
+    Applying cancelation, we get $hg = gh$, which means $G$ is abelian.
+}
 
 \problem{ %4.8
     $\neg$ Let $G$ be a group, and let $g \in G$.
@@ -690,22 +739,53 @@
     (The automorphisms $\gamma_g$ are called `inner' automorphisms of $G$.)
     Prove that the function $G \to \Aut{G}$ defined by $g \mapsto \gamma_g$ is a homomorphism.
     Prove that this homomorphism is trivial if and only if $G$ is abelian. \sqref{6.7, 7.11, IV.1.5}
-}{}
+}{
+    Let $G$ be a group and $\gamma_g : G \to G$ be defined as $a \mapsto gag^{-1}$.
+    Then $\gamma_g(ab) = gabg^{-1} = gag^{-1}gbg^{-1} = \gamma_g(a)\gamma_g(b)$ and thus makes $\gamma_g$ be a homomorphism.
+    Furthermore, it is clear that $\gamma_g$ is a bijection so $\gamma_g$ is an automorphism.
+
+    Now, define a function $\varphi : G \to \Aut{G}$ as $g \mapsto \gamma_g$.
+    Then 
+    $$\begin{array}{ll}
+        \varphi(gh) & = \gamma_{gh} \\
+        & = \left(a \mapsto ghah^{-1}g^{-1}\right) \\
+        & = \left(a \mapsto gag^{-1}\right) \circ \left(a \mapsto hah^{-1}\right) \\
+        & = \gamma_g \circ \gamma_h \\
+        & = \varphi(g) \varphi(h)
+    \end{array}$$
+    and thus $\varphi$ is a homomorphism.
+
+    If $G$ is abelian, then it is obvious that $\varphi$ is trivial.
+
+    If $\varphi$ is trivial, then $\gamma_g = \id{G}$ for any $g \in G$, and this means that $gag^{-1} = a$ for any $a,g \in G$, which means $G$ is an abelian group.
+}
 
 \problem{ %4.9
-    $\vartriangleright$ Prove that if $m$, $n$ are positive integers such that $\gcd (m,n) = 1$, then $C_{mn} \cong C_m \times C_n$. \sqref{\S4.3, 4.10, \S IV.6.1, V.6.8}
-}{}
+    $\vartriangleright$ Prove that if $m$, $n$ are positive integers such that $\gcd (m,n) = 1$, then $C_{mn} \cong C_m \times C_n$. \newline \sqref{\S4.3, 4.10, \S IV.6.1, V.6.8}
+}{
+    Let $m$, $n$ be positive integers such that $\gcd (m,n) = 1$.
+    Since $\left(\eqcl{1}_m,\eqcl{1}_n\right)$ is an element of order $mn$ in $C_m \times C_n$, and since every grouop of order $mn$ which has an element of order $mn$ is isomorphic to $C_{mn}$, $C_m \times C_n \cong C_{mn}$.
+}
 
 \problem{ %4.10
     $\vartriangleright$ Let $p \neq q$ be odd prime integers; show that $(\ZZ/pq\ZZ)^*$ is not cyclic.
     (Hint: Use \ref{prob:II.4.9} to compute the order $N$ of $(\ZZ/pq\ZZ)^*$, and show that no element can have order $N$.) \sqref{\S4.3}
-}{}
+}{
+    It is obvious that $(\ZZ/pq\ZZ)^*$ is a group of order $(p-1)(q-1)$, and by the Fermat's little theorem, $p \nmid a \implies a^{p-1} \equiv 1 \pmod{p}$ and $q \nmid a \implies a^{q-1} \equiv 1 \pmod{q}$.
+    Thus, by the Chinese remainder theorem, $\gcd (a,pq) = 1$ implies that $a^{\frac{1}{2}(p-1)(q-1)} \equiv 1 \pmod{pq}$ since $2 \nmid p$ and $2 \nmid q$.
+    Therefore, there is no element of order $(p-1)(q-1)$ and, hence, $(\ZZ/pq\ZZ)^*$ is not a cyclic group.
+}
 
 \problem{ %4.11
     $\vartriangleright$ In due time we will prove the easy fact that if $p$ is a prime integer, then the equation $x^d = 1$ can have at most $d$ solutions in $\ZZ / p\ZZ$.
     Assume this fact, and prove that the multiplicative group $G = (\ZZ/p\ZZ)^*$ is cyclic.
     (Hint: Let $g \in G$ be an element of maximal order; use \ref{prob:II.1.15} to show that $h^{\abs{g}} = 1$ for all $h \in G$. Therefore....) \sqref{\S4.3, 4.15, 4.16, \S IV.6.3}
-}{}
+}{
+    Suppose not, i.e., suppose that $(\ZZ/p\ZZ)^*$ is not cyclic.
+    Then, there exists an element $g \in (\ZZ/p\ZZ)^*$ whose order $d < p-1$ is maximal.
+    This means that $n^d = 1$ for any $n \in (\ZZ/p\ZZ)^*$ and this contradicts with the fact that the equation $n^d = 1$ has at most $d$ solutions in $\ZZ/p\ZZ$.
+    Therefore, $(\ZZ/p\ZZ)^*$ is cyclic.
+}
 
 \problem{ %4.12
     $\neg$ \begin{itemize}
@@ -714,15 +794,27 @@
         (Hint: Plugging in all 31 elements of $\ZZ/31\ZZ$ is too laborious and will not teach you much. 
         Instead, use the result of the first part: if $c$ is a solution of the equation, what can you say about $\abs{c}$?) \sqref{VII.5.15}
     \end{itemize}
-}{}
+}{
+    Since $(\eqcl{9}_{31})^{15} = \eqcl{1}_{31}$, $(\eqcl{9}_{31})^5 = \eqcl{25}_{31}$, and $(\eqcl{9}_{31})^3 = \eqcl{16}_{31}$, the order of $\eqcl{9}_{31}$ is $15$.
+
+    If $x^3 \equiv 9 \pmod{31}$ for some $x \in \ZZ$, then $x^{45} \equiv 1 \pmod{31}$ since $9^{15} \equiv 1 \pmod{31}$.
+    Also, since $x^{31} \equiv x \pmod{31}$ for any $x \in \ZZ$, we get $x^{15} \equiv 1 \pmod{31}$.
+    However, since $9^5 \not\equiv 1 \pmod{31}$, it immediately makes a contradiction.
+    Therefore, there is no solution for the equation $x^3 - 9 = 0$ in $\ZZ/31\ZZ$.
+}
 
 \problem{ %4.13
     $\neg$ Prove that $\Aut{\Grp}[\ZZ/2\ZZ \times \ZZ/2\ZZ] \cong S_3$. \sqref{IV.5.14}
-}{}
+}{
+    In $\ZZ/2\ZZ \times \ZZ/2\ZZ$, adding any two of three elements except the identity gives the other one.
+    Also, $2x$ is the identity for any elements $x \in \ZZ/2\ZZ \times \ZZ/2\ZZ$.
+    Thus, an automorphism on $\ZZ/2\ZZ \times \ZZ/2\ZZ$ can be considered as a permutation among the three elements except the identity.
+    Therefore, $\Aut{\Grp}\left(\ZZ/2\ZZ \times \ZZ/2\ZZ\right) \cong S_3$.
+}
 
 \problem{ %4.14
     $\vartriangleright$ Prove that the order of the group of automorphisms of a cyclic group $C_n$ is the number of positive integer $r \leq n$ that are \emph{relatively prime} to $n$.
-    (This is called \emph{Euler's \phi-function;} cf. \ref{prob:II.6.14}.) \sqref{\S IV.1.4, IV.1.22, \S IV.2.5}
+    (This is called \emph{Euler's $\phi$-function;} cf. \ref{prob:II.6.14}.) \sqref{\S IV.1.4, IV.1.22, \S IV.2.5}
 }{}
 
 \problem{ %4.15
