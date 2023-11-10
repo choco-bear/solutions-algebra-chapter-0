@@ -1,13 +1,13 @@
 %%             theoremstyle                %%
-\newtheoremstyle{break}% name
-  {}%           Space above, empty = `usual value'
-  {2em}%        Space below
-  {\upshape}%   Body font
-  {}%           Indent amount (empty = no indent, \parindent = para indent)
-  {\bfseries}%  Thm head font
-  {.}%          Punctuation after thm head
-  {\newline}%   Space after thm head: \newline = linebreak
-  {}%           Thm head spec
+\newtheoremstyle{break}%    name
+  {}%                       Space above, empty = `usual value'
+  {2em}%                    Space below
+  {\upshape\setlength{\parskip}{0pt}\setlength{\parindent}{1em}}%               Body font
+  {}%                       Indent amount (empty = no indent, \parindent = para indent)
+  {\bfseries}%              Thm head font
+  {.}%                      Punctuation after thm head
+  {\newline}%               Space after thm head: \newline = linebreak
+  {}%                       Thm head spec
 
 \theoremstyle{break}
 
@@ -60,6 +60,19 @@
     % If subsection != 0, then chapter.section.subsection.1. chapter.section.subsection.2. chapter.section.subsection.3. ...
 \fi\fi\fi\arabic{exercise}\!\!
 }
+
+\makeatletter 
+\renewenvironment{proof}[1][\proofname]{
+    \par \pushQED{\qed}% 
+    \normalfont\topsep6\p@\@plus6\p@\relax 
+    \trivlist 
+    \item\relax {
+        \itshape #1\@addpunct{.}
+    }\hspace\labelsep\ignorespaces \setlength{\parindent}{0pt}\par
+}{% 
+    \popQED\endtrivlist\@endpefalse 
+} 
+\makeatother
 \newenvironment{solution}{
     \begin{proof}[Solution]
 }{
@@ -72,8 +85,8 @@
 }{
     \end{exercise}
 }
-\newcommand{\problem}[2]{\noindent\begin{minipage}{\textwidth}\begin{_exercise}\label{exer:\Roman{chapter}.\arabic{section}.\arabic{exercise}}#1\end{_exercise}\begin{solution}#2\end{solution}\end{minipage}}
-\newcommand{\problembr}[2]{\begin{samepage}\begin{_exercise}\label{exer:\Roman{chapter}.\arabic{section}.\arabic{exercise}}#1\end{_exercise}\begin{solution}#2\end{solution}\end{samepage}}
+\newcommand{\problem}[2]{\noindent\begin{minipage}{\textwidth}\begin{_exercise}\label{exer:\Roman{chapter}.\arabic{section}.\arabic{exercise}}#1\end{_exercise}\begin{solution}#2 \end{solution}\end{minipage}}
+\newcommand{\problembr}[2]{\begin{samepage}\begin{_exercise}\label{exer:\Roman{chapter}.\arabic{section}.\arabic{exercise}}#1\end{_exercise}\begin{solution}#2 \end{solution}\end{samepage}}
 
 \labelformat{exercise}{Exercise \Roman{chapter}.\arabic{section}.\arabic{exercise}}
 \labelformat{problem}{Exercise \arabic{section}.\arabic{problem}}
