@@ -346,9 +346,9 @@
 \problem{ %2.10
     Prove that if $n > 0$, then $\ZZ / n\ZZ$ consists of precisely $n$ elements.
 }{
-    Let $0 \leq i < j < n$ and $i \equiv j \pmod{n}$. Then $n \mid j-i$ and since $0 < j-i < n$, it immediately makes a contradiction. Hence, for any $0 \leq i < j < n$, $[i] \neq [j]$. This means that $\abs{\ZZ/n\ZZ} \geq n$.
+    Let $0 \leq i < j < n$ and $i \equiv j \pmod{n}$. Then $n \mid j-i$ and since $0 < j-i < n$, it immediately makes a contradiction. Hence, for any $0 \leq i < j < n$, $[i] \neq [j]$. This means that $\abs{\cyclic{n}} \geq n$.
 
-    Now, for any integer $m$, by the division theorem, there are integers $q,r$ such that $m = qn+r$ and $0 \leq r < n$. Hence, $[m] = [r]$ for some $0 \leq r < n$, and this means that $\abs{\ZZ/n\ZZ} \leq n$.
+    Now, for any integer $m$, by the division theorem, there are integers $q,r$ such that $m = qn+r$ and $0 \leq r < n$. Hence, $[m] = [r]$ for some $0 \leq r < n$, and this means that $\abs{\cyclic{n}} \leq n$.
 
     Therefore, $\ZZ / n\ZZ$ consists of precisely $n$ elements.
 }
@@ -360,7 +360,7 @@
 }
 
 \problem{ %2.12
-    Prove that there are no nonzero integers $a$, $b$, $c$ such that $a^2 + b^2 = 3c^2$. (Hint: By studying the equation $[a]_4^{\phantom{4}2} + [b]_4^{\phantom{4}2} = 3[c]_4^{\phantom{4}2}$ in $\ZZ/4\ZZ$, show that $a,b,c$ would all have to be even. Letting $a = 2k$, $b = 2l$, $c = 2m$, you would have $k^2 + l^2 = 3m^2$. What's wrong with that?)
+    Prove that there are no nonzero integers $a$, $b$, $c$ such that $a^2 + b^2 = 3c^2$. (Hint: By studying the equation $[a]_4^{\phantom{4}2} + [b]_4^{\phantom{4}2} = 3[c]_4^{\phantom{4}2}$ in $\cyclic{4}$, show that $a,b,c$ would all have to be even. Letting $a = 2k$, $b = 2l$, $c = 2m$, you would have $k^2 + l^2 = 3m^2$. What's wrong with that?)
 }{
     Let $a^2 + b^2 = 3c^2$ for some integers $a$, $b$, $c$. Then $a^2 + b^2 \equiv 3c^2 \pmod{4}$, clearly.
 
@@ -396,9 +396,9 @@
 
         \item Prove that if $\gcd (r,2n) = 1$, then $\gcd (\tfrac{r-n}{2},n) = 1$. (Ditto.)
 
-        \item Conclude that the function $[m]_n \to [2m+n]_{2n}$ is a bijection between $(\ZZ/n\ZZ)^*$ and $(\ZZ/2n\ZZ)^*$.
+        \item Conclude that the function $[m]_n \to [2m+n]_{2n}$ is a bijection between $(\cyclic{n})^*$ and $(\cyclic{2n})^*$.
     \end{itemize}
-    The number $\phi(n)$ of elements of $(\ZZ/n\ZZ)^*$ is \emph{Euler's $\phi$-function}. The reader has just proved that if $n$ is odd, then $\phi(2n) = \phi(n)$. Much more general formulas will be given later on (cf. \ref{exer:V.6.8}). \sqref{VII.5.11}
+    The number $\phi(n)$ of elements of $(\cyclic{n})^*$ is \emph{Euler's $\phi$-function}. The reader has just proved that if $n$ is odd, then $\phi(2n) = \phi(n)$. Much more general formulas will be given later on (cf. \ref{exer:V.6.8}). \sqref{VII.5.11}
 }{
     Since $2 \nmid 2m+n$, $\gcd (2m+n,2n) = \gcd (2m+n,n) = \gcd (2m,n)$.
 
@@ -410,7 +410,7 @@
 }
 
 \problem{ %2.16
-    Find the last digit of $1238237^{18238456}$. (Work in $\ZZ/10\ZZ$.)
+    Find the last digit of $1238237^{18238456}$. (Work in $\cyclic{10}$.)
 }{
     Since $\phi(10) = 4$, $a^5 = a \pmod{10}$ for any integers $a$.
 
@@ -432,7 +432,7 @@
 }
 
 \problem{ %2.19
-    $\vartriangleright$ Both $(\ZZ/5\ZZ)^*$ and $(\ZZ/12\ZZ)^*$ consist of 4 elements. Write their multiplication tables, and prove that no re-ordering of the elements will make them match. (Cf. \ref{prob:II.1.6}.) \sqref{\S4.3}
+    $\vartriangleright$ Both $(\cyclic{5})^*$ and $(\cyclic{12})^*$ consist of 4 elements. Write their multiplication tables, and prove that no re-ordering of the elements will make them match. (Cf. \ref{prob:II.1.6}.) \sqref{\S4.3}
 }{
     The below one is the multiplication table of $(\ZZ / 5\ZZ)^*$.
     \begin{center}
@@ -658,7 +658,7 @@
     Furthermore, since $\pi_m(a) = \eqcl{a}_m = \pi_m^n(\eqcl{a}_n) = (\pi_m^n \circ \pi_n)(a)$, the diagram
     \begin{cd}
         \ZZ \ar[d, "\pi_n"] \ar[dr, "\pi_m"] \\
-        \ZZ/n\ZZ \ar[r, "\pi_m^n"] \& \ZZ/m\ZZ
+        \cyclic{n} \ar[r, "\pi_m^n"] \& \cyclic{m}
     \end{cd}
     commute.
 
@@ -677,12 +677,12 @@
 \problem{ %4.3
     $\vartriangleright$ Prove that a group of order $n$ is isomorphic to $\ZZ / n\ZZ$ if and only if it contains an element of order $n$. \sqref{\S4.3}
 }{
-    It is obvious that the `only if' part holds since $\eqcl{1}_n$ is an element of $\ZZ/n\ZZ$ whose order $n$.
+    It is obvious that the `only if' part holds since $\eqcl{1}_n$ is an element of $\cyclic{n}$ whose order $n$.
     So we only need to show the `if' part.
 
     Let $G$ be a group of order $n$ and have an element $x$ of order $n$.
     Then $G = \left< x \right>$ obviously, since $\abs{G} = n$.
-    Therefore, $G \cong \ZZ/n\ZZ$.
+    Therefore, $G \cong \cyclic{n}$.
 }
 
 \problem{ %4.4
@@ -768,30 +768,30 @@
 }
 
 \problem{ %4.10
-    $\vartriangleright$ Let $p \neq q$ be odd prime integers; show that $(\ZZ/pq\ZZ)^*$ is not cyclic.
-    (Hint: Use \ref{prob:II.4.9} to compute the order $N$ of $(\ZZ/pq\ZZ)^*$, and show that no element can have order $N$.) \sqref{\S4.3}
+    $\vartriangleright$ Let $p \neq q$ be odd prime integers; show that $(\cyclic{pq})^*$ is not cyclic.
+    (Hint: Use \ref{prob:II.4.9} to compute the order $N$ of $(\cyclic{pq})^*$, and show that no element can have order $N$.) \sqref{\S4.3}
 }{
-    It is obvious that $(\ZZ/pq\ZZ)^*$ is a group of order $(p-1)(q-1)$, and by the Fermat's little theorem, $p \nmid a \implies a^{p-1} \equiv 1 \pmod{p}$ and $q \nmid a \implies a^{q-1} \equiv 1 \pmod{q}$.
+    It is obvious that $(\cyclic{pq})^*$ is a group of order $(p-1)(q-1)$, and by the Fermat's little theorem, $p \nmid a \implies a^{p-1} \equiv 1 \pmod{p}$ and $q \nmid a \implies a^{q-1} \equiv 1 \pmod{q}$.
     Thus, by the Chinese remainder theorem, $\gcd (a,pq) = 1$ implies that $a^{\frac{1}{2}(p-1)(q-1)} \equiv 1 \pmod{pq}$ since $2 \nmid p$ and $2 \nmid q$.
-    Therefore, there is no element of order $(p-1)(q-1)$ and, hence, $(\ZZ/pq\ZZ)^*$ is not a cyclic group.
+    Therefore, there is no element of order $(p-1)(q-1)$ and, hence, $(\cyclic{pq})^*$ is not a cyclic group.
 }
 
 \problem{ %4.11
     $\vartriangleright$ In due time we will prove the easy fact that if $p$ is a prime integer, then the equation $x^d = 1$ can have at most $d$ solutions in $\ZZ / p\ZZ$.
-    Assume this fact, and prove that the multiplicative group $G = (\ZZ/p\ZZ)^*$ is cyclic.
+    Assume this fact, and prove that the multiplicative group $G = (\cyclic{p})^*$ is cyclic.
     (Hint: Let $g \in G$ be an element of maximal order; use \ref{prob:II.1.15} to show that $h^{\abs{g}} = 1$ for all $h \in G$. Therefore....) \sqref{\S4.3, 4.15, 4.16, \S IV.6.3}
 }{
-    Suppose not, i.e., suppose that $(\ZZ/p\ZZ)^*$ is not cyclic.
-    Then, there exists an element $g \in (\ZZ/p\ZZ)^*$ whose order $d < p-1$ is maximal.
-    This means that $n^d = 1$ for any $n \in (\ZZ/p\ZZ)^*$ and this contradicts with the fact that the equation $n^d = 1$ has at most $d$ solutions in $\ZZ/p\ZZ$.
-    Therefore, $(\ZZ/p\ZZ)^*$ is cyclic.
+    Suppose not, i.e., suppose that $(\cyclic{p})^*$ is not cyclic.
+    Then, there exists an element $g \in (\cyclic{p})^*$ whose order $d < p-1$ is maximal.
+    This means that $n^d = 1$ for any $n \in (\cyclic{p})^*$ and this contradicts with the fact that the equation $n^d = 1$ has at most $d$ solutions in $\cyclic{p}$.
+    Therefore, $(\cyclic{p})^*$ is cyclic.
 }
 
 \problem{ %4.12
     $\neg$ \begin{itemize}
-        \item Compute the order of $\eqcl{9}_{31}$ in the group $(\ZZ/31\ZZ)^*$.
-        \item Does the equation $x^3 - 9 = 0$ have solutions in $\ZZ/31\ZZ$?
-        (Hint: Plugging in all 31 elements of $\ZZ/31\ZZ$ is too laborious and will not teach you much. 
+        \item Compute the order of $\eqcl{9}_{31}$ in the group $(\cyclic{31})^*$.
+        \item Does the equation $x^3 - 9 = 0$ have solutions in $\cyclic{31}$?
+        (Hint: Plugging in all 31 elements of $\cyclic{31}$ is too laborious and will not teach you much. 
         Instead, use the result of the first part: if $c$ is a solution of the equation, what can you say about $\abs{c}$?) \sqref{VII.5.15}
     \end{itemize}
 }{
@@ -800,16 +800,16 @@
     If $x^3 \equiv 9 \pmod{31}$ for some $x \in \ZZ$, then $x^{45} \equiv 1 \pmod{31}$ since $9^{15} \equiv 1 \pmod{31}$.
     Also, since $x^{31} \equiv x \pmod{31}$ for any $x \in \ZZ$, we get $x^{15} \equiv 1 \pmod{31}$.
     However, since $9^5 \not\equiv 1 \pmod{31}$, it immediately makes a contradiction.
-    Therefore, there is no solution for the equation $x^3 - 9 = 0$ in $\ZZ/31\ZZ$.
+    Therefore, there is no solution for the equation $x^3 - 9 = 0$ in $\cyclic{31}$.
 }
 
 \problem{ %4.13
-    $\neg$ Prove that $\Aut{\Grp}[\ZZ/2\ZZ \times \ZZ/2\ZZ] \cong S_3$. \sqref{IV.5.14}
+    $\neg$ Prove that $\Aut{\Grp}[\cyclic{2} \times \cyclic{2}] \cong S_3$. \sqref{IV.5.14}
 }{
-    In $\ZZ/2\ZZ \times \ZZ/2\ZZ$, adding any two of three elements except the identity gives the other one.
-    Also, $2x$ is the identity for any elements $x \in \ZZ/2\ZZ \times \ZZ/2\ZZ$.
-    Thus, an automorphism on $\ZZ/2\ZZ \times \ZZ/2\ZZ$ can be considered as a permutation among the three elements except the identity.
-    Therefore, $\Aut{\Grp}\left(\ZZ/2\ZZ \times \ZZ/2\ZZ\right) \cong S_3$.
+    In $\cyclic{2} \times \cyclic{2}$, adding any two of three elements except the identity gives the other one.
+    Also, $2x$ is the identity for any elements $x \in \cyclic{2} \times \cyclic{2}$.
+    Thus, an automorphism on $\cyclic{2} \times \cyclic{2}$ can be considered as a permutation among the three elements except the identity.
+    Therefore, $\Aut{\Grp}\left(\cyclic{2} \times \cyclic{2}\right) \cong S_3$.
 }
 
 \problem{ %4.14
