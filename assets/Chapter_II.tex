@@ -875,3 +875,59 @@
     $$\varphi(gh) = \varphi(g)\varphi(h) = \varphi(h)\varphi(g) = \varphi(hg)$$
     and since $\varphi$ is an isomorphism, $gh = hg$.
 }
+
+\newpage
+\section{Free groups}
+\problem{ %5.1
+    Does the category $\mathcal{F}^A$ defined in \S5.2 have final objects? If so, what are they?
+}{}
+
+\problem{ %5.2
+    Since trivial groups $T$ are initial in $\Grp$, one may be led to think that $(e,T)$ should be initial in $\mathcal{F}^A$, for every $A$: $e$ would be defined by sending every element of $A$ to the (only) element in $T$; and for any other group $G$, \emph{there is a unique} homomorphism $T \to G$. Explain why $(e,T)$ is \emph{not} initial in $\mathcal{F}^A$ (unless $A = \emptyset$).
+}{}
+
+\problem{ %5.3
+    $\vartriangleright$ Use the universal property of free groups to prove that the map $j : A \to F(A)$ is injective, for all sets $A$.
+    (Hint: It suffices to show that for every two elements $a$, $b$ of $A$ there is a group $G$ and a set-function $f : A \to G$ such that $f(a) \neq f(b)$.
+    Why? How do you construct $f$ and $G$?) \sqref{\S III.6.3}
+}{}
+
+\problem{ %5.4
+    $\vartriangleright$ In the `concrete' construction of free groups, one can try to reduce words by performing cancellations in any order; the process of `elementary reductions' used in the text (that is, from left to right) is only one possibility.
+    Prove that the result of iterating cancellations on a word is independent of the order in which the cancellations are performed.
+    Deduce the associativity of the product in $F(A)$ from this. \sqref{\S5.3}
+}{}
+
+\problem{ %5.5
+    Verify explicitly that $H^{\oplus A}$ is a group.
+}{}
+
+\problem{ %5.6
+    $\vartriangleright$ Prove that the group $F(\{x,y\})$ (visualized in Example 5.3) is a coproduct $\ZZ * \ZZ$ of $\ZZ$ by itself in the category $\Grp$.
+    (Hint: With due care, the universal property for one turns into the universal property for the other.) \sqref{\S3.4, 3.7, 5.7}
+}{}
+
+\problem{ %5.7
+    $\vartriangleright$ Extend the result of \ref{prob:II.5.6} to free groups $F(\{x_1,\cdots,x_n\})$ and to free \emph{abelian} groups $F^{ab}(\{x_1,\cdots,x_n\})$. \sqref{\S3.4, \S5.4}
+}{}
+
+\problem{ %5.8
+    Still more generally, prove that $F(A \sqcup B) = F(A) * F(B)$ and that $F^{ab}(A \sqcub B) = F^{ab}(A) \oplus F^{ab}(B)$ for all sets $A,B$.
+    (That is, the constructions $F$, $F^{ab}$ `preserve coproducts'.)
+}{}
+
+\problem{ %5.9
+    Let $G = \ZZ^{\oplus \NN}$. Prove that $G \times G \cong G$.
+}{}
+
+\problem{ %5.10
+    $\neg$ Let $F = F^{ab}(A)$.
+    \begin{itemize}
+        \item Define an equivalence relation $\sim$ on $F$ by setting $f' \sim f$ if and only if $f - f' = 2g$ for some $g \in F$.
+        Prove that $F/\sim$ is a finite set if and only if $A$ is finite, and in that case $\abs{F/\sim} = 2^{\abs{A}}$.
+        
+        \item Assume $F^{ab}(B) \cong F^{ab}(A)$. If $A$ is finite, prove that $B$ is also, and that $A \cong B$ as sets.
+        (This result holds for free groups as well, and without any finiteness hypothesis. See \ref{prob:II.7.13} and \ref{exer:VI.1.20}.)
+    \end{itemize}
+    \sqref{7.4, 7.13}
+}{}
