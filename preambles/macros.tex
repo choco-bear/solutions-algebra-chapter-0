@@ -91,7 +91,13 @@
 \newcommand{\id}[1]{\mathrm{id}_{#1}}
 \newcommand{\cat}[1]{\mathsf{#1}}
 \newcommand{\op}[1]{{#1}^{op}}
-\def\one{\mathrm{1}}
+\NewDocumentCommand{\one}{o}{
+    \IfNoValueTF{#1}{
+        \ensuremath{\mathrm{1}}
+    }{
+        \ensuremath{\mathrm{1}_{#1}}
+    }
+}
 \NewDocumentCommand{\Aut}{mo}{
     \IfNoValueTF{#2}{
         \ensuremath{\mathrm{Aut} \left( #1 \right)}
