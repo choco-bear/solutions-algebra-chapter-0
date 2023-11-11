@@ -880,45 +880,134 @@
 \section{Free groups}
 \problem{ %5.1
     Does the category $\mathscr{F}^A$ defined in \S5.2 have final objects? If so, what are they?
-}{}
+}{
+    Consider any object $(j,G)$ of $\mathscr{F}^A$.
+    Then, the following commutative diagram:
+    \begin{cd}[column sep=0.8em]
+        G \ar[rr] \& \& \mathbf{1} \\
+        \& A \ar[ur, "i", swap] \ar[ul, "j"]
+    \end{cd}
+    is a morphism from $(i,G)$ to $(i,\mathbf{1})$.
+    
+    Also, since there is only one homomorphism $G \to \mathbf{1}$, the morphism from $(j,G)$ to $(i,\mathbf{1})$ is unique.
+
+    Therefore, $(i,\mathbf{1})$ is a final object in the category $\mathscr{F}^A$.
+}
 
 \problem{ %5.2
     Since trivial groups $T$ are initial in $\Grp$, one may be led to think that $(e,T)$ should be initial in $\mathscr{F}^A$, for every $A$: $e$ would be defined by sending every element of $A$ to the (only) element in $T$; and for any other group $G$, \emph{there is a unique} homomorphism $T \to G$. Explain why $(e,T)$ is \emph{not} initial in $\mathscr{F}^A$ (unless $A = \emptyset$).
-}{}
+}{
+    Consider an object $(j,\ZZ) \in \Obj{\mathscr{F}^A}$ where $j : A \to \ZZ$ be a function defined as $a \mapsto 1$.
+    Then there is no homomorphism $\varphi : T \to \ZZ$ making the following diagram commute:
+    \begin{cd}[column sep=0.8em]
+        T \ar[rr, "\varphi"] \&\& \ZZ \\
+        \& A \ar[ur, "j", swap] \ar[ul, "e"]
+    \end{cd}
+    since every homomorphism maps an identity to an identity.
+}
 
 \problem{ %5.3
     $\vartriangleright$ Use the universal property of free groups to prove that the map $j : A \to F(A)$ is injective, for all sets $A$.
     (Hint: It suffices to show that for every two elements $a$, $b$ of $A$ there is a group $G$ and a set-function $f : A \to G$ such that $f(a) \neq f(b)$.
     Why? How do you construct $f$ and $G$?) \sqref{\S III.6.3}
-}{}
+}{
+    Suppose not, i.e., suppose that there are two distinct elements $a$, $b$ in $A$ such that $j(a) = j(b)$.
+    Consider a group $\ZZ$ and a function $\one[a] : A \to \ZZ$ defined as $x \mapsto \begin{cases} 1 & \mbox{if } x = a \\ 0 & \mbox{otherwise.} \end{cases}$
+    
+    Then, it is impossible that a homomorphism $\varphi : F(A) \to \ZZ$ makes the diagram:
+    \begin{cd}[column sep=0.8em]
+        F(A) \ar[rr, "\varphi"] \&\& \ZZ \\
+        \& A \ar[ur, "{\one[a]}", swap] \ar[ul, "j"]
+    \end{cd}
+    commute, and this contradicts the definition of $F(A)$, which means the assumption cannot be true.
+    Therefore, $j : A \to F(A)$ has to be injective.
+}
 
 \problem{ %5.4
     $\vartriangleright$ In the `concrete' construction of free groups, one can try to reduce words by performing cancellations in any order; the process of `elementary reductions' used in the text (that is, from left to right) is only one possibility.
     Prove that the result of iterating cancellations on a word is independent of the order in which the cancellations are performed.
     Deduce the associativity of the product in $F(A)$ from this. \sqref{\S5.3}
-}{}
+}{
+    It is obvious that $R(st) = R(R(s)R(t))$ and, hence, we get the desired property.
+}
 
 \problem{ %5.5
     Verify explicitly that $H^{\oplus A}$ is a group.
-}{}
+}{
+    The associativity of the operation of $H^{\oplus A}$ is quite obvious.
+    Also, the function $e : A \to H$ which is defined as $a \mapsto e_H$ is clearly an identity of $H^{\oplus A}$.
+
+    Furthermore, for every element $f \in H^{\oplus A}$, $-f : a \mapsto -(f(a))$ is an inverse of $f$, of course.
+
+    Finally, $H^{\oplus A}$ is closed under its operation.
+    To show this, consider a function $n : H^{\oplus A} \to \NN$ defined as $f \mapsto \abs{\{a \mid f(a) \neq e_H\}}$.
+    Then for any two elements $f,g \in H^{\oplus A}$, $n(fg) \leq n(f) + n(g)$, obviously, and this implies that $fg \in H^{\oplus A}$.
+    
+    Therefore, $H^{\oplus A}$ is indeed a group.
+}
 
 \problem{ %5.6
     $\vartriangleright$ Prove that the group $F(\{x,y\})$ (visualized in Example 5.3) is a coproduct $\ZZ * \ZZ$ of $\ZZ$ by itself in the category $\Grp$.
     (Hint: With due care, the universal property for one turns into the universal property for the other.) \sqref{\S3.4, 3.7, 5.7}
-}{}
+}{
+    Let $\iota_1 : \ZZ \to F(\{x,y\})$ and $\iota_2 : \ZZ \to F(\{x,y\})$ be homomorphisms defined as $n \mapsto x^n$ and $m \mapsto y^m$, respectively.
+
+    Now consider a group $G$ and two homomorphisms $\varphi_1 : \ZZ \to G$ and $\varphi_2 : \ZZ \to G$.
+    Then to make the diagram
+    \begin{cd}[column sep=5em]
+        \ZZ \ar[d, "\varphi_1", swap] \ar[dr, "\iota_1"pos=.85, shorten >= 0pt] \& \ZZ \ar[dl, "\varphi_2"pos=.8, swap] \ar[d, "\iota_2"] \\
+        G \& F(\{x,y\}) \ar[l, "\sigma"pos=.33, dashed, swap, shorten <= 0pt]
+    \end{cd}
+    commute, it has to be $\sigma(x) = \varphi_1(1)$ and $\sigma(y) = \varphi_2(1)$.
+
+    Since $\{x,y\}$ generates $F(\{x,y\})$, a such $\sigma$ exists and is unique.
+    Therefore, $F(\{x,y\})$ is a coproduct $\ZZ * \ZZ$.
+}
 
 \problem{ %5.7
     $\vartriangleright$ Extend the result of \ref{prob:II.5.6} to free groups $F(\{x_1,\cdots,x_n\})$ and to free \emph{abelian} groups $F^{ab}(\{x_1,\cdots,x_n\})$. \sqref{\S3.4, \S5.4}
-}{}
+}{
+    Let $\iota_i : \ZZ \to F(\{x_1,\cdots,x_n\})$ be defined as $n \mapsto x_i^{\phantom{i}n}$ for each $i = 1,\cdots,n$.
+    Now consider a group $G$ and homomorphisms $\varphi_1, \cdots, \varphi_n : \ZZ \to G$.
+    Then, to make the diagram
+    \begin{cd}[row sep=4em]
+	\ZZ \ar[dd, "\iota_1"pos=.6, swap] \ar[ddrrr, "\varphi_1"pos=.8, swap] \& \ZZ \& \hspace{2em}\cdots \ar[ddll, "\ddots"{pos=.8,description}, shift right, phantom] \ar[ddr, "\text{\rotatebox[origin=c]{60}{$\ddots$}}"{pos=.8,description}, shift left=3, phantom] \& \ZZ \ar[ddlll, "\iota_n"pos=.8] \ar[dd, "\varphi_n"] \\
+	\\
+	G \ar[uur, "\iota_2"pos=.4, <-, swap] \&\&\& {F(\{x_1,\cdots,x_n\})} \ar[lll, "\sigma", dashed] \ar[uull, "\varphi_2"pos=.3, <-, swap, shorten <= 4pt]
+    \end{cd}
+    commute, it has to be $\sigma(x_i) = \varphi_i(1)$ for each $i = 1,\cdots,n$.
+    Since $\{x_1,\cdots,x_n\}$ generates $F(\{x_1,\cdots,x_n\})$, a such homomorphism $\sigma$ exists and is unique.
+    Therefore, $F(\{x_1,\cdots,x_n\}) \cong \bigsqcup_{i=1}^n \ZZ$.
+
+    Similarly, $F^{ab}(\{x_1,\cdots,x_n\}) \cong \bigoplus_{i=1}^n \ZZ$.
+}
 
 \problem{ %5.8
     Still more generally, prove that $F(A \sqcup B) = F(A) * F(B)$ and that $F^{ab}(A \sqcup B) = F^{ab}(A) \oplus F^{ab}(B)$ for all sets $A,B$.
     (That is, the constructions $F$, $F^{ab}$ `preserve coproducts'.)
-}{}
+}{
+    Let $\iota_A : F(A) \to F(A \sqcup B)$ and $\iota_B : F(B) \to F(A \sqcup B)$ be inclusions.
+    Consider a group $G$ and two homomorphisms $\varphi_A : F(A) \to G$ and $\varphi_B : F(B) \to G$.
+    Then to make the following diagram
+    \begin{cd}[column sep=5em]
+        F(A) \ar[d, "\varphi_A", swap] \ar[dr, "\iota_A"pos=.85, shorten >= 0pt] \& F(B) \ar[dl, "\varphi_B"pos=.8, swap] \ar[d, "\iota_B"] \\
+        G \& F(A \sqcup B) \ar[l, "\sigma"pos=.33, dashed, swap, shorten <= 0pt]
+    \end{cd}
+    commute, it has to be $\sigma(a) = \varphi_A(a)$ for any $a \in F(A)$ and $\sigma(b) = \varphi_B(b)$ for any $b \in F(B)$.
+
+    Since $F(A) \sqcup F(B)$ generates $F(A \sqcup B)$, a such $\sigma$ exists and is unique.
+    Therefore, $F(A \sqcup B) \cong F(A) * F(B)$.
+    
+    Similarly, $F^{ab}(A \sqcup B) \cong F^{ab}(A) \oplus F^{ab}(B)$.
+}
 
 \problem{ %5.9
     Let $G = \ZZ^{\oplus \NN}$. Prove that $G \times G \cong G$.
-}{}
+}{
+    Let $\varphi : G \to G \times G$ be defined as $\{a_n\} \mapsto \left(\{a_{2n}\},\{a_{2n+1}\}\right)$.
+    Then $\varphi$ is an isomorphism, clearly.
+    Therefore, $G \cong G \times G$.
+}
 
 \problem{ %5.10
     $\neg$ Let $F = F^{ab}(A)$.
@@ -930,4 +1019,11 @@
         (This result holds for free groups as well, and without any finiteness hypothesis. See \ref{prob:II.7.13} and \ref{exer:VI.1.20}.)
     \end{itemize}
     \sqref{7.4, 7.13}
-}{}
+}{
+    It is quite obvious that $F/\sim \cong (\cyclic{2})^{\oplus A}$.
+    Thus, $F/\sim$ is finite if and only if $A$ is finite.
+    Furthermore, if $A$ is finite, $\abs{F/\sim} = 2^{\abs{A}}$.
+
+    In addition, by the fact proved above, it is clear that $A$ is finite if and only if $B$ is finite where $F^{ab}(A) \cong F^{ab}(B)$.
+    Also, in that case, $\abs{A} = \abs{B}$.
+}
