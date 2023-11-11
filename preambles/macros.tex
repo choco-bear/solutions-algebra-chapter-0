@@ -109,6 +109,13 @@
         \ensuremath{\mathrm{Aut}_{#1} \left( #2 \right)}
     }
 }
+\NewDocumentCommand{\Inn}{mo}{
+    \IfNoValueTF{#2}{
+        \ensuremath{\mathrm{Inn} \left( #1 \right)}
+    }{
+        \ensuremath{\mathrm{Inn}_{#1} \left( #2 \right)}
+    }
+}
 \newcommand{\cyclic}[1]{\ensuremath{\ZZ/#1\ZZ}}
 
 %%           commutative diagram           %%
