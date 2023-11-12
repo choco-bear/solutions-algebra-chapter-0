@@ -16,7 +16,6 @@
     $\vartriangleright$ Consider the `sets of numbers' listed in \S1.1, and decide which are made into groups by conventional operations such as $+$ and $\cdot$. Even if the answer is negative (for example, $(\RR,\cdot)$ is not a group), see if variations on the definition of these sets lead to groups (for example, $(\RR^*,\cdot)$ \emph{is} a group; cf. \S1.4). \sqref{\S1.2}
 }{
     \begin{itemize}[leftmargin=51mm]
-        \item[]
         \item[\textbf{Groups}] $(\ZZ,+)$, $(\QQ,+)$, $(\RR,+)$, $(\CC,+)$
 
         \item[\textbf{Non-groups}] $(\NN,+)$, $(\NN,\cdot)$, $(\ZZ,\cdot)$, $(\QQ,\cdot)$, $(\RR,\cdot)$, $(\CC,\cdot)$
@@ -143,7 +142,6 @@
     Prove Corollary 1.11.
 }{
     \begin{itemize}[leftmargin=12mm]
-        \item[]
         \item[($\implies$)] This is just the result of Lemma 1.10.
 
         \item[($\impliedby$)] If $N$ is a multiple of $\abs{g}$, then $N = m\abs{g}$ for some integer $m$. Hence, $g^N = g^{m\abs{g}} = \left( g^{\abs{g}} \right)^m = e^m = e$.
@@ -876,4 +874,451 @@
     If $H$ is commutative, for any $g,h \in G$,
     $$\varphi(gh) = \varphi(g)\varphi(h) = \varphi(h)\varphi(g) = \varphi(hg)$$
     and since $\varphi$ is an isomorphism, $gh = hg$.
+}
+
+\newpage
+\section{Free groups}
+\problem{ %5.1
+    Does the category $\mathscr{F}^A$ defined in \S5.2 have final objects? If so, what are they?
+}{
+    Consider any object $(j,G)$ of $\mathscr{F}^A$.
+    Then, the following commutative diagram:
+    \begin{cd}[column sep=0.8em]
+        G \ar[rr] \& \& \mathbf{1} \\
+        \& A \ar[ur, "i", swap] \ar[ul, "j"]
+    \end{cd}
+    is a morphism from $(i,G)$ to $(i,\mathbf{1})$.
+    
+    Also, since there is only one homomorphism $G \to \mathbf{1}$, the morphism from $(j,G)$ to $(i,\mathbf{1})$ is unique.
+
+    Therefore, $(i,\mathbf{1})$ is a final object in the category $\mathscr{F}^A$.
+}
+
+\problem{ %5.2
+    Since trivial groups $T$ are initial in $\Grp$, one may be led to think that $(e,T)$ should be initial in $\mathscr{F}^A$, for every $A$: $e$ would be defined by sending every element of $A$ to the (only) element in $T$; and for any other group $G$, \emph{there is a unique} homomorphism $T \to G$. Explain why $(e,T)$ is \emph{not} initial in $\mathscr{F}^A$ (unless $A = \emptyset$).
+}{
+    Consider an object $(j,\ZZ) \in \Obj{\mathscr{F}^A}$ where $j : A \to \ZZ$ be a function defined as $a \mapsto 1$.
+    Then there is no homomorphism $\varphi : T \to \ZZ$ making the following diagram commute:
+    \begin{cd}[column sep=0.8em]
+        T \ar[rr, "\varphi"] \&\& \ZZ \\
+        \& A \ar[ur, "j", swap] \ar[ul, "e"]
+    \end{cd}
+    since every homomorphism maps an identity to an identity.
+}
+
+\problem{ %5.3
+    $\vartriangleright$ Use the universal property of free groups to prove that the map $j : A \to F(A)$ is injective, for all sets $A$.
+    (Hint: It suffices to show that for every two elements $a$, $b$ of $A$ there is a group $G$ and a set-function $f : A \to G$ such that $f(a) \neq f(b)$.
+    Why? How do you construct $f$ and $G$?) \sqref{\S III.6.3}
+}{
+    Suppose not, i.e., suppose that there are two distinct elements $a$, $b$ in $A$ such that $j(a) = j(b)$.
+    Consider a group $\ZZ$ and a function $\one[a] : A \to \ZZ$ defined as $x \mapsto \begin{cases} 1 & \mbox{if } x = a \\ 0 & \mbox{otherwise.} \end{cases}$
+    
+    Then, it is impossible that a homomorphism $\varphi : F(A) \to \ZZ$ makes the diagram:
+    \begin{cd}[column sep=0.8em]
+        F(A) \ar[rr, "\varphi"] \&\& \ZZ \\
+        \& A \ar[ur, "{\one[a]}", swap] \ar[ul, "j"]
+    \end{cd}
+    commute, and this contradicts the definition of $F(A)$, which means the assumption cannot be true.
+    Therefore, $j : A \to F(A)$ has to be injective.
+}
+
+\problem{ %5.4
+    $\vartriangleright$ In the `concrete' construction of free groups, one can try to reduce words by performing cancellations in any order; the process of `elementary reductions' used in the text (that is, from left to right) is only one possibility.
+    Prove that the result of iterating cancellations on a word is independent of the order in which the cancellations are performed.
+    Deduce the associativity of the product in $F(A)$ from this. \sqref{\S5.3}
+}{
+    It is obvious that $R(st) = R(R(s)R(t))$ and, hence, we get the desired property.
+}
+
+\problem{ %5.5
+    Verify explicitly that $H^{\oplus A}$ is a group.
+}{
+    The associativity of the operation of $H^{\oplus A}$ is quite obvious.
+    Also, the function $e : A \to H$ which is defined as $a \mapsto e_H$ is clearly an identity of $H^{\oplus A}$.
+
+    Furthermore, for every element $f \in H^{\oplus A}$, $-f : a \mapsto -(f(a))$ is an inverse of $f$, of course.
+
+    Finally, $H^{\oplus A}$ is closed under its operation.
+    To show this, consider a function $n : H^{\oplus A} \to \NN$ defined as $f \mapsto \abs{\{a \mid f(a) \neq e_H\}}$.
+    Then for any two elements $f,g \in H^{\oplus A}$, $n(fg) \leq n(f) + n(g)$, obviously, and this implies that $fg \in H^{\oplus A}$.
+    
+    Therefore, $H^{\oplus A}$ is indeed a group.
+}
+
+\problem{ %5.6
+    $\vartriangleright$ Prove that the group $F(\{x,y\})$ (visualized in Example 5.3) is a coproduct $\ZZ * \ZZ$ of $\ZZ$ by itself in the category $\Grp$.
+    (Hint: With due care, the universal property for one turns into the universal property for the other.) \sqref{\S3.4, 3.7, 5.7}
+}{
+    Let $\iota_1 : \ZZ \to F(\{x,y\})$ and $\iota_2 : \ZZ \to F(\{x,y\})$ be homomorphisms defined as $n \mapsto x^n$ and $m \mapsto y^m$, respectively.
+
+    Now consider a group $G$ and two homomorphisms $\varphi_1 : \ZZ \to G$ and $\varphi_2 : \ZZ \to G$.
+    Then to make the diagram
+    \begin{cd}[column sep=5em]
+        \ZZ \ar[d, "\varphi_1", swap] \ar[dr, "\iota_1"pos=.85, shorten >= 0pt] \& \ZZ \ar[dl, "\varphi_2"pos=.8, swap] \ar[d, "\iota_2"] \\
+        G \& F(\{x,y\}) \ar[l, "\sigma"pos=.33, dashed, swap, shorten <= 0pt]
+    \end{cd}
+    commute, it has to be $\sigma(x) = \varphi_1(1)$ and $\sigma(y) = \varphi_2(1)$.
+
+    Since $\{x,y\}$ generates $F(\{x,y\})$, a such $\sigma$ exists and is unique.
+    Therefore, $F(\{x,y\})$ is a coproduct $\ZZ * \ZZ$.
+}
+
+\problem{ %5.7
+    $\vartriangleright$ Extend the result of \ref{prob:II.5.6} to free groups $F(\{x_1,\cdots,x_n\})$ and to free \emph{abelian} groups $F^{ab}(\{x_1,\cdots,x_n\})$. \sqref{\S3.4, \S5.4}
+}{
+    Let $\iota_i : \ZZ \to F(\{x_1,\cdots,x_n\})$ be defined as $n \mapsto x_i^{\phantom{i}n}$ for each $i = 1,\cdots,n$.
+    Now consider a group $G$ and homomorphisms $\varphi_1, \cdots, \varphi_n : \ZZ \to G$.
+    Then, to make the diagram
+    \begin{cd}[row sep=4em]
+	\ZZ \ar[dd, "\iota_1"pos=.6, swap] \ar[ddrrr, "\varphi_1"pos=.8, swap] \& \ZZ \& \hspace{2em}\cdots \ar[ddll, "\ddots"{pos=.8,description}, shift right, phantom] \ar[ddr, "\text{\rotatebox[origin=c]{60}{$\ddots$}}"{pos=.8,description}, shift left=3, phantom] \& \ZZ \ar[ddlll, "\iota_n"pos=.8] \ar[dd, "\varphi_n"] \\
+	\\
+	G \ar[uur, "\iota_2"pos=.4, <-, swap] \&\&\& {F(\{x_1,\cdots,x_n\})} \ar[lll, "\sigma", dashed] \ar[uull, "\varphi_2"pos=.3, <-, swap, shorten <= 4pt]
+    \end{cd}
+    commute, it has to be $\sigma(x_i) = \varphi_i(1)$ for each $i = 1,\cdots,n$.
+    Since $\{x_1,\cdots,x_n\}$ generates $F(\{x_1,\cdots,x_n\})$, a such homomorphism $\sigma$ exists and is unique.
+    Therefore, $F(\{x_1,\cdots,x_n\}) \cong \bigsqcup_{i=1}^n \ZZ$.
+
+    Similarly, $F^{ab}(\{x_1,\cdots,x_n\}) \cong \bigoplus_{i=1}^n \ZZ$.
+}
+
+\problem{ %5.8
+    Still more generally, prove that $F(A \sqcup B) = F(A) * F(B)$ and that $F^{ab}(A \sqcup B) = F^{ab}(A) \oplus F^{ab}(B)$ for all sets $A,B$.
+    (That is, the constructions $F$, $F^{ab}$ `preserve coproducts'.)
+}{
+    Let $\iota_A : F(A) \to F(A \sqcup B)$ and $\iota_B : F(B) \to F(A \sqcup B)$ be inclusions.
+    Consider a group $G$ and two homomorphisms $\varphi_A : F(A) \to G$ and $\varphi_B : F(B) \to G$.
+    Then to make the following diagram
+    \begin{cd}[column sep=5em]
+        F(A) \ar[d, "\varphi_A", swap] \ar[dr, "\iota_A"pos=.85, shorten >= 0pt] \& F(B) \ar[dl, "\varphi_B"pos=.8, swap] \ar[d, "\iota_B"] \\
+        G \& F(A \sqcup B) \ar[l, "\sigma"pos=.33, dashed, swap, shorten <= 0pt]
+    \end{cd}
+    commute, it has to be $\sigma(a) = \varphi_A(a)$ for any $a \in F(A)$ and $\sigma(b) = \varphi_B(b)$ for any $b \in F(B)$.
+
+    Since $F(A) \sqcup F(B)$ generates $F(A \sqcup B)$, a such $\sigma$ exists and is unique.
+    Therefore, $F(A \sqcup B) \cong F(A) * F(B)$.
+    
+    Similarly, $F^{ab}(A \sqcup B) \cong F^{ab}(A) \oplus F^{ab}(B)$.
+}
+
+\problem{ %5.9
+    Let $G = \ZZ^{\oplus \NN}$. Prove that $G \times G \cong G$.
+}{
+    Let $\varphi : G \to G \times G$ be defined as $\{a_n\} \mapsto \left(\{a_{2n}\},\{a_{2n+1}\}\right)$.
+    Then $\varphi$ is an isomorphism, clearly.
+    Therefore, $G \cong G \times G$.
+}
+
+\problem{ %5.10
+    $\neg$ Let $F = F^{ab}(A)$.
+    \begin{itemize}
+        \item Define an equivalence relation $\sim$ on $F$ by setting $f' \sim f$ if and only if $f - f' = 2g$ for some $g \in F$.
+        Prove that $F/\sim$ is a finite set if and only if $A$ is finite, and in that case $\abs{F/\sim} = 2^{\abs{A}}$.
+        
+        \item Assume $F^{ab}(B) \cong F^{ab}(A)$. If $A$ is finite, prove that $B$ is also, and that $A \cong B$ as sets.
+        (This result holds for free groups as well, and without any finiteness hypothesis. See \ref{prob:II.7.13} and \ref{exer:VI.1.20}.)
+    \end{itemize}
+    \sqref{7.4, 7.13}
+}{
+    It is quite obvious that $F/\sim \cong (\cyclic{2})^{\oplus A}$.
+    Thus, $F/\sim$ is finite if and only if $A$ is finite.
+    Furthermore, if $A$ is finite, $\abs{F/\sim} = 2^{\abs{A}}$.
+
+    In addition, by the fact proved above, it is clear that $A$ is finite if and only if $B$ is finite where $F^{ab}(A) \cong F^{ab}(B)$.
+    Also, in that case, $\abs{A} = \abs{B}$.
+}
+
+\newpage
+\section{Subgroups}
+\problem{ %6.1
+    $\neg$ (If you know about matrices.) The group of invertible $n \times n$ matrices with entries in $\RR$ is denoted $\GL{n}{\RR}$ (Example 1.5). 
+    Similarly, $\GL{n}{\CC}$ denotes the group of $n \times n$ invertible matrices with \emph{complex} entries.
+    Consider the following sets of matrices:
+    \begin{itemize}
+        \item $\SL{n}{\RR} = \{M \in \GL{n}{\RR} \mid \det M = 1\}$;
+        \item $\SL{n}{\CC} = \{M \in \GL{n}{\CC} \mid \det M = 1\}$;
+        \item $\mathrm{O}_n\left(\RR\right) = \{M \in \GL{n}{\RR} \mid MM^t = M^tM = I_n\}$;
+        \item $\SO{n}{\RR} = \{M \in \mathrm{O}_n\left(\RR\right) \mid \det M = 1\}$;
+        \item $\mathrm{U}(n) = \{M \in \GL{n}{\CC} \mid MM^\dagger = M^\dagger M = I_n\}$;
+        \item $\SU{n} = \{M \in \mathrm{U}(n) \mid \det M = 1\}$.
+    \end{itemize}
+    Here $I_n$ stands for the $n \times n$ \emph{identity matrix}, $M^t$ is the \emph{transpose} of $M$, $M^\dagger$ is the \emph{conjugate transpose} of $M$, and $\det M$ denotes the \emph{determinant} of $M$.
+    Find all possible inclusions among these sets, and prove that in every case the smaller set is a subgroup of the larger one.
+
+    These sets of matrices have compelling geometric interpretations: for example, $\SO{3}{\RR}$ is the group of `rotations' in $\RR^3$. \sqref{8.8, 9.1, III.1.4, VI.6.16}
+}{
+    The following diagram represents the inclusions among the given sets.
+    \begin{cd}
+        \GL{n}{\RR} \ar[r, hook] \& \GL{n}{\CC} \\
+        \SL{n}{\RR} \ar[r, hook] \ar[u, hook] \& \SL{n}{\CC} \ar[u, hook] \\
+        \mathrm{O}_m\left(\RR\right) \ar[r, hook] \ar[u, hook] \& \mathrm{U}\left( n \right) \ar[u, hook] \\
+        \SO{n}{\RR} \ar[r, hook] \ar[u, hook] \& \SU{n} \ar[u, hook]
+    \end{cd}
+    Also, it is unquestionable that each of the given set with the usual matrix multiplication is a group itself.
+    Thus, it is clear that in every case the smaller set is a subgroup of the larger one.
+}
+\clearpage
+
+\problem{ %6.2
+    $\neg$ Prove that the set of $2 \times 2$ matrices
+    \[\mat{a & b \\ 0 & d}\]
+    with $a$, $b$, $d$ in $\CC$ and $ad \neq 0$ is a subgroup of $\GL{n}{\CC}$.
+    More generally, prove that the set of $n \times n$ complex matrices $\left(a_{ij}\right)_{1 \leq i, j \leq n}$ with $a_{ij} = 0$ for $i > j$ and $a_{11} \cdots a_{nn} \neq 0$ is a subgroup of $\GL{n}{\CC}$.
+    (These matrices are called `upper triangular', for evident reasons.) \sqref{IV.1.20}
+}{
+    Let $A = (A_{ij})_{1 \leq i,j \leq n}$, $B = (B_{ij})_{1 \leq i,j \leq n}$ be $n \times n$ upper triangular matrices without zero diagonal entry, that is, $A_{ij} = B_{ij} = 0$ for $i > j$ and $A_{11} \cdots A_{nn} B_{11} \cdots B_{nn} \neq 0$.
+    Then, for $i > j$,
+    \[ (AB)_{ij} = \sum_{k=1}^n A_{ik}B_{kj} = 0, \]
+    and for any $i$,
+    \[ (AB)_{ii} = \sum_{k=1}^n A_{ik}B_{ki} = A_{ii}B_{ii} \neq 0. \]
+    Also, now take any upper triangular complex matrix $C = (C_{ij})_{1 \leq i,j \leq n}$ with no zero diagonal entry.
+    Then, we can take a diagonal matrix $D$ and strictly upper triangular matrix $N$ such that $C = D(I_n + N)$.
+    Since $N$ is an $n \times n$ strictly upper triangular matrix, $N^n = O$, clearly.
+    Hence, we get $(I_n + N)(I - N + N^2 - N^3 + \cdots + (-1)^{n-1}N^{n-1}) = I_n$, and thus $(I_n + N)^{-1} = I_n - N + N^2 - N^3 + \cdots + (-1)^{n-1}N^{n-1}$.
+    This immediately implies that $C^{-1} = (I_n - N + N^2 - N^3 + \cdots + (-1)^{n-1}N^{n-1}) D^{-1}$, which means $C^{-1}$ is also an upper triangular matrix with no zero entry.
+    Hence, the set of $n$ times $n$ upper triangular complex matrices with no zero diagonal entry, is a subgroup of $\GL{n}{\CC}$.
+}
+
+\problembr{ %6.3
+    $\neg$ Prove that every matrix in $\SU{2}$ may be written in the form
+    \[\mat{a+bi & c+di \\ -c+di & a-bi}\]
+    where $a,b,c,d \in \RR$ and $a^2 + b^2 + c^2 + d^2 = 1$.
+    (Thus, $\SU{2}$ may be realized as a three-dimensional sphere embedded in $\RR^4$; in particular, it is \emph{simply connected}.) \sqref{8.9, III.2.5}
+}{
+    Let
+    \[V = \left\{ \mat{a+bi & c+di \\ -c+di & a-bi} \mid a^2 + b^2 + c^2 + c^2 = 1 \land a,b,c,d \in \RR \right\}.\]
+    Then it is obvious that $V \subseteq \SU{2}{\CC}$.
+    
+    Now let $\mat{x & y \\ z & w} \in \SU{2}{\CC}$.
+    Then,
+    \[\mat{\bar{x} & \bar{z} \\ \bar{y} & \bar{w}} = \mat{x & y \\ z & w}^\dagger = \mat{x & y \\ z & w}^{-1} = \mat{w & -y \\ -z & x}\]
+    and, hence, $\bar{x} = w$ and $\bar{y} = -z$.
+    Also, since $\det \mat{x & y \\ z & w} = 1$, $x\bar{x} + y\bar{y} = 1$.
+    Consequently, there exist $a,b,c,d \in \RR$ such that $a^2 + b^2 + c^2 + d^2 = 1$ and $\mat{x & y \\ z & w} = \mat{a+bi & c+di \\ -c+di & a-bi}$.
+    Thus, $\SU{2}{\CC} \subseteq V$.
+
+    Therefore, we get the desired result.
+}
+
+\problem{ %6.4
+    $\vartriangleright$ Let $G$ be a group, and let $g \in G$.
+    Verify that the image of the exponential map $\epsilon_g : \ZZ \to G$ is a cyclic group (in the sense of Definition 4.7). \sqref{\S6.3, \S7.3}
+}{
+    If $\abs{g} = \infty$, then $i \neq j$ implies that $\epsilon_g(i) \neq \epsilon_g(j)$.
+    Hence, we can take a map $\varphi : \ZZ \to \im \epsilon_g$ defined as $n \mapsto \epsilon_g(n)$.
+    Then, $\varphi$ is a bijective homomorphism indeed, and thus the image of $\epsilon_g$ is cyclic.
+
+    Now, let $\abs{g} = n$ for some $n \in \NN$.
+    Then, for any $0 \leq i < j < n$, $\epsilon_g(i) \neq \epsilon_g(j)$.
+    Hence, we can take a map $\varphi : C_n \to \im \epsilon_g$ defined as $i \mapsto \epsilon_g(i)$.
+    Then, $\varphi$ is a bijective homomorphism indeed, and thus the image of $\epsilon_g$ is cyclic.
+}
+
+\problem{ %6.5
+    Let $G$ be a \emph{commutative} group, and let $n > 0$ be an integer.
+    Prove that $\{g^n \mid g \in G\}$ is a subgroup of $G$.
+    Prove that this is not necessarily the case if $G$ is not commutative.
+}{
+    If $G$ is a commutative group, then for any $g,h \in G$,
+    \[ g^n(h^n)^{-1} = g^n h^{-n} = (gh^{-1})^n \in \{ g^n \mid g \in G \}. \]
+    So, $\{ g^n \mid g \in G \}$ is a subgroup of $G$.
+
+    Consider a free group $F(\{x,y\})$.
+    Then $\{s^2 \mid s \in F(\{x,y\})\}$ is not a subgroup of $F(\{x,y\})$ since $x^2y^2 \notin \{ s^2 \mid s \in F(\{x,y\}) \}$.
+}
+\clearpage
+
+\problem{ %6.6
+    Prove that the union of a family of subgroups of a group $G$ is not necessarily a subgroup of $G$.
+    In fact:
+    \begin{itemize}
+        \item Let $H$, $H'$ be subgroups of a group $G$.
+        Prove that $H \cup H'$ is a subgroup of $G$ only if $H \subseteq H'$ or $H' \subseteq H$.
+
+        \item On the other hand, let $H_0 \subseteq H_1 \subseteq H_2 \subseteq \cdots$ be subgroups of a group $G$.
+        Prove that $\bigcup_{i \geq 0} H_i$ is a subgroup of $G$.
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item Let $H$ and $H'$ be subgroups of $G$ and so is $H \cup H'$.
+        If $H \subseteq H'$, then the proof is done.
+        Hence, assume that $H$ is not a subset of $H'$.
+        Then, $H \setminus H'$ is not empty.
+        Similarly, we can assume that $H' \setminus H$ is also nonempty.
+        Now take an element $h \in H \setminus H'$ and an element $h' \in H' \setminus H$.
+        Since $H \cup H'$ is a subgroup of $G$, $hh' \in H \cup H'$.
+        If $hh' \in H$, then $h' = h^{-1} \left(hh'\right) \in H$ and this immediately makes a contradiction.
+        Otherwise, then $h = \left(hh'\right)\left(h'\right)^{-1} \in H'$ and this also makes a contradiction.
+        Therefore, it has to be either $H \subseteq H'$ or $H' \subseteq H$.
+
+        \item Let $H = \bigcup_{i \geq 0} H_i$ for the sake of convenience of description.
+        For any $g,h \in H$, there exists a natural number $n$ such that $g,h \in H_n$ since $H_0 \subseteq H_1 \subseteq \cdots$.
+        Thus, we get $gh^{-1} \in H_n \subseteq H$, and therefore, $H$ is a subgroup of $G$.
+    \end{itemize}
+}
+
+\problem{ %6.7
+    $\neg$ Show that \emph{inner} automorphisms (cf. \ref{prob:II.4.8}) form a subgroup of $\Aut{G}$; this subgroup is denoted $\Inn{G}$.
+    Prove that $\Inn{G}$ is cyclic if and only if $\Inn{G}$ is trivial if and only if $G$ is abelian.
+    (Hint: Assume that $\Inn{G}$ is cyclic; with notation as in \ref{prob:II.4.8}, this means that there exists an element $a \in G$ such that $\forall g \in G$ $\exists n \in \ZZ$ $\gamma_g = \gamma^n$.
+    In particular, $gag^{-1} = a^n a a^{-n} = a$.
+    Thus $a$ commutes with every $g$ in $G$.
+    Therefore$\ldots$.)
+    Deduce that if $\Aut{G}$ is cyclic, then $G$ is abelian. \sqref{7.10, IV.1.5}
+}{
+    It is clear that $\Inn{G}$ is a subgroup of $\Aut{G}$.
+
+    We already know that $\Inn{G}$ is trivial if and only if $G$ is abelian.
+    So, it suffices to show that $\Inn{G}$ is trivial if $\Inn{G}$ is cyclic since it is obvious that a trivial group is cyclic.
+
+    Assume that $\Inn{G}$ is cyclic.
+    Then there exists $a \in G$ such that $\left< \gamma_a \right> = \Inn{G}$.
+    So for any $g \in G$, $\gamma_g(a) = \gamma_a^{\phantom{a}n}(a) = a$ and this means that $a$ commutes with any elements of $G$.
+    Thus, $\gamma_a = \gamma_{e_G}$ and so $\Inn{G}$ is trivial.
+
+    Now consider a case that $\Aut{G}$ is cyclic.
+    Since every subset of a cyclic group is cyclic, $\Inn{G}$ is also cyclic and this implies that $G$ is abelian by the result above.
+}
+
+\problem{ %6.8
+    Prove that an \emph{abelian} group $G$ is finitely generated if and only if there is a surjective homomorphism
+    \[\underbrace{\ZZ \oplus \cdots \oplus \ZZ}_{n \text{ times}} \twoheadrightarrow G\]
+    for some $n$.
+}{
+    Let $G$ be a finitely generated abelian group, and $\{ g_1, \cdots, g_n \}$ generate $G$.
+    Then, we can define $\varphi : \underbrace{\ZZ \oplus \cdots \oplus \ZZ}_{n \text{ times}} \to G$ as $(i_1, \cdots, i_n) \mapsto g_1^{i_1} \cdots g_n^{i_n}$, and this $\varphi$ is a surjective homomorphism indeed.
+
+    Now, let $\varphi : \underbrace{\ZZ \oplus \cdots \oplus \ZZ}_{n \text{ times}} \to G$ is a surjective homomorphism.
+    Then, $\varphi(\mathbf{e}_i)$'s generate $G$ where $\mathbf{e}_i$ denotes the $n$-tuple whose components are all $0$ but the only $i$-th component is $1$, and this implies that $G$ is finitely generated.
+}
+
+\problem{ %6.9
+    Prove that every finitely generated subgroup of $\QQ$ is cyclic.
+    Prove that $\QQ$ is not finitely generated.
+}{
+    Let $d : \QQ \to \ZZ$ and $n : \QQ \to \ZZ$ be two function satisfying that $r = \frac{n(r)}{d(r)}$ for any $r \in \QQ$.
+    Now consider a finitely generated subgroup $H$ of $\QQ$.
+    Let $H = \left< r_1, \cdots, r_m \right>$.
+    Then $\lcm \left( d(r_1), \cdots, d(r_m) \right) H$ is a set of integers, so there is a minimum among the positive elements of $H$, and it is clear that $H = \left< r \right>$ where $r$ is the minimum one in $H$.
+    Therefore, $H$ is cyclic.
+    Since $\QQ$ is not cyclic, $\QQ$ is not finitely generated.
+}
+
+\problembr{ %6.10
+    $\neg$ The set of $2 \times 2$ matrices with integer entries and determinant $1$ is denoted $\SL{2}{\ZZ}$:
+    \[\SL{2}{\ZZ} = \left\{\mat{a & b \\ c & d} \text{ such that } a,b,c,d \in \ZZ, \; ad - bc = 1\right\}.\]
+    Prove that $\SL{2}{\ZZ}$ is generated by the matrices
+    \[s = \mat{0 & -1 \\ 1 & 0} \quad \text{and} \quad t = \mat{1 & 1 \\ 0 & 1}.\]
+    (Hint: This is a little tricky.
+    Let $H$ be the subgroup generated by $s$ and $t$.
+    Given a matrix $m = \mat{a & b \\ c & d}$ in $\SL{2}{\ZZ}$, it suffices to show that you can obtain the identity by multiplying $m$ by suitably chosen elements of $H$.
+    Prove that $\mat{1 & -q \\ 0 & 1}$ and $\mat{1 & 0 & -q & 1}$ are in $H$, and note that
+    \[\mat{a & b \\ c & d} \mat{1 & -q \\ 0 & 1} = \mat{a & b-qa \\ c & d-qc} \quad \text{and} \quad \mat{a & b \\ c & d} \mat{1 & 0 \\ -q & 1} = \mat{a-qb & b \\ c-qd & d}.\]
+    Note that if $c$ and $d$ are both nonzero, one of these two operations may be used to decrease the absolute value of one of them.
+    Argue that suitable applications of these operations reduce to the case in which $c = 0$ or $d = 0$.
+    Prove directly that $m \in H$ in that case.) \sqref{7.5}
+    \clearpage
+}{
+    Let $H$ be the subgroup generated by $s$ and $t$.
+    In other words, let $H = \left< s,t \right>$.
+    Then since $tst = \mat{1 & 0 \\ 1 & 1}$, $\mat{1 & n \\ 0 & 1}$ and $\mat{1 & 0 \\ n & 1}$ are elements of $H$ for any integers $n$.
+    Now, consider a matrix $\mat{a & b \\ c & d} \in \SL{2}{\ZZ}$.
+    Since $\mat{a & b \\ c & d} \mat{1 & n \\ 0 & 1} = \mat{ a & b+na \\ c & d+nc}$ and $\mat{a & b \\ c & d} \mat{1 & 0 \\ n & 1} = \mat{a+nb & b \\ c+nd & d}$, we can obtain a matrix form of $\mat{1 & t \\ 0 & 1}$ or $\mat{s & -1 \\ 1 & 0}$ by applying the Euclidean algorithm.
+    Since $\mat{1 & t \\ 0 & 1} \in H$, and since $\mat{s & -1 \\ 1 & 0} \in H$---this is because $s\mat{s & -1 \\ 1 & 0} \in H$, we get $\mat{a & b \\ c & d} \in H$, clearly.
+    Therefore, $\SL{2}{\ZZ} = H$.
+}
+
+\problem{ %6.11
+    Since direct sums are coproducts in $\Ab$, the classification theorem for abelian groups mentioned in the text says that every finitely generated \emph{abelian group} is a coproduct of cyclic groups in $\Ab$.
+    The reader may be tempted to conjecture that every finitely generated \emph{group} is a coproduct of cyclic groups \emph{in} $\Grp$.
+    Show that this is not the case, by proving that $S_3$ is not a coproduct of cyclic groups.
+}{
+    Since every coproduct of nontrivial groups is always infinite, $S_3$ cannot be a coproduct of cyclic groups.
+}
+
+\problem{ %6.12
+    Let $m$, $n$ be positive integers, and consider the subgroup $\left< m,n \right>$ of $\ZZ$ they generate.
+    By Proposition 6.9,
+    \[\left<m,n\right> = d\ZZ\]
+    for some positive integer $d$.
+    What is $d$, in relation to $m$, $n$?
+}{
+    By elementary number theory, $\left< m,n \right> = \gcd (m,n) \ZZ$, clearly.
+}
+
+\problembr{ %6.13
+    $\neg$ Draw and compare the lattices of subgroups of $C_2 \times C_2$ and $C_4$.
+    Draw the lattice of subgroups of $S_3$, and compare it with the one for $C_6$. \sqref{7.1}
+}{
+    Each arrow means inclusion.
+
+    \begin{cd}
+        C_4 \ar[r] \& \{ 0,2 \} \ar[r] \& \{ 0 \}
+    \end{cd}
+    \clearpage
+
+    \begin{cd}
+        \& C_2 \times C_2 \ar[ld] \ar[d] \ar[rd] \\
+        C_2 \times \{ 0 \} \ar[rd] \& \{ (x,x) \mid x \in C_2 \} \ar[d] \& \{ 0 \} \times C_2 \ar[ld] \\
+        \& \{(0,0)\}
+    \end{cd}
+
+    \begin{cd}[row sep=1em]
+        \& \{0,2,4\} \ar[dr] \\
+        C_6 \ar[ur] \ar[dr] \&\& \{0\} \\
+        \& \{0,3\} \ar[ur]
+    \end{cd}
+
+    \begin{cd}[column sep=0.8em]
+        \&\&\& \centered{$S_3 = \left< x,y \mid x^2,y^3,xyxy \right>$} \ar[dlll, start anchor={[shift={(-15pt,0pt)}]south}, end anchor={north}] \ar[dl, start anchor={[shift={(-5pt,0pt)}]south}, end anchor={north}] \ar[dr, start anchor={[shift={(5pt,0pt)}]south}, end anchor={north}] \ar[drrr, start anchor={[shift={(15pt,0pt)}]south}, end anchor={north}] \\
+        \centered{$\{e,y,y^2\}$}[\widthof{aaaa}] \ar[drrr, start anchor={south}, end anchor={[shift={(-3pt,-3pt)}]north west}] \&\& \centered{$\{e,x\}$}[\widthof{aaaa}] \ar[dr, start anchor={south}, end anchor={[shift={(-3pt,0pt)}]north}] \&\& \centered{$\{e,xy\}$}[\widthof{aaaa}] \ar[dl, start anchor={south}, end anchor={[shift={(3pt,0pt)}]north}] \&\& \centered{$\{e,xy^2\}$}[\widthof{aaaa}] \ar[dlll, start anchor={south}, end anchor={[shift={(3pt,-3pt)}]north east}] \\
+        \&\&\& \centered{$\{e\}$}
+    \end{cd}
+}
+
+\problembr{ %6.14
+    $\vartriangleright$ If $m$ is a positive integer, denote by $\phi(m)$ the number of positive integers $r \leq m$ that are \emph{relatively prime} to $m$ (that is, for which the $\gcd$ of $r$ and $m$ is $1$); this is called \emph{Euler's $\phi$-(or `totient') function}.
+    For example, $\phi(12) = 4$.
+    In other words, $\phi(m)$ is the order of the group $(\cyclic{m})^*$; cf. Proposition 2.6.
+
+    Put together the following observations:
+    \begin{itemize}
+        \item $\phi(m) = \text{the number of generators of } C_m$,
+        \item every element of $C_n$ generates a subgroup of $C_n$,
+        \item the discussion following Proposition 6.11 (in particular, every subgroup of $C_n$ is isomorphic to $C_m$, for some $m \mid n$),
+    \end{itemize}
+    to obtain a proof of the formula
+    \[\sum_{m > 0, m \mid n} \phi(m) = n.\]
+    (For example, $\phi(1) + \phi(2) + \phi(3) + \phi(4) + \phi(6) + \phi(12) = 1 + 1 + 2 + 2 + 2 + 4 = 12$.) \sqref{4.14, \S6.4, 8.15, V.6.8, \S VII.5.2}
+    \clearpage
+}{
+    Let $i,j \in C_n$ generates subgroups of $C_n$ with the same order.
+    If we show that $\left< i \right> = \left< j \right>$, then the proof of the formula
+    \[\sum_{m > 0, m \mid n} \phi(m) = n\]
+    is automatic.
+    Let $d$ be the order of $\left< i \right>$ and $\left< j \right>$.
+    Then, it is quite obvious that $\gcd (n,i) = \gcd(n,j) = n/d$.
+    Hence, both $i$ and $j$ can be represented as linear combination of $n$ and each other.
+    Therefore, $\left< i \right> = \left< j \right>$.
+}
+
+\problem{ %6.15
+    $\vartriangleright$ Prove that if a group homomorphism $\varphi : G \to G'$ has a left-inverse, that is, a group homomorphism $\psi : G' \to G$ such that $\psi \circ \varphi = \id{G}$, then $\varphi$ is a monomorphism. \sqref{\S6.5, 6.16}
+}{
+    Let the given group homomorphism $\varphi : G \to G'$ has a left-inverse $\varphi' : G' \to G$.
+    Now take two group homomorphisms $\psi, \psi' : H \to G$ such that $\varphi \circ \psi = \varphi \circ \psi'$ where a group $H$ is be given.
+    Then, since $\varphi' \circ \varphi = \id{G}$, $\psi = \varphi' \circ \varphi \circ \psi = \varphi' \circ \varphi \circ \psi' = \psi'$.
+    Therefore, $\varphi$ is a monomorphism by the definition.
+}
+
+\problem{ %6.16
+    $\vartriangleright$ Counterpoint to \ref{prob:II.6.15}: the homomorphism $\varphi : \ZZ / 3\ZZ \to S_3$ given by
+    \[\varphi(\eqcl{0}) = \mat{1 & 2 & 3 \\ 1 & 2 & 3}, \quad \varphi(\eqcl{1}) = \mat{1 & 2 & 3 \\ 3 & 1 & 2}, \quad \varphi(\eqcl{2}) = \mat{1 & 2 & 3 \\ 2 & 3 & 1}\]
+    is a monomorphism; show that it has \emph{no} left-inverse in $\Grp$.
+    (Knowing about \emph{normal} subgroups will make this problem particularly easy.) \sqref{\S6.5}
+}{
+    Let $\psi : S_3 \to \cyclic{3}$ be a left-inverse of $\varphi$ in $\Grp$.
+    Consider about $\psi\left(\mat{1 & 2 & 3 \\ 1 & 3 & 2}\right)$.
+    Whatever the value of $\psi\left(\mat{1 & 2 & 3 \\ 1 & 3 & 2}\right)$, by the condition that $\psi$ is a group homomorphism, $\psi$ cannot be well-defined since the value of $\psi \left(\mat{1 & 2 & 3 \\ 3 & 2 & 1}\right)$ and $\psi \left(\mat{1 & 2 & 3 \\ 2 & 1 & 3}\right)$.
+    Hence, $\varphi$ has no left-inverse in $\Grp$.
 }

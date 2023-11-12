@@ -77,6 +77,10 @@
     }
 }
 \newcommand{\oc}[1]{{#1}^\perp}
+\newcommand{\GL}[2]{\ensuremath{\mathrm{GL}_{#1}\left(#2\right)}}
+\newcommand{\SL}[2]{\ensuremath{\mathrm{SL}_{#1}\left(#2\right)}}
+\newcommand{\SO}[2]{\ensuremath{\mathrm{SO}_{#1}\left(#2\right)}}
+\newcommand{\SU}[1]{\ensuremath{\mathrm{SU}\left(#1\right)}}
 
 %%                 algebra                 %%
 \def\coker{\operatorname{coker}}
@@ -91,12 +95,25 @@
 \newcommand{\id}[1]{\mathrm{id}_{#1}}
 \newcommand{\cat}[1]{\mathsf{#1}}
 \newcommand{\op}[1]{{#1}^{op}}
-\def\one{\mathrm{1}}
+\NewDocumentCommand{\one}{o}{
+    \IfNoValueTF{#1}{
+        \ensuremath{\mathrm{1}}
+    }{
+        \ensuremath{\mathrm{1}_{#1}}
+    }
+}
 \NewDocumentCommand{\Aut}{mo}{
     \IfNoValueTF{#2}{
         \ensuremath{\mathrm{Aut} \left( #1 \right)}
     }{
         \ensuremath{\mathrm{Aut}_{#1} \left( #2 \right)}
+    }
+}
+\NewDocumentCommand{\Inn}{mo}{
+    \IfNoValueTF{#2}{
+        \ensuremath{\mathrm{Inn} \left( #1 \right)}
+    }{
+        \ensuremath{\mathrm{Inn}_{#1} \left( #2 \right)}
     }
 }
 \newcommand{\cyclic}[1]{\ensuremath{\ZZ/#1\ZZ}}
@@ -120,3 +137,10 @@
 %%                   etc                   %%
 \def\st{\text{ s.t. }}
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\NewDocumentCommand{\centered}{mo}{
+    \IfNoValueTF{#2}{
+        \makebox[0pt][c]{#1}
+    }{
+        \makebox[#2][c]{#1}
+    }
+}
