@@ -1046,7 +1046,17 @@
     Find all possible inclusions among these sets, and prove that in every case the smaller set is a subgroup of the larger one.
 
     These sets of matrices have compelling geometric interpretations: for example, $\SO{3}{\RR}$ is the group of `rotations' in $\RR^3$. \sqref{8.8, 9.1, III.1.4, VI.6.16}
-}{}
+}{
+    The following diagram represents the inclusions among the given sets.
+    \begin{cd}
+        \GL{n}{\RR} \ar[r, hook] \& \GL{n}{\CC} \\
+        \SL{n}{\RR} \ar[r, hook] \ar[u, hook] \& \SL{n}{\CC} \ar[u, hook] \\
+        \mathrm{O}_m\left(\RR\right) \ar[r, hook] \ar[u, hook] \& \mathrm{U}\left( n \right) \ar[u, hook] \\
+        \SO{n}{\RR} \ar[r, hook] \ar[u, hook] \& \SU{n} \ar[u, hook]
+    \end{cd}
+    Also, it is unquestionable that each of the given set with the usual matrix multiplication is a group itself.
+    Thus, it is clear that in every case the smaller set is a subgroup of the larger one.
+}
 
 \problem{ %6.2
     $\neg$ Prove that the set of $2 \times 2$ matrices
@@ -1054,14 +1064,40 @@
     with $a$, $b$, $d$ in $\CC$ and $ad \neq 0$ is a subgroup of $\GL{n}{\CC}$.
     More generally, prove that the set of $n \times n$ complex matrices $\left(a_{ij}\right)_{1 \leq i, j \leq n}$ with $a_{ij} = 0$ for $i > j$ and $a_{11} \cdots a_{nn} \neq 0$ is a subgroup of $\GL{n}{\CC}$.
     (These matrices are called `upper triangular', for evident reasons.) \sqref{IV.1.20}
-}{}
+}{
+    Let $A = (A_{ij})_{1 \leq i,j \leq n}$, $B = (B_{ij})_{1 \leq i,j \leq n}$ be $n \times n$ upper triangular matrices without zero diagonal entry, that is, $A_{ij} = B_{ij} = 0$ for $i > j$ and $A_{11} \cdots A_{nn} B_{11} \cdots B_{nn} \neq 0$.
+    Then, for $i > j$,
+    \[ (AB)_{ij} = \sum_{k=1}^n A_{ik}B_{kj} = 0, \]
+    and for any $i$,
+    \[ (AB)_{ii} = \sum_{k=1}^n A_{ik}B_{ki} = A_{ii}B_{ii} \neq 0. \]
+    Also, now take any upper triangular complex matrix $C = (C_{ij})_{1 \leq i,j \leq n}$ with no zero diagonal entry.
+    Then, we can take a diagonal matrix $D$ and strictly upper triangular matrix $N$ such that $C = D(I_n + N)$.
+    Since $N$ is an $n \times n$ strictly upper triangular matrix, $N^n = O$, clearly.
+    Hence, we get $(I_n + N)(I - N + N^2 - N^3 + \cdots + (-1)^{n-1}N^{n-1}) = I_n$, and thus $(I_n + N)^{-1} = I_n - N + N^2 - N^3 + \cdots + (-1)^{n-1}N^{n-1}$.
+    This immediately implies that $C^{-1} = (I_n - N + N^2 - N^3 + \cdots + (-1)^{n-1}N^{n-1}) D^{-1}$, which means $C^{-1}$ is also an upper triangular matrix with no zero entry.
+    Hence, the set of $n$ times $n$ upper triangular complex matrices with no zero diagonal entry, is a subgroup of $\GL{n}{\CC}$.
+}
 
 \problem{ %6.3
     $\neg$ Prove that every matrix in $\SU{2}$ may be written in the form
     \[\mat{a+bi & c+di \\ -c+di & a-bi}\]
     where $a,b,c,d \in \RR$ and $a^2 + b^2 + c^2 + d^2 = 1$.
     (Thus, $\SU{2}$ may be realized as a three-dimensional sphere embedded in $\RR^4$; in particular, it is \emph{simply connected}.) \sqref{8.9, III.2.5}
-}{}
+}{
+    Let
+    \[V = \left\{ \mat{a+bi & c+di \\ -c+di & a-bi} \mid a^2 + b^2 + c^2 + c^2 = 1 \land a,b,c,d \in \RR \right\}.\]
+    Then it is obvious that $V \subseteq \SU{2}{\CC}$.
+    
+    Now let $\mat{x & y \\ z & w} \in \SU{2}{\CC}$.
+    Then,
+    \[\mat{\bar{x} & \bar{z} \\ \bar{y} & \bar{w}} = \mat{x & y \\ z & w}^\dagger = \mat{x & y \\ z & w}^{-1} = \mat{w & -y \\ -z & x}\]
+    and, hence, $\bar{x} = w$ and $\bar{y} = -z$.
+    Also, since $\det \mat{x & y \\ z & w} = 1$, $x\bar{x} + y\bar{y} = 1$.
+    Consequently, there exist $a,b,c,d \in \RR$ such that $a^2 + b^2 + c^2 + d^2 = 1$ and $\mat{x & y \\ z & w} = \mat{a+bi & c+di \\ -c+di & a-bi}$.
+    Thus, $\SU{2}{\CC} \subseteq V$.
+
+    Therefore, we get the desired result.
+}
 
 \problem{ %6.4
     $\vartriangleright$ Let $G$ be a group, and let $g \in G$.
@@ -1124,7 +1160,7 @@
 
 \problem{ %6.11
     Since direct sums are coproducts in $\Ab$, the classification theorem for abelian groups mentioned in the text says that every finitely generated \emph{abelian group} is a coproduct of cyclic groups in $\Ab$.
-    The reader may be tempted to conjecture that every finitely generated \emph{group} is a coproduct \emph{in} $\Grp$.
+    The reader may be tempted to conjecture that every finitely generated \emph{group} is a coproduct of cyclic groups \emph{in} $\Grp$.
     Show that this is not the case, by proving that $S_3$ is not a coproduct of cyclic groups.
 }{}
 
