@@ -118,6 +118,13 @@
     }
 }
 \newcommand{\cyclic}[1]{\ensuremath{\ZZ/#1\ZZ}}
+\NewDocumentCommand{\commutator}{mo}{
+    \IfNoValueTF{#2}{
+        \ensuremath{\left[#1,#1\right]}
+    }{
+        \ensuremath{\left[#1,#2\right]}
+    }
+}
 
 %%           commutative diagram           %%
 \def\surjection{two heads}
