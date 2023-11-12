@@ -1102,13 +1102,29 @@
 \problem{ %6.4
     $\vartriangleright$ Let $G$ be a group, and let $g \in G$.
     Verify that the image of the exponential map $\epsilon_g : \ZZ \to G$ is a cyclic group (in the sense of Definition 4.7). \sqref{\S6.3, \S7.3}
-}{}
+}{
+    If $\abs{g} = \infty$, then $i \neq j$ implies that $\epsilon_g(i) \neq \epsilon_g(j)$.
+    Hence, we can take a map $\varphi : \ZZ \to \im \epsilon_g$ defined as $n \mapsto \epsilon_g(n)$.
+    Then, $\varphi$ is a bijective homomorphism indeed, and thus the image of $\epsilon_g$ is cyclic.
+
+    Now, let $\abs{g} = n$ for some $n \in \NN$.
+    Then, for any $0 \leq i < j < n$, $\epsilon_g(i) \neq \epsilon_g(j)$.
+    Hence, we can take a map $\varphi : C_n \to \im \epsilon_g$ defined as $i \mapsto \epsilon_g(i)$.
+    Then, $\varphi$ is a bijective homomorphism indeed, and thus the image of $\epsilon_g$ is cyclic.
+}
 
 \problem{ %6.5
     Let $G$ be a \emph{commutative} group, and let $n > 0$ be an integer.
     Prove that $\{g^n \mid g \in G\}$ is a subgroup of $G$.
     Prove that this is not necessarily the case if $G$ is not commutative.
-}{}
+}{
+    If $G$ is a commutative group, then for any $g,h \in G$,
+    \[ g^n(h^n)^{-1} = g^n h^{-n} = (gh^{-1})^n \in \{ g^n \mid g \in G \}. \]
+    So, $\{ g^n \mid g \in G \}$ is a subgroup of $G$.
+
+    Consider a free group $F(\{x,y\})$.
+    Then $\{s^2 \mid s \in F(\{x,y\})\}$ is not a subgroup of $F(\{x,y\})$ since $x^2y^2 \notin \{ s^2 \mid s \in F(\{x,y\}) \}$.
+}
 
 \problem{ %6.6
     Prove that the union of a family of subgroups of a group $G$ is not necessarily a subgroup of $G$.
@@ -1120,7 +1136,24 @@
         \item On the other hand, let $H_0 \subseteq H_1 \subseteq H_2 \subseteq \cdots$ be subgroups of a group $G$.
         Prove that $\bigcup_{i \geq 0} H_i$ is a subgroup of $G$.
     \end{itemize}
-}{}
+}{
+    \begin{itemize}
+        \item Let $H$ and $H'$ be subgroups of $G$ and so is $H \cup H'$.
+        If $H \subseteq H'$, then the proof is done.
+        Hence, assume that $H$ is not a subset of $H'$.
+        Then, $H \setminus H'$ is not empty.
+        Similarly, we can assume that $H' \setminus H$ is also nonempty.
+        Now take an element $h \in H \setminus H'$ and an element $h' \in H' \setminus H$.
+        Since $H \cup H'$ is a subgroup of $G$, $hh' \in H \cup H'$.
+        If $hh' \in H$, then $h' = h^{-1} \left(hh'\right) \in H$ and this immediately makes a contradiction.
+        Otherwise, then $h = \left(hh'\right)\left(h'\right)^{-1} \in H'$ and this also makes a contradiction.
+        Therefore, it has to be either $H \subseteq H'$ or $H' \subseteq H$.
+
+        \item Let $H = \bigcup_{i \geq 0} H_i$ for the sake of convenience of description.
+        For any $g,h \in H$, there exists a natural number $n$ such that $g,h \in H_n$ since $H_0 \subseteq H_1 \subseteq \cdots$.
+        Thus, we get $gh^{-1} \in H_n \subeteq H$, and therefore, $H$ is a subgroup of $G$.
+    \end{itemize}
+}
 
 \problem{ %6.7
     $\neg$ Show that \emph{inner} automorphisms (cf. \ref{prob:II.4.8}) form a subgroup of $\Aut{G}$; this subgroup is denoted $\Inn{G}$.
@@ -1130,7 +1163,20 @@
     Thus $a$ commutes with every $g$ in $G$.
     Therefore$\ldots$.)
     Deduce that if $\Aut{G}$ is cyclic, then $G$ is abelian. \sqref{7.10, IV.1.5}
-}{}
+}{
+    It is clear that $\Inn{G}$ is a subgroup of $\Aut{G}$.
+
+    We already know that $\Inn{G}$ is trivial if and only if $G$ is abelian.
+    So, it suffices to show that $\Inn{G}$ is trivial if $\Inn{G}$ is cyclic since it is obvious that a trivial group is cyclic.
+
+    Assume that $\Inn{G}$ is cyclic.
+    Then there exists $a \in G$ such that $\left< \gamma_a \right> = \Inn{G}$.
+    So for any $g \in G$, $\gamma_g(a) = \gamma_a^{\phantom{a}n}(a) = a$ and this means that $a$ commutes with any elements of $G$.
+    Thus, $\gamma_a = \gamma_{e_G}$ and so $\Inn{G}$ is trivial.
+
+    Now consider a case that $\Aut{G}$ is cyclic.
+    Since every subset of a cyclic group is cyclic, $\Inn{G}$ is also cyclic and this implies that $G$ is abelian by the result above.
+}
 
 \problem{ %6.8
     Prove that an \emph{abelian} group $G$ is finitely generated if and only if there is a surjective homomorphism
