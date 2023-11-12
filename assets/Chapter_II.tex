@@ -393,6 +393,7 @@
 
 \problem{ %2.15
     $\neg$ Let $n > 0$ be an odd integer.
+
     \begin{itemize}[label=$\bullet$]
         \item Prove that if $\gcd (m,n) = 1$, then $\gcd (2m+n,2n) = 1$. (Use \ref{prob:II.2.13}.)
 
@@ -529,9 +530,12 @@
 
 \problem{ %3.6
     $\vartriangleright$ Consider the product of the cyclic groups $C_2$, $C_3$ (cf. \S2.3): $C_2 \times C_3$. By \ref{prob:II.3.3}, this group is a coproduct of $C_2$ and $C_3$ in $\Ab$. Show that it is \emph{not} a coproduct of $C_2$ and $C_3$ in $\Grp$, as follows:
+
     \begin{itemize}
         \item find surjective homomorphisms $C_2 \to S_3$, $C_3 \to S_3$;
+        
         \item arguing by contradiction, assume that $C_2 \times C_3$ is a coproduct of $C_2$, $C_3$, and deduce that there would be a group homomorphism $C_2 \times C_3 \to S_3$ with certain properties;
+        
         \item show that there is no such homomorphism.
     \end{itemize}
     \sqref{\S3.5}
@@ -797,6 +801,7 @@
 \problem{ %4.12
     $\neg$ \begin{itemize}
         \item Compute the order of $\eqcl{9}_{31}$ in the group $(\cyclic{31})^*$.
+        
         \item Does the equation $x^3 - 9 = 0$ have solutions in $\cyclic{31}$?
         (Hint: Plugging in all 31 elements of $\cyclic{31}$ is too laborious and will not teach you much. 
         Instead, use the result of the first part: if $c$ is a solution of the equation, what can you say about $\abs{c}$?) \sqref{VII.5.15}
@@ -1025,6 +1030,7 @@
 
 \problem{ %5.10
     $\neg$ Let $F = F^{ab}(A)$.
+
     \begin{itemize}
         \item Define an equivalence relation $\sim$ on $F$ by setting $f' \sim f$ if and only if $f - f' = 2g$ for some $g \in F$.
         Prove that $F/\sim$ is a finite set if and only if $A$ is finite, and in that case $\abs{F/\sim} = 2^{\abs{A}}$.
@@ -1048,12 +1054,18 @@
     $\neg$ (If you know about matrices.) The group of invertible $n \times n$ matrices with entries in $\RR$ is denoted $\GL{n}{\RR}$ (Example 1.5). 
     Similarly, $\GL{n}{\CC}$ denotes the group of $n \times n$ invertible matrices with \emph{complex} entries.
     Consider the following sets of matrices:
+
     \begin{itemize}
         \item $\SL{n}{\RR} = \{M \in \GL{n}{\RR} \mid \det M = 1\}$;
+        
         \item $\SL{n}{\CC} = \{M \in \GL{n}{\CC} \mid \det M = 1\}$;
+        
         \item $\mathrm{O}_n\left(\RR\right) = \{M \in \GL{n}{\RR} \mid MM^t = M^tM = I_n\}$;
+        
         \item $\SO{n}{\RR} = \{M \in \mathrm{O}_n\left(\RR\right) \mid \det M = 1\}$;
+        
         \item $\mathrm{U}(n) = \{M \in \GL{n}{\CC} \mid MM^\dagger = M^\dagger M = I_n\}$;
+        
         \item $\SU{n} = \{M \in \mathrm{U}(n) \mid \det M = 1\}$.
     \end{itemize}
     Here $I_n$ stands for the $n \times n$ \emph{identity matrix}, $M^t$ is the \emph{transpose} of $M$, $M^\dagger$ is the \emph{conjugate transpose} of $M$, and $\det M$ denotes the \emph{determinant} of $M$.
@@ -1145,6 +1157,7 @@
 \problem{ %6.6
     Prove that the union of a family of subgroups of a group $G$ is not necessarily a subgroup of $G$.
     In fact:
+
     \begin{itemize}
         \item Let $H$, $H'$ be subgroups of a group $G$.
         Prove that $H \cup H'$ is a subgroup of $G$ only if $H \subseteq H'$ or $H' \subseteq H$.
@@ -1296,9 +1309,12 @@
     In other words, $\phi(m)$ is the order of the group $(\cyclic{m})^*$; cf. Proposition 2.6.
 
     Put together the following observations:
+
     \begin{itemize}
         \item $\phi(m) = \text{the number of generators of } C_m$,
+        
         \item every element of $C_n$ generates a subgroup of $C_n$,
+        
         \item the discussion following Proposition 6.11 (in particular, every subgroup of $C_n$ is isomorphic to $C_m$, for some $m \mid n$),
     \end{itemize}
     to obtain a proof of the formula

@@ -161,6 +161,7 @@
     Since $A' \cap B' = \emptyset$, if $x \in A' \cup B'$, only one of the following holds:
     \begin{enumerate}[label=\alph*)]
         \item $x \in A'$
+        
         \item $x \in B'$
     \end{enumerate}
     Furthermore, $A''$ and $B''$ also satisfy the same property.
@@ -186,8 +187,10 @@
 \section{Categories}
 \problem{ %3.1
     $\vartriangleright$ Let $\cat{C}$ be a category. Consider a structure $\op{\cat{C}}$ with
+
     \begin{itemize}[label=$\bullet$]
         \item $\Obj{\op{\cat{C}}} := \Obj{\cat{C}}$
+        
         \item for $A$, $B$ objects of $\op{\cat{C}}$ (hence objects of $\cat{C}$), $\Hom{\op{\cat{C}}}{A}{B} := \Hom{\cat{C}}{B}{A}$.
     \end{itemize}
     Show how to make this into a category (that is, define composition of morphisms in $\op{\cat{C}}$ and verify the properties listed in \S3.1).
@@ -282,6 +285,7 @@
     $\vartriangleright$ A \emph{subcategory} $\cat{C'}$ of a category $\cat{C}$ consists of a collection of objects of $\cat{C}$, with morphisms $\Hom{\cat{C'}}{A}{B} \subseteq \Hom{\cat{C}}{A}{B}$ for all objects $A$, $B$ in $\Obj{\cat{C'}}$, such that identities and compositions in $\cat{C}$ make $\cat{C'}$ into a category. A subcategory $\cat{C'}$ is \emph{full} if $\Hom{\cat{C'}}{A}{B} = \Hom{\cat{C}}{A}{B}$ for all $A,B$ in $\Obj{\cat{C'}}$. Construct a category of \emph{infinite sets} and explain how it may be viewed as a full subcategory of $\Set$. \sqref{4.4, \S VI.1.1, \S VIII.1.3 }
 }{
     Let $\cat{S}$ be a category which satisfies the following:
+
     \begin{itemize}[label=$\bullet$]
         \item $\Obj{\cat{S}}$ is the collection of the infinite sets.
 
@@ -474,6 +478,7 @@
 
 \problem{ %4.3
     Let $A$, $B$ be objects of a category $\cat{C}$, and let $f \in \Hom{\cat{C}}{A}{B}$ be a morphism.
+
     \begin{itemize}[label=$\bullet$]
         \item Prove that if $f$ has a right-inverse, then $f$ is an epimorphism.
 
