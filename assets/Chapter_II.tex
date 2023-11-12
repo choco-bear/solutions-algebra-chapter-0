@@ -1229,7 +1229,9 @@
     Since direct sums are coproducts in $\Ab$, the classification theorem for abelian groups mentioned in the text says that every finitely generated \emph{abelian group} is a coproduct of cyclic groups in $\Ab$.
     The reader may be tempted to conjecture that every finitely generated \emph{group} is a coproduct of cyclic groups \emph{in} $\Grp$.
     Show that this is not the case, by proving that $S_3$ is not a coproduct of cyclic groups.
-}{}
+}{
+    Since every coproduct of nontrivial groups is always infinite, $S_3$ cannot be a coproduct of cyclic groups.
+}
 
 \problem{ %6.12
     Let $m$, $n$ be positive integers, and consider the subgroup $\left< m,n \right>$ of $\ZZ$ they generate.
@@ -1237,12 +1239,38 @@
     \[\left<m,n\right> = d\ZZ\]
     for some positive integer $d$.
     What is $d$, in relation to $m$, $n$?
-}{}
+}{
+    By elementary number theory, $\left< m,n \right> = \gcd (m,n) \ZZ$, clearly.
+}
 
 \problem{ %6.13
     $\neg$ Draw and compare the lattices of subgroups of $C_2 \times C_2$ and $C_4$.
     Draw the lattice of subgroups of $S_3$, and compare it with the one for $C_6$. \sqref{7.1}
-}{}
+}{
+    Each arrow means inclusion.
+
+    \begin{cd}
+        \& C_2 \times C_2 \ar[ld] \ar[d] \ar[rd] \\
+        C_2 \times \{ 0 \} \ar[rd] \& \{ (x,x) \mid x \in C_2 \} \ar[d] \& \{ 0 \} \times C_2 \ar[ld] \\
+        \& \{(0,0)\}
+    \end{cd}
+
+    \begin{cd}
+        C_4 \ar[r] \& \{ 0,2 \} \ar[r] \& \{ 0 \}
+    \end{cd}
+
+    \begin{cd}[row sep=1em]
+        \& \{0,2,4\} \ar[dr] \\
+        C_6 \ar[ur] \ar[dr] \&\& \{0\} \\
+        \& \{0,3\} \ar[ur]
+    \end{cd}
+
+    \begin{cd}[column sep=0.8em]
+        \&\&\& \centered{$S_3 = \left< x,y \mid x^2,y^3,xyxy \right>$} \ar[dlll, start anchor={[shift={(-15pt,0pt)}]south}, end anchor={north}] \ar[dl, start anchor={[shift={(-5pt,0pt)}]south}, end anchor={north}] \ar[dr, start anchor={[shift={(5pt,0pt)}]south}, end anchor={north}] \ar[drrr, start anchor={[shift={(15pt,0pt)}]south}, end anchor={north}] \\
+        \centered{$\{e,y,y^2\}$}[\widthof{aaaa}] \ar[drrr, start anchor={south}, end anchor={[shift={(-3pt,-3pt)}]north west}] \&\& \centered{$\{e,x\}$}[\widthof{aaaa}] \ar[dr, start anchor={south}, end anchor={[shift={(-3pt,0pt)}]north}] \&\& \centered{$\{e,xy\}$}[\widthof{aaaa}] \ar[dl, start anchor={south}, end anchor={[shift={(3pt,0pt)}]north}] \&\& \centered{$\{e,xy^2\}$}[\widthof{aaaa}] \ar[dlll, start anchor={south}, end anchor={[shift={(3pt,-3pt)}]north east}] \\
+        \&\&\& \centered{$\{e\}$}
+    \end{cd}
+}
 
 \problem{ %6.14
     $\vartriangleright$ If $m$ is a positive integer, denote by $\phi(m)$ the number of positive integers $r \leq m$ that are \emph{relatively prime} to $m$ (that is, for which the $\gcd$ of $r$ and $m$ is $1$); this is called \emph{Euler's $\phi$-(or `totient') function}.
@@ -1258,15 +1286,34 @@
     to obtain a proof of the formula
     \[\sum_{m > 0, m \mid n} \phi(m) = n.\]
     (For example, $\phi(1) + \phi(2) + \phi(3) + \phi(4) + \phi(6) + \phi(12) = 1 + 1 + 2 + 2 + 2 + 4 = 12$.) \sqref{4.14, \S6.4, 8.15, V.6.8, \S VII.5.2}
-}{}
+}{
+    Let $i,j \in C_n$ generates subgroups of $C_n$ with the same order.
+    If we show that $\left< i \right> = \left< j \right>$, then the proof of the formula
+    \[\sum_{m > 0, m \mid n} \phi(m) = n\]
+    is automatic.
+    Let $d$ be the order of $\left< i \right>$ and $\left< j \right>$.
+    Then, it is quite obvious that $\gcd (n,i) = \gcd(n,j) = n/d$.
+    Hence, both $i$ and $j$ can be represented as linear combination of $n$ and each other.
+    Therefore, $\left< i \right> = \left< j \right>$.
+}
 
 \problem{ %6.15
     $\vartriangleright$ Prove that if a group homomorphism $\varphi : G \to G'$ has a left-inverse, that is, a group homomorphism $\psi : G' \to G$ such that $\psi \circ \varphi = \id{G}$, then $\varphi$ is a monomorphism. \sqref{\S6.5, 6.16}
-}{}
+}{
+    Let the given group homomorphism $\varphi : G \to G'$ has a left-inverse $\varphi' : G' \to G$.
+    Now take two group homomorphisms $\psi, \psi' : H \to G$ such that $\varphi \circ \psi = \varphi \circ \psi'$ where a group $H$ is be given.
+    Then, since $\varphi' \circ \varphi = \id{G}$, $\psi = \varphi' \circ \varphi \circ \psi = \varphi' \circ \varphi \circ \psi' = \psi'$.
+    Therefore, $\varphi$ is a monomorphism by the definition.
+}
 
 \problem{ %6.16
     $\vartriangleright$ Counterpoint to \ref{prob:II.6.15}: the homomorphism $\varphi : \ZZ / 3\ZZ \to S_3$ given by
     \[\varphi(\eqcl{0}) = \mat{1 & 2 & 3 \\ 1 & 2 & 3}, \quad \varphi(\eqcl{1}) = \mat{1 & 2 & 3 \\ 3 & 1 & 2}, \quad \varphi(\eqcl{2}) = \mat{1 & 2 & 3 \\ 2 & 3 & 1}\]
     is a monomorphism; show that it has \emph{no} left-inverse in $\Grp$.
     (Knowing about \emph{normal} subgroups will make this problem particularly easy.) \sqref{\S6.5}
-}{}
+}{
+    Let $\psi : S_3 \to \cyclic{3}$ be a left-inverse of $\varphi$ in $\Grp$.
+    Consider about $\psi\left(\mat{1 & 2 & 3 \\ 1 & 3 & 2}\right)$.
+    Whatever the value of $\psi\left(\mat{1 & 2 & 3 \\ 1 & 3 & 2}\right)$, by the condition that $\psi$ is a group homomorphism, $\psi$ cannot be well-defined since the value of $\psi \left(\mat{1 & 2 & 3 \\ 3 & 2 & 1}\right)$ and $\psi \left(\mat{1 & 2 & 3 \\ 2 & 1 & 3}\right)$.
+    Hence, $\varphi$ has no left-inverse in $\Grp$.
+}
