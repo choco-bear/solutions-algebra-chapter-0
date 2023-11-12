@@ -23,6 +23,7 @@
         \item[\textbf{Variations which are groups}] $(\QQ^*,\cdot)$, $(\QQ^+,\cdot)$, $(\RR^*,\cdot)$, $(\RR^+,\cdot)$, $(\CC^*,\cdot)$
     \end{itemize}
 }
+\clearpage
 
 \problem{ %1.3
     Prove that $(gh)^{-1} = h^{-1}g^{-1}$ for all elements $g$, $h$ of a group $G$.
@@ -271,8 +272,9 @@
     The order of the cycle $\mat{1 & 2 & 3 & \cdots & n} \in S_{\NN}$ is $n$.
 }
 
-\problem{ %2.4
+\problembr{ %2.4
     Define a homomorphism $D_8 \to S_4$ by labeling vertices of a square, as we did for a triangle in \S2.2. List the 8 permutations in the image of this homomorphism.
+    \clearpage
 }{
     Label the vertices of a square like below:\\
     \adjustbox{scale=0.5,center}{
@@ -305,8 +307,10 @@
     For $n > 1$, we can take $D_{2n}$. Let $x$ be the reflection about a line through the center of a regular $n$-gon and a vertex, and let $y$ be the counterclockwise rotation by $2\pi/n$. Then, $\abs{x} = \abs{xy} = 2$ and $\abs{y} = n$. Hence, we can take $g = x$ and $h = xy$.
 }
 
-\problem{ %2.7
-    Find all elements of $D_{2n}$ that commute with every other element. (The parity of $n$ plays a role.)
+\problembr{ %2.7
+    Find all elements of $D_{2n}$ that commute with every other element.
+    (The parity of $n$ plays a role.)
+    \clearpage
 }{
     Let $x$ be the reflection about a line through the center of a regular $n$-gon and a vertex, and let $y$ be the counterclockwise rotation by $2\pi/n$.
     
@@ -488,8 +492,9 @@
     By the commutativity of the diagram above, $(\psi \times \psi)(\varphi \times \varphi) = (\psi\varphi) \times (\psi\varphi)$.
 }
 
-\problem{ %3.3
+\problembr{ %3.3
     $\vartriangleright$ Show that if $G$, $H$ are \emph{abelian} groups, then $G \times H$ satisfies the universal property for coproducts in $\Ab$ (cf. \S I.5.5). \sqref{\S3.5, 3.6, \S III.6.1}
+    \clearpage
 }{
     Let $\iota_G : G \to G \times H$ and $\iota_H : H \to G \times H$ be defined as $\iota_G : g \mapsto (g,e_H)$ and $\iota_H : h \mapsto (e_G,h)$, respectively. Now consider an abelian group $K$ and two homomorphisms $\varphi : G \to K$ and $\psi : H \to K$.
 
@@ -520,6 +525,7 @@
 }{
     Suppose not, i.e., $\QQ = G \times H$ for some nontrivial groups $G$ and $H$. Then $G \times \{ e_H \}$ and $\{ e_G \} \times H$ are nontrivial subgroups of $\QQ$ and they have a trivial intersection. But since there exist two integers $n$ and $m$ such that $np = mq$ for any rational numbers $p$ and $q$, two nontrivial subgroups of $\QQ$ do not have the trivial intersection. Therefore, $\QQ$ is not the direct product of two nontrivial groups. 
 }
+\clearpage
 
 \problem{ %3.6
     $\vartriangleright$ Consider the product of the cyclic groups $C_2$, $C_3$ (cf. \S2.3): $C_2 \times C_3$. By \ref{prob:II.3.3}, this group is a coproduct of $C_2$ and $C_3$ in $\Ab$. Show that it is \emph{not} a coproduct of $C_2$ and $C_3$ in $\Grp$, as follows:
@@ -556,10 +562,11 @@
     Therefore, $C_2 \times C_3$ is not a coproduct of $C_2$ and $C_3$.
 }
 
-\problem{ %3.7
+\problembr{ %3.7
     Show that there is a \emph{surjective} homomorphism $\ZZ * \ZZ \to C_2 * C_3$. ($*$ denotes coproduct in $\Grp$; cf. \S3.4.)
 
     One can think of $\ZZ * \ZZ$ as a group with two generators $x$, $y$, subject to no relations whatsoever. (We will study a general version of such groups in \S5; see \ref{prob:II.5.6}.)
+    \clearpage
 }{
     \begin{cd}[column sep=6em]
         \& C_2 \ar[ld, bend right=15pt, shift right=0.7] \ar[d, "\iota_{C_2}"] \& \ZZ \ar[l, "\pi_2", swap] \ar[d, "\iota_1"] \\
@@ -683,12 +690,13 @@
     Therefore, $G \cong \cyclic{n}$.
 }
 
-\problem{ %4.4
+\problembr{ %4.4
     Prove that no two of the groups $(\ZZ,+)$, $(\QQ,+)$, $(\RR,+)$ are isomorphic to one another. 
     Can you decide whether $(\RR,+)$, $(\CC,+)$ \emph{are} isomorphic to one another? (Cf. \ref{exer:VI.1.1}.)
 }{
     Since $\left( \QQ, + \right)$ and $\left( \RR, + \right)$ are not cyclic, $\left( \ZZ, + \right)$ is not isomorphic to any of them.
     Furthermore, since $\QQ$ is countable and $\RR$ is uncountable, they are not isomorphic to each other, clearly.
+    \clearpage
 
     Now consider two groups $\left( \RR, + \right)$ and $\left( \CC, + \right)$.
     They are actually $\QQ$-vector space with the same dimension, which means that they are isomorphic to each other assuming axiom of choice.
@@ -731,7 +739,7 @@
     Applying cancellation, we get $hg = gh$, which means $G$ is abelian.
 }
 
-\problem{ %4.8
+\problembr{ %4.8
     $\neg$ Let $G$ be a group, and let $g \in G$.
     Prove that the function $\gamma_g : G \to G$ defined by $(\forall a \in G) : \gamma_g(a) = gag^{-1}$ is an automorphism of $G$.
     (The automorphisms $\gamma_g$ are called `inner' automorphisms of $G$.)
@@ -741,6 +749,7 @@
     Let $G$ be a group and $\gamma_g : G \to G$ be defined as $a \mapsto gag^{-1}$.
     Then $\gamma_g(ab) = gabg^{-1} = gag^{-1}gbg^{-1} = \gamma_g(a)\gamma_g(b)$ and thus makes $\gamma_g$ be a homomorphism.
     Furthermore, it is clear that $\gamma_g$ is a bijection so $\gamma_g$ is an automorphism.
+    \clearpage
 
     Now, define a function $\varphi : G \to \Aut{G}$ as $g \mapsto \gamma_g$.
     Then 
@@ -906,13 +915,14 @@
     since every homomorphism maps an identity to an identity.
 }
 
-\problem{ %5.3
+\problembr{ %5.3
     $\vartriangleright$ Use the universal property of free groups to prove that the map $j : A \to F(A)$ is injective, for all sets $A$.
     (Hint: It suffices to show that for every two elements $a$, $b$ of $A$ there is a group $G$ and a set-function $f : A \to G$ such that $f(a) \neq f(b)$.
     Why? How do you construct $f$ and $G$?) \sqref{\S III.6.3}
 }{
     Suppose not, i.e., suppose that there are two distinct elements $a$, $b$ in $A$ such that $j(a) = j(b)$.
     Consider a group $\ZZ$ and a function $\one[a] : A \to \ZZ$ defined as $x \mapsto \begin{cases} 1 & \mbox{if } x = a \\ 0 & \mbox{otherwise.} \end{cases}$
+    \clearpage
     
     Then, it is impossible that a homomorphism $\varphi : F(A) \to \ZZ$ makes the diagram:
     \begin{cd}[column sep=0.8em]
@@ -946,13 +956,15 @@
     Therefore, $H^{\oplus A}$ is indeed a group.
 }
 
-\problem{ %5.6
+\problembr{ %5.6
     $\vartriangleright$ Prove that the group $F(\{x,y\})$ (visualized in Example 5.3) is a coproduct $\ZZ * \ZZ$ of $\ZZ$ by itself in the category $\Grp$.
     (Hint: With due care, the universal property for one turns into the universal property for the other.) \sqref{\S3.4, 3.7, 5.7}
 }{
     Let $\iota_1 : \ZZ \to F(\{x,y\})$ and $\iota_2 : \ZZ \to F(\{x,y\})$ be homomorphisms defined as $n \mapsto x^n$ and $m \mapsto y^m$, respectively.
 
     Now consider a group $G$ and two homomorphisms $\varphi_1 : \ZZ \to G$ and $\varphi_2 : \ZZ \to G$.
+    \clearpage
+    
     Then to make the diagram
     \begin{cd}[column sep=5em]
         \ZZ \ar[d, "\varphi_1", swap] \ar[dr, "\iota_1"pos=.85, shorten >= 0pt] \& \ZZ \ar[dl, "\varphi_2"pos=.8, swap] \ar[d, "\iota_2"] \\
@@ -982,12 +994,14 @@
     Similarly, $F^{ab}(\{x_1,\cdots,x_n\}) \cong \bigoplus_{i=1}^n \ZZ$.
 }
 
-\problem{ %5.8
+\problembr{ %5.8
     Still more generally, prove that $F(A \sqcup B) = F(A) * F(B)$ and that $F^{ab}(A \sqcup B) = F^{ab}(A) \oplus F^{ab}(B)$ for all sets $A,B$.
     (That is, the constructions $F$, $F^{ab}$ `preserve coproducts'.)
 }{
     Let $\iota_A : F(A) \to F(A \sqcup B)$ and $\iota_B : F(B) \to F(A \sqcup B)$ be inclusions.
     Consider a group $G$ and two homomorphisms $\varphi_A : F(A) \to G$ and $\varphi_B : F(B) \to G$.
+    \clearpage
+    
     Then to make the following diagram
     \begin{cd}[column sep=5em]
         F(A) \ar[d, "\varphi_A", swap] \ar[dr, "\iota_A"pos=.85, shorten >= 0pt] \& F(B) \ar[dl, "\varphi_B"pos=.8, swap] \ar[d, "\iota_B"] \\
