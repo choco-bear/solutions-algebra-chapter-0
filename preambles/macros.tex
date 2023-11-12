@@ -137,3 +137,10 @@
 %%                   etc                   %%
 \def\st{\text{ s.t. }}
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\NewDocumentCommand{\centered}{mo}{
+    \IfNoValueTF{#2}{
+        \makebox[0pt][c]{#1}
+    }{
+        \makebox[#2][c]{#1}
+    }
+}
