@@ -152,3 +152,17 @@
         \makebox[#2][c]{#1}
     }
 }
+\NewDocumentCommand{\lefted}{mo}{
+    \IfNoValueTF{#2}{
+        \makebox[0pt][l]{#1}
+    }{
+        \makebox[#2][l]{#1}
+    }
+}
+\NewDocumentCommand{\righted}{mo}{
+    \IfNoValueTF{#2}{
+        \makebox[0pt][r]{#1}
+    }{
+        \makebox[#2][r]{#1}
+    }
+}
