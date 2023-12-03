@@ -13,6 +13,7 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{calc}
 \usetikzlibrary{cd}
+\usepackage{pgfplots}
 \usepackage{fancyhdr}
 \usepackage{titling}
 \usepackage{verbatim}
@@ -34,11 +35,16 @@
     right=20mm
 }
 
-
 \tikzcdset{
   shorten >= 2pt,
   shorten <= 2pt,
   row sep/normal=2.4em
+}
+
+\usepgfplotslibrary{colormaps}
+\pgfplotsset{
+    compat=newest,
+    colormap={mycolormap}{color=(lightgray) color=(white) color=(lightgray)}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
