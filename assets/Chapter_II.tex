@@ -463,7 +463,9 @@
 }
 
 \newpage
+\markboth{\MakeUppercase{Chapter II. Groups, first encounter}}{3. \MakeUppercase{The category} \textsf{Grp}}
 \section{The category \textsf{Grp}}
+\markboth{\MakeUppercase{Chapter II. Groups, first encounter}}{3. \MakeUppercase{The category} \textsf{Grp}}
 \problem{ %3.1
     $\vartriangleright$ Let $\varphi : G \to H$ be a morphism in category $\cat{C}$ with products. Explain why there is unique morphism $(\varphi \times \varphi) : G \times G \to H \times H$ compatible in the evident way with the natural projections.
     
@@ -1725,7 +1727,7 @@
     Considering $\rho \times \rho : \RR \times \RR \to S^1 \times S^1$ where $\rho$ is the mapping defined in Example 8.7, we get
     \[\left( \RR \times \RR \right) / \left( \ZZ \times \ZZ \right) \cong S^1 \times S^1 = T^2\]
     since the kernel of $\rho \times \rho$ is $\ZZ \times \ZZ$.The below is a picture of this group.
-    \begin{draw}
+    \[\begin{tikzpicture}
         \begin{axis}[
             axis equal image,
             hide axis,
@@ -1748,7 +1750,7 @@
                 {cos(deg(\x))}
             );
         \end{axis}
-    \end{draw}
+    \end{tikzpicture}\]
 }
 
 \problem{ %8.11
