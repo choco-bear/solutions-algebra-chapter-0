@@ -1756,41 +1756,91 @@
 \problem{ %8.11
     (Notation as in Proposition 8.10.)
     Prove `by hand' (that is, without invoking universal properties) that $N$ is normal in $G$ if and only if $N/H$ is normal in $G/H$.
-}{}
+}{
+    Let $H$ be a normal subgroup of a group $G$, and let $N$ be a subgroup of $G$ containing $H$.
+
+    If $N$ is normal in $G$, then $H$ is normal in $N$, obviously.
+    So we can consider groups $N/H$ and $G/H$.
+    Since $N/H \subseteq G/H$, and the operations of them are induced by the operation of $G$, $N/H$ is a subgroup of $G/H$.
+    Now take any $gH \in G/H$.
+    Then, $\left(gH\right) \left(N/H\right) \left(gH\right)^{-1} \subseteq N/H$ since $gng^{-1} \in N$ for any $n \in N$.
+    Hence, $N/H$ is normal in $G/H$.
+
+    Conversely, let $N/H$ be normal in $G/H$.
+    Take any $g \in G$, and consider $gNg^{-1}$.
+    Since $N/H$ is normal in $G/H$, we can say that $gng^{-1}H \in N/H$ for any $n \in N$.
+    Hence, $gng^{-1} \in N$ for any $n \in N$, and therefore $N$ is normal in $G$.
+
+    Therefore, $N$ is normal in $G$ if and only if $N/H$ is normal in $G/H$.
+}
 
 \problem{ %8.12
     (Notation as in Proposition 8.11.)
     Prove `by hand' (that is, by using Proposition 6.2) that $HK$ is a subgroup of $G$ if $H$ is normal.
-}{}
+}{
+    Let $H$, $K$ be subgroups of a group $G$, and assume that $H$ is normal in $G$.
+
+    Now take any $h,h' \in H$ and $k,k' \in K$.
+    Then, $(hk)(h'k')^{-1} = hk(k')^{-1}(h')^{-1} = hh''k(k')^{-1}$ for some $h'' \in H$ since $H$ is normal in $G$, and $K$ is a subgroup of $G$.
+    Hence, $HK$ is a subgroup of $G$.
+}
 
 \problem{ %8.13
     $\neg$ Let $G$ be a finite group, and assume $\abs{G}$ is odd.
     Prove that every element of $G$ is a square. \sqref{8.14}
-}{}
+}{
+    Take any elements $g \in G$.
+    Then $\abs{g} \mid \abs{G}$ and this means that $2 \nmid \abs{g}$ since $\abs{G}$ is odd.
+    Hence, we can write $k\abs{g} = 2m+1$ for some integers $k$ and $m$.
+    Thus, we get $e_G = g^{k\abs{g}} = \left(g^m\right)^2 g$, and this implies that $g$ is the square of $g^{-m}$.
+    Therefore, every element of $G$ is a square.
+}
 
 \problem{ %8.14
     Generalize the result of \ref{prob:II.8.13}: if $G$ is a group of order $n$ and $k$ is an integer relatively prime to $n$, then the function $G \to G$, $g \mapsto g^k$ is surjective.
-}{}
+}{
+    Take any elements $g \in G$.
+    Then $\abs{g} \mid n$ and this means that $\gcd \left( \abs{g}, k \right) = 1$ since $\gcd \left( n, k \right) = 1$.
+    Hence, we can write $m\abs{g} = kq + 1$ for some integers $m$ and $k$.
+    Thus, we get $e_G = g^{m\abs{g}} = \left(g^q\right)^k g$, and this implies that $g = \left(g^{-q}\right)^k$.
+    Therefore, the function $G \to G$, $g \mapsto g^k$ is surjective.
+}
 
 \problem{ %8.15
     Let $a$, $n$ be positive integers, with $a > 1$.
     Prove that $n$ divides $\phi(a^n-1)$, where $\phi$ is Euler's $\phi$-function; see \ref{prob:II.6.14}.
     (Hint: Example 8.15.)
-}{}
+}{
+    Since $\gcd \left( a, a^n-1 \right) = 1$, $a$ is an element of order $n$ in $\left(\cyclic{\left(a^n-1\right)}\right)^*$.
+    Therefore, $n \mid \abs{\left(\cyclic{\left(a^n-1\right)}\right)^*}$, which means that $n \mid \phi\left(a^n-1\right)$.
+}
 
 \problem{ %8.16
     Generalize Fermat's little theorem to congruences modulo arbitrary (that is, possibly nonprime) integers.
     Note that it is \emph{not} true that $a^n \equiv a \mod n$ for all $a$ and $n$: for example, $2^4$ is not congruent to $2$ modulo $4$.
     \emph{What} is true?
     (This generalization is known as \emph{Euler's theorem}.)
-}{}
+}{
+    Let $a$ be a relatively prime with $n$.
+    Then, $a \in \left(\cyclic{n}\right)^*$, and thus the order of $a$ is a divisor of $\phi(n)$.
+    This means that $a^{\phi(n)} \equiv 1 \mod n$.
+}
 
 \problem{ %8.17
     $\vartriangleright$ Assume $G$ is a finite abelian group, and let $p$ be a prime divisor of $\abs{G}$.
     Prove that there exists an element in $G$ of order $p$.
     (Hint: Let $g \neq e$ be an element of $G$, and consider the subgroup $\langle g \rangle$; use the fact that this subgroup is cyclic to show that there is an element $h \in \langle g \rangle$ in $G$ of \emph{prime} order $q$.
     If $p = q$, you are done; otherwise, use the quotient $G/\langle h \rangle$ and induction.) \sqref{\S8.5, 8.18, 8.20, \S IV.2.1}
-}{}
+}{
+    Take an element $g \neq e$ in $G$.
+    Let $q$ be the smallest prime factor of $\abs{g}$.
+    Then, taking $h = g^{\abs{g}/q}$, the order of $h$ is $q$.
+
+    If $p = q$, we are done.
+    Otherwise, consider $G/\left< h \right>$.
+    If there is an element $g\left<h\right>$ of order $p$ in $G/\left< h \right>$, then the order of $g$ is $p$ since $\gcd \left(p,q\right) = 1$.
+    Therefore, by the induction, the statement is proved.
+}
 
 \problem{ %8.18
     Let $G$ be an abelian group of order $2n$, where $n$ is odd.
@@ -1798,19 +1848,34 @@
     (It has at least one, for example by \ref{prob:II.8.17}.
     Use Lagrange's theorem to establish that it cannot have more than one.)
     Does same conclusion hold if $G$ is not necessarily commutative?
-}{}
+}{
+    Since $2 \mid \abs{G}$, there is an element $h$ of order $2$ in $G$.
+    Consider $G / \left< h \right>$.
+    Then by Lagrange's theorem, there is no element of order $2$ in $G / \left< h \right>$.
+    Hence, $h$ is the unique element of order $2$ in $G$.
+    For otherwise, let $h'$ be an element of order $2$ in $G$, differing with $h$.
+    Then, the order of $h'h^{-1} \left< h \right>$ has to be $2$ since $G$ is abelian.
+    Therefore, $G$ has exactly one element of order $2$.
+
+    Furthermore, if $G$ is not commutative, then there is a counterexample.
+    Consider $D_{2n} = \left< x,y \mid x^2, y^2, (xy)^n \right>$.
+}
 
 \problem{ %8.19
     Let $G$ be a finite group, and let $d$ be a proper divisor of $\abs{G}$.
     Is it necessarily true that there exists an element of $G$ of order $d$?
     Give a proof or a counterexample.
-}{}
+}{
+    There is no subgroup of $S_4$, whose order is $12$.
+}
 
 \problem{ %8.20
     $\vartriangleright$ Assume $G$ is a finite abelian group, and let $d$ be a divisor of $\abs{G}$.
     Prove that there exists a \emph{subgroup} $H \subseteq G$ of order $d$.
     (Hint: induction; use \ref{prob:II.8.17}.) \sqref{\S IV.2.2}
-}{}
+}{
+    Since every finite abelian group is a direct product of finitely many finite cyclic groups, we can take a subgroup $H \subseteq G$ or order $d$ easily.
+}
 
 \problem{ %8.21
     $\vartriangleright$ Let $H$, $K$ be subgroups of a group $G$.
