@@ -1729,10 +1729,10 @@
     since the kernel of $\rho \times \rho$ is $\ZZ \times \ZZ$.
     The group $T^2$ is a torus, and we can draw this group as below:
     \begin{draw}
-        \coordinate (K1) at (3,0);
-        \coordinate (K2) at (3,3);
-        \coordinate (K3) at (0,3);
-        \coordinate (K4) at (0,0);
+        \coordinate (K1) at (-1.5,0);
+        \coordinate (K2) at (-1.5,3);
+        \coordinate (K3) at (-4.5,3);
+        \coordinate (K4) at (-4.5,0);
         \coordinate (Kc) at ($(K1)!0.5!(K3)$);
         \foreach \i/\j/\n in {1/2/Ka,2/3/Kb,3/4/Kai,4/1/Kb2}{
             \coordinate (\n) at ($(K\i)!0.5!(K\j)$);
@@ -1880,26 +1880,62 @@
     If $H$ and $K$ are finite, prove that
     \[\abs{HK} = \frac{\abs{H} \cdot \abs{K}}{\abs{H \cap K}}.\]
     \sqref{\S8.5}
-}{}
+}{
+    Let $S = \{ hK \mid h \in H \}$ and $T = \{ h \left( H \cap K \right) \mid h \in H \}$.
+    Then, we can take a map $f : S \to T$ defined as $hK \mapsto h \left( H \cap K \right)$.
+    Since $h_1K = h_2K$ implies that $h_1h_2^{-1} \in K$, $h_1 \left( H \cap K \right) = h_2 \left( H \cap K \right)$ if $h_1 K = h_2 K$.
+    Hence, $f$ is well-defined.
+    It is obvious that $f$ is surjective, and thus it suffices to show that $f$ is injective.
+    To show this, take two elements $h_1, h_2 \in H$ such that $h_1 \left( H \cap K \right) = h_2 \left( H \cap K \right)$.
+    Then, for any $k \in K$, $h_1k = h_2k'k$ for some $k' \in H \cap K$, and thus $h_1K \subseteq h_2K$.
+    Consequently, $f$ is bijective, and therefore, $\abs{HK} = \frac{\abs{H} \cdot \abs{K}}{\abs{H \cap K}}$ if $H$ and $K$ are finite since $\abs{S} = \frac{\abs{HK}}{\abs{K}}$ and $\abs{T} = \frac{\abs{H}}{\abs{H \cap K}}$.
+}
 
 \problem{ %8.22
     $\vartriangleright$ Let $\varphi : G \to G'$ be a group homomorphism, and let $N$ be the smallest normal subgroup containing $\im \varphi$.
     Prove that $G'/N$ satisfies the universal property of $\coker \varphi$ in $\Grp$. \sqref{\S8.6}
-}{}
+}{
+    Let $L$ be any group and $\alpha : G' \to L$ be a group homomorphism such that $\alpha \circ \varphi$ is trivial.
+    Now $\pi : G' \to G'/N$ be the canonical projection.
+    It suffices to show that the homomorphism $\bar{\alpha} : G'/N \to L$ making the following diagram commute uniquely exists.
+    \begin{cd}
+        G \ar[r, "\varphi", swap] \ar[rr, "\mathbf{0}", bend left] \& G' \ar[r, "\alpha", swap] \ar[d, \surjection, "\pi", swap] \& L \\
+        \& G'/N \ar[ru, dashed, "\bar{\alpha}", swap]
+    \end{cd}
+    Note that $N$ is the smallest normal subgroup of $G'$ containing the image of $\varphi$.
+
+    Since $\ker \alpha$ is normal in $G'$, $N \normaleq \ker \alpha$.
+    Hence, $\alpha(g) = \alpha(h)$ if $gN = hN$.
+    Thus, $\bar{\alpha} : gN \mapsto \alpha(g)$ makes the diagram commute.
+    Further, if $\bar{\alpha}$ and $\bar{\alpha'}$ make the diagram commute, then $\bar{\alpha}(gN) = \bar{\alpha'}(gN)$, which means that $\bar{\alpha} = \bar{\alpha'}$.
+}
 
 \problem{ %8.23
     $\vartriangleright$ Consider the subgroup
     \[H = \left\{ \mat{1 & 2 & 3 \\ 1 & 2 & 3}, \mat{1 & 2 & 3 \\ 2 & 1 & 3} \right\}\]
     of $S_3$.
     Show that the cokernel of the inclusion $H \hookrightarrow S_3$ is trivial, although $H \hookrightarrow S_3$ is not surjective. \sqref{\S8.6}
-}{}
+}{
+    Since $\mathbf{1}$, $A_3$, $S_3$ are the normal subgroups of $S_3$, $S_3$ is the smallest normal subgroup of $S_3$ containing $H$.
+    Hence, by the result of the \ref{exer:II.8.22}, cokernel of the inclusion $H \hookrightarrow S_3$ is trivial, although $H \hookrightarrow S_3$ is not surjective.
+}
 
 \problem{ %8.24
     $\vartriangleright$ Show that epimorphisms in $\Grp$ do not necessarily have right-inverses. \sqref{\S I.4.2}
-}{}
+}{
+    Consider $\varphi : \ZZ \to \ZZ / 2\ZZ$ defined as $n \mapsto n + 2\ZZ$.
+    Then $\varphi$ is surjective so $\varphi$ is an epimorphism in $\Grp$.
+    However, there is no nontrivial homomorphism $\ZZ / 2\ZZ \to \ZZ$, and thus $\varphi$ has no right-inverse.
+}
 
 \problem{ %8.25
     Let $H$ be a commutative normal subgroup of $G$.
     Construct an interesting homomorphism from $G/H$ to $\Aut{H}$.
     (Cf. \ref{prob:II.7.10}.)
-}{}
+}{
+    Let define $\varphi : G/H \to \Aut{H}$ as $\varphi : gH \mapsto \gamma_g$ where $\gamma_g : H \to H$ is a homomorphism defined as $h \mapsto ghg^{-1}$.
+    To check if $\varphi$ is well-defined, let $g_1H = g_2H$.
+    Then $g_2^{-1}g_1 \in H$, and thus $g_2^{-1}g_1h = hg_2^{-1}g_1$ for any $h \in H$ since $H$ is abelian.
+    This means that $\gamma_{g_1} = \gamma_{g_2}$.
+    Therefore, $\varphi$ is a group homomorphism.
+}
