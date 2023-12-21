@@ -39,15 +39,9 @@
 \tikzcdset{
   shorten >= 2pt,
   shorten <= 2pt,
-  row sep/normal=2.4em
+  row sep/normal=2.4em,
+  shorten <>/.style={ shorten >=#1, shorten <=#1 }
 }
-
-\usepgfplotslibrary{colormaps}
-\pgfplotsset{
-    compat=newest,
-    colormap={grayscale}{color=(lightgray) color=(white) color=(lightgray)}
-}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
