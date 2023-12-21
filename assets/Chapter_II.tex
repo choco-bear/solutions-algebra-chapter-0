@@ -1726,31 +1726,28 @@
 }{
     Considering $\rho \times \rho : \RR \times \RR \to S^1 \times S^1$ where $\rho$ is the mapping defined in Example 8.7, we get
     \[\left( \RR \times \RR \right) / \left( \ZZ \times \ZZ \right) \cong S^1 \times S^1 = T^2\]
-    since the kernel of $\rho \times \rho$ is $\ZZ \times \ZZ$.The below is a picture of this group.
-    \[\begin{tikzpicture}
-        \begin{axis}[
-            axis equal image,
-            hide axis,
-            z buffer = sort,
-            view = {122}{30},
-            scale = 1.5
-        ]
-            \addplot3[
-                surf,
-                shader = faceted interp,
-                samples = 30,
-                samples y= 60,
-                domain = 0:2*pi,
-                domain y = 0:2*pi,
-                colormap name = grayscale,
-                thin
-            ] (
-                {(3+sin(deg(\x)))*cos(deg(\y))},
-                {(3+sin(deg(\x)))*sin(deg(\y))},
-                {cos(deg(\x))}
-            );
-        \end{axis}
-    \end{tikzpicture}\]
+    since the kernel of $\rho \times \rho$ is $\ZZ \times \ZZ$.
+    The group $T^2$ is a torus, and we can draw this group as below:
+    \begin{draw}
+        \coordinate (K1) at (3,0);
+        \coordinate (K2) at (3,3);
+        \coordinate (K3) at (0,3);
+        \coordinate (K4) at (0,0);
+        \coordinate (Kc) at ($(K1)!0.5!(K3)$);
+        \foreach \i/\j/\n in {1/2/Ka,2/3/Kb,3/4/Kai,4/1/Kb2}{
+            \coordinate (\n) at ($(K\i)!0.5!(K\j)$);
+            \coordinate (Kc\n) at ($(\n)-(Kc)$);
+        }
+
+        \draw[fill=black, fill opacity=0.05] (K1) -- (K2) -- (K3) -- (K4) -- cycle;
+
+        \foreach \s/\e in {K1/Ka,K2/Kb,K4/Kai,K1/Kb2}{
+            \draw[-latex] (\s) -- (\e);
+        }
+        \foreach \c/\v/\n in {Kc/Ka/a,Kc/Kai/a,Kc/Kb/b,Kc/Kb2/b}{
+            \node at ($(\c)+1.15*(\c\v)$) {$\n$};
+        }
+    \end{draw}
 }
 
 \problem{ %8.11
