@@ -21,3 +21,10 @@
         \adjustbox{#1}{\begin{newcd}[#3]#2\end{newcd}}
     }
 }
+
+%%               tikzpicture               %%
+\newenvironment{draw}{
+    \[\begin{tikzpicture}[shorten <>=0pt]
+}{
+    \end{tikzpicture}\]
+}

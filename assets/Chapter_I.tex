@@ -9,6 +9,7 @@
 
     This is the reason why we need the axiomatic set theory instead of the naive set theory.
 }
+\clearpage
 
 \problem{ %1.2
     $\vartriangleright$ Prove that if $\sim$ is an equivalence relation on a set $S$, then the corresponding family $\mathscr{P}_\sim$ defined in \S 1.5 is indeed a partition of $S$; that is, its elements are nonempty, disjoint, and their union is $S$. \sqref{\S1.5}
@@ -98,6 +99,7 @@
     
     Therefore, the relation $\sim$ on $U$ is an equivalence relation.
 }
+\clearpage
 
 \problem{ %2.5
     $\vartriangleright$ Formulate a notion of \emph{epimorphism}, in the style of the notion of \emph{monomorphism} seen in \S2.6, and prove a result analogous to Proposition 2.3, for epimorphism and surjections. \(\left[ \S2.6, \S4.2 \right]\)
@@ -159,6 +161,7 @@
     Since $A' \cap B' = \emptyset$, if $x \in A' \cup B'$, only one of the following holds:
     \begin{enumerate}[label=\alph*)]
         \item $x \in A'$
+        
         \item $x \in B'$
     \end{enumerate}
     Furthermore, $A''$ and $B''$ also satisfy the same property.
@@ -184,8 +187,10 @@
 \section{Categories}
 \problem{ %3.1
     $\vartriangleright$ Let $\cat{C}$ be a category. Consider a structure $\op{\cat{C}}$ with
+
     \begin{itemize}[label=$\bullet$]
         \item $\Obj{\op{\cat{C}}} := \Obj{\cat{C}}$
+        
         \item for $A$, $B$ objects of $\op{\cat{C}}$ (hence objects of $\cat{C}$), $\Hom{\op{\cat{C}}}{A}{B} := \Hom{\cat{C}}{B}{A}$.
     \end{itemize}
     Show how to make this into a category (that is, define composition of morphisms in $\op{\cat{C}}$ and verify the properties listed in \S3.1).
@@ -214,6 +219,7 @@
 
     Therefore, $\one_a$ is an identity with respect to composition in Example 3.3.
 }
+\clearpage
 
 \problem{ %3.4
     Can we define a category in the style of Example 3.3 using the relation $<$ on the set $\ZZ$?
@@ -239,6 +245,7 @@
     $\vartriangleright$ Define carefully objects and morphisms in Example 3.7, and draw the diagram corresponding to composition. \sqref{\S3.2}
 }{
     Let $\cat{C}$ be a category and $A$ be an object of $\cat{C}$. We are going to define a category $\cat{C}^A$ whose objects are certain morphisms in $\cat{C}$ and whose morphisms are certain diagrams of $\cat{C}$.
+    \clearpage
 
     Let $\Obj{\cat{C}^A}$ be the collection of all morphisms from $A$ to any objects of $\cat{C}$; thus, an object of $\cat{C}^A$ is a morphism $f \in \Hom{\cat{C}}{A}{Z}$ for some objects $Z$ of $\cat{C}$. Now let $f_1,f_2$ be objects of $\cat{C}^A$, that is, two arrows
     \begin{cd} 
@@ -278,6 +285,7 @@
     $\vartriangleright$ A \emph{subcategory} $\cat{C'}$ of a category $\cat{C}$ consists of a collection of objects of $\cat{C}$, with morphisms $\Hom{\cat{C'}}{A}{B} \subseteq \Hom{\cat{C}}{A}{B}$ for all objects $A$, $B$ in $\Obj{\cat{C'}}$, such that identities and compositions in $\cat{C}$ make $\cat{C'}$ into a category. A subcategory $\cat{C'}$ is \emph{full} if $\Hom{\cat{C'}}{A}{B} = \Hom{\cat{C}}{A}{B}$ for all $A,B$ in $\Obj{\cat{C'}}$. Construct a category of \emph{infinite sets} and explain how it may be viewed as a full subcategory of $\Set$. \sqref{4.4, \S VI.1.1, \S VIII.1.3 }
 }{
     Let $\cat{S}$ be a category which satisfies the following:
+
     \begin{itemize}[label=$\bullet$]
         \item $\Obj{\cat{S}}$ is the collection of the infinite sets.
 
@@ -303,6 +311,7 @@
 
     Therefore, $\MSet$ is a category if we define $\MSet$ in the way mentioned above, and the `copy' of $\Set$ is a full subcategory of $\MSet$.
 }
+\clearpage
 
 \problem{ %3.10
     Since the objects of a category $\cat{C}$ are not (necessarily interpreted as) sets, it is not clear how to make sense of notion of `subobject' in general, extrapolating the notion of subset. In some situations it \emph{does} make sense to talk about subobjects, and the subobjects of any given object $A$ in $\cat{C}$ are in one-to-one correspondence with the morphisms $A \to \Omega$ for a fixed, special object $\Omega$ of $\cat{C}$, called a \emph{subobject classifier}. Show that $\Set$ has a subobject classifier.
@@ -336,6 +345,7 @@
         \&\&\& B \ar[ull, swap, "g_2"] \ar[ulll, bend left, "g_1"]
     \end{cd}
     in $\cat{C}$;
+    \clearpage
 
     \emph{Composition} of two morphisms
     \[\begin{array}{ll}
@@ -381,6 +391,7 @@
         \&\& B \ar[ull, "g"]
     \end{cd}
     in $\cat{C}$;
+    \clearpage
 
     \emph{Morphisms}
     \begin{cd}[row sep=0.8em,column sep=2em]
@@ -463,9 +474,11 @@
 
     Furthermore, if the relation $\mathrel{\mathcal{R}}$ is symmetric, then it is immediately verified that $\hat{S}$ is a groupoid. Therefore, every category, which is a groupoid, is corresponding to an equivalence relation.
 }
+\clearpage
 
 \problem{ %4.3
     Let $A$, $B$ be objects of a category $\cat{C}$, and let $f \in \Hom{\cat{C}}{A}{B}$ be a morphism.
+
     \begin{itemize}[label=$\bullet$]
         \item Prove that if $f$ has a right-inverse, then $f$ is an epimorphism.
 
@@ -533,12 +546,13 @@
     Then, $fg$ and $gf$ must be identities and this means that $F_1$ and $F_2$ are isomorphic to each other since $f$ and $g$ are isomorphisms.
 }
 
-\problem{ %5.4
+\problembr{ %5.4
     What are initial and final objects in the category of `pointed sets' (Example 3.8)? Are they unique?
 }{
     Claim that $(\{s\},s)$ is an initial object of the category $\Set^*$ of pointed sets and an final one.
 
     To show this, consider an object $(T,t) \in \Obj{\Set^*}$, and two morphisms $f : (\{s\},s) \to (T,t)$ and $g : (T,t) \to (\{s\},s)$. Then by the definition of morphisms in the category $\Set^*$, $f$ must map $s$ to $t$ and $g$ must map every $x \in T$ to $s$. In other words, morphism $(\{s\},s) \to (T,t)$ and $(T,t) \to (\{s\},s)$ are unique. Hence, $(\{s\},s)$ is an initial and final object of the category $\Set^*$.
+    \clearpage
 
     Now, we show the converse, i.e., we show that a pointed set $(S,s)$ is a terminal object of the category $\Set^*$, then $S = \{s\}$. By definition of the morphisms in the category $\Set^*$, if there is only one morphism in $\Hom{\Set^*}{(A,a)}{(B,b)}$, then $A = \{ a \}$ or $B = \{ b \}$, indeed. Hence, if $(S,s)$ is a terminal object of the category $\Set^*$, then $S = \{ s \}$.
 
@@ -569,12 +583,13 @@
     Similarly, $\lcm (n,m)$ is the coproduct of $n$ and $m$.
 }
 
-\problem{ %5.7
+\problembr{ %5.7
     Redo \ref{prob:I.2.9}, this time using Proposition 5.4.
 }{
     Let $A$, $B$ be two sets and consider the category $\Set^{A,B}$. Now let $A \cong A'$, $B \cong B'$, and $A' \cap B' = \emptyset$. Then $A' \cup B'$ is an initial object of $\Set^{A,B}$.
 
     To prove this, consider a set $C$, bijections $\alpha : A \to A'$ and $\beta : B \to B'$, and inclusions $i_{A'} : A' \to A' \cup B'$ and $i_{B'} : B' \to A' \cup B'$. Then the commutative diagram below exists uniquely when $f_A : A \to C$ and $f_B : B \to C$ are fixed:
+    \clearpage
 
     \begin{cd}[row sep=0.8em,column sep=4em]
         \&\& A \ar[dll, "f_A", swap, bend right] \ar[dl, "i_{A'}\alpha"] \\
@@ -617,6 +632,7 @@
     Let $\cat{C}$ be a category with products. Find a reasonable candidate for the universal property that the product $A \times B \times C$ of \emph{three} objects of $\cat{C}$ ought to satisfy, and prove that both $(A \times B) \times C$ and $A \times (B \times C)$ satisfy this universal property. Deduce that $(A \times B) \times C$ and $A \times (B \times C)$ are necessarily isomorphic.
 }{
     Let $D$ be an object of $\cat{C}$. If there exists morphisms $\pi_A : D \to A$, $\pi_B : D \to B$, and $\pi_C : D \to C$ such that, for every $E \in \Obj{\cat{C}}$ and for all morphisms $f_A : E \to A$, $f_B : E \to B$, and $f_C : E \to C$, there exists a unique morphism $\sigma : E \to D$ such that the diagram below is commutative:
+    \clearpage
 
     \begin{cd}[row sep=0.5em,column sep=3em]
         E \ar[rr,bend left] \ar[rr,phantom,"\sigma",bend left,swap,shift right=2] \ar[dr,"f_A"{pos=0.6},swap,bend left] \ar[ddr,"f_B",swap] \ar[dddr,"f_C"{pos=0.6},swap,bend right] \&\& D \ar[dl,"\pi_A"{pos=0.6},bend right] \ar[ddl,"\pi_B"] \ar[dddl,"\pi_C"{pos=0.6},bend left]\\
@@ -657,6 +673,7 @@
     All that is left now is to show that $(A \times B) \times C$ and $A \times (B \times C)$ are isomorphic.
 
     Since $(A \times B) \times C$ and $A \times (B \times C)$ satisfy the universal property, there exist two unique morphisms $\sigma : (A \times B) \times C \to A \times (B \times C)$ and $\tau : A \times (B \times C) \to (A \times B) \times C$ which make the diagram below be commutative:
+    \clearpage
 
     \begin{cd}
         \&\& (A \times B) \times C \ar[lld,"\pi_A",swap,bend right=20pt] \ar[ld,"\pi_B"] \ar[dd,"\sigma",dotted,shift right,swap] \ar[rd,"\pi_C"] \\
@@ -694,6 +711,7 @@
 
     The set of the functions $f : I \to \bigcup_{i \in I}$ such that $f(i) \in A_i, \forall i \in I$ is $\prod_{i \in I} A_i$, clearly, and the set $\{ (i,a) \mid i \in I \land a \in A_i \}$ is $\coprod_{i \in I} A_i$, obviously.
 }
+\clearpage
 
 \problem{ %5.11
     Let $A$, resp. $B$, be a set, endowed with an equivalence relation $\sim_A$, resp. $\sim_B$. Define a relation $\sim$ on $A \times B$ by setting

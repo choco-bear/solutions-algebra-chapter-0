@@ -13,6 +13,7 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{calc}
 \usetikzlibrary{cd}
+\usepackage{pgfplots}
 \usepackage{fancyhdr}
 \usepackage{titling}
 \usepackage{verbatim}
@@ -27,6 +28,7 @@
 \usepackage{mathrsfs}
 \usepackage{hyperref}
 \usepackage{adjustbox}
+\usepackage{xfp}
 
 \geometry{
     a4paper,
@@ -34,11 +36,14 @@
     right=20mm
 }
 
-
 \tikzcdset{
   shorten >= 2pt,
   shorten <= 2pt,
   row sep/normal=2.4em
+}
+
+\tikzset{
+    shorten <>/.style={ shorten >=#1, shorten <=#1 }
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

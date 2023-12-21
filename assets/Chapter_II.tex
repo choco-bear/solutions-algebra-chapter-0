@@ -23,6 +23,7 @@
         \item[\textbf{Variations which are groups}] $(\QQ^*,\cdot)$, $(\QQ^+,\cdot)$, $(\RR^*,\cdot)$, $(\RR^+,\cdot)$, $(\CC^*,\cdot)$
     \end{itemize}
 }
+\clearpage
 
 \problem{ %1.3
     Prove that $(gh)^{-1} = h^{-1}g^{-1}$ for all elements $g$, $h$ of a group $G$.
@@ -271,8 +272,9 @@
     The order of the cycle $\mat{1 & 2 & 3 & \cdots & n} \in S_{\NN}$ is $n$.
 }
 
-\problem{ %2.4
+\problembr{ %2.4
     Define a homomorphism $D_8 \to S_4$ by labeling vertices of a square, as we did for a triangle in \S2.2. List the 8 permutations in the image of this homomorphism.
+    \clearpage
 }{
     Label the vertices of a square like below:\\
     \adjustbox{scale=0.5,center}{
@@ -305,8 +307,10 @@
     For $n > 1$, we can take $D_{2n}$. Let $x$ be the reflection about a line through the center of a regular $n$-gon and a vertex, and let $y$ be the counterclockwise rotation by $2\pi/n$. Then, $\abs{x} = \abs{xy} = 2$ and $\abs{y} = n$. Hence, we can take $g = x$ and $h = xy$.
 }
 
-\problem{ %2.7
-    Find all elements of $D_{2n}$ that commute with every other element. (The parity of $n$ plays a role.)
+\problembr{ %2.7
+    Find all elements of $D_{2n}$ that commute with every other element.
+    (The parity of $n$ plays a role.)
+    \clearpage
 }{
     Let $x$ be the reflection about a line through the center of a regular $n$-gon and a vertex, and let $y$ be the counterclockwise rotation by $2\pi/n$.
     
@@ -389,6 +393,7 @@
 
 \problem{ %2.15
     $\neg$ Let $n > 0$ be an odd integer.
+
     \begin{itemize}[label=$\bullet$]
         \item Prove that if $\gcd (m,n) = 1$, then $\gcd (2m+n,2n) = 1$. (Use \ref{prob:II.2.13}.)
 
@@ -458,7 +463,9 @@
 }
 
 \newpage
+\markboth{\MakeUppercase{Chapter II. Groups, first encounter}}{3. \MakeUppercase{The category} \textsf{Grp}}
 \section{The category \textsf{Grp}}
+\markboth{\MakeUppercase{Chapter II. Groups, first encounter}}{3. \MakeUppercase{The category} \textsf{Grp}}
 \problem{ %3.1
     $\vartriangleright$ Let $\varphi : G \to H$ be a morphism in category $\cat{C}$ with products. Explain why there is unique morphism $(\varphi \times \varphi) : G \times G \to H \times H$ compatible in the evident way with the natural projections.
     
@@ -488,8 +495,9 @@
     By the commutativity of the diagram above, $(\psi \times \psi)(\varphi \times \varphi) = (\psi\varphi) \times (\psi\varphi)$.
 }
 
-\problem{ %3.3
+\problembr{ %3.3
     $\vartriangleright$ Show that if $G$, $H$ are \emph{abelian} groups, then $G \times H$ satisfies the universal property for coproducts in $\Ab$ (cf. \S I.5.5). \sqref{\S3.5, 3.6, \S III.6.1}
+    \clearpage
 }{
     Let $\iota_G : G \to G \times H$ and $\iota_H : H \to G \times H$ be defined as $\iota_G : g \mapsto (g,e_H)$ and $\iota_H : h \mapsto (e_G,h)$, respectively. Now consider an abelian group $K$ and two homomorphisms $\varphi : G \to K$ and $\psi : H \to K$.
 
@@ -520,12 +528,16 @@
 }{
     Suppose not, i.e., $\QQ = G \times H$ for some nontrivial groups $G$ and $H$. Then $G \times \{ e_H \}$ and $\{ e_G \} \times H$ are nontrivial subgroups of $\QQ$ and they have a trivial intersection. But since there exist two integers $n$ and $m$ such that $np = mq$ for any rational numbers $p$ and $q$, two nontrivial subgroups of $\QQ$ do not have the trivial intersection. Therefore, $\QQ$ is not the direct product of two nontrivial groups. 
 }
+\clearpage
 
 \problem{ %3.6
     $\vartriangleright$ Consider the product of the cyclic groups $C_2$, $C_3$ (cf. \S2.3): $C_2 \times C_3$. By \ref{prob:II.3.3}, this group is a coproduct of $C_2$ and $C_3$ in $\Ab$. Show that it is \emph{not} a coproduct of $C_2$ and $C_3$ in $\Grp$, as follows:
+
     \begin{itemize}
         \item find surjective homomorphisms $C_2 \to S_3$, $C_3 \to S_3$;
+        
         \item arguing by contradiction, assume that $C_2 \times C_3$ is a coproduct of $C_2$, $C_3$, and deduce that there would be a group homomorphism $C_2 \times C_3 \to S_3$ with certain properties;
+        
         \item show that there is no such homomorphism.
     \end{itemize}
     \sqref{\S3.5}
@@ -556,10 +568,11 @@
     Therefore, $C_2 \times C_3$ is not a coproduct of $C_2$ and $C_3$.
 }
 
-\problem{ %3.7
+\problembr{ %3.7
     Show that there is a \emph{surjective} homomorphism $\ZZ * \ZZ \to C_2 * C_3$. ($*$ denotes coproduct in $\Grp$; cf. \S3.4.)
 
     One can think of $\ZZ * \ZZ$ as a group with two generators $x$, $y$, subject to no relations whatsoever. (We will study a general version of such groups in \S5; see \ref{prob:II.5.6}.)
+    \clearpage
 }{
     \begin{cd}[column sep=6em]
         \& C_2 \ar[ld, bend right=15pt, shift right=0.7] \ar[d, "\iota_{C_2}"] \& \ZZ \ar[l, "\pi_2", swap] \ar[d, "\iota_1"] \\
@@ -683,12 +696,13 @@
     Therefore, $G \cong \cyclic{n}$.
 }
 
-\problem{ %4.4
+\problembr{ %4.4
     Prove that no two of the groups $(\ZZ,+)$, $(\QQ,+)$, $(\RR,+)$ are isomorphic to one another. 
     Can you decide whether $(\RR,+)$, $(\CC,+)$ \emph{are} isomorphic to one another? (Cf. \ref{exer:VI.1.1}.)
 }{
     Since $\left( \QQ, + \right)$ and $\left( \RR, + \right)$ are not cyclic, $\left( \ZZ, + \right)$ is not isomorphic to any of them.
     Furthermore, since $\QQ$ is countable and $\RR$ is uncountable, they are not isomorphic to each other, clearly.
+    \clearpage
 
     Now consider two groups $\left( \RR, + \right)$ and $\left( \CC, + \right)$.
     They are actually $\QQ$-vector space with the same dimension, which means that they are isomorphic to each other assuming axiom of choice.
@@ -728,10 +742,10 @@
 
     Let $G$ be a group and $\psi : g \mapsto g^2$ be a homomorphism.
     Then, $(gh)^2 = \psi(gh) = \psi(g)\psi(h) = g^2h^2$.
-    Applying cancelation, we get $hg = gh$, which means $G$ is abelian.
+    Applying cancellation, we get $hg = gh$, which means $G$ is abelian.
 }
 
-\problem{ %4.8
+\problembr{ %4.8
     $\neg$ Let $G$ be a group, and let $g \in G$.
     Prove that the function $\gamma_g : G \to G$ defined by $(\forall a \in G) : \gamma_g(a) = gag^{-1}$ is an automorphism of $G$.
     (The automorphisms $\gamma_g$ are called `inner' automorphisms of $G$.)
@@ -741,6 +755,7 @@
     Let $G$ be a group and $\gamma_g : G \to G$ be defined as $a \mapsto gag^{-1}$.
     Then $\gamma_g(ab) = gabg^{-1} = gag^{-1}gbg^{-1} = \gamma_g(a)\gamma_g(b)$ and thus makes $\gamma_g$ be a homomorphism.
     Furthermore, it is clear that $\gamma_g$ is a bijection so $\gamma_g$ is an automorphism.
+    \clearpage
 
     Now, define a function $\varphi : G \to \Aut{G}$ as $g \mapsto \gamma_g$.
     Then 
@@ -788,6 +803,7 @@
 \problem{ %4.12
     $\neg$ \begin{itemize}
         \item Compute the order of $\eqcl{9}_{31}$ in the group $(\cyclic{31})^*$.
+        
         \item Does the equation $x^3 - 9 = 0$ have solutions in $\cyclic{31}$?
         (Hint: Plugging in all 31 elements of $\cyclic{31}$ is too laborious and will not teach you much. 
         Instead, use the result of the first part: if $c$ is a solution of the equation, what can you say about $\abs{c}$?) \sqref{VII.5.15}
@@ -867,7 +883,7 @@
 \problem{ %4.18
     Prove the second part of Proposition 4.8.
 }{
-    For any $x,y \in H$, there exist $g,h \in G$ such that $\varphi(g) = x$ and $\varphi(h) = y$ isnce $\varphi$ is an isomorphism.
+    For any $x,y \in H$, there exist $g,h \in G$ such that $\varphi(g) = x$ and $\varphi(h) = y$ since $\varphi$ is an isomorphism.
     
     So, if $G$ is commutative, $xy = \varphi(g)\varphi(h) = \varphi(gh) = \varphi(hg) = \varphi(h)\varphi(g) = yx$.
 
@@ -906,13 +922,14 @@
     since every homomorphism maps an identity to an identity.
 }
 
-\problem{ %5.3
+\problembr{ %5.3
     $\vartriangleright$ Use the universal property of free groups to prove that the map $j : A \to F(A)$ is injective, for all sets $A$.
     (Hint: It suffices to show that for every two elements $a$, $b$ of $A$ there is a group $G$ and a set-function $f : A \to G$ such that $f(a) \neq f(b)$.
     Why? How do you construct $f$ and $G$?) \sqref{\S III.6.3}
 }{
     Suppose not, i.e., suppose that there are two distinct elements $a$, $b$ in $A$ such that $j(a) = j(b)$.
     Consider a group $\ZZ$ and a function $\one[a] : A \to \ZZ$ defined as $x \mapsto \begin{cases} 1 & \mbox{if } x = a \\ 0 & \mbox{otherwise.} \end{cases}$
+    \clearpage
     
     Then, it is impossible that a homomorphism $\varphi : F(A) \to \ZZ$ makes the diagram:
     \begin{cd}[column sep=0.8em]
@@ -946,13 +963,15 @@
     Therefore, $H^{\oplus A}$ is indeed a group.
 }
 
-\problem{ %5.6
+\problembr{ %5.6
     $\vartriangleright$ Prove that the group $F(\{x,y\})$ (visualized in Example 5.3) is a coproduct $\ZZ * \ZZ$ of $\ZZ$ by itself in the category $\Grp$.
     (Hint: With due care, the universal property for one turns into the universal property for the other.) \sqref{\S3.4, 3.7, 5.7}
 }{
     Let $\iota_1 : \ZZ \to F(\{x,y\})$ and $\iota_2 : \ZZ \to F(\{x,y\})$ be homomorphisms defined as $n \mapsto x^n$ and $m \mapsto y^m$, respectively.
 
     Now consider a group $G$ and two homomorphisms $\varphi_1 : \ZZ \to G$ and $\varphi_2 : \ZZ \to G$.
+    \clearpage
+    
     Then to make the diagram
     \begin{cd}[column sep=5em]
         \ZZ \ar[d, "\varphi_1", swap] \ar[dr, "\iota_1"pos=.85, shorten >= 0pt] \& \ZZ \ar[dl, "\varphi_2"pos=.8, swap] \ar[d, "\iota_2"] \\
@@ -982,12 +1001,14 @@
     Similarly, $F^{ab}(\{x_1,\cdots,x_n\}) \cong \bigoplus_{i=1}^n \ZZ$.
 }
 
-\problem{ %5.8
+\problembr{ %5.8
     Still more generally, prove that $F(A \sqcup B) = F(A) * F(B)$ and that $F^{ab}(A \sqcup B) = F^{ab}(A) \oplus F^{ab}(B)$ for all sets $A,B$.
     (That is, the constructions $F$, $F^{ab}$ `preserve coproducts'.)
 }{
     Let $\iota_A : F(A) \to F(A \sqcup B)$ and $\iota_B : F(B) \to F(A \sqcup B)$ be inclusions.
     Consider a group $G$ and two homomorphisms $\varphi_A : F(A) \to G$ and $\varphi_B : F(B) \to G$.
+    \clearpage
+    
     Then to make the following diagram
     \begin{cd}[column sep=5em]
         F(A) \ar[d, "\varphi_A", swap] \ar[dr, "\iota_A"pos=.85, shorten >= 0pt] \& F(B) \ar[dl, "\varphi_B"pos=.8, swap] \ar[d, "\iota_B"] \\
@@ -1011,6 +1032,7 @@
 
 \problem{ %5.10
     $\neg$ Let $F = F^{ab}(A)$.
+
     \begin{itemize}
         \item Define an equivalence relation $\sim$ on $F$ by setting $f' \sim f$ if and only if $f - f' = 2g$ for some $g \in F$.
         Prove that $F/\sim$ is a finite set if and only if $A$ is finite, and in that case $\abs{F/\sim} = 2^{\abs{A}}$.
@@ -1034,12 +1056,18 @@
     $\neg$ (If you know about matrices.) The group of invertible $n \times n$ matrices with entries in $\RR$ is denoted $\GL{n}{\RR}$ (Example 1.5). 
     Similarly, $\GL{n}{\CC}$ denotes the group of $n \times n$ invertible matrices with \emph{complex} entries.
     Consider the following sets of matrices:
+
     \begin{itemize}
         \item $\SL{n}{\RR} = \{M \in \GL{n}{\RR} \mid \det M = 1\}$;
+        
         \item $\SL{n}{\CC} = \{M \in \GL{n}{\CC} \mid \det M = 1\}$;
+        
         \item $\mathrm{O}_n\left(\RR\right) = \{M \in \GL{n}{\RR} \mid MM^t = M^tM = I_n\}$;
+        
         \item $\SO{n}{\RR} = \{M \in \mathrm{O}_n\left(\RR\right) \mid \det M = 1\}$;
+        
         \item $\mathrm{U}(n) = \{M \in \GL{n}{\CC} \mid MM^\dagger = M^\dagger M = I_n\}$;
+        
         \item $\SU{n} = \{M \in \mathrm{U}(n) \mid \det M = 1\}$.
     \end{itemize}
     Here $I_n$ stands for the $n \times n$ \emph{identity matrix}, $M^t$ is the \emph{transpose} of $M$, $M^\dagger$ is the \emph{conjugate transpose} of $M$, and $\det M$ denotes the \emph{determinant} of $M$.
@@ -1131,6 +1159,7 @@
 \problem{ %6.6
     Prove that the union of a family of subgroups of a group $G$ is not necessarily a subgroup of $G$.
     In fact:
+
     \begin{itemize}
         \item Let $H$, $H'$ be subgroups of a group $G$.
         Prove that $H \cup H'$ is a subgroup of $G$ only if $H \subseteq H'$ or $H' \subseteq H$.
@@ -1282,9 +1311,12 @@
     In other words, $\phi(m)$ is the order of the group $(\cyclic{m})^*$; cf. Proposition 2.6.
 
     Put together the following observations:
+
     \begin{itemize}
         \item $\phi(m) = \text{the number of generators of } C_m$,
+        
         \item every element of $C_n$ generates a subgroup of $C_n$,
+        
         \item the discussion following Proposition 6.11 (in particular, every subgroup of $C_n$ is isomorphic to $C_m$, for some $m \mid n$),
     \end{itemize}
     to obtain a proof of the formula
@@ -1321,4 +1353,589 @@
     Consider about $\psi\left(\mat{1 & 2 & 3 \\ 1 & 3 & 2}\right)$.
     Whatever the value of $\psi\left(\mat{1 & 2 & 3 \\ 1 & 3 & 2}\right)$, by the condition that $\psi$ is a group homomorphism, $\psi$ cannot be well-defined since the value of $\psi \left(\mat{1 & 2 & 3 \\ 3 & 2 & 1}\right)$ and $\psi \left(\mat{1 & 2 & 3 \\ 2 & 1 & 3}\right)$.
     Hence, $\varphi$ has no left-inverse in $\Grp$.
+}
+
+\newpage
+\section{Quotient groups}
+\problem{ %7.1
+    $\vartriangleright$ List all subgroups of $S_3$ (cf. \ref{prob:II.6.13}) and determine which subgroups are normal and which are not normal. \sqref{\S7.1}
+}{
+    Let $\tau = \mat{1 & 2 & 3}$ and $\sigma = \mat{1 & 2}$.
+    Then $\{e\}$, $\{e,\sigma\}$, $\{e,\sigma\tau\}$, $\{e,\sigma\tau^2\}$, $\{e,\tau,\tau^2\}$, $S_3$ are the subgroups of $S_3$.
+    It can be easily verified that all of them are normal subgroups of $S_3$.
+}
+
+\problem{ %7.2
+    Is the \emph{image} of a group homomorphism necessarily a \emph{normal} subgroup of the targeta?
+}{
+    Consider a group $\left< x,y \mid x^4,y^2,xyxy \right>$ and its subgroup $\{e,y\}$.
+    Then $\{e,y\}$ is not normal in $\left< x,y \mid x^4,y^2,xyxy \right>$ since $xyx^{-1} = xyx^{-1}x^4 = xyx^3 = xyx^3xyxy= x^2y$.
+    
+    Take a inclusion $\varphi : \{e,y\} \to \left< x,y \mid x^4,y^2,xyxy \right>$.
+    Then, the image of $\varphi$ is not normal in the target.
+}
+
+\problem{ %7.3
+    $\vartriangleright$ Verify that the equivalent conditions for normality given in \S7.1 are indeed equivalent. \sqref{\S7.1}
+}{
+    \begin{enumerate}[label=(\alph*)]
+        \item $\forall g \in G, \; gNg^{-1} \subseteq N$
+        
+        \item $\forall g \in G, \; gNg^{-1} = N$
+
+        \item $\forall g \in G, \; gN \subseteq Ng$
+
+        \item $\forall g \in G, \; gN = Ng$
+    \end{enumerate}
+
+    It is obvious that (b) and (d) imply (a) and (c), respectively.
+    Since $g^{-1}Ng \subseteq N$ implies $N \subseteq gNg^{-1}$, (a) implies (b).
+    Similarly, (c) also implies (d).
+
+    Moreover, it is obvious that (a) and (c) are equivalent.
+    Therefore, (a), (b), (c), (d) are all equivalent.
+}
+
+\problem{ %7.4
+    Prove that the relation defined in \ref{prob:II.5.10} on a free abelian group $F = F^{ab}(A)$ is compatible with the group structure.
+    Determine the quotient $F/\sim$ as a better known group.
+}{
+    Since $(f + c) - (f' + c) = f - f'$, it is trivial that the relation $\sim$ defined on $F = F^{ab}(A)$ is compatible with the group structure.
+    Furthermore, the quotient $F/\sim$ is isomorphic to $\left(\cyclic{2}\right)^{\oplus A}$.
+}
+
+\problem{ %7.5
+    $\neg$ Define an equivalence relation $\sim$ on $\SL{2}{\ZZ}$ by letting $A \sim A' \iff A' = \pm A$.
+    Prove that $\sim$ is compatible with the group structure.
+    The quotient $\SL{2}{\ZZ} / \sim$ is denoted $\PSL{2}{\ZZ}$ and is called the \emph{modular group}; it would be a serious contender in a contest for `the most important group in mathematics', due to its role in algebraic geometry and number theory.
+    Prove that $\PSL{2}{\ZZ}$ is generated by the (cosets of the) matrices
+    \[\mat{0 & -1 \\ 1 & 0} \quad \text{and} \quad \mat{1 & -1 \\ 1 & 0}.\]
+    (You will not need to work very hard, if you use the result of \ref{prob:II.6.10}.)
+    Note that the first has order $2$ in $\PSL{2}{\ZZ}$, the second has order $3$, and their product has infinite order. \sqref{9.14}
+}{
+    Since $A = \pm A'$ implies that $AB = \pm A'B$ and $BA = \pm BA'$, the relation $\sim$ defined on $\SL{2}{\ZZ}$ is compatible with the group structure.
+
+    Since $\mat{1 & -1 \\ 1 & 0} \mat{0 & -1 \\ 1 & 0} = \mat{-1 & -1 \\ 0 & -1} \sim \mat{1 & 1 \\ 0 & 1}$, $\PSL{2}{\ZZ}$ is generated by $\mat{1 & -1 \\ 1 & 0}$ and $\mat{0 & -1 \\ 1 & 0}$ because $\SL{2}{\ZZ}$ is generated by $\mat{0 & -1 \\ 1 & 0}$ and $\mat{1 & 1 \\ 0 & 1}$.
+}
+
+\problem{ %7.6
+    Let $G$ be a group, and let $n$ be a positive integer.
+    Consider the relation
+    \[a \sim b \iff (\exists g \in G) ab^{-1} = g^n.\]
+
+    \begin{itemize}
+        \item Show that in general $\sim$ is \emph{not} an equivalence relation.
+
+        \item Prove that $\sim$ is an equivalence relation if $G$ is commutative, and determine the corresponding subgroup of $G$.
+    \end{itemize}
+}{
+    \begin{itemize}
+        \item Let $G = F(\{x,y\})$ and take $n=2$.
+        Then $x^3 \sim x$ and $x \sim y^{-2}x$ but not $x^3 \sim y^{-2}x$.
+        Thus, $\sim$ is not an equivalence relation.
+
+        \item It is obvious that $x \sim x$ since $xx^{-1} = e^n$ and that $x \sim y \implies y \sim x$ since $yx^{-1} = (xy^{-1})^{-1}$.
+        Let $x \sim y$ and $y \sim z$.
+        Then there exist $g,h \in G$ such that $xy^{-1} = g^n$ and $yz^{-1} = h^n$.
+        By commutativity, $xz^{-1} = g^nh^n = (gh)^n$ and thus $x \sim z$.
+        Therefore, $\sim$ on $G$ is an equivalence relation if $G$ is abelian.
+        Furthermore, $\{g^n \mid g \in G\}$ is the corresponding subgroup.
+    \end{itemize}
+}
+
+\problem{ %7.7
+    Let $G$ be a group, $n$ a positive integer, and let $H \subseteq G$ be the subgroup generated by all elements of order $n$ in $G$.
+    Prove that $H$ is normal.
+}{
+    Let $h \in H$ and $g \in G$.
+    Then, there exist $h_1, \cdots, h_k$ of order $n$ in $G$ such that $h = h_1 \cdots h_k$.
+    Since $\left( g h_i g^{-1} \right)^m = g h_i^{\phantom{i}m} g^{-1}$, $g h_i g^{-1}$'s also have order $n$.
+    Hence, $g h g^{-1} = g h_1 \cdots h_k g^{-1} = \left( g h_1 g^{-1} \right) \cdots \left( g h_k g^{-1} \right) \in H$, and therefore $H$ is normal in $G$.
+}
+
+\problem{ %7.8
+    $\vartriangleright$ Prove Proposition 7.6. \sqref{\S7.3}
+}{
+    First of all, we show that $\sim_L$ is an equivalence relation.
+    Since $a^{-1}a = e_G \in H$, $a \sim_L a$ indeed.
+    Also, if $a \sim_L b$, then we get $b^{-1}a = \left(a^{-1}b\right)^{-1} \in H$, and thus $b \sim_L a$.
+    Let $a \sim_L b$ and $b \sim_L c$.
+    Then, $a^{-1}c = \left(a^{-1}b\right)\left(b^{-1}c\right) \in H$, and hence $a \sim_L c$.
+    Consequently, $\sim_L$ is an equivalence relation indeed.
+
+    Now, we show that $\sim_L$ satisfies $\left(\dagger\right)$.
+    Let $a \sim_L b$.
+    Then, $a^{-1}b \in H$, and thus we get $(ga)^{-1}(gb) \in H$ for any $g \in G$.
+    Hence, $ga \sim_L gb$, and therefore the proof is complete.
+}
+
+\problembr{ %7.9
+    State and prove the `mirror' statements of Propositions 7.4 and 7.6, leading to the description of relations satisfying $\left(\dagger\dagger\right)$.
+}{
+    \textbf{The `mirror' statement of Proposition 7.4}\\
+    Let $\sim$ be an equivalence relation on a group $G$, satisfying $\left(\dagger\dagger\right)$.
+    Then
+
+    \begin{itemize}
+        \item the equivalence class of $e_G$ is a subgroup $H$ of $G$; and
+
+        \item $a \sim b \iff ab^{-1} \in H \iff Ha = Hb$.
+    \end{itemize}
+
+    \textbf{Proof.}\\
+    Let $H \subseteq G$ be the equivalence class of the identity.
+    Then, $H$ is nonempty since $e_G \in H$.
+    For $a,b \in H$, we have $e_G \sim a$ and hence $a^{-1} \sim e_G$; hence $a^{-1}b \sim b$; and hence $a^{-1}b \sim b \sim e_G$.
+    Thus, $H$ is a subgroup of $G$.
+
+    \vspace{2em}
+    \textbf{The `mirror' statement of Proposition 7.6}\\
+    If $H$ is any subgroup of a group $G$, the relation $\sim_R$ defined by
+    \[(\forall a,b \in G): \quad a \sim_R b \iff ab^{-1} \in H\]
+    is an equivalence relation satisfying $\left(\dagger\dagger\right)$.
+
+    \vspace{1em}
+    \textbf{Proof.}\\
+    First, we show that $\sim_R$ is an equivalence.
+    Since $aa^{-1} = e_G \in H$, we get $a \sim_R a$.
+    Also, if $a \sim_R b$, then $ba^{-1} = \left(ab^{-1}\right)^{-1} \in H$, and so $b \sim_R a$.
+    Let $a \sim_R b$ and $b \sim_R c$.
+    Then, $ac^{-1} = \left(ab^{-1}\right)\left(bc^{-1}\right) \in H$, indeed, and hence $a \sim_R c$.
+    Consequently, $\sim_R$ is an equivalence relation indeed.
+
+    Now, we show that $\sim_R$ satisfies $\left(\dagger\dagger\right)$.
+    If $a \sim_R b$, then $ab^{-1} \in H$, and thus $(ag)(bg)^{-1} \in H$ for any $g \in G$.
+    Hence, $ag \sim_R bg$, and therefore, the proof is complete.
+}
+
+\problem{ %7.10
+    $\neg$ Let $G$ be a group, and $H \subseteq G$ a subgroup.
+    With notation as in \ref{prob:II.6.7}, show that $H$ is normal in $G$ if and only if $\forall \gamma \in \Inn{G}$, $\gamma(H) \subseteq H$.
+
+    Conclude that if $H$ is normal in $G$, then there is an interesting homomorphism $\Inn{G} \to \Aut{H}$.
+}{
+    The fact that $H$ is normal in $G$ if and only if $\gamma(H) \subseteq H$ for any $\gamma \in \Inn{G}$, is quite unquestionable since it is an immediate result by the definition.
+    So we omit the proof for this statement.
+
+    Now let $H$ be normal in $G$.
+    Then, since $\gamma_g(H) = H$ for any $g \in G$, we can define a map $\left( \bullet \mid H \right) : \Inn{G} \to \Aut{H}$ as $\gamma \mapsto \gamma \mid H$.
+    So, it suffices to show that $\left( \bullet \mid H \right)$ is a homomorphism.
+    To show this, take any $\gamma_g, \gamma_{g'} \in \Inn{G}$.
+    Then since the image of $\gamma_{g'} \mid H$ is $H$, $\left( \gamma_g \circ \gamma_{g'} \right) \mid H = \left( \gamma_g \mid H \right) \circ \left( \gamma_{g'} \mid H \right)$, obviously.
+    Therefore, $\left( \bullet \mid H \right)$ is a homomorphism, and thus we can achieve the desired goal.
+}
+
+\problem{ %7.11
+    $\vartriangleright$ Let $G$ be a group, and let $\commutator{G}$ be the subgroup of $G$ generated by all elements of the form $aba^{-1}b^{-1}$.
+    (This is the \emph{commutator} subgroup of $G$; we will return to it in \S IV.3.3.)
+    Prove that $\commutator{G}$ is normal in $G$.
+    (Hint: With notation as in \ref{prob:II.4.8}, $g \cdot aba^{-1}b^{-1} \cdot g^{-1} = \gamma_g\left(aba^{-1}b^{-1}\right)$.)
+    Prove that $G/\commutator{G}$ is commutative. \sqref{7.12, \S IV.3.3}
+}{
+    For the sake of the convenience of description, define a notation $\commutator{a}[b]$ as $aba^{-1}b^{-1}$ for any $a,b \in G$.
+
+    Now, for any $g \in G$, and for any $a_1,\cdots,a_n,b_1,\cdots,b_n \in G$, 
+    \[g \commutator{a_1}[b_1] \cdots \commutator{a_n}[b_n] g^{-1} = \left( g \commutator{a_1}[b_1] g^{-1} \right) \cdots \left( g \commutator{a_n}[b_n] g^{-1} \right).\]
+    Hence, it suffices to show that $g\commutator{a}[b]g^{-1} \in \commutator{G}$ for any $g,a,b \in G$.
+    Since $g\commutator{a}[b]g^{-1} = \commutator{g}[\commutator{a}[b]] \commutator{a}[b]$, the rest of the proof is automatic.
+}
+
+\problembr{ %7.12
+    $\vartriangleright$ Let $F = F(A)$ be a free group, and let $f : A \to G$ be a set-function from the set $A$ to a \emph{commutative} group $G$.
+    Prove that $f$ induces a unique homomorphism $F/\commutator{F} \to G$, where $\commutator{F}$ is the commutator subgroup of $F$ defined in \ref{prob:II.7.11}.
+    (Use Theorem 7.12.)
+    Conclude that $F/\commutator{F} \cong F^{ab}(A)$.
+    (Use Proposition I.5.4.) \sqref{\S6.4, 7.13, VI.1.20}
+}{
+    Let $\varphi : F/\commutator{F} \to G$ be a homomorphism defined as
+    \[\varphi : a_1^{e_1} \cdots a_t^{e_t} \commutator{F} \mapsto f(a_1)^{e_1} \cdots f(a_t)^{e_t}\]
+    where $a_i$'s are elements of $A$, and $e_i$'s are integers.
+
+    First of all, we have to check whether $\varphi$ is well-defined.
+    Let $s \commutator{F} = t \commutator{F}$ for some $s,t \in F$.
+    Then $st^{-1} \in \commutator{F}$ and so $\varphi \left( st^{-1} \commutator{F} \right) = e_G$ since $G$ is commutative.
+    Thus, $\varphi \left( s\commutator{F} \right) = \varphi \left( t\commutator{F} \right)$ and, hence, $\varphi$ is well-defined.
+    And this is the unique homomorphism that maps $a \commutator{F}$ to $f(a)$ for any $a \in A$, clearly.
+
+    Now we should check whether $F/\commutator{F}$ is isomorphic to $F^{ab}(A)$.
+    Let $G$ be an abelian group, $f : A \to F/\commutator{F}$ and $g : A \to G$ be set-functions, and $f$ be defined as $a \mapsto a \commutator{F}$.
+    Then to make the diagram
+    \begin{cd}[column sep=1.2em]
+        \& \centered{$A$} \ar[dl, "f", swap, start anchor={south west}, end anchor={north}] \ar[dr, "g", start anchor={south east}, end anchor={north}] \\
+        \righted{$F/\commutator{F}$} \ar[rr, "\sigma", swap, dashed, shorten >=0pt, shorten <=0pt] \& \& \lefted{$G$}
+    \end{cd}
+    commute, it must be $\sigma \left( a \commutator{F} \right) = g(a)$.
+    By the fact proved above, the such homomorphism $\sigma$ is unique, and it exists.
+    Therefore, by the definition of $F^{ab}(A)$, $F/\commutator{F}$ is isomorphic to $F^{ab}(A)$.
+}
+
+\problem{ %7.13
+    $\neg$ Let $A$, $B$ be sets and $F(A)$, $F(B)$ the corresponding free groups.
+    Assume $F(A) \cong F(B)$.
+    If $A$ is finite, prove that $B$ is also and $A \cong B$.
+    (Use \ref{prob:II.7.12} to upgrade \ref{prob:II.5.10}.) \sqref{5.10, VI.1.20}
+}{
+    Let $F(A) \cong F(B)$.
+    Then, by \ref{prob:II.7.12}, $F^{ab}(A) \cong F^{ab}(B)$.
+    Also, by \ref{prob:II.5.10}, if $A$ is finite, so is $B$, and $\abs{A} = \abs{B}$.
+}
+
+\newpage
+\section{Canonical decomposition and Lagrange's theorem}
+\problem{ %8.1
+    If a group $H$ may be realized as a subgroup of two groups $G_1$ and $G_2$ and if
+    \[\frac{G_1}{H} \cong \frac{G_2}{H},\]
+    does it follow that $G_1 \cong G_2$?
+    Give a proof or a counterexample.
+}{
+    Consider two groups $S_3$ and $C_6$.
+    They both have a cyclic subgroup of order $3$, and they can be interpreted as $C_3$.
+    Then, $S_3 / C_3$ and $C_6 / C_3$ are isomorphic to $C_2$, and thus we can say that $S_3 / C_3 \cong C_6 / C_3$.
+    However, it is quite obvious that $S_3 \not\cong C_6$.
+}
+
+\problem{ %8.2
+    $\neg$ Extend Example 8.6 as follows.
+    Suppose $G$ is a group and $H \subseteq G$ is a subgroup of \emph{index} $2$, that is, such that there are precisely two (say, left-) cosets of $H$ in $G$.
+    Prove that $H$ is normal in $G$.
+}{
+    Let $g \in G$.
+    If $gH = H$, then $g \in H$ and this means that $Hg = H$.
+
+    If $gH \neq H$, then $gH = G \setminus H$ since the index of $H$ is $2$.
+    Also, it is clear that $g \notin H$.
+    If $Hg = H$, then it contradicts $g \notin H$ so, $Hg \neq H$.
+    Since the index of $H$ is $2$, $Hg = G \setminus H$ and this means that $gH = Hg$.
+
+    Therefore, we can conclude that $gH = Hg$ for any $g \in G$, and hence $H \trianglelefteq G$.
+}
+
+\problem{ %8.3
+    Prove that every finite group is finitely presented.
+}{
+    Let $A = \{ g \mid g \in G\}$ and $\mathscr{R} = \{ g_1g_2g_3^{-1} \mid g_1,g_2,g_3 \in G, g_1g_2=g_3\}$.
+    Then it is quite obvious that $G \cong \left< A \mid \right>$.
+}
+
+\problem{ %8.4
+    Prove that $\left(a,b|a^2,b^2,(ab)^n\right)$ is a presentation of the dihedral group $D_{2n}$.
+    (Hint: With respect to the generators defined in \ref{prob:II.2.5}, set $a = x$ and $b = xy$; prove you can get the relations given here from the ones you obtained in \ref{prob:II.2.5}, and conversely.)
+}{
+    We already know that $D_{2n} = \left< x,y \mid x^2, y^n, xyxy \right>$.
+    
+    Take $a = x$, $b = xy$.
+    Then $(ab)^n = (x^2y)^n = y^n = e$ so we get $\left< a,b \mid a^2, b^2, (ab)^n \right> \leq \left< x,y \mid x^2, y^n, xyxy \right>$.
+    
+    Now take $x = a$, $y = ab$.
+    Then $xyxy = a^2ba^2b = b^2 = e$ so we get $\left< x,y \mid x^2, y^n, xyxy \right> \leq \left< a,b \mid a^2, b^2, (ab)^n \right>$.
+
+    Therefore, $D_{2n} = \left< a,b \mid a^2, b^2, (ab)^n \right>$.
+}
+
+\problem{ %8.5
+    Let $a$, $b$ be distinct elements of order $2$ in a group $G$, and assume that $ab$ has finite order $n \geq 3$.
+    Prove that the subgroup generated by $a$ and $b$ in $G$ is isomorphic to the dihedral group $D_{2n}$.
+    (Use the previous exercise.)
+}{
+    The subgroup generated by $a$ and $b$ in $G$ is $\left< a,b \mid a^2, b^2, (ab)^n \right>$, clealry.
+    Thus, by the result of \ref{prob:II.8.5}, the subgroup generated by $a$ and $b$ in $G$ is isomorphic to $D_{2n}$.
+}
+
+\problem{ %8.6
+    $\neg$ Let $G$ be a group, and let $A$ be a set of generators for $G$; assume $A$ is finite.
+    The corresponding \emph{Cayley graph} is a directed graph whose set of vertices is in one-to-one correspondence with $G$, and two vertices $g_1$, $g_2$ are connected by an edge if $g_2 = g_1 a$ for an $a \in A$; this edge may be labeled $a$ and oriented form $g_1$ to $g_2$.
+    For example, the graph drawn in Example 5.3 for the free group $F(\{x,y\})$ on two generators $x$, $y$ is the corresponding Cayley graph (with the convention that horizontal edge are labeled $x$ and point to the right and vertical edges are labeled $y$ and point up).
+
+    Prove that if a Cayley graph of a group is a tree, then the group is free.
+    Conversely, prove that free groups admit Cayley graphs that are trees. \sqref{\S5.3, 9.15}
+}{
+    If the group $G = \left< A \mid \mathscr{R} \right>$ is not free, then $\mathscr{R}$ is nonempty and this implies that the Cayley graph of $G$ has a loop.
+    Thus, if the Cayley graph of $G$ is a tree, then $G$ is free.
+
+    If the Cayley graph of $G$ has a loop, then we can obtain an element of $R$ and this means that $G$ is not free.
+
+    Therefore, the Cayley graph of $G$ is a tree if and only if $G$ is free.
+}
+
+\problem{ %8.7
+    $\vartriangleright$ Let $\left(A \mid \mathscr{R}\right)$, resp., $\left(A' \mid \mathscr{R}'\right)$, be a presentation for a group $G$, resp., $G'$ (cf. \S8.2); we may assume that $A$, $A'$ are disjoint.
+    Prove that the group $G * G'$ presented by
+    \[\left(A \cup A' \mid \mathscr{R} \cup \mathscr{R}'\right)\]
+    satisfies the universal property for the \emph{coproduct} of $G$ and $G'$ in $\Grp$.
+    (Use the universal properties of both free groups and quotients to construct natural homomorphisms $G \to G * G'$, $G' \to G * G'$.) \sqref{\S3.4, \S8.2, 9.14}
+}{
+    \begin{cd}[row sep=0.8em, column sep=4em]
+        \left( A \mid \mathscr{R} \right) \ar[drr, "\iota", end anchor={[shift={(-4.4em,4.5pt)}]west}] \ar[drrr, "\varphi", bend left=25pt] \\
+        \&\& \righted{$\left( A \cup A' \mid \mathscr{R} \cup \mathscr{R'} \right)$}[3em] \ar[r, dashed, "\sigma"] \& G \\
+        \left( A' \mid \mathscr{R}' \right) \ar[urr, "\iota'", swap, end anchor={[shift={(-4.4em,-4.5pt)}]west}] \ar[urrr, "\varphi'", swap, bend right=25pt]
+    \end{cd}
+    Therefore, $\left( A \mid \mathscr{R} \right) * \left( A' \mid \mathscr{R}' \right) = \left( A \cup A' \mid \mathscr{R} \cup \mathscr{R}' \right)$ if $A \cap A' = \emptyset$.
+}
+
+\problem{ %8.8
+    $\neg$ (If you know about matrices (cf. \ref{prob:II.6.1}).)
+    Prove that $\SL{n}{\RR}$ is a \emph{normal subgroup} of $\GL{n}{\RR}$, and `compute' $\GL{n}{\RR}/\SL{n}{\RR}$ as a well-known group. \sqref{VI.3.3}
+}{
+    Since $\det \left( \mathrm{AB} \right) = \det \mathrm{A} \det \mathrm{B}$, it is obvious that $\SL{n}{\RR} \normaleq \GL{n}{\RR}$.
+    
+    Now let $\det \mathrm{A} = \det \mathrm{B} \neq 0$.
+    Then $\mathrm{A} = \mathrm{B} \left(\mathrm{B}^{-1}\mathrm{A}\right)$ and $\det \left( \mathrm{B}^{-1}\mathrm{A} \right) = 1$ so $\eqcl{\mathrm{A}} = \eqcl{\mathrm{B}}$ if $\det \mathrm{A} = \det \mathrm{B}$.
+    
+    Also, it is obvious that $\eqcl{\mathrm{A}} \neq \eqcl{\mathrm{B}}$ if $\det \mathrm{A} \neq \det \mathrm{B}$.
+    
+    Therefore, $\GL{n}{\RR} / \SL{n}{\RR} \cong \RR$.
+}
+
+\problem{ %8.9
+    $\neg$ (Ditto.)
+    Prove that $\SO{3}{\RR} \cong \SU{2}/{\pm I_2}$, where $I_2$ is the identity matrix.
+    (Hint: It so happens that every matrix in $\SO{3}{\RR}$ can be written in the form
+    \[\mat{a^2+b^2-c^2-d^2 & 2(bc-ad) & 2(ac+bd) \\ 2(ad+bc) & a^2-b^2+c^2-d^2 & 2(cd-ab) \\ 2(bd-ac) & 2(ab+cd) & a^2-b^2-c^2+d^2}\]
+    where $a,b,c,d \in \RR$ and $a^2+b^2+c^2+d^2 = 1$.
+    Proving this fact is not hard, but at this stage you will probably find it computationally demanding.
+    Feel free to assume this, and use \ref{prob:II.6.3} to construct a surjective homomorphism $\SU{2} \to \SO{3}{\RR}$; compute the kernel of this homomorphism.)
+
+    If you know a little topology, you can now conclude that the fundamental group of $\SO{3}{\RR}$ is $C_2$. \sqref{9.1, VI.1.3}
+}{
+    Since every matrix in $\SU{2}$ can be written in the form
+    \[\mat{a+bi & c+di \\ -c+di & a-bi}\]
+    where $a,b,c,d \in \RR$ and $a^2 + b^2 + c^2 + d^2 = 1$.
+    
+    Now let 
+    \[ \varphi \mat{a+bi & c+di \\ -c+di & a-bi} = \mat{a^2+b^2-c^2-d^2 & 2(bc-ad) & 2(ac+bd) \\ 2(ad+bc) & a^2-b^2+c^2-d^2 & 2(cd-ab) \\ 2(bd-ac) & 2(ab+cd) & a^2-b^2-c^2+d^2}. \]
+    Then it is obvious that the homomorphism $\varphi : \SU{2} \to \SO{3}{\RR}$ is surjective, and $\ker \varphi = \{ \pm I_2 \}$.
+    
+    Therefore, $\SU{2} / \{ \pm I_2 \} \cong \SO{3}{\RR}$.
+}
+
+\problem{ %8.10
+    View $\ZZ \times \ZZ$ as a subgroup of $\RR \times \RR$:
+    \begin{draw}
+        \foreach \x in {-2,...,2}{
+            \foreach \y in {-2,...,2}{
+                \filldraw (\x,\y) circle (2pt);
+            }
+        }
+        \draw[-latex, thick] (0,-2) -- (0,3);
+        \draw[-latex, thick] (-2,0) -- (3,0);
+    \end{draw}
+    Describe the quotient
+    \[\frac{\RR \times \RR}{\ZZ \times \ZZ}\]
+    in terms analogous to those used in Example 8.7.
+    (Can you `draw a picture' of this group? Cf. \ref{exer:I.1.6}.)
+}{
+    Considering $\rho \times \rho : \RR \times \RR \to S^1 \times S^1$ where $\rho$ is the mapping defined in Example 8.7, we get
+    \[\left( \RR \times \RR \right) / \left( \ZZ \times \ZZ \right) \cong S^1 \times S^1 = T^2\]
+    since the kernel of $\rho \times \rho$ is $\ZZ \times \ZZ$.
+    The group $T^2$ is a torus, and we can draw this group as below:
+    \begin{draw}
+        \coordinate (K1) at (-1.5,0);
+        \coordinate (K2) at (-1.5,3);
+        \coordinate (K3) at (-4.5,3);
+        \coordinate (K4) at (-4.5,0);
+        \coordinate (Kc) at ($(K1)!0.5!(K3)$);
+        \foreach \i/\j/\n in {1/2/Ka,2/3/Kb,3/4/Kai,4/1/Kb2}{
+            \coordinate (\n) at ($(K\i)!0.5!(K\j)$);
+            \coordinate (Kc\n) at ($(\n)-(Kc)$);
+        }
+
+        \draw[fill=black, fill opacity=0.05] (K1) -- (K2) -- (K3) -- (K4) -- cycle;
+
+        \foreach \s/\e in {K1/Ka,K2/Kb,K4/Kai,K1/Kb2}{
+            \draw[-latex] (\s) -- (\e);
+        }
+        \foreach \c/\v/\n in {Kc/Ka/a,Kc/Kai/a,Kc/Kb/b,Kc/Kb2/b}{
+            \node at ($(\c)+1.15*(\c\v)$) {$\n$};
+        }
+    \end{draw}
+}
+
+\problem{ %8.11
+    (Notation as in Proposition 8.10.)
+    Prove `by hand' (that is, without invoking universal properties) that $N$ is normal in $G$ if and only if $N/H$ is normal in $G/H$.
+}{
+    Let $H$ be a normal subgroup of a group $G$, and let $N$ be a subgroup of $G$ containing $H$.
+
+    If $N$ is normal in $G$, then $H$ is normal in $N$, obviously.
+    So we can consider groups $N/H$ and $G/H$.
+    Since $N/H \subseteq G/H$, and the operations of them are induced by the operation of $G$, $N/H$ is a subgroup of $G/H$.
+    Now take any $gH \in G/H$.
+    Then, $\left(gH\right) \left(N/H\right) \left(gH\right)^{-1} \subseteq N/H$ since $gng^{-1} \in N$ for any $n \in N$.
+    Hence, $N/H$ is normal in $G/H$.
+
+    Conversely, let $N/H$ be normal in $G/H$.
+    Take any $g \in G$, and consider $gNg^{-1}$.
+    Since $N/H$ is normal in $G/H$, we can say that $gng^{-1}H \in N/H$ for any $n \in N$.
+    Hence, $gng^{-1} \in N$ for any $n \in N$, and therefore $N$ is normal in $G$.
+
+    Therefore, $N$ is normal in $G$ if and only if $N/H$ is normal in $G/H$.
+}
+
+\problem{ %8.12
+    (Notation as in Proposition 8.11.)
+    Prove `by hand' (that is, by using Proposition 6.2) that $HK$ is a subgroup of $G$ if $H$ is normal.
+}{
+    Let $H$, $K$ be subgroups of a group $G$, and assume that $H$ is normal in $G$.
+
+    Now take any $h,h' \in H$ and $k,k' \in K$.
+    Then, $(hk)(h'k')^{-1} = hk(k')^{-1}(h')^{-1} = hh''k(k')^{-1}$ for some $h'' \in H$ since $H$ is normal in $G$, and $K$ is a subgroup of $G$.
+    Hence, $HK$ is a subgroup of $G$.
+}
+
+\problem{ %8.13
+    $\neg$ Let $G$ be a finite group, and assume $\abs{G}$ is odd.
+    Prove that every element of $G$ is a square. \sqref{8.14}
+}{
+    Take any elements $g \in G$.
+    Then $\abs{g} \mid \abs{G}$ and this means that $2 \nmid \abs{g}$ since $\abs{G}$ is odd.
+    Hence, we can write $k\abs{g} = 2m+1$ for some integers $k$ and $m$.
+    Thus, we get $e_G = g^{k\abs{g}} = \left(g^m\right)^2 g$, and this implies that $g$ is the square of $g^{-m}$.
+    Therefore, every element of $G$ is a square.
+}
+
+\problem{ %8.14
+    Generalize the result of \ref{prob:II.8.13}: if $G$ is a group of order $n$ and $k$ is an integer relatively prime to $n$, then the function $G \to G$, $g \mapsto g^k$ is surjective.
+}{
+    Take any elements $g \in G$.
+    Then $\abs{g} \mid n$ and this means that $\gcd \left( \abs{g}, k \right) = 1$ since $\gcd \left( n, k \right) = 1$.
+    Hence, we can write $m\abs{g} = kq + 1$ for some integers $m$ and $k$.
+    Thus, we get $e_G = g^{m\abs{g}} = \left(g^q\right)^k g$, and this implies that $g = \left(g^{-q}\right)^k$.
+    Therefore, the function $G \to G$, $g \mapsto g^k$ is surjective.
+}
+
+\problem{ %8.15
+    Let $a$, $n$ be positive integers, with $a > 1$.
+    Prove that $n$ divides $\phi(a^n-1)$, where $\phi$ is Euler's $\phi$-function; see \ref{prob:II.6.14}.
+    (Hint: Example 8.15.)
+}{
+    Since $\gcd \left( a, a^n-1 \right) = 1$, $a$ is an element of order $n$ in $\left(\cyclic{\left(a^n-1\right)}\right)^*$.
+    Therefore, $n \mid \abs{\left(\cyclic{\left(a^n-1\right)}\right)^*}$, which means that $n \mid \phi\left(a^n-1\right)$.
+}
+
+\problem{ %8.16
+    Generalize Fermat's little theorem to congruences modulo arbitrary (that is, possibly nonprime) integers.
+    Note that it is \emph{not} true that $a^n \equiv a \mod n$ for all $a$ and $n$: for example, $2^4$ is not congruent to $2$ modulo $4$.
+    \emph{What} is true?
+    (This generalization is known as \emph{Euler's theorem}.)
+}{
+    Let $a$ be a relatively prime with $n$.
+    Then, $a \in \left(\cyclic{n}\right)^*$, and thus the order of $a$ is a divisor of $\phi(n)$.
+    This means that $a^{\phi(n)} \equiv 1 \mod n$.
+}
+
+\problem{ %8.17
+    $\vartriangleright$ Assume $G$ is a finite abelian group, and let $p$ be a prime divisor of $\abs{G}$.
+    Prove that there exists an element in $G$ of order $p$.
+    (Hint: Let $g \neq e$ be an element of $G$, and consider the subgroup $\langle g \rangle$; use the fact that this subgroup is cyclic to show that there is an element $h \in \langle g \rangle$ in $G$ of \emph{prime} order $q$.
+    If $p = q$, you are done; otherwise, use the quotient $G/\langle h \rangle$ and induction.) \sqref{\S8.5, 8.18, 8.20, \S IV.2.1}
+}{
+    Take an element $g \neq e$ in $G$.
+    Let $q$ be the smallest prime factor of $\abs{g}$.
+    Then, taking $h = g^{\abs{g}/q}$, the order of $h$ is $q$.
+
+    If $p = q$, we are done.
+    Otherwise, consider $G/\left< h \right>$.
+    If there is an element $g\left<h\right>$ of order $p$ in $G/\left< h \right>$, then the order of $g$ is $p$ since $\gcd \left(p,q\right) = 1$.
+    Therefore, by the induction, the statement is proved.
+}
+
+\problem{ %8.18
+    Let $G$ be an abelian group of order $2n$, where $n$ is odd.
+    Prove that $G$ has \emph{exactly one} element of order $2$.
+    (It has at least one, for example by \ref{prob:II.8.17}.
+    Use Lagrange's theorem to establish that it cannot have more than one.)
+    Does same conclusion hold if $G$ is not necessarily commutative?
+}{
+    Since $2 \mid \abs{G}$, there is an element $h$ of order $2$ in $G$.
+    Consider $G / \left< h \right>$.
+    Then by Lagrange's theorem, there is no element of order $2$ in $G / \left< h \right>$.
+    Hence, $h$ is the unique element of order $2$ in $G$.
+    For otherwise, let $h'$ be an element of order $2$ in $G$, differing with $h$.
+    Then, the order of $h'h^{-1} \left< h \right>$ has to be $2$ since $G$ is abelian.
+    Therefore, $G$ has exactly one element of order $2$.
+
+    Furthermore, if $G$ is not commutative, then there is a counterexample.
+    Consider $D_{2n} = \left< x,y \mid x^2, y^2, (xy)^n \right>$.
+}
+
+\problem{ %8.19
+    Let $G$ be a finite group, and let $d$ be a proper divisor of $\abs{G}$.
+    Is it necessarily true that there exists an element of $G$ of order $d$?
+    Give a proof or a counterexample.
+}{
+    There is no subgroup of $S_4$, whose order is $12$.
+}
+
+\problem{ %8.20
+    $\vartriangleright$ Assume $G$ is a finite abelian group, and let $d$ be a divisor of $\abs{G}$.
+    Prove that there exists a \emph{subgroup} $H \subseteq G$ of order $d$.
+    (Hint: induction; use \ref{prob:II.8.17}.) \sqref{\S IV.2.2}
+}{
+    Since every finite abelian group is a direct product of finitely many finite cyclic groups, we can take a subgroup $H \subseteq G$ of order $d$ easily.
+}
+
+\problem{ %8.21
+    $\vartriangleright$ Let $H$, $K$ be subgroups of a group $G$.
+    Construct a bijection between the set of cosets $hK$ with $h \in H$ and the set of left-cosets of $H \cap K$ in $H$.
+    If $H$ and $K$ are finite, prove that
+    \[\abs{HK} = \frac{\abs{H} \cdot \abs{K}}{\abs{H \cap K}}.\]
+    \sqref{\S8.5}
+}{
+    Let $S = \{ hK \mid h \in H \}$ and $T = \{ h \left( H \cap K \right) \mid h \in H \}$.
+    Then, we can take a map $f : S \to T$ defined as $hK \mapsto h \left( H \cap K \right)$.
+    Since $h_1K = h_2K$ implies that $h_1h_2^{-1} \in K$, $h_1 \left( H \cap K \right) = h_2 \left( H \cap K \right)$ if $h_1 K = h_2 K$.
+    Hence, $f$ is well-defined.
+    It is obvious that $f$ is surjective, and thus it suffices to show that $f$ is injective.
+    To show this, take two elements $h_1, h_2 \in H$ such that $h_1 \left( H \cap K \right) = h_2 \left( H \cap K \right)$.
+    Then, for any $k \in K$, $h_1k = h_2k'k$ for some $k' \in H \cap K$, and thus $h_1K \subseteq h_2K$.
+    Consequently, $f$ is bijective, and therefore, $\abs{HK} = \frac{\abs{H} \cdot \abs{K}}{\abs{H \cap K}}$ if $H$ and $K$ are finite since $\abs{S} = \frac{\abs{HK}}{\abs{K}}$ and $\abs{T} = \frac{\abs{H}}{\abs{H \cap K}}$.
+}
+
+\problem{ %8.22
+    $\vartriangleright$ Let $\varphi : G \to G'$ be a group homomorphism, and let $N$ be the smallest normal subgroup containing $\im \varphi$.
+    Prove that $G'/N$ satisfies the universal property of $\coker \varphi$ in $\Grp$. \sqref{\S8.6}
+}{
+    Let $L$ be any group and $\alpha : G' \to L$ be a group homomorphism such that $\alpha \circ \varphi$ is trivial.
+    Now $\pi : G' \to G'/N$ be the canonical projection.
+    It suffices to show that the homomorphism $\bar{\alpha} : G'/N \to L$ making the following diagram commute uniquely exists.
+    \begin{cd}
+        G \ar[r, "\varphi", swap] \ar[rr, "\mathbf{0}", bend left] \& G' \ar[r, "\alpha", swap] \ar[d, \surjection, "\pi", swap] \& L \\
+        \& G'/N \ar[ru, dashed, "\bar{\alpha}", swap]
+    \end{cd}
+    Note that $N$ is the smallest normal subgroup of $G'$ containing the image of $\varphi$.
+
+    Since $\ker \alpha$ is normal in $G'$, $N \normaleq \ker \alpha$.
+    Hence, $\alpha(g) = \alpha(h)$ if $gN = hN$.
+    Thus, $\bar{\alpha} : gN \mapsto \alpha(g)$ makes the diagram commute.
+    Further, if $\bar{\alpha}$ and $\bar{\alpha'}$ make the diagram commute, then $\bar{\alpha}(gN) = \bar{\alpha'}(gN)$, which means that $\bar{\alpha} = \bar{\alpha'}$.
+}
+
+\problem{ %8.23
+    $\vartriangleright$ Consider the subgroup
+    \[H = \left\{ \mat{1 & 2 & 3 \\ 1 & 2 & 3}, \mat{1 & 2 & 3 \\ 2 & 1 & 3} \right\}\]
+    of $S_3$.
+    Show that the cokernel of the inclusion $H \hookrightarrow S_3$ is trivial, although $H \hookrightarrow S_3$ is not surjective. \sqref{\S8.6}
+}{
+    Since $\mathbf{1}$, $A_3$, $S_3$ are the normal subgroups of $S_3$, $S_3$ is the smallest normal subgroup of $S_3$ containing $H$.
+    Hence, by the result of the \ref{exer:II.8.22}, cokernel of the inclusion $H \hookrightarrow S_3$ is trivial, although $H \hookrightarrow S_3$ is not surjective.
+}
+
+\problem{ %8.24
+    $\vartriangleright$ Show that epimorphisms in $\Grp$ do not necessarily have right-inverses. \sqref{\S I.4.2}
+}{
+    Consider $\varphi : \ZZ \to \ZZ / 2\ZZ$ defined as $n \mapsto n + 2\ZZ$.
+    Then $\varphi$ is surjective so $\varphi$ is an epimorphism in $\Grp$.
+    However, there is no nontrivial homomorphism $\ZZ / 2\ZZ \to \ZZ$, and thus $\varphi$ has no right-inverse.
+}
+
+\problem{ %8.25
+    Let $H$ be a commutative normal subgroup of $G$.
+    Construct an interesting homomorphism from $G/H$ to $\Aut{H}$.
+    (Cf. \ref{prob:II.7.10}.)
+}{
+    Let define $\varphi : G/H \to \Aut{H}$ as $\varphi : gH \mapsto \gamma_g$ where $\gamma_g : H \to H$ is a homomorphism defined as $h \mapsto ghg^{-1}$.
+    To check if $\varphi$ is well-defined, let $g_1H = g_2H$.
+    Then $g_2^{-1}g_1 \in H$, and thus $g_2^{-1}g_1h = hg_2^{-1}g_1$ for any $h \in H$ since $H$ is abelian.
+    This means that $\gamma_{g_1} = \gamma_{g_2}$.
+    Therefore, $\varphi$ is a group homomorphism.
 }

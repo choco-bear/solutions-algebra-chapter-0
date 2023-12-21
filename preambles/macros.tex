@@ -81,14 +81,18 @@
 \newcommand{\SL}[2]{\ensuremath{\mathrm{SL}_{#1}\left(#2\right)}}
 \newcommand{\SO}[2]{\ensuremath{\mathrm{SO}_{#1}\left(#2\right)}}
 \newcommand{\SU}[1]{\ensuremath{\mathrm{SU}\left(#1\right)}}
+\newcommand{\PSL}[2]{\ensuremath{\mathrm{PSL}_{#1}\left(#2\right)}}
 
 %%                 algebra                 %%
 \def\coker{\operatorname{coker}}
+\renewcommand{\ker}{\operatorname{ker}}
 \def\im{\operatorname{im}}
 \def\Set{\mathsf{Set}}
 \def\Grp{\mathsf{Grp}}
 \def\Ab{\mathsf{Ab}}
 \def\MSet{\mathsf{MSet}}
+\def\normal{\triangleleft}
+\def\normaleq{\trianglelefteq}
 \newcommand{\Obj}[1]{\mathrm{Obj} \left( #1 \right)}
 \newcommand{\Hom}[3]{\mathrm{Hom}_{#1} \left( #2, #3 \right)}
 \newcommand{\End}[2]{\mathrm{End}_{#1} \left( #2 \right)}
@@ -117,6 +121,13 @@
     }
 }
 \newcommand{\cyclic}[1]{\ensuremath{\ZZ/#1\ZZ}}
+\NewDocumentCommand{\commutator}{mo}{
+    \IfNoValueTF{#2}{
+        \ensuremath{\left[#1,#1\right]}
+    }{
+        \ensuremath{\left[#1,#2\right]}
+    }
+}
 
 %%           commutative diagram           %%
 \def\surjection{two heads}
@@ -142,5 +153,19 @@
         \makebox[0pt][c]{#1}
     }{
         \makebox[#2][c]{#1}
+    }
+}
+\NewDocumentCommand{\lefted}{mo}{
+    \IfNoValueTF{#2}{
+        \makebox[0pt][l]{#1}
+    }{
+        \makebox[#2][l]{#1}
+    }
+}
+\NewDocumentCommand{\righted}{mo}{
+    \IfNoValueTF{#2}{
+        \makebox[0pt][r]{#1}
+    }{
+        \makebox[#2][r]{#1}
     }
 }

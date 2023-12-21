@@ -333,3 +333,6 @@ TSWLatexianTemp*
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,latex
 
 *.code-workspace
+
+### Some Custom Files ###
+GoodNotes.pdf
