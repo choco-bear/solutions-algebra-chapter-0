@@ -850,7 +850,7 @@
 \problem{ %4.16
     $\neg$ Prove \emph{Wilson's theorem: a positive integer $p$ is prime if and only if}
     \[(p-1)! \equiv -1 \bmod{p}.\]
-    (For one direction, use \ref{prob:II.1.8} and \labelformat{problem}{\arabic{section}.\arabic{problem}}\ref{prob:II.4.11}\labelformat{problem}{Exercise \arabic{section}.\arabic{problem}}. For the other, assume $d$ is a proper divisor of $p$, and note that $d$ divides $(p-1)!$; therefore....) \sqref{IV.4.11}
+    (For one direction, use \ref{prob:II.1.8} and \hyperref[prob:II.4.11]{4.11}. For the other, assume $d$ is a proper divisor of $p$, and note that $d$ divides $(p-1)!$; therefore....) \sqref{IV.4.11}
 }{
     If $p$ is prime, then the equation $x^2 = 1$ has at most two solutions in $\ZZ_p$.
     And since $1$ and $p-1$ are the solutions for the equation $x^2 = 1$ in $\ZZ_p$, $n^2 \neq 1$ for any $2 \leq n \leq p-2$ in $\ZZ_p$, and this means that $2 \cdot 3 \cdot 4 \cdot \cdots \cdot (p-3) \cdot (p-2) = 1$ in $\ZZ_p$.
@@ -1939,3 +1939,140 @@
     This means that $\gamma_{g_1} = \gamma_{g_2}$.
     Therefore, $\varphi$ is a group homomorphism.
 }
+
+\newpage
+\section{Group actions}
+\problem{ %9.1
+    (Once more, if you are already familiar with a little linear algebra...)
+    The matrix groups listed in \ref{prob:II.6.1} all come with evident actions on a vector space: if $M$ is an $n \times n$ matrix with (say) real entries, multiplication to the right by a column $n$-vector $\mathbf{v}$ returns a column $n$-vector $M\mathbf{v}$, and this defines a left-action on $\RR^n$ viewed as the space of column $n$-vectors.
+    \begin{itemize}
+        \item Prove that, through this action, matrices $M \in \mathrm{O}_n(\RR)$ preserve lengths and angles in $\RR^n$.
+        \item Find an interesting action of $\SU{2}$ on $\RR^3$.
+        (Hint: \ref{prob:II.8.9}.)
+    \end{itemize}
+}{}
+
+\problem{ %9.2
+    The effect of the matrices
+    \[\mat{1 & 0 \\ 0 & -1}, \quad \mat{0 & 1 \\ -1 & 0}\]
+    on the plane is to respectively flip the plane about the $x$-axis and to rotate it 90\degree{} clockwise about the origin.
+    With this in mind, construct an action of $D_8$ on $\RR^2$.
+}{}
+
+\problem{ %9.3
+    $\vartriangleright$ If $G = \left( G , \cdot \right)$ is a group, we can define an `opposite' group $G^\circ = \left( G , \bullet \right)$ supported on the same set $G$, by prescribing
+    \[\left(\forall g,h \in G\right) : \quad g \bullet h := h \cdot g.\]
+    \begin{itemize}
+        \item Verify that $G^\circ$ is indeed a group.
+
+        \item Show that the `identity': $G^\circ \to G$, $g \mapsto g$ is an isomorphism if and only if $G$ is commutative.
+        
+        \item Show that $G^\circ \cong G$ (even if $G$ is not commutative!).
+        
+        \item Show that giving a \emph{right}-action of $G$ on a set $A$ is the same as giving a homomorphism $G^\circ \to S_A$, that is, a \emph{left}-action of $G^\circ$ on $A$.
+        
+        \item Show that the notions of left- and right-actions coincide `on the nose' for \emph{commutative} groups.
+        (That is, if $(g,a) \mapsto ag$ defines a right-action of a commutative group $G$ on a set $A$, then setting $ga = ag$ defines a left-action).
+        
+        \item For any group $G$, explain how to turn a right-action of $G$ into a left-action of $G$.
+        (Note that the simple `flip' $ga = ag$ does \emph{not} work in general if $G$ is not commutative.)
+    \end{itemize}
+}{}
+
+\problem{ %9.4
+    As mentioned in the text, \emph{right}-multiplication defines a right-action of a group on itself.
+    Find \emph{another} natural right-action of a group on itself.
+}{}
+
+\problem{ %9.5
+    Prove that the action by left-multiplication of a group on itself is free.
+}{}
+
+\problem{ %9.6
+    Let $O$ be an orbit of an action of a group $G$ on a set.
+    Prove that the induced action of $G$ on $O$ is transitive.
+}{}
+
+\problem{ %9.7
+    Prove that stabilizers are indeed subgroups.
+}{}
+
+\problem{ %9.8
+    For $G$ a group, verify that $G$-$\Set$ is indeed a category, and verify that the isomorphisms in $G$-$\Set$ are precisely the equivariant bijections.
+}{}
+
+\problem{ %9.9
+    Prove that $G$-$\Set$ has products and coproducts and that every finite object of $G$-$\Set$ is a coproduct of objects of the type $G/H = \{ \text{left-cosets of } H \}$, where $H$ is a subgroup of $G$ and $G$ acts on $G/H$ by left-multiplication.
+}{}
+
+\problem{ %9.10
+    Let $H$ be any subgroup of a group $G$.
+    Prove that there is a bijection between the set $G/H$ of \emph{left}-cosets of $H$ and the set $H \backslash G$ of \emph{right}-cosets of $H$ in $G$.
+    (Hint: $G$ acts on the right on the set of right-cosets; use \ref{prob:II.9.3} and Proposition 9.9.)
+}{}
+
+\problem{ %9.11
+    $\neg$ Let $G$ be a finite group, and let $H$ be a subgroup of index $p$, where $p$ is the \emph{smallest prime dividing} $\abs{G}$.
+    Prove that $H$ is normal in $G$, as follows:
+    \begin{itemize}
+        \item Interpret the action of $G$ on $G/H$ by left-multiplication as a homomorphism $\sigma : G \to S_p$.
+        
+        \item Then $G / \ker \sigma$ is (isomorphic to) a subgroup of $S_p$.
+        What does this say about the index of $\ker \sigma$ in $G$?
+
+        \item Show that $\ker \sigma \subseteq H$.
+
+        \item Conclude that $H = \ker \sigma$, by index considerations.
+    \end{itemize}
+    Thus $H$ is a kernel, proving that it is normal.
+    (This exercise generalizes the result of \ref{prob:II.8.2}) \sqref{9.12}
+}{}
+
+\problem{ %9.12
+    $\neg$ Generalize the result of \ref{prob:II.9.11}, as follows.
+    Let $G$ be a group, and let $H \subseteq G$ be a subgroup of index $n$.
+    Prove that $H$ contains a subgroup $K$ that is normal in $G$ and such that $\left[G : K\right]$ divides the gcd of $\abs{G}$ and $n!$.
+    (In particular, $\left[G : K\right] \leq n!$.) \sqref{IV.2.23}
+}{}
+
+\problem{ %9.13
+    $\vartriangleright$ Prove `by hand' that for all subgroups $H$ of a group $G$ and $\forall g \in G$, $G/H$ and $G/(gHg^{-1})$ (endowed with the action of $G$ by left-multiplication) are isomorphic in $G$-$\Set$. \sqref{\S9.3}
+}{}
+
+\problem{ %9.14
+    $\neg$ Prove that the modular group $\PSL{2}{\ZZ}$ is isomorphic to the coproduct $C_2 * C_3$.
+    (Recall that the modular group $\PSL{2}{\ZZ}$ is generated by $x = \mat{0 & -1 \\ 1 & 0}$ and $y = \mat{1 & -1 \\ 1 & 0}$, satisfying the relations $x^2 = y^3 = e$ in $\PSL{2}{\ZZ}$ (\ref{prob:II.7.5}).
+    The task is to prove that $x$ and $y$ satisfy \emph{no} other relation: this will show that $\PSL{2}{\ZZ}$ is presented by $\left(x,y \mid x^2,y^3\right)$, and we have agreed that this is a presentation for $C_2 * C_3$ (\ref{prob:II.3.8} or \hyperref[prob:II.8.7]{8.7}).
+    Reduce this to verifying that no products
+    \[\left(y^{\pm1}x\right)\left(y^{\pm1}x\right)\cdots\left(y^{\pm1}x\right) \quad \text{or} \quad \left(y^{\pm1}x\right)\left(y^{\pm1}x\right)\cdots\left(y^{\pm1}x\right)y^{\pm1}\]
+    with one or more factors can equal the identity.
+    This latter verification is traditionally carried out by celverly exploiting an action.
+    Let the modular group act on the set of \emph{irrational} real numbers by
+    \[\mat{a & b \\ c & d}(r) = \frac{ar+b}{cr+d}.\]
+    Check that this does define an action of $\PSL{2}{\ZZ}$, and note that
+    \[y(r) = 1 - \frac{1}{r}, \; y^{-1}(r) = \frac{1}{1-r}, \; yx(r) = 1+r, \; y^{-1}x(r) = \frac{r}{1+r}.\]
+    Now complete the verification with a case-by-case analysis.
+    For example, a product $\left(y^{\pm1}x\right)\left(y^{\pm1}x\right)\cdots\left(y^{\pm1}x\right)y$ cannot equal the identity in $\PSL{2}{\ZZ}$ because if it did, it would act as the identity on $\RR\setminus\QQ$, while if $r < 0$, then $t(r) > 0$, and both $yx$ and $y^{-1}x$ send positive irrationals to positive irrationals.) \sqref{3.8}
+}{}
+
+\problem{ %9.15
+    $neg$ Prove that every (finitely generated) group $G$ acts freely on any corresponding Cayley graph.
+    (Cf. \ref{prob:II.8.6}. Actions on a directed graph are defined as actions on the set of vertices preserving incidence: if the vertices $v_1$, $v_2$ are connected by an edge, then so must be $gv_1$, $gv_2$ for every $g \in G$.)
+    In particular, conclude that every free group acts freely on a tree. \sqref{9.16}
+}{}
+
+\problem{ %9.16
+    $\vartriangleright$ The converse of the last statement in \ref{prob:II.9.15} is also true: only free groups can act freely on a tree.
+    Assuming this, prove that every subgroup of a free group (on a finite set) is free. \sqref{\S6.4}
+}{}
+
+\problem{ %9.17
+    $\vartriangleright$ Consider $G$ as a $G$-$\Set$, by acting with left-multiplication.
+    Prove that $\Aut{G\text{-}\Set}{G} \cong G$. \sqref{\S2.1}
+}{}
+
+\problem{ %9.18
+    Show how th construct a \emph{groupoid} carrying the information of the action of a group $G$ on a set $A$.
+    (Hint: $A$ will be the set of objects of the groupoid.
+    What will be the morphisms?)
+}{}
