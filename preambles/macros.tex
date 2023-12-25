@@ -59,6 +59,7 @@
 \def\col{\operatorname{col}}
 \def\tr{\operatorname{tr}}
 \def\nullity{\operatorname{nullity}}
+\newcommand{\norm}[1]{\ensuremath{\left\lVert #1 \right\rVert}}
 \newcommand{\transpose}[1]{{#1}^\textsc{T}}
 \newcommand{\mat}[1]{\begin{pmatrix}#1\end{pmatrix}}
 \newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
@@ -96,14 +97,15 @@
 \newcommand{\Obj}[1]{\mathrm{Obj} \left( #1 \right)}
 \newcommand{\Hom}[3]{\mathrm{Hom}_{#1} \left( #2, #3 \right)}
 \newcommand{\End}[2]{\mathrm{End}_{#1} \left( #2 \right)}
+\newcommand{\Stab}[2]{\mathrm{Stab}_{#1} \left( #2 \right)}
 \newcommand{\id}[1]{\mathrm{id}_{#1}}
 \newcommand{\cat}[1]{\mathsf{#1}}
 \newcommand{\op}[1]{{#1}^{op}}
 \NewDocumentCommand{\one}{o}{
     \IfNoValueTF{#1}{
-        \ensuremath{\mathrm{1}}
+        \ensuremath{\mathbf{1}}
     }{
-        \ensuremath{\mathrm{1}_{#1}}
+        \ensuremath{\mathbf{1}_{#1}}
     }
 }
 \NewDocumentCommand{\Aut}{mo}{
@@ -128,6 +130,7 @@
         \ensuremath{\left[#1,#2\right]}
     }
 }
+\newcommand{\sgindex}[2]{\ensuremath{\left[ #1 : #2 \right]}}
 
 %%           commutative diagram           %%
 \def\surjection{two heads}
