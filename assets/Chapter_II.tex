@@ -1950,15 +1950,29 @@
         \item Find an interesting action of $\SU{2}$ on $\RR^3$.
         (Hint: \ref{prob:II.8.9}.)
     \end{itemize}
-}{}
+}{
+    \begin{itemize}
+        \item Let $M \in \mathrm{O}_n(\RR)$.
+        Then since $\left< M\mathbf{x} , M\mathbf{y} \right> = \transpose{\left(M\mathbf{y}\right)}M\mathbf{x} = \transpose{\mathbf{y}}\mathbf{x} = \left< \mathbf{x} , \mathbf{y} \right>$, $\norm{\mathbf{x}} = \norm{M\mathbf{x}}$ and the action by $M$ preserves the angle between vectors.
+        
+        \item Since $\SU{2} = \left\{\mat{\alpha & -\bar{\beta} \\ \beta & \bar{\alpha}} \mid \alpha, \beta \in \CC, \abs{\alpha}^2 + \abs{\beta}^2 = 1\right\}$, we can consider each element of $\SU{2}$ as a unit quaternion $q = \alpha + \alpha \mathbf{j}$.
+        Let us now identify $\RR^3$ with the span of $\mathbf{i}$, $\mathbf{j}$, $\mathbf{k}$.
+        Then for any $\mathbf{v} \in \RR^3$ and any unit quaternions $q \in \HH$, $qvq^{-1} \in \RR^3$.
+        Hence, we can say that there is an interesting action of $\SU{2}$ on $\RR^3$.
+    \end{itemize}
+}
 
 \problem{ %9.2
     The effect of the matrices
     \[\mat{1 & 0 \\ 0 & -1}, \quad \mat{0 & 1 \\ -1 & 0}\]
     on the plane is to respectively flip the plane about the $x$-axis and to rotate it 90\degree{} clockwise about the origin.
     With this in mind, construct an action of $D_8$ on $\RR^2$.
-}{}
+}{
+    It is quite obvious that $\left< \mat{1 & 0 \\ 0 & -1}, \mat{0 & 1 \\ -1 & 0} \right>$ is isomorphic to $D_8$.
+    Hence, we can easily find an action of $D_8$ on $\RR^2$ by applying left action of $\left< \mat{1 & 0 \\ 0 & -1}, \mat{0 & 1 \\ -1 & 0} \right>$ on $\RR^2$. 
+}
 
+\clearpage
 \problem{ %9.3
     $\vartriangleright$ If $G = \left( G , \cdot \right)$ is a group, we can define an `opposite' group $G^\circ = \left( G , \bullet \right)$ supported on the same set $G$, by prescribing
     \[\left(\forall g,h \in G\right) : \quad g \bullet h := h \cdot g.\]
@@ -1977,39 +1991,118 @@
         \item For any group $G$, explain how to turn a right-action of $G$ into a left-action of $G$.
         (Note that the simple `flip' $ga = ag$ does \emph{not} work in general if $G$ is not commutative.)
     \end{itemize}
-}{}
+}{
+    \begin{itemize}
+        \item Let $g,h,k \in G^\circ$.
+        Then, $\left( g \bullet h \right) \bullet k = k \cdot \left( h \cdot g \right) = \left( k \cdot h \right) \cdot g = g \bullet \left( h \bullet k \right)$ and thus the associativity of $G^\circ$ is verified.
+        Also, the existences of identity and inverse are quite obvious by the definition.
+        Therefore, $G^\circ$ is indeed a group.
+
+        \item Let a map $\varphi : G^\circ \to G$ be defined as $g \mapsto g$.
+        Then $\varphi$ is indeed a bijection, and thus it is an isomorphism if and only if $g \bullet h = \varphi(g \bullet h) = \varphi(g) \cdot \varphi(h) = g \cdot h = h \bullet g$ for any $g,h \in G$.
+
+        \item Define $\varphi : G \to G^\circ$ as $g \mapsto g^{-1}$.
+        Then, $\varphi(g \cdot h) = \left(g \cdot h\right)^{-1} = h^{-1} \cdot g^{-1} = g^{-1} \bullet h^{-1} = \varphi(g) \bullet \varphi(h)$.
+        Also, $\varphi$ is indeed a bijection, and thus $\varphi$ is an isomorphism.
+        Therefore, $G^\circ \cong G$.
+
+        \item Let $\varphi : A \times G \to G$ be a map representing a right-action of $G$ on a set $A$.
+        That means, for any $g,h \in G$ and any $a \in A$, $\varphi(a, g \cdot h) = \varphi(\varphi(a,g),h)$.
+        Now take a left-action $\sigma$ of $G^\circ$ on $A$ defined as $\sigma(g)(a) = \varphi(a,g)$.
+        Then we can easily verify that $\varphi$ and $\sigma$ are actually representing the same instance.
+
+        \item By the right above result, and by the second result of this exercise, it is quite obvious.
+
+        \item Let $\varphi : A \times G \to G$ be a map representing a right-action of $G$ on a set $A$.
+        Then, a left-action $\sigma$ of $G$ on the set $A$ defined as $\sigma(g)(a) = \varphi(a,g^{-1})$ has the same structure with $\varphi$.
+    \end{itemize}
+}
 
 \problem{ %9.4
     As mentioned in the text, \emph{right}-multiplication defines a right-action of a group on itself.
     Find \emph{another} natural right-action of a group on itself.
-}{}
+}{
+    A map $\varphi : G \times G \to G$ defined as $(a,g) \mapsto g^{-1}a$ is a right-action of $G$ on itself.
+}
 
 \problem{ %9.5
     Prove that the action by left-multiplication of a group on itself is free.
-}{}
+}{
+    Let $G$ be a group and $ga = a$ for some $g,a \in G$.
+    Then, $g$ is an identity element, and thus the action by left-multiplication of $G$ on itself is free.
+}
 
 \problem{ %9.6
     Let $O$ be an orbit of an action of a group $G$ on a set.
     Prove that the induced action of $G$ on $O$ is transitive.
-}{}
+}{
+    For any elements $x,y \in O$, since $O$ is an orbit, there is an element $a \in O$ and some $g,h \in G$ such that $x = ga$ and $y = ha$.
+    Hence, by the definition of group action, we can conclude that $x = gh^{-1}y$.
+    Therefore, the induced action of $G$ on $O$ is transitive.
+}
 
 \problem{ %9.7
     Prove that stabilizers are indeed subgroups.
-}{}
+}{
+    Let $G$ be a group and $A$ be a $G$-$\Set$.
+    Now take $a \in A$ and consider $\Stab{G}{a} = \{ g \in G \mid ga = a \}$.
+    If $g,h \in \Stab{G}{a}$, then $\left(gh\right)a = g\left(ha\right) = ga = a$ and $g^{-1}a = g^{-1}\left(ga\right) = \left(g^{-1}g\right)a = a$, which means $gh, g^{-1} \in \Stab{G}{a}$.
+    Hence, $\Stab{G}{a}$ is a subgroup of $G$.
+}
 
 \problem{ %9.8
     For $G$ a group, verify that $G$-$\Set$ is indeed a category, and verify that the isomorphisms in $G$-$\Set$ are precisely the equivariant bijections.
-}{}
+}{
+    To verify that $G$-$\Set$ is a category, we have to check the associativity of the composition of morphisms and the existence of identity morphisms.
+
+    First of all, we should define the composition of morphisms in $G$-$\Set$.
+    Consider three objects $\left( \rho, A \right)$, $\left( \sigma, B \right)$, $\left( \tau, C \right)$ of $G$-$\Set$, and two equivariant set-functions $\varphi : A \to B$ and $\psi : B \to C$.
+    Then we can easily verify that $\psi \circ \varphi$ is indeed an equivariant set-function since $\left( \id{G} \times \psi \right) \circ \left( \id{G} \times \varphi \right) = \id{G} \times \left( \psi \circ \varphi \right)$.
+    Then by the associativity of the composition of set-functions, the composition of morphisms in $G$-$Set$ is also associative.
+
+    Next, we should check if there are identity morphisms in $G$-$\Set$.
+    Consider an object $\left( \rho, A \right)$ of $G$-$\Set$.
+    Then, an identity function $\id{A} : A \to A$ is indeed an equivariant set-function.
+    Hence, we can consider the identity function $\id{A}$ as the identity morphism $\one[\left( \rho, A \right)]$.
+
+    Therefore, we can say that $G$-$\Set$ is indeed a category.
+    Now, we should verify that the isomorphisms in $G$-$\Set$ are precisely the equivariant bijections.
+
+    Let $\varphi : A \to B$ is an isomorphism between the objects $\left( \rho, A \right)$ and $\left( \sigma, B \right)$.
+    Then there is a morphism $\psi : B \to A$ such that $\psi \circ \varphi = \one[\left( \rho, A \right)]$ $\varphi \circ \psi = \one[\left( \sigma, B \right)]$.
+    Hence, $\psi$ is the inverse function of $\varphi$, and thus $\varphi$ is bijective.
+
+    Now let $\varphi : A \to B$ is a bijective equivariant function.
+    Then, considering the inverse function $\varphi^{-1} : B \to A$, we can easily verify that $g\varphi^{-1}(b) = \varphi^{-1}(gb)$ for any $g \in G$ and $b \in B$ since $\varphi(g\varphi^{-1}(b)) = g\varphi(\varphi^{-1}(b)) = gb = \varphi(\varphi^{-1}(gb))$.
+    Hence, $\varphi$ is an isomorphism indeed.
+    
+    Therefore, the isomorphisms in $G$-$\Set$ are precisely the equivariant bijections.
+}
 
 \problem{ %9.9
     Prove that $G$-$\Set$ has products and coproducts and that every finite object of $G$-$\Set$ is a coproduct of objects of the type $G/H = \{ \text{left-cosets of } H \}$, where $H$ is a subgroup of $G$ and $G$ acts on $G/H$ by left-multiplication.
-}{}
+}{
+    Let $\left\{\left( A_i, \sigma_i \right)\right\}_{i \in I}$ be a set of objects of $G$-$\Set$.
+    Take any object $\left( B, \tau \right)$ of $G$-$\Set$.
+    Take the projections $\pi_i : \left( a_j \right)_{j \in I} \mapsto a_i$.
+    Now let $\varphi_i : B \to A_i$ be given.
+    Then $\varphi : B \to \prod_{i \in I} A_i$ defined as $b \mapsto \left( \varphi_i(b) \right)_{i \in I}$ is the product morphism.
+    \begin{cd}[row sep=1.5em, column sep=3em]
+        B \ar[rd, "\varphi", dashed, swap] \ar[rr, "\varphi_i"] \&\& A_i \\
+        \& \prod_{i \in I} A_i \ar[ur, "\pi_i", swap]
+    \end{cd}
+
+    Every $G$-set is a coproduct of orbits indeed, and thus every $G$-set is a coproduct of the objects of the type of $G/H$.
+}
 
 \problem{ %9.10
     Let $H$ be any subgroup of a group $G$.
     Prove that there is a bijection between the set $G/H$ of \emph{left}-cosets of $H$ and the set $H \backslash G$ of \emph{right}-cosets of $H$ in $G$.
     (Hint: $G$ acts on the right on the set of right-cosets; use \ref{prob:II.9.3} and Proposition 9.9.)
-}{}
+}{
+    It is clear that $H \backslash G$ is isomorphic to $G^\circ / H^\circ$ in $\Set$ category.
+    Thus, $\abs{H \backslash G} = \abs{G/H}$ since $G \cong G^\circ$ and $\varphi(H) = H^\circ$ where $\varphi$ is the canonical isomorphism.
+}
 
 \problem{ %9.11
     $\neg$ Let $G$ be a finite group, and let $H$ be a subgroup of index $p$, where $p$ is the \emph{smallest prime dividing} $\abs{G}$.
@@ -2026,20 +2119,49 @@
     \end{itemize}
     Thus $H$ is a kernel, proving that it is normal.
     (This exercise generalizes the result of \ref{prob:II.8.2}) \sqref{9.12}
-}{}
+}{
+    Let $\sigma(g) : p \to p$ be defined as $i \mapsto \varphi^{-1}\left(g\varphi(i)\right)$ where $\varphi : p \to G/H$ is a bijection.
+    Then the action of $G$ on $G/H$ by left multiplication can be interpreted as $\sigma : G \to S_p$.
+    It is clear that $G/\ker\sigma$ is isomorphic to a subgroup of $S_p$.
+    Hence, the index of $\ker\sigma$ divides $p!$.
+    
+    Now let $g \in \ker \sigma$.
+    Then, $\varphi^{-1}\left(g\varphi(i)\right) = i$ for any $i \in p$.
+    This means that $g \in H$ since $\varphi$ is a bijection.
+    Hence, $\ker \sigma \subseteq H$.
+    Thus, the index of $\ker \sigma$ in $G$ is at least $p$.
+    However, there is only $x = p$ such that $p \leq x$, $x \mid p!$, and the least prime divisor of $x$ is at least $p$.
+    Therefore, $\ker \sigma = H$, and thus $H$ is normal.
+}
 
 \problem{ %9.12
     $\neg$ Generalize the result of \ref{prob:II.9.11}, as follows.
     Let $G$ be a group, and let $H \subseteq G$ be a subgroup of index $n$.
     Prove that $H$ contains a subgroup $K$ that is normal in $G$ and such that $\sgindex{G}{K}$ divides the gcd of $\abs{G}$ and $n!$.
     (In particular, $\sgindex{G}{K} \leq n!$.) \sqref{IV.2.23}
-}{}
+}{
+    Consider an action of $G$ on $H$ by left-multiplication, and let $\sigma : G \to S_n$ be the interpretation of the action as the one in \ref{prob:II.9.11}.
+    Now let $K = \ker \sigma$.
+    Then $K \normaleq G$ and it is clear that $\ker \sigma \leq H$ and $\sgindex{G}{K} \mid n!$.
+}
 
 \problem{ %9.13
     $\vartriangleright$ Prove `by hand' that for all subgroups $H$ of a group $G$ and $\forall g \in G$, $G/H$ and $G/(gHg^{-1})$ (endowed with the action of $G$ by left-multiplication) are isomorphic in $G$-$\Set$. \sqref{\S9.3}
-}{}
+}{
+    We want to find a bijection $\varphi : G/H \to G/(gHg^{-1})$ such that the diagram
+    \begin{cd}
+        G \times G/H \ar[r, "\id{G} \times \varphi"] \ar[d, "\rho"] \& G \times G/(gHg^{-1}) \ar[d, "\rho"] \\
+        G/H \ar[r, "\varphi"] \& G/(gHg^{-1})
+    \end{cd}
+    commutes where $\rho : (g,A) \mapsto gA$.
 
-\problem{ %9.14
+    Take $\varphi : aH \mapsto agHg^{-1}$.
+    Then the well-definedness and the bijectivity of $\varphi$ is quite obvious.
+    Also, since $\left(ab\right)gHg^{-1} = a\left(bgHg^{-1}\right)$, $\varphi$ makes the diagram commute.
+    Therefore, $G/H$ and $G/gHg^{-1}$ are isomorphic in $G$-$\Set$.
+}
+
+\problembr{ %9.14
     $\neg$ Prove that the modular group $\PSL{2}{\ZZ}$ is isomorphic to the coproduct $C_2 * C_3$.
     (Recall that the modular group $\PSL{2}{\ZZ}$ is generated by $x = \mat{0 & -1 \\ 1 & 0}$ and $y = \mat{1 & -1 \\ 1 & 0}$, satisfying the relations $x^2 = y^3 = e$ in $\PSL{2}{\ZZ}$ (\ref{prob:II.7.5}).
     The task is to prove that $x$ and $y$ satisfy \emph{no} other relation: this will show that $\PSL{2}{\ZZ}$ is presented by $\left(x,y \mid x^2,y^3\right)$, and we have agreed that this is a presentation for $C_2 * C_3$ (\ref{prob:II.3.8} or \hyperref[prob:II.8.7]{8.7}).
@@ -2053,26 +2175,84 @@
     \[y(r) = 1 - \frac{1}{r}, \; y^{-1}(r) = \frac{1}{1-r}, \; yx(r) = 1+r, \; y^{-1}x(r) = \frac{r}{1+r}.\]
     Now complete the verification with a case-by-case analysis.
     For example, a product $\left(y^{\pm1}x\right)\left(y^{\pm1}x\right)\cdots\left(y^{\pm1}x\right)y$ cannot equal the identity in $\PSL{2}{\ZZ}$ because if it did, it would act as the identity on $\RR\setminus\QQ$, while if $r < 0$, then $t(r) > 0$, and both $yx$ and $y^{-1}x$ send positive irrationals to positive irrationals.) \sqref{3.8}
-}{}
+    \clearpage
+}{
+    Let $\mat{a & b \\ c & d}(r) = \frac{ar+b}{cr+d}$.
+    Then it is clear that $x(r) = (-x)(r)$ for any $x \in \SL{2}{\ZZ}$, and thus it is well-defined when $x \in \PSL{2}{\ZZ}$.
+    Further,
+    \[\begin{array}{rcl}
+        \mat{a & b \\ c & d} \left( \mat{x & y \\ z & w} (r) \right) &\centered{=}[-1ex]& \mat{a & b \\ c & d} \left(\frac{xr+y}{zr+w}\right) \\
+        &\centered{=}[-1ex]& \frac{a(xr+y)+b(zr+w)}{c(xr+y)+d(zr+w)} \\
+        &\centered{=}[-1ex]& \frac{(ax+bz)r+(ay+bw)}{(cx+dz)r+(cy+dw)} \\
+        &\centered{=}[-1ex]& \mat{ax+bz & ay+bw \\ cx+dz & cy+dw} (r) \\
+        &\centered{=}[-1ex]& \left( \mat{a & b \\ c & d} \mat{x & y \\ z & w} \right) (r).
+    \end{array}\]
+
+    Hence, $\rho : \PSL{2}{\ZZ} \times \left(\RR - \QQ\right) \to \left(\RR - \QQ\right)$ defined as $\left( \mat{a & b \\ c & d}, r \right) \mapsto \frac{ar+b}{cr+d}$ makes the following diagram commute, where $\odot_\RR$ denotes the wheel algebra which extends $\RR$:
+    \begin{cd}[row sep=4em]
+        \& \centered{$\PSL{2}{\ZZ} \times \PSL{2}{\ZZ} \times \left(\RR - \QQ\right)$}[\widthof{$\left(\RR - \QQ\right)$}] \ar[dl, "\id{\PSL{2}{\ZZ}} \times \rho", swap] \ar[dr, "m_G \times \id{\RR}"] \\
+        \PSL{2}{\ZZ} \times \left(\RR - \QQ\right) \ar[dr, "\rho", swap] \&\& \PSL{2}{\ZZ} \times \left(\RR - \QQ\right) \ar[dl, "\rho"] \\
+        \& \RR - \QQ
+    \end{cd}
+
+    Note that $x(r) = -\frac{1}{r}$, $xy(r) = \frac{1}{1-r}-1$, $xy^2(r) = r-1$, $y(r) = 1-\frac{1}{r}$, $y^2(r) = \frac{1}{1-r}$, $yx(r) = r+1$, $y^2x(r) = 1-\frac{1}{r+1}$ where $x = \mat{0 & -1 \\ 1 & 0}$ and $y = \mat{1 & -1 \\ 1 & 0}$.
+    Also, $x^2 = y^3 = e$, which is an identity element of $\PSL{2}{\ZZ}$.
+    Every elements of $\PSL{2}{\ZZ}$ are one of the forms of $\left(y^{\pm1}x\right)\left(y^{\pm1}x\right)\cdots\left(y^{\pm1}x\right)$, $\left(y^{\pm1}x\right)\left(y^{\pm1}x\right)\cdots\left(y^{\pm1}x\right)y^{\pm1}$, or $x\left(y^{\pm1}x\right)\left(y^{\pm1}x\right)\cdots\left(y^{\pm1}x\right)$.
+
+    Since $y^{\pm1}x(r) > 0$ for any $r > 0$, and $x(r) < 0$ for any $r > 0$, any elements of the forms of $x\left(y^{\pm1}x\right)\left(y^{\pm1}x\right)\cdots\left(y^{\pm1}x\right)$ does not act as $\id{\RR-\QQ}$ on $\RR-\QQ$.
+    
+    Also, since $y(r) > 0$ and $y^2(r) > 0$ for any $r < 0$, any elements of the forms of $\left(y^{\pm1}x\right)\left(y^{\pm1}x\right)\cdots\left(y^{\pm1}x\right)y^{\pm1}$ does not act as $\id{\RR-\QQ}$ on $\RR-\QQ$.
+
+    Finally, since $y^{\pm1}x$ does not make difference of degree of the denominator when it is $1$, it must be repetition of $yx$ to be the identity.
+    But, $(yx)^n(r) = r+n$ and therefore, any elements of the forms of $\left(y^{\pm1}x\right)\left(y^{\pm1}x\right)\cdots\left(y^{\pm1}x\right)$ does not act as $\id{\RR-\QQ}$ on $\RR-\QQ$.
+
+    To sum up, $\PSL{2}{\ZZ}$ is isomorphic to the coproduct $C_2 * C_3$.
+}
 
 \problem{ %9.15
     $neg$ Prove that every (finitely generated) group $G$ acts freely on any corresponding Cayley graph.
     (Cf. \ref{prob:II.8.6}. Actions on a directed graph are defined as actions on the set of vertices preserving incidence: if the vertices $v_1$, $v_2$ are connected by an edge, then so must be $gv_1$, $gv_2$ for every $g \in G$.)
     In particular, conclude that every free group acts freely on a tree. \sqref{9.16}
-}{}
+}{
+    Considering the definition of Cayley graph, each vertex of Cayley graph represents each of the elements of $G$.
+    Hence, the action of $G$ on corresponding Cayley graph has the same structure with the action of $G$ on itself defined by left-multiplication.
+    Thus, the action is free obviously.
+    Further, since the Cayley graph corresponding to a free group is always tree, every free group acts freely on a tree indeed.
+}
 
 \problem{ %9.16
     $\vartriangleright$ The converse of the last statement in \ref{prob:II.9.15} is also true: only free groups can act freely on a tree.
     Assuming this, prove that every subgroup of a free group (on a finite set) is free. \sqref{\S6.4}
-}{}
+}{
+    Let $G$ be a free group on a finite set, and $H$ be a subgroup of $G$.
+    Then, since $G$ acts freely on a tree $T$, we can obtain an action of $H$ on $T$ induced by the free action of $G$ on $T$.
+    Hence, by the given fact, that is, only free groups can act freely on a tree, $H$ is also free indeed.
+    Therefore, every subgroup of a free group on a finite set is free.
+}
 
 \problem{ %9.17
     $\vartriangleright$ Consider $G$ as a $G$-$\Set$, by acting with left-multiplication.
-    Prove that $\Aut{G\text{-}\Set}{G} \cong G$. \sqref{\S2.1}
-}{}
+    Prove that $\Aut{G\text{-}\Set}[G] \cong G$. \sqref{\S2.1}
+}{
+    Let $\varphi_g : G \to G$ be defined as $h \mapsto hg$ for each $g \in G$.
+    Now consider a function $\varphi : G \to \Aut{G\text{-}\Set}[G]$ defined as $g \mapsto \varphi_g$.
+    Then since $\varphi(g_1)\varphi(g_2) = \varphi(g_2g_1)$, $\varphi$ can be considered a group-homomorphism from $\op{G}$ to $\Aut{G\text{-}\Set}[G]$.
+    Hence, if $\varphi$ is bijective, then it is clear that $G \cong \Aut{G\text{-}\Set}[G]$.
+
+    The injectivity is obvious so it suffices to show $\varphi$ is surjcetive.
+    Let $\psi \in \Aut{G\text{-}\Set}[G]$.
+    Then we can take a $g \in G$ such that $g = \psi(e)$.
+    Since $\psi(h) = \psi(he) = h\psi(e) = hg$ for any $h \in G$, we can conclude that $\psi = \varphi_g$ and thus makes $\varphi$ be surjective.
+
+    Therefore, $G \cong \Aut{G\text{-}\Set}[G]$.
+}
 
 \problem{ %9.18
     Show how th construct a \emph{groupoid} carrying the information of the action of a group $G$ on a set $A$.
     (Hint: $A$ will be the set of objects of the groupoid.
     What will be the morphisms?)
-}{}
+}{
+    Let $A$ be the set of objects and $\Hom{x}{y} = \{ \left(g,x,y\right) \mid g \in G \land gx = y \}$, and let the composition interpret the multiplication in $G$.
+    Then we can say that $\left(e,x,x\right)$ is the identity morphism of $x$.
+    Then, we can easily verify that the structure made above is actually a groupoid.
+}
