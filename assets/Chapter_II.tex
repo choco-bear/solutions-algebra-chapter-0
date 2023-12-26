@@ -2255,3 +2255,87 @@
     Then we can say that $\left(e,x,x\right)$ is the identity morphism of $x$.
     Then, we can easily verify that the structure made above is actually a groupoid.
 }
+
+\newpage
+\section{Group objects in categories}
+\problembr{ %10.1
+    Define all the unnamed maps appearing in the diagrams in the definition of group object, and prove they are indeed isomorphisms when so indicated.
+    (For the projection $\one \times G \to G$, what is left to prove is that the composition
+    \[\one \times G \to G \to \one \times G\]
+    is the identity, as mentioned in the text.)
+}{
+    For
+    \begin{inlinecd}[shorten <>=0pt]
+        \left(G \times G\right) \times G \ar[r, "\cong"] \& G \times \left(G \times G\right)
+    \end{inlinecd}
+    in
+    \begin{cd}[shorten <>=0pt, column sep=3em]
+        \left(G \times G\right) \times G \ar[d, "\cong", swap] \ar[r, "m \times \id{G}"] \& G \times G \ar[r, "m"] \& G \ar[d, no head, shift left=0.5] \ar[d, no head, shift right=0.5] \\
+        G \times \left(G \times G\right) \ar[r, "\id{G} \times m"] \& G \times G \ar[r, "m"] \& \lefted{$G,$}[\widthof{$G$}]
+    \end{cd}
+    consider the commutative diagram induced by the universal properties of product objects, where the $\pi$'s and $\pi'$'s are the projection morphisms:
+    \begin{cd}[column sep=7em]
+        \left(G \times G\right) \times G \ar[dd, "\pi_G", swap] \ar[r, "\pi_{G \times G}"] \ar[ddr, "\adjustbox{scale=0.8}{$\left(\pi_2\pi_{G \times G}\right) \times \pi_G$}"{pos=0.65}, swap, dashed] \ar[ddrr, dashed, to path={(\tikztostart.north) .. controls ([yshift=7em,xshift=10em]\tikztostart.north) and ([xshift=8em,yshift=10em]\tikztotarget.east) .. ([yshift=1ex]\tikztotarget.east)}] \ar[rr, "\adjustbox{scale=0.7}{$\left(\pi_1\pi_{G \times G}\right) \times \left(\left(\pi_2\pi_{G \times G}\right) \times \pi_G\right)$}", bend left=40, phantom] \& G \times G \ar[d, "\pi_2", swap] \ar[r, "\pi_1"] \& G \\
+        \& G \\
+        G \& G \times G \ar[u, "\pi'_1", swap] \ar[l, "\pi'_2"] \& G \times \left(G \times G\right) \ar[uu, "\pi'_G", swap] \ar[l, "\pi'_{G \times G}"] \ar[uul, "\adjustbox{scale=0.8}{$\pi'_G \times \left(\pi'_1\pi'_{G \times G}\right)$}"{pos=0.6}, swap, dashed] \ar[lluu, dashed, to path={(\tikztostart.south) .. controls ([yshift=-7em,xshift=-10em]\tikztostart.south) and ([xshift=-8em,yshift=-10em]\tikztotarget.west) .. ([yshift=-1.3ex]\tikztotarget.west)}] \ar[ll, "\adjustbox{scale=0.7}{$\left(\pi'_G \times \left(\pi'_1\pi'_{G \times G}\right)\right) \times \left(\pi'_2\pi'_{G \times G}\right)$}", bend left=40, phantom, swap]
+    \end{cd}
+    Then, we can conclude that $\left(\left(\pi'_G \times \left(\pi'_1\pi'_{G \times G}\right)\right) \times \left(\pi'_2\pi'_{G \times G}\right)\right)\left(\left(\pi_1\pi_{G \times G}\right) \times \left(\left(\pi_2\pi_{G \times G}\right) \times \pi_G\right)\right)$ is $\id{\left(G \times G\right) \times G}$ since they both satisfy the universal property of $\pi_{G \times G} \times \pi_G$. Hence, we can conclude that $\left(\pi_1\pi_{G \times 
+    G}\right) \times \left(\left(\pi_2\pi_{G \times G}\right) \times \pi_G \right) : \left(G \times G\right) \times G \to G \times \left(G \times G\right)$ is an isomorphism, and this is the unnamed \begin{inlinecd}
+        \left(G \times G\right) \times G \ar[r, "\cong"] \& G \times \left(G \times G\right)
+    \end{inlinecd}
+    since $\left(\left(\pi_1\pi_{G \times G}\right) \times \left(\left(\pi_2\pi_{G \times G}\right) \times \pi_G\right)\right)\left(\left(\pi'_G \times \left(\pi'_1\pi'_{G \times G}\right)\right) \times \left(\pi'_2\pi'_{G \times G}\right)\right) = \id{G \times \left(G \times G\right)}$ by the similar reasoning.
+    \clearpage
+
+    For
+    \begin{inlinecd}[shorten <>=0pt]
+        \one \times G \ar[r, "\cong"] \& G
+    \end{inlinecd}
+    in
+    \begin{cd}[shorten <>=0pt, column sep=3em]
+        \one \times G \ar[r, "e \times \id{G}"] \ar[dr, "\cong", swap] \& G \times G \ar[d, "m"] \\
+        \& \lefted{$G,$}[\widthof{$G$}]
+    \end{cd}
+    consider the commutative diagram induced by the universal properties of product objects and $\one$, where the $\epsilon : G \to \one$ is the unique morphism coming from the finality of $\one$:
+    \begin{cd}[row sep=0.8em, column sep=4em]
+        \&\& \one \\
+        G \ar[rru, "\epsilon", bend left] \ar[rrd, "\id{G}", swap, bend right] \ar[r, "\epsilon \times \id{G}", dashed] \& \one \times G \ar[ru, "\pi_1", swap] \ar[rd, "\pi_G"]\\
+        \&\& G
+    \end{cd}
+    Hence, we can conclude that $\pi_G \left(\epsilon \times \id{G}\right) = \id{G}$.
+    This implies that $\pi_{\one} = \pi_{\one} \left(\epsilon \times \id{G}\right) \pi_G$ and $\pi_G = \pi_G \left(\epsilon \times \id{G}\right) \pi_G$, and thus $\left(\epsilon \times \id{G}\right) \pi_G = \id{\one \times G}$ by the universal property of the product $\one \times G$.
+    Consequently, we can conclude that $\pi_G : \one \times G \to G$ is an isomorphism, and it is the unnamed
+    \begin{inlinecd}[shorten <>=0pt]
+        \one \times G \ar[r, "\cong"] \& G.
+    \end{inlinecd}
+
+    In the similar way, we can say that the projection morphism is the unnamed
+    \begin{inlinecd}[shorten <>=0pt]
+        G \times \one \ar[r, "\cong"] \& G
+    \end{inlinecd}
+    in
+    \begin{cd}[shorten <>=0pt, column sep=3em]
+        G \times \one \ar[r, "\id{G} \times e"] \ar[rd, "\cong", swap] \& G \times G \ar[d, "m"] \\
+        \& G.
+    \end{cd}
+}
+\clearpage
+
+\problem{ %10.2
+    $\vartriangleright$ Show that \emph{groups}, as defined in \S1.2, are `group objects in the category of sets'. \sqref{\S10.1}
+}{
+    Let $\left(G,\cdot\right)$ be a group, and define $m : G \times G \to G$ and $\iota : G \to G$ as $\left(g,h\right) \mapsto gh$ and $g \mapsto g^{-1}$, respectively.
+    Then, the followings are commutative where $\Delta = \id{G} \times \id{G}$:
+    \begin{cd}[shorten <>=0pt, column sep=3em]
+        \left(G \times G\right) \times G \ar[d, "\cong", swap] \ar[r, "m \times \id{G}"] \& G \times G \ar[r, "m"] \& G \ar[d, no head, shift left=0.5] \ar[d, no head, shift right=0.5] \\
+        G \times \left(G \times G\right) \ar[r, "\id{G} \times m"] \& G \times G \ar[r, "m"] \& G
+    \end{cd}
+    \begin{cd}[shorten <>=0pt, column sep=3em]
+        \one \times G \ar[r, "e \times \id{G}"] \ar[rd, "\cong", swap] \& G \times G \ar[d, "m"] \& G \times \one \ar[r, "\id{G} \times e"] \ar[dr, "\cong", swap] \& G \times G \ar[d, "m"] \\
+        \& G \&\& G
+    \end{cd}
+    \begin{cd}[shorten <>=0pt, column sep=3em]
+        G \ar[r, "\Delta"] \ar[d] \& G \times G \ar[r, "\id{G} \times \iota"] \& G \times G \ar[d, "m"] \& G \ar[r, "\Delta"] \ar[d] \& G \times G \ar[r, "\iota \times \id{G}"] \& G \times G \ar[d, "m"] \\
+        \one \ar[rr, "e"] \&\& G \& \one \ar[rr, "e"] \&\& G
+    \end{cd}
+    Hence, $G$ is a group object in the category $\Set$.
+}
