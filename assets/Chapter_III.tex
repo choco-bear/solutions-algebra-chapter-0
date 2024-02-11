@@ -1,0 +1,165 @@
+\chapter{Rings and modules}
+\section{Definition of ring}
+\problem{ %1.1
+    $\vartriangleright$ Prove that if $0 = 1$ in a ring $R$, then $R$ is a zero-ring. \sqref{\S1.2}
+}{}
+
+\problem{ %1.2
+    $\neg$ Let $S$ be a set, and define operations on the power set $\mathscr{P}\left( S \right)$ of $S$ by setting $\forall A,B \in \mathscr{P}\left( S \right)$
+    \[ A + B := \left( A \cup B \right) \setminus \left( A \cap B \right), \quad A \cdot B = A \cap B \; :\]
+    \begin{draw}
+        \coordinate (center1) at (-2cm,0);
+        \coordinate (node1) at ($(center1)+(0,-1cm)$);
+        \coordinate (A1) at ($(center1)+(-0.6cm,0)$);
+        \coordinate (B1) at ($(center1)+(0.6cm,0)$);
+        \coordinate (center2) at (2cm,0);
+        \coordinate (node2) at ($(center2)+(0,-1cm)$);
+        \coordinate (A2) at ($(center2)+(-0.6cm,0)$);
+        \coordinate (B2) at ($(center2)+(0.6cm,0)$);
+        
+        \draw[ultra thick, pattern=north east lines] (A1) ellipse (1cm and 0.5cm);
+        \draw[ultra thick, pattern=north west lines] (B1) ellipse (1cm and 0.5cm);
+        
+        \fill[pattern={Lines[angle=-45,distance={3pt/sqrt(2)}]}] (A2) ellipse (1cm and 0.5cm);
+        \fill[pattern={Lines[angle=-45,distance={3pt/sqrt(2)}]}] (B2) ellipse (1cm and 0.5cm);
+
+        \begin{scope}
+            \clip (A1) ellipse (1cm and 0.5cm);
+            \filldraw[ultra thick, fill=white] (B1) ellipse (1cm and 0.5cm);
+            \draw[pattern={Lines[angle=45,distance={3pt/sqrt(2)}]}] (B1) ellipse (1cm and 0.5cm);
+            \draw[pattern={Lines[angle=-45,distance={3pt/sqrt(2)},xshift={1.5pt/sqrt(2)},yshift={1.5pt/sqrt(2)}]}] (B1) ellipse (1cm and 0.5cm);
+            \draw[ultra thick] (A1) ellipse (1cm and 0.5cm);
+        \end{scope}
+
+        \begin{scope}
+            \clip (A2) ellipse (1cm and 0.5cm);
+            \fill[white] (B2) ellipse (1cm and 0.5cm);
+            \filldraw[ultra thick, pattern=north east lines] (B2) ellipse (1cm and 0.5cm);
+        \end{scope}
+
+        \begin{scope}
+            \clip (B2) ellipse (1cm and 0.5cm);
+            \filldraw[ultra thick, pattern=north west lines] (A2) ellipse (1cm and 0.5cm);
+        \end{scope}
+
+        \node at (node1) {$A + B$};
+        \node at (node2) {$A \cdot B$};
+    \end{draw}
+    (where the solid black contour indicates the set included in the operation).
+    Prove that $\left( \mathscr{P} \left( S \right), +, \cdot \right)$ is a commutative ring. \sqref{2.3, 3.15}
+}{}
+
+\problem{ %1.3
+    $\neg$ Let $R$ be a ring, and let $S$ be any set.
+    Explain how to endow the set $R^S$ of set-functions $S \to R$ of two operations $+$, $\cdot$ so as to make $R^S$ into a ring, such that $R^S$ is just a copy of $R$ if $S$ is a singleton. \sqref{2.3}
+}{}
+
+\problem{ %1.4
+    $\vartriangleright$ The set of $n \times n$ matrices with entries in a ring $R$ is denoted $\mathcal{M}_n\!\left(R\right)$.
+    Prove that componentwise addition and matrix multiplication make $\mathcal{M}_n\!\left(R\right)$ into a ring, for any ring $R$.
+    The notation $\liegl{n}{\RR}$ is also commonly used, especially for $R = \RR$ or $\CC$ (although this indicates one is considering them as \emph{Lie algebras}) in parallel with the analogous notation for the corresponding groups of units; cf. \ref{exer:II.6.1}.
+    In fact, the parallel continues with the definition of the following sets of matrices:
+    \begin{itemize}
+        \item $\liesl{n}{\RR} = \left\{ M \in \liegl{n}{\RR} \mid \tr \left( M \right) = 0 \right\}$;
+        \item $\liesl{n}{\CC} = \left\{ M \in \liegl{n}{\CC} \mid \tr \left( M \right) = 0 \right\}$;
+        \item $\lieso{n}{\RR} = \left\{ M \in \liesl{n}{\RR} \mid M + M^t = 0 \right\}$;
+        \item $\liesu{n} = \left\{ M \in \sl{n}{\CC} \mid M + M^\dagger = 0 \right\}$.
+    \end{itemize}
+    Here $\tr M$ is the \emph{trace} of $M$, that is, the sum of its diagonal entries.
+    The other notation matches the notation used in \ref{exer:II.6.1}.
+    Can we make rings of these sets by endowing them with ordinary addition and multiplication of matrices?
+    (These sets are all Lie algebras; cf. \ref{exer:VI.1.4}.) \sqref{\S1.2, 2.4, 5.9, VI.1.2, VI.1.4}
+}{}
+
+\problem{ %1.5
+    Let $R$ be a ring.
+    If $a$, $b$ are zero-divisors in $R$, is $a+b$ necessarily a zero-divisor?
+}{}
+
+\problem{ %1.6
+    $\neg$ An element $a$ of a ring $R$ is \emph{nilpotent} if $a^n = 0$ for some $n$.
+    \begin{itemize}
+        \item Prove that if $a$ and $b$ are nilpotent in $R$ and $ab = ba$, then $a+b$ is also nilpotent.
+        \item Is the hypothesis $ab = ba$ in the previous statement necessary for its conclusion to hold?
+    \end{itemize}
+    \sqref{3.12}
+}{}
+
+\problem{ %1.7
+    Prove that $\eqcl{m}$ is nilpotent in $\cyclic{n}$ if and only if $m$ is divisible by all prime factors of $n$.
+}{}
+
+\problem{ %1.8
+    Prove that $x = \pm 1$ are the only solutions to the equation $x^2 = 1$ in an integral domain.
+    Find a ring in which the equation $x^2 = 1$ has more than $2$ solutions.
+}{}
+
+\problem{ %1.9
+    $\vartriangleright$ Prove Proposition 1.12. \sqref{\S1.2}
+}{}
+
+\problem{ %1.10
+    Let $R$ be a ring.
+    Prove that if $a \in R$ is a right-unit and has two or more left-inverses, then $a$ is \emph{not} a left-zero-divisor and \emph{is} a right-zero-divisor.
+}{}
+
+\problem{ %1.11
+    $\vartriangleright$ Construct a field with $4$ elements: as mentioned in the text, the underlying abelian group will have to be $\cyclic{2} \times \cyclic{2}$; $(0,0)$ will be the zero element, and $(1,1)$ will be the multiplicative identity.
+    The question is what $(0,1) \cdot (0,1)$, $(0,1) \cdot (1,0)$, $(1,0) \cdot (1,0)$ must be, in order to get a \emph{field}. \sqref{\S1.2, \S V.5.1}
+}{}
+
+\problem{ %1.12
+    $\vartriangleright$ Just as complex numbers may be viewed as combinations $a+b\i$, where $a,b \in \RR$ and $i$ satisfies the relation $i^2 = -1$ (and commutes with $\RR$), we may construct a ring $\HH$ by considering linear combinations $a+bi+cj+dk$ where $a,b,c,d \in \RR$ and $i$, $j$, $k$ commute with $\RR$ and satisfy the following relations:
+    \[i^2 = j^2 = k^2 = -1, \quad ij = -ji = k, \quad jk = -kj = i, \quad ki = -ik = j.\]
+    Addition in $\HH$ is defined componentwise, while multiplication is defined by imposing distributivity and applying the relations. For example,
+    \[(1+i+j) \cdot (2+k) = 1 \cdot 2 + i \cdot 2 + j \cdot 2 + 1 \cdot k + i \cdot k + j \cdot k = 2 + 2i + 2j + k - j + i = 2 + 3i + j + k.\]
+    
+    \begin{enumerate}[label=(\roman*)]
+        \item Verify that this prescription does indeed define a ring.
+        \item Compute $(a+bi+cj+dk)(a-bi-cj-dk)$, where $a,b,c,d \in \RR$.
+        \item Prove that $\HH$ is a division ring.
+    \end{enumerate}
+
+    Elements of $\HH$ are called \emph{quaternions}.
+    Note that $Q_S := \left\{ \pm 1, \pm i, \pm j, \pm k \right\}$ forms a subgroup of the group of units of $\HH$; it is a noncommutative group of order $8$, called the \emph{quaternionic} group.
+
+    \begin{enumerate}[label=(\roman*), resume]
+        \item List all subgroups of $Q_8$, and prove that they are all normal.
+        \item Prove that $Q_8$, $D_8$ are not isomorphic.
+        \item Prove that $Q_8$ admits the presentation $\left( x,y \mid x^2y^{-2}, y^4, xyx^{-1}y \right)$.
+    \end{enumerate}
+    \sqref{\S II.7.1, 2.4, IV.1.12, IV.5.16, IV.5.17, V.6.19}
+}{}
+
+\problem{ %1.13
+    $\vartriangleright$ Verify that the multiplication defined in $R[x]$ is associative. \sqref{\S1.3}
+}{}
+
+\problem{ %1.14
+    $\vartriangleright$ Let $R$ be a ring, and let $f(x), g(x) \in R[x]$ be nonzero polynomials.
+    Prove that
+    \[ \deg \left( f(x) + g(x) \right) \leq \max \left( \deg \left( f(x) \right), \deg \left( g(x) \right) \right). \]
+    Assuming that $R$ is an integral domain, prove that
+    \[ \deg \left( f(x) \cdot g(x) \right) = \deg \left( f(x) \right) + \deg \left( g(x) \right). \]
+    \sqref{\S1.3}
+}{}
+
+\problem{ %1.15
+    $\vartriangleright$ Prove that $R[x]$ is an integral domain if and only if $R$ is an integral domain. \sqref{\S1.3}
+}{}
+
+\problem{ %1.16
+    Let $R$ be a ring, and consider the ring of power series $R[[x]]$ (cf. \S1.3).
+    \begin{enumerate}[label=(\roman*)]
+        \item
+            Prove that a power series $a_0 + a_1 x + a_2 x^2 + \cdots$ is a unit in $\R[[x]]$ if and only if $a_0$ is a unit in $R$.
+            What is the inverse of $1-x$ in $R[[x]]$?
+
+        \item
+            Prove that $R[[x]]$ is an integral domain if and only if $R$ is.
+    \end{enumerate}
+}{}
+
+\problem{ %1.17
+    $\vartriangleright$ Explain in what sense $R[x]$ agrees with the monoid ring $R[\NN]$. \sqref{\S1.4}
+}{}
