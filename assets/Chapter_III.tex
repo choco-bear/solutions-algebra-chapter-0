@@ -2,7 +2,12 @@
 \section{Definition of ring}
 \problem{ %1.1
     $\vartriangleright$ Prove that if $0 = 1$ in a ring $R$, then $R$ is a zero-ring. \sqref{\S1.2}
-}{}
+}{
+    Let $R$ be a ring such that $0 = 1$.
+    Then, for any $x \in R$, $0x = (1-1)x = x-x = 0$.
+    But, $0x = 1x = x$ since $0=1$.
+    Therefore, $R$ is a zero ring.
+}
 
 \problem{ %1.2
     $\neg$ Let $S$ be a set, and define operations on the power set $\mathscr{P}\left( S \right)$ of $S$ by setting $\forall A,B \in \mathscr{P}\left( S \right)$
@@ -47,14 +52,24 @@
     \end{draw}
     (where the solid black contour indicates the set included in the operation).
     Prove that $\left( \mathscr{P} \left( S \right), +, \cdot \right)$ is a commutative ring. \sqref{2.3, 3.15}
-}{}
+}{
+    We can easily observe that $\mathscr{P} \left( S \right)$ can be represented as $\left(\cyclic{2}\right)^S$ in the natural way.
+    In this representation, the operations defined in the exercise are represented as just componentwise operations in $\left(\cyclic{2}\right)^S$.
+    Hence, by the result of \ref{prob:III.1.3}, $\left( \mathscr{P} \left( S \right), +, \cdot \right)$ forms a ring structure.
+    Also, since the intersection between two sets is commutative, we can say that $\left( \mathscr{P} \left( S \right), +, \cdot \right)$ is a commutative ring.
+}
 
 \problem{ %1.3
     $\neg$ Let $R$ be a ring, and let $S$ be any set.
     Explain how to endow the set $R^S$ of set-functions $S \to R$ of two operations $+$, $\cdot$ so as to make $R^S$ into a ring, such that $R^S$ is just a copy of $R$ if $S$ is a singleton. \sqref{2.3}
-}{}
+}{
+    Let $f + g$ be defined as $s \mapsto f(s) + g(s)$ and $fg$ be defined as $s \mapsto f(s)g(s)$.
+    Then $\left( R^S, +, \cdot \right)$ is indeed a ring.
 
-\problem{ %1.4
+    Also, if $S$ is a singleton, then $R^S$ is just a copy of $R$, of course.
+}
+
+\problembr{ %1.4
     $\vartriangleright$ The set of $n \times n$ matrices with entries in a ring $R$ is denoted $\mathcal{M}_n\!\left(R\right)$.
     Prove that componentwise addition and matrix multiplication make $\mathcal{M}_n\!\left(R\right)$ into a ring, for any ring $R$.
     The notation $\liegl{n}{\RR}$ is also commonly used, especially for $R = \RR$ or $\CC$ (although this indicates one is considering them as \emph{Lie algebras}) in parallel with the analogous notation for the corresponding groups of units; cf. \ref{exer:II.6.1}.
@@ -69,12 +84,40 @@
     The other notation matches the notation used in \ref{exer:II.6.1}.
     Can we make rings of these sets by endowing them with ordinary addition and multiplication of matrices?
     (These sets are all Lie algebras; cf. \ref{exer:VI.1.4}.) \sqref{\S1.2, 2.4, 5.9, VI.1.2, VI.1.4}
-}{}
+}{
+    It is obvious that $\left( \mathcal{M}_n\!\left(R\right), + \right)$ is an abelian group.
+    Let $[a_{ij}], [b_{ij}], [c_{ij}] \in \mathcal{M}_n\!\left(R\right)$.
+    Then:
+    \[\begin{array}{rcl}
+        [a_{ij}] \left([b_{ij}] + [c_{ij}]\right) & = & [a_{ij}][b_{ij} + c_{ij}] \\
+        & = & [\sum_{k=1}^n a_{ik} \left(b_{kj} + c_{kj}\right)] \\
+        & = & [\sum_{k=1}^n a_{ik}b_{kj} + \sum_{k=1}^n a_{ik}c_{kj}] \\
+        & = & [\sum_{k=1}^n a_{ik}b_{kj}] + [\sum_{k=1}^n a_{ik}c_{kj}] \\
+        & = & [a_{ij}][b_{ij}] + [a_{ij}][c_{ij}].
+    \end{array}\]
+    Similarly, $\left([a_{ij}] + [b_{ij}]\right) [c_{ij}] = [a_{ij}][c_{ij}] + [b_{ij}][c_{ij}]$.
+
+    Also,
+    \[\begin{array}{rcl}
+        \left([a_{ij}][b_{ij}]\right)[c_{ij}] & = & [\sum_{k=1}^n a_{ik}b_{kj}][c_{ij}] \\
+        & = & [\sum_{l=1}^n \sum_{k=1}^n a_{ik}b_{kl}c_{lj}] \\
+        & = & [\sum_{k=1}^n \sum_{l=1}^n a_{ik}b_{kl}c_{lj}] \\
+        & = & [a_{ij}][\sum_{l=1}^n b_{il}c_{lj}] \\
+        & = & [a_{ij}]\left([b_{ij}][c_{ij}]\right),
+    \end{array}\]
+    $\textstyle [a_{ij}][\delta_{ij}] = [\sum_{k=1}^n a_{ik}\delta_{kj}] = [a_{ij}]$, and $\textstyle [\delta_{ij}][a_{ij}] = [\sum_{k=1}^n \delta_{ik}a_{kj}] = [a_{ij}]$, where $\delta_{ij} = \begin{cases} 1 & \mbox{if } i = j \\ 0 & \mbox{if } i \neq j. \end{cases}$
+    Hence, $\left( \mathcal{M}_n\!\left(R\right), +, \cdot \right)$ is a ring, indeed.
+    
+    Finally, since $\mathbf{O} \notin \liegl{n}{\RR}$, the given sets are not a ring because they are not even a group under the addition.
+}
 
 \problem{ %1.5
     Let $R$ be a ring.
     If $a$, $b$ are zero-divisors in $R$, is $a+b$ necessarily a zero-divisor?
-}{}
+}{
+    Let $R = \cyclic{6}$.
+    Then, $\eqcl{2}_6$ and $\eqcl{3}_6$ are zero divisors but their sum $\eqcl{5}_6$ is a unit.
+}
 
 \problem{ %1.6
     $\neg$ An element $a$ of a ring $R$ is \emph{nilpotent} if $a^n = 0$ for some $n$.
@@ -83,32 +126,77 @@
         \item Is the hypothesis $ab = ba$ in the previous statement necessary for its conclusion to hold?
     \end{itemize}
     \sqref{3.12}
-}{}
+}{
+    Let $a^k = b^l = 0$ for some integers $k,l \in \ZZ$, and $ab = ba$.
+    Then, 
+    \[ (a+b)^{k+l} = \sum_{i=0}^{k+l} \binom{k+l}{i} a^i b^{k+l-i} = 0. \]
+    If the condition $ab = ba$ is absent, take $R = \mathcal{M}_2\!\left(\RR\right)$, $a = \mat{0 & 0 \\ 1 & 0}$, and $b = \mat{0 & 1 \\ 0 & 0}$.
+    Then, $a^2 = b^2 = \mathbf{O}$.
+    
+    However, $a+b = \mat{0 & 1 \\ 1 & 0}$ is an invertible matrix, which means $a+b$ is not nilpotent.
+    Hence, the condition $ab = ba$ is necessary.
+}
 
 \problem{ %1.7
     Prove that $\eqcl{m}$ is nilpotent in $\cyclic{n}$ if and only if $m$ is divisible by all prime factors of $n$.
-}{}
+}{
+    Let $\eqcl{m}_n$ is nilpotent.
+    Then, $n \mid m^k$ for some integers $k \in \ZZ^+$, and thus $m$ is divisible by all prime factors of $n$ by the Euclid's lemma.
+
+    Now let $m$ be divisible by all prime factors of $n$.
+    If $n = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}$ is the prime factorization of $n$, then $n \mid m^{\max \{e_1, e_2, \cdots, e_k\}}$, obviously.
+    Hence, $\eqcl{m}_n$ is nilpotent.
+}
 
 \problem{ %1.8
     Prove that $x = \pm 1$ are the only solutions to the equation $x^2 = 1$ in an integral domain.
     Find a ring in which the equation $x^2 = 1$ has more than $2$ solutions.
-}{}
+}{
+    Since $x^2 - 1 = (x-1)(x+1)$, if $x$ is a solution to the equation $x^2 = 1$ and $x$ is an element of an integral domain, then $x-1 = 0$ or $x+1 = 0$.
+    Hence, $x = \pm 1$ are the only solutions to the equation $x^2 = 1$ in an integral domain.
+
+    Take the ring $\mathcal{M}_2\!\left(\RR\right)$.
+    In this ring, $\mat{0 & 1 \\ 1 & 0}$ is also a solution to the equation $x^2 = 1$, and it is not $\pm 1$.
+}
 
 \problem{ %1.9
     $\vartriangleright$ Prove Proposition 1.12. \sqref{\S1.2}
-}{}
+}{
+    The first and second statements are proved by the author.
+    Hence, it suffices to show that the third and fourth ones are true.
+
+    Let $u \in R$ be a two-sided unit, and $v,v' \in R$ be inverses of $u$.
+    Then, $v = vuv' = v'$, and thus the inverse of a two-sided unit is unique.
+
+    Now let $u, v \in R$ be two-sided units.
+    Then, since $\left( vu^{-1} \right) \left( uv^{-1} \right) = vv^{-1} = 1$, and since $\left( uv^{-1} \right) \left( vu^{-1} \right) = uu^{-1} = 1$, $uv^{-1}$ is a two-sided unit.
+    Hence, the set of the two-sided units is a group under multiplication.
+}
 
 \problem{ %1.10
     Let $R$ be a ring.
     Prove that if $a \in R$ is a right-unit and has two or more left-inverses, then $a$ is \emph{not} a left-zero-divisor and \emph{is} a right-zero-divisor.
-}{}
+}{
+    If $a \in R$ is a left-zero divisor, then there is a nonzero $b \in R$ such that $ab = 0$.
+    Hence, if $a$ has a left-inverse $a^+$, $0 = a^+0 = a^+ab = b$, and this makes a contradiction since $b$ is nonzero.
+
+    Now let $a',a'' \in R$ be distinct left-inverse of $a \in R$.
+    Then, $a'-a'' \neq 0$ and $\left( a'-a'' \right) a = 1 - 1 = 0$, which means that $a$ is a right-zero divisor.
+}
 
 \problem{ %1.11
     $\vartriangleright$ Construct a field with $4$ elements: as mentioned in the text, the underlying abelian group will have to be $\cyclic{2} \times \cyclic{2}$; $(0,0)$ will be the zero element, and $(1,1)$ will be the multiplicative identity.
     The question is what $(0,1) \cdot (0,1)$, $(0,1) \cdot (1,0)$, $(1,0) \cdot (1,0)$ must be, in order to get a \emph{field}. \sqref{\S1.2, \S V.5.1}
-}{}
+}{
+    Since every field is an integral domain, $(0,1)$ and $(1,0)$ cannot be a solution for the equation $x^2 = x$ or $x^2 = (1,1)$.
+    Hence, it must be $(0,1) \cdot (0,1) = (1,0)$ and $(1,0) \cdot (1,0) = (0,1)$ to make the $\cyclic{2} \times \cyclic{2}$ be a field.
+    Also, $(0,1) \cdot (1,0) = (0,1) - (0,1) \cdot (0,1) = (0,1) - (1,0) = (1,1)$.
+    Therefore, it must be $(0,1) \cdot (0,1) = (1,0)$, $(0,1) \cdot (1,0) = (1,1)$, and $(1,0) \cdot (1,0) = (0,1)$ to make the $\cyclic{2} \times \cyclic{2}$ be a field.
 
-\problem{ %1.12
+    Moreover, if $(0,1) \cdot (0,1) = (1,0)$, $(0,1) \cdot (1,0) = (1,1)$, and $(1,0) \cdot (1,0) = (0,1)$, $\cyclic{2} \times \cyclic{2}$ forms a field.
+}
+
+\problembr{ %1.12
     $\vartriangleright$ Just as complex numbers may be viewed as combinations $a+b\i$, where $a,b \in \RR$ and $i$ satisfies the relation $i^2 = -1$ (and commutes with $\RR$), we may construct a ring $\HH$ by considering linear combinations $a+bi+cj+dk$ where $a,b,c,d \in \RR$ and $i$, $j$, $k$ commute with $\RR$ and satisfy the following relations:
     \[i^2 = j^2 = k^2 = -1, \quad ij = -ji = k, \quad jk = -kj = i, \quad ki = -ik = j.\]
     Addition in $\HH$ is defined componentwise, while multiplication is defined by imposing distributivity and applying the relations. For example,
@@ -129,11 +217,59 @@
         \item Prove that $Q_8$ admits the presentation $\left( x,y \mid x^2y^{-2}, y^4, xyx^{-1}y \right)$.
     \end{enumerate}
     \sqref{\S II.7.1, 2.4, IV.1.12, IV.5.16, IV.5.17, V.6.19}
-}{}
+}{
+    \begin{enumerate}[label=(\roman*)]
+        \item
+            $\left( \HH, + \right)$ is an abelian group, and $1 + 0i + 0j + 0k$ is the multiplicative identity, and the distributive law holds.
+            Hence, it suffices to show that the multiplication is associative.\newline
+            To show this, define a function $\varphi : \HH \to \mathcal{M}_2\!\left(\CC\right)$ as $\varphi(a+bi+cj+dk) = \mat{a+bi & c+di \\ -c+di & a-bi}$.
+            Then, it is quite obvious that $\varphi$ conserves the multiplication and is injective.
+            Hence, since the matrix multiplication is associative, the multiplication over quaternions is also associative, and therefore $\left( \HH, +, \cdot \right)$ is a ring.
+        
+        \item
+            $(a+bi+cj+dk)(a-bi-cj-dk) = a^2+b^2+c^2+d^2$.
+
+        \item
+            By the result of (ii), every nonzero element of $\HH$ is a unit.
+            Hence, $\HH$ is a division ring.
+        \clearpage
+        
+        \item
+            All of the subgroups of $Q_8$ are $\{1\}$, $\{\pm1\}$, $\{\pm1,\pm i\}$, $\{\pm1,\pm j\}$, $\{\pm1,\pm k\}$, and $Q_8$.
+            Hence, the normalities of them are immediate.
+
+        \item
+            There are two elements of order $2$ in $D_8$ but there is only one element of order $2$ in $Q_8$.
+            Hence, $D_8$ and $Q_8$ are not isomorphic.
+
+        \item
+            Since $ij = k$, $\{ i,j \}$ generates $Q_8$.
+            Also, since $i^2j^2 = j^4 = iji^{-1}j = 1$, there is a subgroup of the group $\left( x,y \mid x^2y^{-2}, y^4, xyx^{-1}y \right)$, which is isomorphic to $Q_8$.
+
+            Hence, it suffices to show that $\abs{\left( x,y \mid x^2y^{-2}, y^4, xyx^{-1}y \right)} = 8$.
+            Since $xyx^{-1}y = e$, $xy = y^{-1}x = y^3x$.
+            Thus, every element of the group $\left( x,y \mid x^2y^{-2}, y^4, xyx^{-1}y \right)$ can be represented as the form of $x^{e_1}y^{e_2}$ where $0 \leq e_1 \leq 1$ and $0 \leq e_2 \leq 3$.
+            Consequently, $\abs{\left( x,y \mid x^2y^{-2}, y^4, xyx^{-1}y \right)} \leq 8$ and therefore, $Q_8$ is isomorphic to $\left( x,y \mid x^2y^{-2}, y^4, xyx^{-1}y \right)$.
+    \end{enumerate}
+}
 
 \problem{ %1.13
     $\vartriangleright$ Verify that the multiplication defined in $R[x]$ is associative. \sqref{\S1.3}
-}{}
+}{
+    Let $\textstyle \sum_{n=0}^\infty a_nx^n, \sum_{n=0}^\infty b_nx^n, \sum_{n=0}^\infty c_nx^n \in R[x]$.
+    Then:
+    \[\begin{array}{rcl}
+        \left(\left(\sum_{n=0}^\infty a_nx^n\right)\left(\sum_{n=0}^\infty b_nx^n\right)\right)\left(\sum_{n=0}^\infty c_nx^n\right) & = & \left(\sum_{n=0}^\infty \left(\sum_{k=0}^n a_kb_{n-k}\right)x^n\right)\left(\sum_{n=0}^\infty c_nx^n\right) \\
+        & = & \sum_{n=0}^\infty \left(\sum_{k=0}^n \left(\sum_{l=0}^k a_lb_{k-l}\right)c_{n-k}\right)x^n \\
+        & = & \sum_{n=0}^\infty \left(\sum_{k=0}^n \sum_{l=0}^k a_lb_{k-l}c_{n-k}\right)x^n \\
+        & = & \sum_{n=0}^\infty \left(\sum_{i+j+k = n} a_ib_jc_k\right)x^n \\
+        & = & \sum_{n=0}^\infty \left(\sum_{k=0}^n \sum_{l=0}^k a_kb_lc_{n-k-l}\right)x^n \\
+        & = & \sum_{n=0}^\infty \left(\sum_{k=0}^n a_k\left(\sum_{l=0}^{n-k} b_lc_{n-k-l}\right)\right)x^n \\
+        & = & \left(\sum_{n=0}^\infty a_nx^n\right)\left(\sum_{n=0}^\infty \left(\sum_{l=0}^n b_lc_{n-l}\right)x^n\right) \\
+        & = & \left(\sum_{n=0}^\infty a_nx^n\right)\left(\left(\sum_{n=0}^\infty b_nx^n\right)\left(\sum_{n=0}^\infty c_nx^n\right)\right).
+    \end{array}\]
+    Therefore, the multiplication defined in $R[x]$ is associative.
+}
 
 \problem{ %1.14
     $\vartriangleright$ Let $R$ be a ring, and let $f(x), g(x) \in R[x]$ be nonzero polynomials.
@@ -142,11 +278,42 @@
     Assuming that $R$ is an integral domain, prove that
     \[ \deg \left( f(x) \cdot g(x) \right) = \deg \left( f(x) \right) + \deg \left( g(x) \right). \]
     \sqref{\S1.3}
-}{}
+}{
+    For the convenience of the description, let $f(x) = \sum_{n=0}^k f_nx^n$, $g(x) = \sum_{n=0}^l g_nx^n$, and $f_k \neq 0 \neq g_l$.
+    Without loss of generality, we can assume that $k \leq l$.
+    Then $f(x) + g(x) = \sum_{n=0}^l \left(f_n + g_n\right)x^n$ where $f_n = 0$ for any $n > k$.
+    Hence, by the definition, $\deg \left( f(x) + g(x) \right) \leq l$, which proves $\deg \left( f(x) + g(x) \right) \leq \max \left( \deg \left( f(x) \right), \deg \left( g(x) \right) \right)$.
+
+    Now, let $R$ be an integral domain.
+    Then, $f(x) \cdot g(x) = \sum_{n=0}^{k+l} \left(\sum_{i=0}^n f_ig_{n-i}\right)x^n$ where $f_n = 0$ and $g_m = 0$ for any $n > k$ and any $m > l$.
+    Also, since $R$ is an integral domain, $f_kg_l \neq 0$ since $f_k \neq 0$ and $g_l \neq 0$.
+    Therefore, by the definition, $\deg \left( f(x) \cdot g(x) \right) = k + l = \deg \left( f(x) \right) + \deg \left( g(x) \right)$.
+}
 
 \problem{ %1.15
     $\vartriangleright$ Prove that $R[x]$ is an integral domain if and only if $R$ is an integral domain. \sqref{\S1.3}
-}{}
+}{
+    The `only if' part is so obvious.
+    So, it suffices to show the `if' part.
+
+    We shall prove the `if' part with mathematical induction.
+    Define $P(k)$ as ``If $\left(\sum_{n=0}^\infty a_nx^n\right)\left(\sum_{n=0}^\infty b_nx^n\right) = 0$, then either $a_0 = a_1 = \cdots = a_k = 0$ or $b_0 = b_1 = \cdots = b_k = 0$''.
+    Then, it is quite obvious that $P(0)$ is true.
+
+    Now assume that $P(k)$ is true, and let $\left(\sum_{n=0}^\infty c_nx^n\right) = \left(\sum_{n=0}^\infty a_nx^n\right)\left(\sum_{n=0}^\infty b_nx^n\right) = 0$.
+    Without loss of generality, assume that $a_0 = a_1 = \cdots = a_k = 0$.
+    Then, $c_{k+1} = a_{k+1}b_0 = 0$.
+    If $a_{k+1} = 0$, we are done.
+    Suppose that $a_{k+1} \neq 0$.
+    Then, $b_0 = 0$, and thus $c_{k+2} = a_{k+1}b_1 = 0$.
+    From this, we get $b_1 = 0$.
+    By induction, we get $b_0 = b_1 = \cdots = b_k = 0$.
+    Hence, $c_{2k+2} = a_{k+1}b_{k+1} = 0$.
+    This implies that $b_{k+1} = 0$ since $a_{k+1} \neq 0$, and thus $P(k+1)$ is true.
+
+    Consequently, $P(k)$ is true for any natural numbers $k$ by the mathematical induction.
+    Since $\exists k \in \NN \st \neg P(k)$ is the negation of the `if' part, the `if' part is proved.
+}
 
 \problem{ %1.16
     Let $R$ be a ring, and consider the ring of power series $R[[x]]$ (cf. \S1.3).
@@ -158,8 +325,25 @@
         \item
             Prove that $R[[x]]$ is an integral domain if and only if $R$ is.
     \end{enumerate}
-}{}
+}{
+    \begin{enumerate}[label=(\roman*)]
+        \item
+            The `only if' part is obvious.
+            So, it suffices to show the `if' part.
+            Let $a_0$ be a unit in $R$.
+            Then, there is the inverse $b_0$ of $a_0$.
+            Since $a_0$ is a unit in $R$, there is $b_1 \in R$ such that $a_0b_1 + a_1b_0 = 0$.
+            Similarly, we can find $b_2, b_3, \cdots$.
+            With this construction, we can get $\left(\sum_{n=0}^\infty a_nx^n \right)\left(\sum_{n=0}^\infty b_nx^n\right) = \left(\sum_{n=0}^\infty b_nx^n\right)\left(\sum_{n=0}^\infty a_nx^n \right) = 1$.
+
+        \item
+            Copy and paste the solution of \ref{prob:III.1.15}.
+    \end{enumerate}
+}
 
 \problem{ %1.17
     $\vartriangleright$ Explain in what sense $R[x]$ agrees with the monoid ring $R[\NN]$. \sqref{\S1.4}
-}{}
+}{
+    Define $\varphi : R[x] \to R[\NN]$ as $\textstyle \sum_{n=0}^\infty a_nx^n \mapsto \sum_{n=0}^\infty a_nn$.
+    Then $\varphi$ is indeed an isomorphism.
+}
