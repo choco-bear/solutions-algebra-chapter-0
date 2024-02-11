@@ -2339,3 +2339,35 @@
     \end{cd}
     Hence, $G$ is a group object in the category $\Set$.
 }
+
+\problem{ %10.3
+    Let $\left(G,\cdot\right)$ be a group, and suppose $\circ : G \times G \to G$ is a group homomorphism (w.r.t. $\cdot$) such that $\left(G,\circ\right)$ is \emph{also} a group.
+    Prove that $\circ$ and $\cdot$ coincide.
+    (Hint: First prove that the identity with respect to the two operations must be the same.)
+}{
+    Let $e \in G$ be the identity of $\left( G,\cdot \right)$.
+    Then since $\circ : G \times G \to G$ is a group-homomorphism, $e \circ e = e$.
+    Since $\left( G,\circ \right)$ is also a group, there is an inverse of $e$ with respect to $\circ$, and thus $e$ is the identity of $\left( G,\circ \right)$.
+
+    Now, let $g_1, g_2 \in G$.
+    Then, $g_1 \circ g_2 = \left( g_1 \circ e \right) \cdot \left( e \circ g_2 \right) = g_1 \cdot g_2$ since $\circ$ is a group homomorphism.
+    Therefore, $\circ$ and $\cdot$ coincide.
+}
+
+\problem{ %10.4
+    Prove that every \emph{abelian} group has exactly one structure of group object \emph{in the category} $\Ab$.
+}{
+    Let $G$ be an abelian group and $\iota : G \to G$ and $\circ : G \times G \to G$ be morophism of $\Ab$ and $G$, $\iota$, $\circ$, $e$ form a structure of group object in $\Ab$.
+    
+    Then by the result of \ref{prob:II.10.3}, the multiplication and $\circ$ coincide, and thus $\iota \left( g \right) = g^{-1}$ for all $g \in G$.
+}
+
+\problem{ %10.5
+    By the previous exercise, a group object in $\Ab$ is nothing other than an abelian group.
+    What is a group object in $\Grp$?
+}{
+    Let $G$, $\iota$, $\circ$ form a structure of group object in $\Grp$.
+    Then since $\left( gh \right) \circ \iota \left( gh \right) = e$, $\iota \left( gh \right) = \iota \left( h \right) \circ \iota \left( g \right)$.
+    Also, since $\iota$ is a group-homomorphism, $\iota \left( gh \right) = \iota \left( g \right) \iota \left( h \right)$.
+    Thus, by the result of \ref{prob:II.10.3}, $\iota \left( g \right) \circ \iota \left( h \right) = \iota \left( h \right) \circ \iota \left( g \right)$, and therefore, group objects in $\Grp$ are also abelian.
+}
