@@ -347,3 +347,47 @@
     Define $\varphi : R[x] \to R[\NN]$ as $\textstyle \sum_{n=0}^\infty a_nx^n \mapsto \sum_{n=0}^\infty a_nn$.
     Then $\varphi$ is indeed an isomorphism.
 }
+
+\newpage
+\markboth{\MakeUppercase{Chapter III. Rings and modules}}{2. \MakeUppercase{The category} \textsf{Ring}}
+\section{The category \textsf{Ring}}
+\markboth{\MakeUppercase{Chapter III. Rings and modules}}{2. \MakeUppercase{The category} \textsf{Ring}}
+
+\problem{ %2.1
+    $\vartriangleright$ Prove that if there is a homomorphism from a zero-ring to a ring $R$, then $R$ is a zero-ring. \sqref{\S2.1}
+}{
+    Let $f : \mathbf{0} \to R$ be a homomorphism.
+    Then, $f(0) = 0$ and $f(0) = 1$ since $f$ is a ring homomorphism.
+    Hence, $R$ is a zero-ring.
+}
+
+\problem{ %2.2
+    Let $R$ and $S$ be rings, and let $\varphi : R \to S$ be a function preserving both operations $+$, $\cdot$.
+    \begin{itemize}
+        \item Prove that if $\varphi$ is \emph{surjective}, then necessarily $\varphi(1_R) = 1_S$.
+        \item Prove that if $\varphi \neq 0$ and $S$ is an integral domain, then $\varphi(1_R) = 1_S$.
+    \end{itemize}
+    (Therefore, in both cases $\varphi$ is in fact a ring homomorphism.) \sqref{\S2.1}
+}{
+    \begin{itemize}
+        \item
+            Let $s \in S$.
+            Since $\varphi$ is surjective, there is $r \in R$ such that $\varphi(r) = s$.
+            Then, $s = \varphi(r) = \varphi(r \cdot 1_R) = \varphi(r) \cdot \varphi(1_R) = s \cdot \varphi(1_R)$.
+            Hence, $\varphi(1_R) = 1_S$.
+
+        \item
+            Let $r \in R$ and $\varphi(r) = s \in S$ be nonzero.
+            Then, $s = \varphi(r) = \varphi(r \cdot 1_R) = \varphi(r) \cdot \varphi(1_R) = s \cdot \varphi(1_R)$, which implies that $s \cdot \left(1_S - \varphi(1_R)\right) = 0_S$.
+            Since $S$ is an integral domain, $\varphi(1_R) - 1_S = 0$, which means $\varphi(1_R) = 1_S$.
+    \end{itemize}
+}
+
+\problem{ %2.3
+    Let $S$ be a set, and consider the power set ring $\mathscr{P}(S)$ (Exercise 1.2) and the ring $(\cyclic{2})^S$ you constructed in Exercise 1.3.
+    Prove that these two rings are isomorphic. (Cf. Exercise I.2.11.)
+}{
+    Let $\varphi : \mathscr{P}(S) \to (\cyclic{2})^S$ be a function defined as $\varphi(A) = \chi_A$ where $\chi_A : S \to \cyclic{2}$ is defined as:
+    \[ \chi_A(s) = \begin{cases} 1 & \mbox{if } s \in A \\ 0 & \mbox{if } s \notin A. \end{cases} \]
+    Then, $\varphi$ is a ring isomorphism.
+}
