@@ -600,12 +600,14 @@
     \end{cd}
     Hence, the cokernel of $\iota$ in $\Ab$ is $\QQ / \ZZ$.
 
-    On the other hand, in the category $\Ring$, the zero map is not a ring homomorphism in general. Thus, if we use the definition given by the appropriate universal property in the style of the one given in \S II.8.6, the ring $R$ in the following diagram must be a zero ring:
+    On the other hand, in the category $\Ring$, the zero map is not a ring homomorphism in general.
+    Thus, if we use the definition given by the appropriate universal property in the style of the one given in \S II.8.6, the ring $R$ in the following diagram must be a zero ring:
     \begin{cd}
         \ZZ \ar[r, "\iota", swap, \injection] \ar[rr, "\mathbf 0", bend left] \& \QQ \ar[r, "\alpha", swap] \ar[d, \surjection, "\pi", swap] \& R \\
         \& \coker \iota \ar[ru, dashed, "\exists!\bar{\alpha}", swap]
     \end{cd}
-    Hence, there is only one morphism $\alpha : \QQ \to R$. (namely, the zero map) This means that it suffices to consider the case that $\alpha = 0$, and thus any rings $R$, which have an epimorphism $\pi : \QQ \epi R$, can be the cokernel of $\iota$, since the following diagram always commute:
+    Hence, there is only one morphism $\alpha : \QQ \to R$. (namely, the zero map)
+    This means that it suffices to consider the case that $\alpha = 0$, and thus any rings $R$, which have an epimorphism $\pi : \QQ \epi R$, can be the cokernel of $\iota$, since the following diagram always commute:
     \begin{cd}
         \ZZ \ar[r, "\iota", swap, \injection] \ar[rr, "\mathbf 0", bend left] \& \QQ \ar[r, "\mathbf 0", swap] \ar[d, \surjection, "\pi", swap] \& \mathbf 0 \\
         \& R \ar[ru, dashed, "\mathbf 0", swap]
