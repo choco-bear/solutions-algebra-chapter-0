@@ -78,7 +78,7 @@
         \item $\liesl{n}{\RR} = \left\{ M \in \liegl{n}{\RR} \mid \tr \left( M \right) = 0 \right\}$;
         \item $\liesl{n}{\CC} = \left\{ M \in \liegl{n}{\CC} \mid \tr \left( M \right) = 0 \right\}$;
         \item $\lieso{n}{\RR} = \left\{ M \in \liesl{n}{\RR} \mid M + M^t = 0 \right\}$;
-        \item $\liesu{n} = \left\{ M \in \sl{n}{\CC} \mid M + M^\dagger = 0 \right\}$.
+        \item $\liesu{n} = \left\{ M \in \liesl{n}{\CC} \mid M + M^\dagger = 0 \right\}$.
     \end{itemize}
     Here $\tr M$ is the \emph{trace} of $M$, that is, the sum of its diagonal entries.
     The other notation matches the notation used in \ref{exer:II.6.1}.
@@ -197,7 +197,7 @@
 }
 
 \problembr{ %1.12
-    $\vartriangleright$ Just as complex numbers may be viewed as combinations $a+b\i$, where $a,b \in \RR$ and $i$ satisfies the relation $i^2 = -1$ (and commutes with $\RR$), we may construct a ring $\HH$ by considering linear combinations $a+bi+cj+dk$ where $a,b,c,d \in \RR$ and $i$, $j$, $k$ commute with $\RR$ and satisfy the following relations:
+    $\vartriangleright$ Just as complex numbers may be viewed as combinations $a+bi$, where $a,b \in \RR$ and $i$ satisfies the relation $i^2 = -1$ (and commutes with $\RR$), we may construct a ring $\HH$ by considering linear combinations $a+bi+cj+dk$ where $a,b,c,d \in \RR$ and $i$, $j$, $k$ commute with $\RR$ and satisfy the following relations:
     \[i^2 = j^2 = k^2 = -1, \quad ij = -ji = k, \quad jk = -kj = i, \quad ki = -ik = j.\]
     Addition in $\HH$ is defined componentwise, while multiplication is defined by imposing distributivity and applying the relations. For example,
     \[(1+i+j) \cdot (2+k) = 1 \cdot 2 + i \cdot 2 + j \cdot 2 + 1 \cdot k + i \cdot k + j \cdot k = 2 + 2i + 2j + k - j + i = 2 + 3i + j + k.\]
