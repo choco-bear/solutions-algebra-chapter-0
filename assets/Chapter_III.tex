@@ -391,3 +391,224 @@
     \[ \chi_A(s) = \begin{cases} 1 & \mbox{if } s \in A \\ 0 & \mbox{if } s \notin A. \end{cases} \]
     Then, $\varphi$ is a ring isomorphism.
 }
+
+\problem{ %2.4
+    Define functions $\HH \to \liegl{4}{\RR}$ and $\HH \to \liegl{2}{\CC}$ (cf. Exercises 1.4 and 1.12) by
+    \[
+        a+bi+cj+dk \mapsto \mat{a & b & c & d \\ -b & a & -d & c \\ -c & d & a & -b \\ -d & -c & b & a},
+    \]
+    \[
+        a+bi+cj+dk \mapsto \mat{a+bi & c+di \\ -c+di & a-bi}
+    \]
+    for all $a,b,c,d \in \RR$. Prove that both functions are injective ring homomorphisms. Thus, quaternions may be viewed as real or complex matrices.
+}{
+    Let $\varphi : \HH \to \liegl{4}{\RR}$ be a function defined as
+    \[
+        a+bi+cj+dk \mapsto \mat{a & b & c & d \\ -b & a & -d & c \\ -c & d & a & -b \\ -d & -c & b & a}.
+    \]
+    Then, the addition-preserving property and injectivity of $\varphi$ is obvious.
+    Hence, it suffices to show that $\varphi$ preserves the multiplication to show that $\varphi$ is a ring homomorphism since $\varphi(1)$ is the multiplicative identity.
+    Let $a+bi+cj+dk, a'+b'i+c'j+d'k \in \HH$.
+    Then,
+    \begin{equation*}
+        \begin{split}
+            & \varphi\left((a+bi+cj+dk)(a'+b'i+c'j+d'k)\right)\\
+            = & \varphi\left((aa'-bb'-cc'-dd') + (ab'+ba'+cd'-dc')i + (ac'+ca'-bd'+db')j + (ad'+da'+bc'-cb')k \right) \\
+            = & \mat{aa'-bb'-cc'-dd' & ab'+ba'+cd'-dc' & ac'+ca'-bd'+db' & ad'+da'+bc'-cb' \\ -ab'-ba'-cd'+dc' & aa'-bb'-cc'-dd' & -ad'-da'-bc'+cb' & ac'+ca'-bd'+db' \\ -ac'-ca'+bd'-db' & ad'+da'+bc'-cb' & aa'-bb'-cc'-dd' & -ab'-ba'-cd'+dc' \\ -ad'-da'-bc'+cb' & -ac'-ca'+bd'-db' & ab'+ba'+cd'-dc' & aa'-bb'-cc'-dd'} \\
+            = & \mat{a & b & c & d \\ -b & a & -d & c \\ -c & d & a & -b \\ -d & -c & b & a} \mat{a' & b' & c' & d' \\ -b' & a' & -d' & c' \\ -c' & d' & a' & -b' \\ -d' & -c' & b' & a'} \\
+            = & \varphi(a+bi+cj+dk) \varphi(a'+b'i+c'j+d'k).
+        \end{split}
+    \end{equation*}
+    Consequently, $\varphi$ is an injective ring homomorphism.
+    
+    Similarly, let $\psi : \HH \to \liegl{2}{\CC}$ be a function defined as
+    \[
+        a+bi+cj+dk \mapsto \mat{a+bi & c+di \\ -c+di & a-bi}.
+    \]
+    Then, the addition-preserving property and injectivity of $\psi$ is obvious.
+    Hence, it suffices to show that $\psi$ preserves the multiplication to show that $\psi$ is a ring homomorphism since $\psi(1)$ is the multiplicative identity.
+    Let $a+bi+cj+dk, a'+b'i+c'j+d'k \in \HH$.
+    Then,
+    \begin{equation*}
+        \begin{split}
+            & \psi\left((a+bi+cj+dk)(a'+b'i+c'j+d'k)\right)\\
+            = & \psi\left((aa'-bb'-cc'-dd') + (ab'+ba'+cd'-dc')i + (ac'+ca'-bd'+db')j + (ad'+da'+bc'-cb')k \right) \\
+            = & \mat{aa'-bb'-cc'-dd' & ab'+ba'+cd'-dc' \\ -ab'-ba'-cd'+dc' & aa'-bb'-cc'-dd'} \\
+            = & \mat{a+bi & c+di \\ -c+di & a-bi} \mat{a'+b'i & c'+d'i \\ -c'+d'i & a'-b'i} \\
+            = & \psi(a+bi+cj+dk) \psi(a'+b'i+c'j+d'k).
+        \end{split}
+    \end{equation*}
+    Consequently, $\psi$ is an injective ring homomorphism.
+}
+
+\clearpage
+
+\problem{ %2.5
+    $\neg$ The \emph{norm} of a quaternion $w = a+bi+cj+dk$, with $a,b,c,d \in \RR$, is the real number $N(w) = a^2 + b^2 + c^2 + d^2$.
+
+    Prove that the function from the multiplicative group $\HH^*$ of nonzero quaternions to the multiplicative group $\RR^+$ of positive real numbers, defined by assigning to each nonzero quaternion its norm, is a homomorphism.
+    Prove that the kernel of this homomorphism is isomorphic to $\SU{2}$ (cf, Exercise II.6.3). \sqref{4.10, IV.5.17, V.6.19}
+}{
+    Let $N : \HH^* \to \RR^+$ be a function defined as $N(a+bi+cj+dk) = a^2 + b^2 + c^2 + d^2$.
+    Let $w = a+bi+cj+dk, w' = a'+b'i+c'j+d'k \in \HH^*$.
+    Then,
+    \begin{equation*}
+        \begin{split}
+            N(w \cdot w') & = N((a+bi+cj+dk)(a'+b'i+c'j+d'k)) \\
+            & = N((aa'-bb'-cc'-dd') + (ab'+ba'+cd'-dc')i + (ac'+ca'-bd'+db')j + (ad'+da'+bc'-cb')k) \\
+            & = (aa'-bb'-cc'-dd')^2 + (ab'+ba'+cd'-dc')^2 + (ac'+ca'-bd'+db')^2 + (ad'+da'+bc'-cb')^2 \\
+            & = (a^2 + b^2 + c^2 + d^2)(a'^2 + b'^2 + c'^2 + d'^2) \\
+            & = N(w)N(w').
+        \end{split}
+    \end{equation*}
+    Hence, $N$ is a homomorphism.
+
+    Let $w = a+bi+cj+dk \in \HH^*$.
+    Then, $N(w) = 1$ if and only if $a^2 + b^2 + c^2 + d^2 = 1$.
+    Thus, $\ker N = \{ a+bi+cj+dk \in \HH^* \mid a^2 + b^2 + c^2 + d^2 = 1 \}$, which is isomorphic to $\SU{2}$.
+}
+
+\problem{ %2.6
+    $\vartriangleright$ Verify the `extension property' of polynomial rings, stated in Example 2.3. \sqref{\S2.2}
+}{
+    Let $R$ and $S$ be rings, and let $\alpha : R \to S$ be a ring homomorphism and $s \in S$ be an element commuting with $\alpha(r)$ for all $r \in R$.
+
+    Define $\bar{\alpha} : R[x] \to S$ as $\bar{\alpha}\left(\sum_{i \geq 0} a_ix^i\right) = \sum_{i \geq 0} \alpha(a_i)s^i$.
+    Then, $\bar{\alpha} : R[x] \to S$ is indeed a ring homomorphism, extending $\alpha$ and sending $x$ to $s$.
+    Hence, the existence is verified, and thus it suffices to show the uniqueness.
+
+    Let $\bar{\alpha}, \tilde{\alpha} : R[x] \to S$ be ring homomorphisms extending $\alpha$ and sending $x$ to $s$.
+    Then, for any $r \in R$ and $n \in \NN$, $\bar{\alpha}(r) = \tilde{\alpha}(r)$ and $\bar{\alpha}(x^n) = \tilde{\alpha}(x^n)$.
+    Hence, for any given polynomial $f(x) = \sum_{i \geq 0} a_ix^i \in R[x]$, $\bar{\alpha}(f(x)) = \tilde{\alpha}(f(x))$.
+
+    Therefore, the extension property of polynomial rings is verified.
+}
+
+\problem{ %2.7
+    $\vartriangleright$ Let $R = \cyclic{2}$, and let $f(x) = x^2-x$; note $f(x) \neq 0$.
+    What is the polynomial function $R \to R$ determined by $f(x)$? \sqref{\S2.2, \S V.4.2, \S V.5.1}
+}{
+    Let $f : R \to R$ be a polynomial function determined by $f(x) = x^2 - x$.
+    Then, $f(0) = 0$ and $f(1) = 0$.
+    Hence, $f$ is the zero function.
+}
+
+\clearpage
+
+\problem{ %2.8
+    Prove that every subring of a field is an integral domain.
+}{
+    Let $F$ be a field and $R$ be a subring of $F$.
+    Then, since $F$ is a field, $R$ is a commutative ring, and thus it suffices to show that $R$ has no zero divisors, which is immediately derived from the fact that $F$ has no zero divisors.
+    Therefore, $R$ is an integral domain.
+}
+
+\problem{ %2.9
+    $\neg$ The \emph{center} of a ring $R$ consists of the elements $a$ such that  $ar = ra$ for all $r \in R$.
+    Prove that the center is a subring of $R$.
+
+    Prove that the center of a division ring is a field. \sqref{2.11, IV.2.17, VII.5.14, VII5.16}
+}{
+    Let $R$ be a ring and $Z(R)$ be the center of $R$.
+    Take two elements $a, b \in Z(R)$.
+    Then, $ar = ra$ and $br = rb$ for all $r \in R$.
+    Hence, $a + b \in Z(R)$ and $ab \in Z(R)$, since $(a+b)r = ar + br = ra + rb = r(a+b)$ and $(ab)r = a(br) = a(rb) = (ar)b = (ra)b = r(ab)$.
+    Moreover, $1 \in Z(R)$, since $1r = r1$ for all $r \in R$.
+    Therefore, $Z(R)$ is a subring of $R$.
+
+    Further, if $R$ is a division ring, $Z(R)$ is also a division ring since $ar = ra$ implies that $ra^{-1} = a^{-1}r$.
+    Therefore, $Z(R)$ is a field if $R$ is a division ring, because $Z(R)$ is commutative.
+}
+
+\problem{ %2.10
+    $\neg$ The \emph{centralizer} of an element $a$ of a ring $R$ consists of the elements $r \in R$ such that $ar = ra$.
+    Prove that the centralizer of $a$ is a subring of $R$, for every $a \in R$.
+
+    Prove that the center of $R$ is the intersection of all its centralizers.
+
+    Prove that every centralizer in a division ring is a division ring. \sqref{2.11, IV.2.17, VII.5.16}
+}{
+    Let $R$ be a ring and $a \in R$.
+    Let $C(a)$ be the centralizer of $a$.
+    Take two elements $r, s \in C(a)$.
+    Then, $ar = ra$ and $as = sa$.
+    Hence, $r + s \in C(a)$ and $rs \in C(a)$, since $(r+s)a = ra + sa = ar + as = a(r+s)$ and $(rs)a = r(sa) = r(as) = (ra)s = (ar)s = a(rs)$.
+    Moreover, $1 \in C(a)$, since $1a = a1$.
+    Therefore, $C(a)$ is a subring of $R$.
+
+    Further, let $Z(R)$ be the center of $R$.
+    Let $r \in Z(R)$.
+    Then, $ra = ar$ for all $a \in R$.
+    Hence, $r \in C(a)$ for all $a \in R$.
+    Therefore, $r \in \bigcap_{a \in R} C(a)$, which implies that $Z(R) \subseteq \bigcap_{a \in R} C(a)$.
+    Conversely, let $r \in \bigcap_{a \in R} C(a)$.
+    Then, $ra = ar$ for all $a \in R$.
+    Hence, $r \in Z(R)$.
+    Therefore, $\bigcap_{a \in R} C(a) \subseteq Z(R)$.
+    Consequently, $Z(R) = \bigcap_{a \in R} C(a)$.
+
+    Lastly, let $R$ be a division ring and $a \in R$.
+    Now take a nonzero element $r \in C(a)$.
+    Then, $ra = ar$ implies that $ar^{-1}=r^{-1}a$, which means that $r^{-1} \in C(a)$.
+    Therefore, $C(a)$ is a division ring.
+}
+
+\clearpage
+
+\problem{ %2.11
+    $\neg$ Let $R$ be a division ring consisting of $p^2$ elements, where $p$ is a prime. Prove that $R$ is commutative, as follows:
+    \begin{itemize}
+        \item If $R$ is not commutative, then its center $C$ (Exercise 2.9) is a proper subring of $R$.
+        Prove that $C$ would then consist of $p$ elements.
+
+        \item Let $r \in R$, $r \notin C$.
+        Prove that the centralizer of $r$ (Exercise 10) contains both $r$ and $C$.
+
+        \item Deduce that the centralizer of $r$ is the whole of $R$.
+
+        \item Derive a contradiction, and conclude that $R$ had to be commutative (hence, a field).
+    \end{itemize}
+    This is a particular case of Wedderburn's theorem: every finite division ring is a field. \sqref{IV.2.17, VII.5.16}
+}{
+    Let $R$ be a division ring consisting of $p^2$ elements, where $p$ is a prime.
+
+    If $R$ is not commutative, then its center $C$ is a proper subring of $R$.
+    Moreover, since $0,1 \in C$, $C$ has at least 2 elements.
+    Since $\abs{C} \mid p^2$, we can say that $\abs{C} = p$ because $2 \leq \abs{C} < p^2$.
+
+    Now let $r \in R \setminus C$ and $C_r$ be the centralizer of $r$.
+    Then, since the center $C$ is the intersection of all centralizers, $C \subseteq C_r$.
+    Further, $r \in C_r$ since $rr = rr$.
+    
+    Thus, we can say that $\abs{C_r} \geq p+1$.
+    Since $\abs{C_r} \mid p^2$, we can obtain $\abs{C_r} = p^2$, which means that $C_r = R$.
+
+    For any $r \in C$, by the definition of the center, $r$ commutes with all elements of $R$, which means that $C_r = R$.
+
+    Therefore, $C_r = R$ for any $r \in R$, and thus the center $C$ is the whole of $R$.
+    This contradicts the assumption that $R$ is not commutative, and therefore the commutativity of $R$ is proved.
+}
+
+\problem{ %2.12
+    $\vartriangleright$ Consider the inclusion map $\iota : \ZZ \to \QQ$.
+    Describe the cokernel of $\iota$ in $\Ab$ and its cokernel in $\Ring$ (as defined by the appropriate universal property in the style of the one given in \S II.8.6). \sqref{\S2.3, \S5}
+}{
+    In the category $\Ab$, the cokernel of $\iota$ is the quotient group $\QQ / \ZZ$ since, for each morphism $\alpha : \QQ \to G$ with $\iota \circ \alpha = \mathbf 0$, there uniquely exists a morphism $\bar{\alpha}$ making the following diagram commute:
+    \begin{cd}
+        \ZZ \ar[r, "\iota", swap, \injection] \ar[rr, "\mathbf 0", bend left] \& \QQ \ar[r, "\alpha", swap] \ar[d, \surjection, "\pi", swap] \& G \\
+        \& \QQ/\ZZ \ar[ru, dashed, "\exists!\bar{\alpha}", swap]
+    \end{cd}
+    Hence, the cokernel of $\iota$ in $\Ab$ is $\QQ / \ZZ$.
+
+    On the other hand, in the category $\Ring$, the zero map is not a ring homomorphism in general. Thus, if we use the definition given by the appropriate universal property in the style of the one given in \S II.8.6, the ring $R$ in the following diagram must be a zero ring:
+    \begin{cd}
+        \ZZ \ar[r, "\iota", swap, \injection] \ar[rr, "\mathbf 0", bend left] \& \QQ \ar[r, "\alpha", swap] \ar[d, \surjection, "\pi", swap] \& R \\
+        \& \coker \iota \ar[ru, dashed, "\exists!\bar{\alpha}", swap]
+    \end{cd}
+    Hence, there is only one morphism $\alpha : \QQ \to R$. (namely, the zero map) This means that it suffices to consider the case that $\alpha = 0$, and thus any rings $R$, which have an epimorphism $\pi : \QQ \epi R$, can be the cokernel of $\iota$, since the following diagram always commute:
+    \begin{cd}
+        \ZZ \ar[r, "\iota", swap, \injection] \ar[rr, "\mathbf 0", bend left] \& \QQ \ar[r, "\mathbf 0", swap] \ar[d, \surjection, "\pi", swap] \& \mathbf 0 \\
+        \& R \ar[ru, dashed, "\mathbf 0", swap]
+    \end{cd}
+    Therefore, a ring $R$ is a cokernel of $\iota$, if and only if there is an epimorphism $\pi : \QQ \epi R$.
+}
